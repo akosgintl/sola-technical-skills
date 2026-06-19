@@ -13,6 +13,7 @@ cross-linked pages into [`wiki/`](wiki/). Unlike RAG, knowledge is **pre-compile
 entity pages, so understanding **compounds** — the same thing is never researched twice.
 
 - **[`index.md`](index.md)** — the catalog. Every page, by domain, with maturity status. **Start here.**
+- **[`wiki/moc/dashboard.md`](wiki/moc/dashboard.md)** — live "what to read / ingest next", ranked by priority × status (Obsidian Bases).
 - **[`wiki/moc/00-roadmap.md`](wiki/moc/00-roadmap.md)** — master Map of Content (mirrors the roadmap).
 - **[`CLAUDE.md`](CLAUDE.md)** — the *schema*: conventions + workflows. Read this before editing.
 - **[`log.md`](log.md)** — append-only history of every ingest / query / lint.

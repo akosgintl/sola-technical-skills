@@ -190,16 +190,31 @@ When given a new source (paper, article, doc, transcript, note):
 
 ### 9.3 Lint (keep the wiki healthy)
 
-Run periodically. Check for and report:
+**Run the mechanical checks with the script** — they are reproducible, not a mental
+checklist:
 
-- **Broken `[[wikilinks]]`** (target file missing — decide: create stub or fix link).
-- **Orphan pages** (no inbound links, not in any MOC).
-- **Stale pages** (`updated:` old, or content contradicted by a newer source).
-- **Contradictions** across pages.
-- **Status drift** (page is `mature` in frontmatter but `stub` in index, or vice-versa).
-- **Coverage gaps** vs. the roadmap (roadmap nodes with no page).
+```bash
+pwsh scripts/lint.ps1                 # broken links, orphans, index gaps, stale mature pages
+pwsh scripts/lint.ps1 -StaleMonths 3  # tighter staleness window
+```
 
-Report findings; fix the mechanical ones; ask before large rewrites.
+It exits non-zero if any `[[wikilink]]` is broken (CI-gateable) and reports:
+
+1. **Broken `[[wikilinks]]`** — target has no page (decide: create a stub or fix the link).
+2. **Orphan pages** — no inbound links and not in any MOC.
+3. **Index coverage gaps** — a concept page on disk but missing from `index.md`.
+4. **Stale `mature` pages** — `updated:` older than the threshold; flag for re-review.
+
+(Placeholder example links in `templates/` and this schema are ignored by design.)
+
+**Then apply the judgment checks the script can't** — these need an LLM reading the content:
+
+- **Status drift** — frontmatter `status:` disagrees with the `index.md` catalog.
+- **Contradictions** — two pages making incompatible claims.
+- **Roadmap coverage** — nodes in `skill-set/2026/technology-skills.md` with no page yet.
+
+Report findings, fix the mechanical ones, append a `lint` entry to `log.md`, and ask before
+large rewrites.
 
 ---
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/concepts/api-gateways-and-service-mesh.md",
+                "file": "wiki/concepts/event-driven-architecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "api-gateways-and-service-mesh"
+              "title": "event-driven-architecture"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "wiki/concepts/api-gateways-and-service-mesh.md",
+                "file": "wiki/concepts/event-driven-architecture.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for api-gateways-and-service-mesh"
+              "title": "Backlinks for event-driven-architecture"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "wiki/concepts/api-gateways-and-service-mesh.md",
+                "file": "wiki/concepts/event-driven-architecture.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from api-gateways-and-service-mesh"
+              "title": "Outgoing links from event-driven-architecture"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/concepts/api-gateways-and-service-mesh.md",
+                "file": "wiki/concepts/event-driven-architecture.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of api-gateways-and-service-mesh"
+              "title": "Outline of event-driven-architecture"
             }
           }
         ]
@@ -185,10 +185,32 @@
   },
   "active": "b9f2dfea9b05cc7f",
   "lastOpenFiles": [
+    "wiki/concepts/serverless-architecture.md",
+    "wiki/concepts/wasm-at-the-edge.md",
+    "wiki/moc/tier-3-watch.md",
+    "wiki/moc/tier-2-solid.md",
+    "wiki/moc/tier-1-edge.md",
+    "wiki/moc/meta-skills.md",
+    "wiki/moc/dashboard.md",
+    "wiki/moc/dashboard.base",
+    "wiki/moc/00-roadmap.md",
+    "templates/source-note.md",
+    "log.md.tmp.41428.cd3258c1fa61",
+    "templates/moc.md",
+    "templates/concept-page.md",
+    "index.md.tmp.41428.db79f3f9e45b",
+    "wiki/concepts/api-gateways-and-service-mesh.md",
+    "index.md.tmp.41428.de6b3382ef22",
+    "wiki/concepts/multi-agent-orchestration.md.tmp.41428.a4090c8a6f9d",
+    "raw/2026-06-19-anthropic-building-effective-agents.md",
+    "raw/2026-06-19-anthropic-building-effective-agents.md.tmp.41428.09ff0b48496d",
+    "scripts/lint.ps1.tmp.41428.861f636b073f",
+    "index.md.tmp.41428.93df2fd328cc",
+    "README.md.tmp.41428.e51111a75c5d",
+    "wiki/moc/dashboard.md.tmp.41428.933cd448dd28",
     "wiki/concepts/observability-fundamentals.md",
     "wiki/concepts/event-driven-architecture.md",
     "wiki/concepts/cloud-native-patterns.md",
-    "wiki/moc/tier-2-solid.md",
     "wiki/concepts/ai-data-fabric.md"
   ]
 }

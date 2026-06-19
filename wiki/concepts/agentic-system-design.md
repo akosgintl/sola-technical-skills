@@ -14,7 +14,8 @@ sources:
   - "https://www.anthropic.com/engineering/built-multi-agent-research-system"
   - "https://blog.langchain.com/how-and-when-to-build-multi-agent-systems/"
   - "https://www.langchain.com/resources/ai-agent-frameworks"
-  - "https://arxiv.org/html/2601.04748v1"
+  - "https://arxiv.org/abs/2604.02460"
+  - "https://openreview.net/forum?id=fAjbYBmonr"
 ---
 
 # Agentic System Design
@@ -69,13 +70,15 @@ job.
 
 The economics are unforgiving. Anthropic reported their multi-agent research system used
 roughly **15× the tokens** of a single chat interaction — viable for high-value research
-tasks, ruinous for routine ones. Independent 2025–26 research (Tran & Kiela; the
-"single-agent with skills" line of work) found that **under a fixed compute budget,
-single agents frequently match or beat multi-agent systems**, and that many claimed
-multi-agent wins are unaccounted-for extra computation rather than architectural
-benefit. Meanwhile a NeurIPS 2025 trace study found multi-agent frameworks failing
-**41–87%** of the time on real executions. Knowing *when the second agent pays for
-itself* is now a load-bearing architectural skill.
+tasks, ruinous for routine ones. A Stanford study by Tran & Kiela (2026) —
+*Single-Agent LLMs Outperform Multi-Agent Systems on Multi-Hop Reasoning Under Equal
+Thinking Token Budgets* — found that **under a fixed compute budget, single agents
+frequently match or beat multi-agent systems**, and that many claimed multi-agent wins are
+unaccounted-for extra computation rather than architectural benefit. Meanwhile the **MAST**
+trace study (*Why Do Multi-Agent LLM Systems Fail?*, UC Berkeley, NeurIPS 2025), grounded in
+1,600+ execution traces, found multi-agent frameworks failing **41–87%** of the time and
+mapped the breakdowns to specification, coordination, and verification gaps. Knowing *when
+the second agent pays for itself* is now a load-bearing architectural skill.
 
 ## Key concepts / building blocks
 
@@ -255,6 +258,7 @@ running these systems in production.
 - [[human-in-the-loop-design]]
 - [[agents-as-system-citizens]]
 - [[model-context-protocol]]
+- [[retrieval-augmented-generation]]
 - [[context-engineering]]
 - [[ai-agent-observability]]
 - [[delegate-review-own]]
@@ -266,5 +270,6 @@ running these systems in production.
 - [Cognition — Don't Build Multi-Agents](https://cognition.ai/blog/dont-build-multi-agents) (context-sharing fragility; single-threaded execution; context compression)
 - [LangChain — How and when to build multi-agent systems](https://blog.langchain.com/how-and-when-to-build-multi-agent-systems/) (when multi-agent helps vs. hurts; convergence on isolated subagents)
 - [LangChain — The best AI agent frameworks in 2026](https://www.langchain.com/resources/ai-agent-frameworks) (framework landscape and positioning)
-- [arXiv 2601.04748 — When Single-Agent with Skills Replace Multi-Agent Systems and When They Fail](https://arxiv.org/html/2601.04748v1) (single-agent parity under fixed compute budgets)
+- [Tran & Kiela (Stanford, 2026) — Single-Agent LLMs Outperform Multi-Agent Systems on Multi-Hop Reasoning Under Equal Thinking Token Budgets](https://arxiv.org/abs/2604.02460) (single-agent parity/superiority under fixed compute budgets)
+- [Why Do Multi-Agent LLM Systems Fail? (MAST, UC Berkeley, NeurIPS 2025)](https://openreview.net/forum?id=fAjbYBmonr) (1,600+ traces; 41–87% failure; specification/coordination/verification taxonomy)
 - [Strata — Human-in-the-Loop: A 2026 Guide to AI Oversight](https://www.strata.io/blog/agentic-identity/practicing-the-human-in-the-loop/) (approval gates, turn limits, timeouts, EU AI Act Article 14)

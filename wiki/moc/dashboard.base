@@ -1,0 +1,47 @@
+filters:
+  and:
+    - file.folder == "wiki/concepts"
+views:
+  - type: table
+    name: Ingest next — P0 stubs
+    filters:
+      and:
+        - status == "stub"
+        - priority == "P0"
+    order:
+      - file.name
+      - domain
+      - roadmap_ref
+    sort:
+      - property: domain
+        direction: ASC
+  - type: table
+    name: P1 stubs
+    filters:
+      and:
+        - status == "stub"
+        - priority == "P1"
+    order:
+      - file.name
+      - domain
+      - roadmap_ref
+  - type: table
+    name: Mature (trusted, watch for staleness)
+    filters:
+      and:
+        - status == "mature"
+    order:
+      - file.name
+      - domain
+      - priority
+      - updated
+  - type: table
+    name: All concepts by status
+    order:
+      - file.name
+      - domain
+      - priority
+      - status
+    sort:
+      - property: priority
+        direction: ASC

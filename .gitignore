@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- Knowledge base (LLM Wiki) ---
+# Firecrawl scrape scratch cache (canonical captures live in raw/ instead)
+.firecrawl/
+# Obsidian per-user workspace state (keep shared config: core-plugins/app/appearance)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json

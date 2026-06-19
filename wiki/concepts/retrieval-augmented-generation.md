@@ -88,7 +88,7 @@ A two-stage pattern: cheap retriever pulls top ~50–100 candidates, then a heav
 | **Dense vs. hybrid vs. late-interaction** | Semantic recall vs. exact-match precision vs. storage/latency. Hybrid is the safe default; ColBERT for identifier-heavy domains. |
 | **Rerank or not** | Biggest single precision lever, but adds latency + per-call cost (esp. commercial APIs). Almost always worth it above toy scale. |
 | **One-shot vs. agentic retrieval** | Latency/cost/complexity vs. answer quality on multi-hop questions. Iterative loops can 2–4× quality but blow latency and token budgets. |
-| **Flat vector RAG vs. GraphRAG** | GraphRAG wins "global"/multi-hop questions but historically carried heavy indexing cost (~$33K for large corpora in early Microsoft GraphRAG; newer variants cut this sharply). Don't reach for it until flat RAG demonstrably fails. |
+| **Flat vector RAG vs. GraphRAG** | GraphRAG wins "global"/multi-hop questions but historically carried heavy indexing cost (early Microsoft GraphRAG could run to tens of thousands of dollars in tokens on large corpora; newer variants like LazyGraphRAG cut this sharply). Don't reach for it until flat RAG demonstrably fails. |
 | **RAG vs. long-context vs. fine-tuning** | See below — usually not exclusive. |
 
 ### RAG vs. long-context vs. fine-tuning

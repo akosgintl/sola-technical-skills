@@ -16,12 +16,13 @@ sources: []
 > [!summary]
 > The catalog of every page in this wiki, grouped by domain, with priority and maturity
 > **status**. This is the LLM's entry point for the *query* workflow ([[CLAUDE|schema]] §9).
-> Maps of Content: [[00-roadmap]] · [[tier-1-edge]] · [[tier-2-solid]] · [[tier-3-watch]] · [[meta-skills]].
+> Maps of Content: [[dashboard]] · [[00-roadmap]] · [[tier-1-edge]] · [[tier-2-solid]] · [[tier-3-watch]] · [[meta-skills]].
+> **Pick what to work on next:** [[dashboard|🎯 Dashboard — read/ingest next]] (live, ranked by priority × status).
 
 **Status legend:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 **Priority:** 🔴 P0 · 🟠 P1 · 🟡 P2 · 🟢 P3.
 
-**Coverage at bootstrap:** 6 research-backed exemplar pages at `mature` (40+ cited sources total), the rest `stub` and ready to ingest.
+**Coverage:** 6 research-backed exemplar pages at `mature` (40+ cited sources total), 1 `draft` ([[multi-agent-orchestration]], ingested 2026-06-19), the rest `stub` and ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -30,7 +31,7 @@ sources: []
 | Page | Pri | Status | Roadmap |
 |---|---|---|---|
 | [[agentic-system-design]] | 🔴 | mature | §1.1 |
-| [[multi-agent-orchestration]] | 🔴 | stub | §1.1.1 |
+| [[multi-agent-orchestration]] | 🔴 | draft | §1.1.1 |
 | [[agent-to-agent-protocols]] | 🔴 | stub | §1.1.2 |
 | [[human-in-the-loop-design]] | 🔴 | stub | §1.1.3 |
 | [[agents-as-system-citizens]] | 🔴 | stub | §1.2 |
