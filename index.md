@@ -3,8 +3,6 @@ title: Index
 aliases: [catalog, table of contents]
 type: moc
 domain: mixed
-priority: ""
-roadmap_ref: ""
 status: seed
 tags: [index, catalog]
 updated: 2026-06-19
@@ -14,125 +12,124 @@ sources: []
 # Index — Knowledge Base Catalog
 
 > [!summary]
-> The catalog of every page in this wiki, grouped by domain, with priority and maturity
-> **status**. This is the LLM's entry point for the *query* workflow ([[CLAUDE|schema]] §9).
+> The catalog of every page in this wiki, grouped by domain, with maturity **status**.
+> This is the entry point for the *query* workflow ([[CLAUDE|schema]] §9).
 > Maps of Content: [[dashboard]] · [[00-roadmap]] · [[tier-1-edge]] · [[tier-2-solid]] · [[tier-3-watch]] · [[meta-skills]].
-> **Pick what to work on next:** [[dashboard|🎯 Dashboard — read/ingest next]] (live, ranked by priority × status).
+> **Pick what to work on next:** [[dashboard|🎯 Dashboard — read/ingest next]] (live, grouped by status).
 
-**Status legend:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
-**Priority:** 🔴 P0 · 🟠 P1 · 🟡 P2 · 🟢 P3.
+**Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
 **Coverage:** 6 research-backed exemplar pages at `mature` (40+ cited sources total), 1 `draft` ([[multi-agent-orchestration]], ingested 2026-06-19), the rest `stub` and ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
-## §1 AI & Agentic Architecture · `ai-agentic`
+## AI & Agentic Architecture · `ai-agentic`
 
-| Page | Pri | Status | Roadmap |
-|---|---|---|---|
-| [[agentic-system-design]] | 🔴 | mature | §1.1 |
-| [[multi-agent-orchestration]] | 🔴 | draft | §1.1.1 |
-| [[agent-to-agent-protocols]] | 🔴 | stub | §1.1.2 |
-| [[human-in-the-loop-design]] | 🔴 | stub | §1.1.3 |
-| [[agents-as-system-citizens]] | 🔴 | stub | §1.2 |
-| [[agent-identity-and-access]] | 🔴 | stub | §1.2.1 |
-| [[agent-governance-and-policy]] | 🔴 | stub | §1.2.2 |
-| [[llm-application-architecture]] | 🔴 | stub | §1.3 |
-| [[retrieval-augmented-generation]] | 🔴 | mature | §1.3.1 |
-| [[context-engineering]] | 🔴 | stub | §1.3.2 |
-| [[agent-memory-architectures]] | 🔴 | stub | §1.3.2.2 |
-| [[model-selection-and-routing]] | 🔴 | stub | §1.3.3 |
-| [[model-context-protocol]] | 🟠 | mature | §1.4 |
-| [[ai-evaluation-and-quality]] | 🟠 | stub | §1.5 |
-| [[guardrails-and-output-validation]] | 🟠 | stub | §1.5.3 |
+| Page | Status |
+|---|---|
+| [[agentic-system-design]] | mature |
+| [[multi-agent-orchestration]] | draft |
+| [[agent-to-agent-protocols]] | stub |
+| [[human-in-the-loop-design]] | stub |
+| [[agents-as-system-citizens]] | stub |
+| [[agent-identity-and-access]] | stub |
+| [[agent-governance-and-policy]] | stub |
+| [[llm-application-architecture]] | stub |
+| [[retrieval-augmented-generation]] | mature |
+| [[context-engineering]] | stub |
+| [[agent-memory-architectures]] | stub |
+| [[model-selection-and-routing]] | stub |
+| [[model-context-protocol]] | mature |
+| [[ai-evaluation-and-quality]] | stub |
+| [[guardrails-and-output-validation]] | stub |
 
-## §2 Cloud Architecture · `cloud`
+## Cloud Architecture · `cloud`
 
-| Page | Pri | Status | Roadmap |
-|---|---|---|---|
-| [[multi-cloud-architecture]] | 🔴 | stub | §2.1 |
-| [[hybrid-and-onprem-topologies]] | 🟠 | stub | §2.2 |
-| [[cloud-native-patterns]] | 🔴 | stub | §2.3 |
-| [[event-driven-architecture]] | 🔴 | stub | §2.3.1 |
-| [[serverless-architecture]] | 🔴 | stub | §2.3.2 |
-| [[kubernetes-at-design-level]] | 🔴 | stub | §2.3.3 |
-| [[cloud-governance-at-scale]] | 🟠 | stub | §2.4 |
+| Page | Status |
+|---|---|
+| [[multi-cloud-architecture]] | stub |
+| [[hybrid-and-onprem-topologies]] | stub |
+| [[cloud-native-patterns]] | stub |
+| [[event-driven-architecture]] | stub |
+| [[serverless-architecture]] | stub |
+| [[kubernetes-at-design-level]] | stub |
+| [[cloud-governance-at-scale]] | stub |
 
-## §3 Security & Compliance · `security`
+## Security & Compliance · `security`
 
-| Page | Pri | Status | Roadmap |
-|---|---|---|---|
-| [[zero-trust-architecture]] | 🟠 | stub | §3.1.1 |
-| [[iam-and-secrets-management]] | 🟠 | stub | §3.1.2 |
-| [[ai-specific-security]] | 🔴 | mature | §3.2 |
-| [[prompt-injection]] | 🔴 | stub | §3.2.1 |
-| [[model-supply-chain-security]] | 🔴 | stub | §3.2.3 |
-| [[compliance-and-regulation]] | 🟠 | stub | §3.3 |
-| [[ai-governance-frameworks]] | 🟢 | stub | §3.3.3 |
+| Page | Status |
+|---|---|
+| [[zero-trust-architecture]] | stub |
+| [[iam-and-secrets-management]] | stub |
+| [[ai-specific-security]] | mature |
+| [[prompt-injection]] | stub |
+| [[model-supply-chain-security]] | stub |
+| [[compliance-and-regulation]] | stub |
+| [[ai-governance-frameworks]] | stub |
 
-## §4 Platform Engineering & IaC · `platform`
+## Platform Engineering & IaC · `platform`
 
-| Page | Pri | Status | Roadmap |
-|---|---|---|---|
-| [[infrastructure-as-code]] | 🟠 | stub | §4.1 |
-| [[ai-generated-iac-reviewer]] | 🔴 | mature | §4.2 |
-| [[policy-as-code]] | 🔴 | stub | §4.2.3 |
-| [[developer-experience]] | 🟡 | stub | §4.3 |
-| [[cicd-pipeline-architecture]] | 🟠 | stub | §4.4 |
-| [[software-supply-chain-security]] | 🟠 | stub | §4.4.2 |
+| Page | Status |
+|---|---|
+| [[infrastructure-as-code]] | stub |
+| [[ai-generated-iac-reviewer]] | mature |
+| [[policy-as-code]] | stub |
+| [[developer-experience]] | stub |
+| [[cicd-pipeline-architecture]] | stub |
+| [[software-supply-chain-security]] | stub |
 
-## §5 Data Architecture · `data`
+## Data Architecture · `data`
 
-| Page | Pri | Status | Roadmap |
-|---|---|---|---|
-| [[data-storage-paradigms]] | 🟠 | stub | §5.1 |
-| [[streaming-and-event-data]] | 🟠 | stub | §5.2 |
-| [[event-sourcing-and-cqrs]] | 🟠 | stub | §5.2.2 |
-| [[data-governance-and-lineage]] | 🟠 | stub | §5.3 |
-| [[ai-data-fabric]] | 🔴 | stub | §5.4 |
-| [[vector-and-embedding-stores]] | 🔴 | stub | §5.4.1 |
-| [[feature-stores]] | 🔴 | stub | §5.4.2 |
+| Page | Status |
+|---|---|
+| [[data-storage-paradigms]] | stub |
+| [[streaming-and-event-data]] | stub |
+| [[event-sourcing-and-cqrs]] | stub |
+| [[data-governance-and-lineage]] | stub |
+| [[ai-data-fabric]] | stub |
+| [[vector-and-embedding-stores]] | stub |
+| [[feature-stores]] | stub |
 
-## §6 Integration & API Architecture · `integration`
+## Integration & API Architecture · `integration`
 
-| Page | Pri | Status | Roadmap |
-|---|---|---|---|
-| [[api-styles-and-protocols]] | 🟠 | stub | §6.1 |
-| [[api-gateways-and-service-mesh]] | 🟡 | stub | §6.2 |
-| [[coupling-and-versioning-discipline]] | 🟠 | stub | §6.3 |
+| Page | Status |
+|---|---|
+| [[api-styles-and-protocols]] | stub |
+| [[api-gateways-and-service-mesh]] | stub |
+| [[coupling-and-versioning-discipline]] | stub |
 
-## §7 FinOps & Cost Architecture · `finops`
+## FinOps & Cost Architecture · `finops`
 
-| Page | Pri | Status | Roadmap |
-|---|---|---|---|
-| [[cloud-cost-modeling]] | 🟠 | stub | §7.1 |
-| [[ai-gpu-economics]] | 🔴 | stub | §7.2 |
-| [[cost-optimization-practice]] | 🟡 | stub | §7.3 |
+| Page | Status |
+|---|---|
+| [[cloud-cost-modeling]] | stub |
+| [[ai-gpu-economics]] | stub |
+| [[cost-optimization-practice]] | stub |
 
-## §8 Observability & Reliability · `observability`
+## Observability & Reliability · `observability`
 
-| Page | Pri | Status | Roadmap |
-|---|---|---|---|
-| [[observability-fundamentals]] | 🟠 | stub | §8.1 |
-| [[distributed-systems-reliability]] | 🟠 | stub | §8.2 |
-| [[ai-agent-observability]] | 🔴 | mature | §8.3 |
+| Page | Status |
+|---|---|
+| [[observability-fundamentals]] | stub |
+| [[distributed-systems-reliability]] | stub |
+| [[ai-agent-observability]] | mature |
 
-## §9 Emerging & Adjacent · `emerging` 🟢
+## Emerging & Adjacent · `emerging`
 
-| Page | Pri | Status | Roadmap |
-|---|---|---|---|
-| [[vibe-coding-governance]] | 🟢 | stub | §9.1 |
-| [[confidential-computing]] | 🟢 | stub | §9.4 |
-| [[wasm-at-the-edge]] | 🟢 | stub | §9.5 |
-| [[post-quantum-cryptography]] | 🟢 | stub | §9.6 |
-| [[green-software-architecture]] | 🟢 | stub | §9.7 |
+| Page | Status |
+|---|---|
+| [[vibe-coding-governance]] | stub |
+| [[confidential-computing]] | stub |
+| [[wasm-at-the-edge]] | stub |
+| [[post-quantum-cryptography]] | stub |
+| [[green-software-architecture]] | stub |
 
 ## Meta-Skills · `meta`
 
-| Page | Pri | Status | Roadmap |
-|---|---|---|---|
-| [[systems-thinking-over-syntax]] | 🔴 | stub | M.1 |
-| [[trade-off-judgment]] | 🔴 | stub | M.2 |
-| [[delegate-review-own]] | 🔴 | stub | M.3 |
-| [[accountable-human-layer]] | 🔴 | stub | M.4 |
-| [[t-shaped-depth]] | 🟠 | stub | M.5 |
+| Page | Status |
+|---|---|
+| [[systems-thinking-over-syntax]] | stub |
+| [[trade-off-judgment]] | stub |
+| [[delegate-review-own]] | stub |
+| [[accountable-human-layer]] | stub |
+| [[t-shaped-depth]] | stub |

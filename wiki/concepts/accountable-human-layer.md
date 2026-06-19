@@ -3,8 +3,6 @@ title: Accountable Human Layer
 aliases: [accountability layer, human accountability]
 type: meta
 domain: meta
-priority: P0
-roadmap_ref: "M.4"
 status: stub
 tags: [meta, accountability, governance]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The principle that a named human remains responsible and answerable for automated and AI-driven decisions — the locus of accountability that machines cannot hold.
 
-**Priority:** 🔴 P0 · **Domain:** [[meta-skills|Meta-Skills]] · **Roadmap:** §M.4
+**Domain:** [[meta-skills|Meta-Skills]]
 
 ## What it is
 

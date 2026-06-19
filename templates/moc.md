@@ -3,8 +3,6 @@ title: <MOC Name>
 aliases: []
 type: moc
 domain: <domain slug or "mixed">
-priority: ""
-roadmap_ref: ""
 status: seed
 tags: [moc]
 updated: 2026-06-19
@@ -18,8 +16,8 @@ sources: []
 
 ## Pages in this map
 
-- [[concept-one]] — one-line summary 🔴 P0
-- [[concept-two]] — one-line summary 🟠 P1
+- [[concept-one]] — one-line summary
+- [[concept-two]] — one-line summary
 
 ## Related maps
 

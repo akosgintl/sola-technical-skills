@@ -3,8 +3,6 @@ title: AI / GPU Economics
 aliases: [GPU economics, token economics, inference cost, AI cost]
 type: concept
 domain: finops
-priority: P0
-roadmap_ref: "7.2"
 status: stub
 tags: [finops, ai, gpu, inference, tokens]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The cost structure of running AI workloads — GPU capacity, token-based inference pricing, and model tiering — and how to architect for affordable scale.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-2-solid|FinOps & Cost Architecture]] · **Roadmap:** §7.2
+**Domain:** [[tier-2-solid|FinOps & Cost Architecture]]
 
 ## What it is
 

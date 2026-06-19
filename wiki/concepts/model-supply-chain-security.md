@@ -3,8 +3,6 @@ title: Model Supply Chain Security
 aliases: [AI supply chain, model provenance]
 type: concept
 domain: security
-priority: P0
-roadmap_ref: "3.2.3"
 status: stub
 tags: [security, ai-security, supply-chain]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Securing everything that goes into an AI system — base models, weights, datasets, fine-tunes, and dependencies — against tampering, poisoning, and provenance gaps.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|Security & Compliance]] · **Roadmap:** §3.2.3
+**Domain:** [[tier-1-edge|Security & Compliance]]
 
 ## What it is
 

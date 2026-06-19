@@ -3,8 +3,6 @@ title: Data Storage Paradigms
 aliases: [lakehouse, data mesh, data warehouse, OLTP, OLAP]
 type: concept
 domain: data
-priority: P1
-roadmap_ref: "5.1"
 status: stub
 tags: [data, storage, lakehouse, warehouse, mesh]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The architectural choices for where and how data lives — warehouse, lake, lakehouse, or mesh — and the transactional vs. analytical workloads they serve.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-2-solid|Data Architecture]] · **Roadmap:** §5.1
+**Domain:** [[tier-2-solid|Data Architecture]]
 
 ## What it is
 

@@ -144,6 +144,19 @@ foreach ($f in $conceptFiles) {
   }
 }
 
+# --- house style (see CLAUDE.md §8): scan wiki/ pages only ---
+# templates/ and CLAUDE.md legitimately describe/illustrate the rules, so are excluded.
+$houseViol = @()
+$wikiPages = $allMd | Where-Object { $_.FullName -match '\\wiki\\' }
+foreach ($f in $wikiPages) {
+  $rel = $f.FullName.Substring($Root.Length).TrimStart('\','/')
+  $txt = Get-Content -Raw -LiteralPath $f.FullName
+  if ($txt -match '(?m)^(priority|roadmap_ref):')       { $houseViol += "$rel : priority/roadmap_ref in frontmatter" }
+  if ($txt -match '\*\*Priority:\*\*|\*\*Roadmap:\*\*')  { $houseViol += "$rel : Priority/Roadmap in context line" }
+  if ($txt -match '(?m)^#{1,6}\s.*\(20\d\d')             { $houseViol += "$rel : year in a heading" }
+  if ($txt -match '(?i)\bsenior architect\b|\bveteran\b|\b15\+ year') { $houseViol += "$rel : role/persona framing" }
+}
+
 # --- report ---
 "=============================================================="
 " Knowledge Base Lint  -  $($conceptFiles.Count) concept pages, $($allMd.Count) md files"
@@ -162,8 +175,13 @@ foreach ($n in ($notInIndex | Sort-Object)) { "      $n" }
 "[4] Stale 'mature' pages (updated > $StaleMonths months): $($stale.Count)"
 foreach ($s in ($stale | Sort-Object page)) { "      $($s.page)  (updated: $($s.updated))" }
 ""
+"[5] House-style violations (no priority/roadmap, no year/role; see CLAUDE.md §8): $($houseViol.Count)"
+foreach ($h in ($houseViol | Sort-Object)) { "      $h" }
+""
 "--------------------------------------------------------------"
-if ($broken.Count -eq 0) { " PASS: no broken links." } else { " FAIL: $($broken.Count) broken link(s)." }
+$fail = ($broken.Count -gt 0) -or ($houseViol.Count -gt 0)
+if (-not $fail) { " PASS: no broken links, no house-style violations." }
+else { " FAIL: $($broken.Count) broken link(s), $($houseViol.Count) house-style violation(s)." }
 "--------------------------------------------------------------"
 
-if ($broken.Count -gt 0) { exit 1 } else { exit 0 }
+if ($fail) { exit 1 } else { exit 0 }

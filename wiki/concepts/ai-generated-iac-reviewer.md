@@ -3,8 +3,6 @@ title: AI-Generated IaC Reviewer
 aliases: [AI reviewer problem, AI IaC review, generated-config verification, AI-generated infrastructure review, platform as reviewer]
 type: concept
 domain: platform
-priority: P0
-roadmap_ref: "4.2"
 status: mature
 tags: [iac, policy-as-code, admission-control, ai-generated-code, supply-chain, platform-engineering, governance]
 updated: 2026-06-19
@@ -24,7 +22,7 @@ sources:
 > [!summary]
 > When LLMs and coding agents author your Terraform, Kubernetes manifests, and Helm
 > charts, the bottleneck moves from *writing* infrastructure code to *verifying* it.
-> The "AI reviewer" problem is the architect's mandate to make the **platform itself the
+> The "AI reviewer" problem is the mandate to make the **platform itself the
 > primary reviewer and auto-remediator** of generated config — a defense-in-depth chain
 > of automated gates (schema/lint → policy-as-code → `plan`/dry-run → admission control →
 > drift/runtime) that catches *plausible-but-wrong* output before it reaches production.
@@ -33,14 +31,14 @@ sources:
 > blow up at apply or at runtime. Non-deterministic generation demands deterministic
 > verification.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-2-solid|Platform Engineering & IaC]] · **Roadmap:** §4.2
+**Domain:** [[tier-2-solid|Platform Engineering & IaC]]
 
 ## What it is
 
 The AI-generated IaC reviewer is not a single product but an **architectural posture**:
 treat every piece of AI-authored infrastructure config as untrusted input and run it
 through an automated verification pipeline that a human *audits* rather than *performs*.
-It is the platform-engineering response to two facts of 2026:
+It is the platform-engineering response to two facts:
 
 1. A large and growing share of IaC is now generated — by IDE copilots, agentic SWE
    tools, and "describe the infra, get the Terraform" platforms.
@@ -53,7 +51,7 @@ auto-remediated) or it is rejected with a machine-readable reason. This is the
 operational embodiment of [[delegate-review-own|delegate, review, own]] and
 [[vibe-coding-governance]] applied to infrastructure.
 
-## Why it matters (2026, senior architect lens)
+## Why it matters
 
 The failure mode that makes this a P0 is **plausibility**. Generated config is fluent:
 it mirrors the shape of real manifests, so it sails past human eyeballs and naive
@@ -76,7 +74,7 @@ linters. The hard cases:
   code that passes `init` cleanly. By late 2025 this had merged with classic dependency
   confusion ([Nesbitt, 2025](https://nesbitt.io/2025/12/10/slopsquatting-meets-dependency-confusion.html)).
 
-The architect's reframing: **human review effort shifts from writing to verifying**, and
+The reframing: **human review effort shifts from writing to verifying**, and
 verification at AI-generation throughput cannot be a manual PR read. Most pipelines were
 built for human-paced change, not AI-amplified change ([tfir.io, 2026](https://tfir.io/ai-code-quality-2026-guardrails/));
 the quality gates have to scale with the generator. Policy-as-code becomes "the
@@ -87,7 +85,7 @@ enforcement layer that makes velocity safe" ([ControlMonkey 2026 IaC predictions
 **Defense-in-depth gate chain** — each gate catches a class the previous one cannot,
 ordered cheapest/earliest first (shift-left):
 
-| Gate | Catches | 2026 tooling |
+| Gate | Catches | Tooling |
 |---|---|---|
 | **Schema / lint / type-check** | Hallucinated fields, malformed structure | `kubeconform`, `terraform validate`, `tflint`, OpenAPI/CRD schema, JSON-Schema |
 | **Static policy-as-code** | Insecure-but-valid config, org standards | Checkov, Trivy (IaC), [[policy-as-code\|OPA/Conftest, Kyverno, Sentinel]] |
@@ -140,7 +138,7 @@ ordered cheapest/earliest first (shift-left):
   parallelize, and cache, so the 95% clean path stays fast and only suspect changes pay
   the full cost.
 
-## State of the art (2026)
+## State of the art
 
 - **CEL-based admission is the new default.** Kubernetes **ValidatingAdmissionPolicy**
   (CEL, no webhook) went GA in **1.30** and is the in-tree way to enforce policy at the
@@ -155,7 +153,7 @@ ordered cheapest/earliest first (shift-left):
   up from 28% in 2021 ([Spacelift PaC tools, 2026](https://spacelift.io/blog/policy-as-code-tools)).
 - **IaC scanner consolidation.** The field thinned out: **Terrascan** was archived by
   Tenable (Nov 2025) and **tfsec** folded into **Trivy**, which absorbed its entire
-  check library. The maintained open-source options in 2026 are **Checkov** (Palo Alto,
+  check library. The maintained open-source options are **Checkov** (Palo Alto,
   1,000+ policies across Terraform/CFN/K8s/ARM/Helm) and **Trivy** (Aqua); **KICS**
   persists for Rego-unified shops
   ([env0, 2026](https://www.env0.com/blog/best-iac-scan-tool-comparing-checkov-vs-tfsec-vs-terrascan)).

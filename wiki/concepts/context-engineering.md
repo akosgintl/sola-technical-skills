@@ -3,8 +3,6 @@ title: Context Engineering
 aliases: [context window management, prompt context design]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.3.2"
 status: stub
 tags: [ai-agentic, llm, context]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The discipline of deciding what information enters a model's context window, in what form and order, and how to budget, compress, and prune it for relevance, cost, and quality.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.3.2
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 

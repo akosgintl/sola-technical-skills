@@ -3,8 +3,6 @@ title: Post-Quantum Cryptography
 aliases: [PQC, post-quantum cryptography, quantum-safe crypto]
 type: concept
 domain: emerging
-priority: P3
-roadmap_ref: "9.6"
 status: stub
 tags: [emerging, security, cryptography, quantum]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Cryptographic algorithms designed to remain secure against attacks by future large-scale quantum computers, replacing today's vulnerable public-key schemes.
 
-**Priority:** 🟢 P3 · **Domain:** [[tier-3-watch|Emerging & Adjacent]] · **Roadmap:** §9.6
+**Domain:** [[tier-3-watch|Emerging & Adjacent]]
 
 ## What it is
 

@@ -3,8 +3,6 @@ title: <Human Readable Name>
 aliases: []
 type: concept
 domain: <ai-agentic | cloud | security | platform | data | integration | finops | observability | emerging | meta>
-priority: <P0 | P1 | P2 | P3>
-roadmap_ref: "<e.g. 1.3.1, or empty>"
 status: stub
 tags: []
 updated: 2026-06-19
@@ -16,15 +14,15 @@ sources: []
 > [!summary]
 > One-paragraph definition — the single thing to know if you read nothing else.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §x.y.z
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 
 <Precise description of the concept.>
 
-## Why it matters (2026, senior architect lens)
+## Why it matters
 
-<Why a 15+ year architect invests attention here now. Trade-offs over tutorials.>
+<Why it deserves attention. Trade-offs over tutorials.>
 
 ## Key concepts / building blocks
 
@@ -32,9 +30,9 @@ sources: []
 
 ## Design decisions & trade-offs
 
-<The architect's real job: the defensible calls. Cost vs. risk vs. scale vs. time.>
+<The defensible calls: cost vs. risk vs. scale vs. time.>
 
-## State of the art (2026)
+## State of the art
 
 <Current tools, patterns, what changed recently. Prefer live/cited sources.>
 

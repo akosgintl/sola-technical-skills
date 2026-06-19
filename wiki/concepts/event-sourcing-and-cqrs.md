@@ -3,8 +3,6 @@ title: Event Sourcing and CQRS
 aliases: [CQRS, event sourcing, command query responsibility segregation]
 type: concept
 domain: data
-priority: P1
-roadmap_ref: "5.2.2"
 status: stub
 tags: [data, event-sourcing, cqrs, patterns]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Two complementary patterns: storing state as an append-only log of events (event sourcing) and separating write and read models (CQRS) for independent scaling and modeling.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-2-solid|Data Architecture]] · **Roadmap:** §5.2.2
+**Domain:** [[tier-2-solid|Data Architecture]]
 
 ## What it is
 

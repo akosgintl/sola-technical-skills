@@ -3,8 +3,6 @@ title: Human-in-the-Loop Design
 aliases: [HITL, approval gates]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.1.3"
 status: stub
 tags: [ai-agentic, agents, governance]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The deliberate placement of human approval, review, and intervention points within agentic workflows so that consequential actions are gated, auditable, and reversible — operationalizing "delegate, review, own."
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.1.3
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 

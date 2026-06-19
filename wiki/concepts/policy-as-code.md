@@ -3,8 +3,6 @@ title: Policy as Code
 aliases: [PaC, policy-as-code]
 type: concept
 domain: platform
-priority: P0
-roadmap_ref: "4.2.3"
 status: stub
 tags: [platform, policy, governance, security]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Expressing governance, security, and compliance rules as version-controlled code that is automatically evaluated against infrastructure and deployments.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-2-solid|Platform Engineering & IaC]] · **Roadmap:** §4.2.3
+**Domain:** [[tier-2-solid|Platform Engineering & IaC]]
 
 ## What it is
 

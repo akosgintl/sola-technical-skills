@@ -3,8 +3,6 @@ title: Model Selection and Routing
 aliases: [model routing, LLM routing]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.3.3"
 status: stub
 tags: [ai-agentic, llm, routing, cost]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Choosing and dynamically routing between models to balance cost, latency, and quality — including fallback chains and the strategic call between prompting, RAG, and fine-tuning.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.3.3
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 

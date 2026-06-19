@@ -3,8 +3,6 @@ title: Vector and Embedding Stores
 aliases: [vector database, embedding store, vector store, ANN search]
 type: concept
 domain: data
-priority: P0
-roadmap_ref: "5.4.1"
 status: stub
 tags: [data, ai, vectors, embeddings, search]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Databases that index high-dimensional embedding vectors for approximate-nearest-neighbor similarity search, the retrieval backbone of RAG and semantic search.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-2-solid|Data Architecture]] · **Roadmap:** §5.4.1
+**Domain:** [[tier-2-solid|Data Architecture]]
 
 ## What it is
 

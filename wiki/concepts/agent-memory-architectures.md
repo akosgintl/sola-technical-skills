@@ -3,8 +3,6 @@ title: Agent Memory Architectures
 aliases: [agent memory, short-term and long-term memory]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.3.2.2"
 status: stub
 tags: [ai-agentic, agents, memory]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The structures that let agents retain and recall information beyond a single context window — short-term working memory, long-term stores, and episodic memory of past interactions.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.3.2.2
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 

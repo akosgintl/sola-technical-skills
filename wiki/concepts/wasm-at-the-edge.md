@@ -3,8 +3,6 @@ title: WebAssembly at the Edge
 aliases: [Wasm, WebAssembly, WASI, edge compute]
 type: concept
 domain: emerging
-priority: P3
-roadmap_ref: "9.5"
 status: stub
 tags: [emerging, wasm, edge, runtime]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Running portable, sandboxed WebAssembly modules close to users at edge locations for near-instant cold starts, strong isolation, and language-agnostic compute.
 
-**Priority:** 🟢 P3 · **Domain:** [[tier-3-watch|Emerging & Adjacent]] · **Roadmap:** §9.5
+**Domain:** [[tier-3-watch|Emerging & Adjacent]]
 
 ## What it is
 

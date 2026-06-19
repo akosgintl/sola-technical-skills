@@ -3,8 +3,6 @@ title: Event-Driven Architecture
 aliases: [EDA, event driven]
 type: concept
 domain: cloud
-priority: P0
-roadmap_ref: "2.3.1"
 status: stub
 tags: [cloud, events, messaging, architecture]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > An architectural style where components communicate by producing and reacting to events, enabling loose coupling, asynchronous scale, and temporal decoupling between producers and consumers.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|Cloud Architecture]] · **Roadmap:** §2.3.1
+**Domain:** [[tier-1-edge|Cloud Architecture]]
 
 ## What it is
 

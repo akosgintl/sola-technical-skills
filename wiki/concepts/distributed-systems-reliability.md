@@ -3,8 +3,6 @@ title: Distributed Systems Reliability
 aliases: [reliability, resilience, chaos engineering, graceful degradation]
 type: concept
 domain: observability
-priority: P1
-roadmap_ref: "8.2"
 status: stub
 tags: [observability, reliability, resilience, chaos]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Designing systems that anticipate and survive partial failure through redundancy, degradation strategies, and proactive failure testing.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-2-solid|Observability & Reliability]] · **Roadmap:** §8.2
+**Domain:** [[tier-2-solid|Observability & Reliability]]
 
 ## What it is
 

@@ -3,8 +3,6 @@ title: Feature Stores
 aliases: [feature store, ML feature store]
 type: concept
 domain: data
-priority: P0
-roadmap_ref: "5.4.2"
 status: stub
 tags: [data, ai, ml, features]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > A centralized system for defining, computing, storing, and serving ML features consistently across training and inference, eliminating training/serving skew.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-2-solid|Data Architecture]] · **Roadmap:** §5.4.2
+**Domain:** [[tier-2-solid|Data Architecture]]
 
 ## What it is
 

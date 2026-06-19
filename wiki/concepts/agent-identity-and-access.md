@@ -3,8 +3,6 @@ title: Agent Identity and Access
 aliases: [agent IAM, agent RBAC, agent ABAC]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.2.1"
 status: stub
 tags: [ai-agentic, agents, identity, security]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Assigning agents their own identities and enforcing scoped, least-privilege access via RBAC/ABAC, quotas, and credential management so an agent can only do what its role permits.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.2.1
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 

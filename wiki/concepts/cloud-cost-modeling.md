@@ -3,8 +3,6 @@ title: Cloud Cost Modeling
 aliases: [cost modeling, FinOps, cloud economics]
 type: concept
 domain: finops
-priority: P1
-roadmap_ref: "7.1"
 status: stub
 tags: [finops, cost, cloud, economics]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Building cost estimates and models alongside architecture designs so spend becomes a first-class, predictable design dimension rather than a surprise.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-2-solid|FinOps & Cost Architecture]] · **Roadmap:** §7.1
+**Domain:** [[tier-2-solid|FinOps & Cost Architecture]]
 
 ## What it is
 

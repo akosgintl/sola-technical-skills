@@ -3,8 +3,6 @@ title: AI / Agent Observability
 aliases: [agent observability, LLM observability, agentic observability, GenAI observability]
 type: concept
 domain: observability
-priority: P0
-roadmap_ref: "8.3"
 status: mature
 tags: [observability, ai-agentic, llm, tracing, opentelemetry, evals, reliability]
 updated: 2026-06-19
@@ -21,9 +19,9 @@ sources:
 # AI / Agent Observability
 
 > [!summary]
-> AI/agent observability is the practice of instrumenting LLM-driven and agentic systems so you can see *why* they did what they did — capturing the full reasoning chain as hierarchical, causally-linked traces (prompts, tool calls, retrievals, tokens, cost, latency) and continuously *judging the quality* of outputs in production, not just their availability. It exists because agents fail in ways classic [[observability-fundamentals|metrics/logs/traces]] never anticipated: the service is "up", every span is HTTP 200, and the answer is still wrong, looping, or drifting. The 2026 stack standardizes on **OpenTelemetry GenAI semantic conventions** for the traces and layers **online evaluation / LLM-as-judge** scoring on top.
+> AI/agent observability is the practice of instrumenting LLM-driven and agentic systems so you can see *why* they did what they did — capturing the full reasoning chain as hierarchical, causally-linked traces (prompts, tool calls, retrievals, tokens, cost, latency) and continuously *judging the quality* of outputs in production, not just their availability. It exists because agents fail in ways classic [[observability-fundamentals|metrics/logs/traces]] never anticipated: the service is "up", every span is HTTP 200, and the answer is still wrong, looping, or drifting. The current stack standardizes on **OpenTelemetry GenAI semantic conventions** for the traces and layers **online evaluation / LLM-as-judge** scoring on top.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-2-solid|Observability & Reliability]] · **Roadmap:** §8.3
+**Domain:** [[tier-2-solid|Observability & Reliability]]
 
 ## What it is
 
@@ -35,9 +33,9 @@ The unit of analysis shifts from the request to the **trajectory** — the order
 2. **Surface non-deterministic failure modes** — the same input can succeed once and fail the next, so you instrument for *behavioral* failures (wrong tool, infinite loop, hallucinated grounding, context decay) that emit no error and break no health check.
 3. **Monitor quality and drift in production** — run evaluators (often an LLM judge) continuously over sampled live traffic to detect regression *as it happens*, not in a post-mortem.
 
-## Why it matters (2026, senior architect lens)
+## Why it matters
 
-The architect's exposure here is asymmetric. A latency regression is annoying; an agent that confidently approves the wrong refund, leaks data through an injected instruction, or silently degrades after a model-provider update is a business and compliance incident. In 2026 the failure modes triaged most often are **cascading errors in multi-step agents, indirect prompt injection through retrieved content, and observability gaps that hide failures until they become incidents** ([Latitude](https://latitude.so/blog/ai-agent-failure-detection-guide)).
+The exposure here is asymmetric. A latency regression is annoying; an agent that confidently approves the wrong refund, leaks data through an injected instruction, or silently degrades after a model-provider update is a business and compliance incident. The failure modes triaged most often are **cascading errors in multi-step agents, indirect prompt injection through retrieved content, and observability gaps that hide failures until they become incidents** ([Latitude](https://latitude.so/blog/ai-agent-failure-detection-guide)).
 
 Three things make this a P0 you must *own*, not delegate:
 
@@ -53,17 +51,17 @@ Three things make this a P0 you must *own*, not delegate:
 - **Online (production) evals.** Inline scorers and LLM-as-judge checks run on live (sampled) traces so quality regressions surface as they happen; failing traces are auto-promoted into the offline eval suite, so the suite grows from real user behavior ([Braintrust](https://www.braintrust.dev/articles/agent-observability-complete-guide-2026)).
 - **LLM-as-judge.** A model scores nuanced, non-programmatic qualities — goal completion, faithfulness, tone, helpfulness. Pair it with **code-based / deterministic checks** for objective criteria (schema valid, tool succeeded). Judges must be aligned to human labels and versioned, or they drift too.
 - **Agent-specific signals.** Tool-call correctness, task/goal completion, trajectory efficiency (steps vs. optimal), and **reasoning-drift detection** — e.g. comparing step-1 reasoning to final-step reasoning: if the final step no longer references the original goal, the agent has likely drifted ([Latitude](https://latitude.so/blog/ai-agent-failure-detection-guide)).
-- **Drift monitoring.** Watch for input drift (changing user/query distribution), output-quality drift (judge scores trending down), and **silent provider drift** (a model endpoint updated under you). "Set-and-forget" deployment is itself a named failure mode in 2026.
+- **Drift monitoring.** Watch for input drift (changing user/query distribution), output-quality drift (judge scores trending down), and **silent provider drift** (a model endpoint updated under you). "Set-and-forget" deployment is itself a named failure mode.
 
 ## Design decisions & trade-offs
 
-- **OTel-native vs. SDK-native instrumentation.** Emitting OTel GenAI spans keeps you portable and lets agent telemetry flow into the *same* backend as the rest of your distributed system — a real win for correlation and for not running a second observability silo. SDK-native auto-instrumentation (e.g. one env var for a LangChain/LangGraph stack) is faster to working traces but carries lock-in. The senior call: **standardize on OTel semantic conventions at the wire level** even when using a vendor SDK, so you can swap the backend later. Phoenix, Langfuse, and (since March 2026) LangSmith all speak OTel.
+- **OTel-native vs. SDK-native instrumentation.** Emitting OTel GenAI spans keeps you portable and lets agent telemetry flow into the *same* backend as the rest of your distributed system — a real win for correlation and for not running a second observability silo. SDK-native auto-instrumentation (e.g. one env var for a LangChain/LangGraph stack) is faster to working traces but carries lock-in. The key call: **standardize on OTel semantic conventions at the wire level** even when using a vendor SDK, so you can swap the backend later. Phoenix, Langfuse, and (since March 2026) LangSmith all speak OTel.
 - **Sampling vs. completeness.** Full-fidelity tracing of every prompt and completion is expensive (storage, and judge-token cost) and a data-governance liability — prompts and completions can contain PII. Decide what to capture (metadata always; content sampled or redacted), and sample online evals over a subset of traffic as an early-warning system rather than scoring 100%.
 - **Judge cost and trust.** LLM-as-judge adds inference cost and is itself non-deterministic. Reserve judges for the subjective dimensions; use cheap deterministic checks everywhere possible; calibrate judges against human-labeled sets and treat the judge as a versioned artifact under [[ai-evaluation-and-quality]].
 - **Build vs. buy vs. self-host.** Managed (LangSmith, Braintrust, Arize) gets you there fastest; self-hostable open source (Langfuse — MIT, Postgres+ClickHouse; Phoenix — OTel-native, open source) wins where **data sovereignty** and cost discipline dominate. Map this to your compliance posture, not to feature checklists.
 - **Observability vs. guardrails — different jobs.** Observability *detects* and explains; [[guardrails-and-output-validation|guardrails]] *prevent* at runtime. You need both: a guardrail blocks the bad output; the trace tells you why the agent tried it. Don't conflate the dashboard with the control.
 
-## State of the art (2026)
+## State of the art
 
 - **The standard:** OpenTelemetry GenAI semantic conventions, driven by the GenAI SIG since 2024. Client spans are stable; agent/framework spans experimental-but-stable. Datadog, Honeycomb, and New Relic ingest them natively; LangChain, CrewAI, AutoGen/AG2 emit them ([OTel agent spans](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/)).
 - **Tooling landscape:**

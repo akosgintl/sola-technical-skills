@@ -3,8 +3,6 @@ title: Streaming and Event Data
 aliases: [streaming, event streaming, Kafka, Kinesis, Pub/Sub]
 type: concept
 domain: data
-priority: P1
-roadmap_ref: "5.2"
 status: stub
 tags: [data, streaming, events, kafka]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Processing data as continuous, ordered streams of events in motion rather than static batches, enabling real-time pipelines and event-driven systems.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-2-solid|Data Architecture]] · **Roadmap:** §5.2
+**Domain:** [[tier-2-solid|Data Architecture]]
 
 ## What it is
 

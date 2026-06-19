@@ -32,3 +32,11 @@ Consistent prefixes keep it greppable: `## [YYYY-MM-DD] <ingest|query|lint|build
 - Promoted [[multi-agent-orchestration]] `stub → draft`, grounded in the five composable
   workflow patterns + orchestrator-workers and the workflows-vs-agents distinction.
 - Updated `index.md` status; this is the worked example of the §9.1 ingest workflow.
+
+## [2026-06-19] build | House-style change — drop priority/roadmap, de-frame prose
+
+- Removed `priority` and `roadmap_ref` frontmatter from all wiki pages, MOCs, templates, index, and the source note; trimmed every concept context line to **Domain only**.
+- Renamed sections `## Why it matters (2026, senior architect lens)` → `## Why it matters` and `## State of the art (2026)` → `## State of the art`.
+- De-framed prose across the wiki: removed persona/role framing ("senior architect", "veteran", "15+ year") and editorial-year framing ("the 2026 consensus"), keeping factual year tokens (standard names, GA/release dates, citation titles, URLs, ISO dates).
+- `index.md` dropped Pri/Roadmap columns; MOCs dropped priority emojis + `§` refs; [[dashboard]] re-based on status/domain (Bases) instead of priority. Concepts stay flat.
+- Encoded the rules as **House style** in `CLAUDE.md` §8 and added a house-style check to `scripts/lint.ps1` (priority/roadmap, year-in-heading, role terms). Lint: PASS (0 broken, 0 house-style violations).

@@ -3,8 +3,6 @@ title: AI Governance Frameworks
 aliases: [AI governance, responsible AI frameworks]
 type: concept
 domain: security
-priority: P3
-roadmap_ref: "3.3.3"
 status: stub
 tags: [security, ai-governance, compliance]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Structured frameworks — such as the EU AI Act and NIST AI RMF — for managing AI risk, accountability, and transparency across an organization's AI systems.
 
-**Priority:** 🟢 P3 · **Domain:** [[tier-1-edge|Security & Compliance]] · **Roadmap:** §3.3.3
+**Domain:** [[tier-1-edge|Security & Compliance]]
 
 ## What it is
 

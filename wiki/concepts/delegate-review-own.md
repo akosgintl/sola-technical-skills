@@ -3,8 +3,6 @@ title: Delegate, Review, Own
 aliases: [delegate review own]
 type: meta
 domain: meta
-priority: P0
-roadmap_ref: "M.3"
 status: stub
 tags: [meta, ai-collaboration, judgment]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The working model for collaborating with AI and teams: delegate execution, rigorously review the output, and retain personal accountability for the result.
 
-**Priority:** 🔴 P0 · **Domain:** [[meta-skills|Meta-Skills]] · **Roadmap:** §M.3
+**Domain:** [[meta-skills|Meta-Skills]]
 
 ## What it is
 

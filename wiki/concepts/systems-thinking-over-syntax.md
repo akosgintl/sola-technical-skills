@@ -3,8 +3,6 @@ title: Systems Thinking over Syntax
 aliases: [systems thinking]
 type: meta
 domain: meta
-priority: P0
-roadmap_ref: "M.1"
 status: stub
 tags: [meta, systems-thinking, judgment]
 updated: 2026-06-19
@@ -14,9 +12,9 @@ sources: []
 # Systems Thinking over Syntax
 
 > [!summary]
-> The senior architect's bias toward understanding how parts interact, where the constraints and failure modes are, and what the second-order effects of a design are — rather than memorizing the syntax of any one tool.
+> The bias toward understanding how parts interact, where the constraints and failure modes are, and what the second-order effects of a design are — rather than memorizing the syntax of any one tool.
 
-**Priority:** 🔴 P0 · **Domain:** [[meta-skills|Meta-Skills]] · **Roadmap:** §M.1
+**Domain:** [[meta-skills|Meta-Skills]]
 
 ## What it is
 

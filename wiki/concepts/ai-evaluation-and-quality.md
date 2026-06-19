@@ -3,8 +3,6 @@ title: AI Evaluation and Quality
 aliases: [LLM eval, evals, AI quality]
 type: concept
 domain: ai-agentic
-priority: P1
-roadmap_ref: "1.5"
 status: stub
 tags: [ai-agentic, evaluation, quality]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The pipelines and metrics for measuring whether an AI system is good enough and staying that way — covering offline evals, online monitoring, drift, and hallucination detection.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.5
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 

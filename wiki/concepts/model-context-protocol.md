@@ -3,8 +3,6 @@ title: Model Context Protocol
 aliases: [MCP, model context protocol, mcp]
 type: concept
 domain: ai-agentic
-priority: P1
-roadmap_ref: "1.4"
 status: mature
 tags: [llm, agents, mcp, integration, protocol, ai-security, oauth, governance]
 updated: 2026-06-19
@@ -24,13 +22,13 @@ sources:
 > [!summary]
 > **MCP is the "USB-C for AI tools"**: an open, JSON-RPC 2.0 protocol that standardizes how
 > an LLM application (the **host**, via embedded **clients**) connects to external tools, data,
-> and prompts exposed by **servers**. Anthropic shipped it in late 2024; by 2026 every major
-> model vendor adopted it, and Anthropic donated it to the Linux Foundation's **Agentic AI
-> Foundation**. For an architect it is the M×N integration collapse — write a tool once, every
+> and prompts exposed by **servers**. Anthropic shipped it in late 2024; every major
+> model vendor has adopted it, and Anthropic donated it to the Linux Foundation's **Agentic AI
+> Foundation**. It is the M×N integration collapse — write a tool once, every
 > MCP-aware agent can use it — but it ships with a genuinely new security surface (tool poisoning,
 > confused-deputy, prompt injection *through tool results*) that you own at design time.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.4
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 
@@ -48,7 +46,7 @@ Three roles, all speaking **JSON-RPC 2.0** over a transport:
 This is the M×N → M+N collapse: instead of every host integrating every tool, each side implements
 MCP once. That is the entire reason the protocol won — it is a coordination standard, not a feature.
 
-## Why it matters (2026, senior architect lens)
+## Why it matters
 
 By early 2026 MCP crossed ~97M monthly SDK downloads (Python + TypeScript) and 10,000+ public
 servers, and is supported by Anthropic, OpenAI, Google, Microsoft, and AWS. In December 2025
@@ -56,7 +54,7 @@ Anthropic donated MCP to the **Agentic AI Foundation (AAIF)** under the Linux Fo
 (founding members include Block, OpenAI, AWS, Google, Microsoft, Cloudflare, Bloomberg). The
 "protocol war" is over; MCP is now the de-facto **vertical integration layer** for agents.
 
-For a senior architect the significance is threefold:
+The significance is threefold:
 
 1. **It is the integration substrate your agent strategy now standardizes on.** Choosing MCP vs. a
    custom integration is a load-bearing decision (see trade-offs below), and "we'll wrap everything
@@ -92,7 +90,7 @@ For a senior architect the significance is threefold:
 
 - **stdio** — local subprocess; the original, default for desktop/local servers. Simple, but the
   server runs with the host user's ambient privileges.
-- **Streamable HTTP** — the 2026 standard for remote, production servers: an HTTPS endpoint,
+- **Streamable HTTP** — the current standard for remote, production servers: an HTTPS endpoint,
   multiple concurrent clients, horizontal scaling, and OAuth 2.1 auth. (Superseded the older
   HTTP+SSE transport.)
 
@@ -142,7 +140,7 @@ behind explicit human approval ([[human-in-the-loop-design]]); enforce allow-lis
 gateway, not in prompts. Treat this as part of [[agent-governance-and-policy]] and your
 [[compliance-and-regulation|compliance]] evidence chain.
 
-## State of the art (2026)
+## State of the art
 
 - **Spec cadence & governance.** The current stable spec is **2025-11-25** (stateful JSON-RPC core,
   Streamable HTTP, hardened OAuth). The **2026-07-28** release candidate moves toward a **stateless

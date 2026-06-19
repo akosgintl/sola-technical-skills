@@ -3,8 +3,6 @@ title: AI-Specific Security
 aliases: [LLM security, AI security, GenAI security, agentic security, AI attack surface]
 type: concept
 domain: security
-priority: P0
-roadmap_ref: "3.2"
 status: mature
 tags: [security, llm, agentic, prompt-injection, supply-chain, owasp, threat-modeling]
 updated: 2026-06-19
@@ -26,18 +24,18 @@ sources:
 > reliably separate **trusted instructions** from **untrusted data**: both arrive as the
 > same token stream, so any content the model reads can become a command. This makes
 > **prompt injection** an architectural flaw, not a patchable bug, and it cascades into
-> data exfiltration, tool abuse, and supply-chain compromise. The senior architect's job
+> data exfiltration, tool abuse, and supply-chain compromise. The job
 > is not to find a silver bullet (there isn't one) but to design **defense-in-depth** that
 > constrains *what an agent can do* when — not if — it gets manipulated.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|Security & Compliance]] · **Roadmap:** §3.2
+**Domain:** [[tier-1-edge|Security & Compliance]]
 
 ## What it is
 
 Classic application security assumes a trust boundary you can draw: code is trusted,
 input is untrusted, and you sanitize at the edge. AI systems break that model. An LLM
 processes its system prompt, retrieved documents, tool outputs, and user messages through
-the **same channel**, with no privileged instruction path. The 2026 attack surface
+the **same channel**, with no privileged instruction path. The attack surface
 therefore has four entangled fronts, mapped here to the **OWASP Top 10 for LLM
 Applications (2025)** and the **OWASP Top 10 for Agentic Applications (2026)**:
 
@@ -54,7 +52,7 @@ Applications (2025)** and the **OWASP Top 10 for Agentic Applications (2026)**:
    agents that plan and act on their own. See [[agent-identity-and-access]] and
    [[agent-governance-and-policy]].
 
-## Why it matters (2026, senior architect lens)
+## Why it matters
 
 The shift from chatbots to **agents that act** moved AI security from a content-safety
 nuisance to a genuine breach vector. The watershed was **EchoLeak (CVE-2025-32711, CVSS
@@ -66,7 +64,7 @@ image pre-fetch plus an allow-listed Teams API as the exfiltration channel. The 
 architects: **each individual control was reasonable, and the chain still broke.** That is
 the signature of this domain.
 
-The reason this lands on the architect's desk — not the AppSec team's backlog — is that
+The reason this is an architectural concern — not just the AppSec team's backlog — is that
 the *only durable controls are design-time*. You cannot prompt your way to safety; bolting
 a filter onto a finished agent leaves the trust-boundary flaw intact. Decisions made in the
 architecture phase — what data an agent can touch, what tools it holds, whether it can talk
@@ -134,7 +132,7 @@ evasions slipping past Picklescan on Hugging Face. Covered in depth in
 
 ## Design decisions & trade-offs
 
-This is where the senior architect earns the title — the calls below are judgment, not
+This is where the hard judgment lives — the calls below are judgment calls, not
 checklist items.
 
 - **Break the trifecta before you harden any single leg.** The highest-leverage decision is
@@ -172,7 +170,7 @@ checklist items.
   model, prompts, tools, and corpus all drift. Tools like Promptfoo encode the lethal
   trifecta and OWASP LLM Top 10 as automated test suites. Feeds [[ai-evaluation-and-quality]].
 
-## State of the art (2026)
+## State of the art
 
 - **Consensus that prompt injection is unsolved.** Vendors and researchers now treat it as
   a *permanent architectural property* of token-stream LLMs, akin to social engineering for

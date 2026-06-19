@@ -3,8 +3,6 @@ title: Infrastructure as Code
 aliases: [IaC, infrastructure-as-code]
 type: concept
 domain: platform
-priority: P1
-roadmap_ref: "4.1"
 status: stub
 tags: [platform, iac, automation]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Managing and provisioning infrastructure through declarative, version-controlled definition files rather than manual configuration or ad-hoc scripts.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-2-solid|Platform Engineering & IaC]] · **Roadmap:** §4.1
+**Domain:** [[tier-2-solid|Platform Engineering & IaC]]
 
 ## What it is
 

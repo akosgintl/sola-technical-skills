@@ -3,8 +3,6 @@ title: Developer Experience
 aliases: [DevEx, DX, developer-experience, internal developer platform, IDP]
 type: concept
 domain: platform
-priority: P2
-roadmap_ref: "4.3"
 status: stub
 tags: [platform, devex, idp, golden-paths]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The discipline of reducing friction for engineers through golden paths, self-service platforms, and paved-road tooling that make the right thing the easy thing.
 
-**Priority:** 🟡 P2 · **Domain:** [[tier-2-solid|Platform Engineering & IaC]] · **Roadmap:** §4.3
+**Domain:** [[tier-2-solid|Platform Engineering & IaC]]
 
 ## What it is
 

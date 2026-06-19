@@ -3,8 +3,6 @@ title: Cloud-Native Patterns
 aliases: [cloud native, cloud-native architecture]
 type: concept
 domain: cloud
-priority: P0
-roadmap_ref: "2.3"
 status: stub
 tags: [cloud, cloud-native, patterns]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The architectural patterns that exploit cloud elasticity and managed services — event-driven designs, serverless, and container orchestration — to build scalable, resilient systems.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|Cloud Architecture]] · **Roadmap:** §2.3
+**Domain:** [[tier-1-edge|Cloud Architecture]]
 
 ## What it is
 

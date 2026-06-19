@@ -3,8 +3,6 @@ title: Observability Fundamentals
 aliases: [observability, metrics logs traces, SLO, SLI, telemetry]
 type: concept
 domain: observability
-priority: P1
-roadmap_ref: "8.1"
 status: stub
 tags: [observability, metrics, logs, traces, slo]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The capability to understand a system's internal state from its external outputs — metrics, logs, and traces — and to define reliability targets via SLOs and SLIs.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-2-solid|Observability & Reliability]] · **Roadmap:** §8.1
+**Domain:** [[tier-2-solid|Observability & Reliability]]
 
 ## What it is
 

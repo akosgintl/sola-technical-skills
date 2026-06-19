@@ -3,8 +3,6 @@ title: Software Supply Chain Security
 aliases: [supply chain security, SBOM, SLSA, artifact signing]
 type: concept
 domain: platform
-priority: P1
-roadmap_ref: "4.4.2"
 status: stub
 tags: [platform, security, supply-chain, sbom]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Securing the integrity of everything that goes into a release — dependencies, build systems, and artifacts — through inventory, signing, and verifiable provenance.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-2-solid|Platform Engineering & IaC]] · **Roadmap:** §4.4.2
+**Domain:** [[tier-2-solid|Platform Engineering & IaC]]
 
 ## What it is
 

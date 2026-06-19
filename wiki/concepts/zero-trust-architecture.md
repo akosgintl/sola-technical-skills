@@ -3,8 +3,6 @@ title: Zero-Trust Architecture
 aliases: [zero trust, ZTA]
 type: concept
 domain: security
-priority: P1
-roadmap_ref: "3.1.1"
 status: stub
 tags: [security, zero-trust, identity]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > A security model that trusts no request implicitly — verifying identity, device, and context on every access and enforcing least privilege regardless of network location.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-1-edge|Security & Compliance]] · **Roadmap:** §3.1.1
+**Domain:** [[tier-1-edge|Security & Compliance]]
 
 ## What it is
 

@@ -3,8 +3,6 @@ title: T-Shaped Depth
 aliases: [T-shaped skills, breadth and depth]
 type: meta
 domain: meta
-priority: P1
-roadmap_ref: "M.5"
 status: stub
 tags: [meta, skills, career]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The skill profile of broad architectural literacy across many domains combined with genuine, hands-on depth in a few — the shape that lets an architect both connect systems and earn credibility.
 
-**Priority:** 🟠 P1 · **Domain:** [[meta-skills|Meta-Skills]] · **Roadmap:** §M.5
+**Domain:** [[meta-skills|Meta-Skills]]
 
 ## What it is
 

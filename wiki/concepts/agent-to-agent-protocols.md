@@ -3,8 +3,6 @@ title: Agent-to-Agent Protocols
 aliases: [A2A, inter-agent communication]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.1.2"
 status: stub
 tags: [ai-agentic, agents, protocols]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The conventions and mechanisms by which agents decompose tasks, share state, exchange messages, and handle each other's failures — the "wire protocol" of collaboration between autonomous agents.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.1.2
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 

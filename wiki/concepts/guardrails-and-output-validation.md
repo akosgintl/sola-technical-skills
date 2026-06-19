@@ -3,8 +3,6 @@ title: Guardrails and Output Validation
 aliases: [guardrails, output validation, safety filters]
 type: concept
 domain: ai-agentic
-priority: P1
-roadmap_ref: "1.5.3"
 status: stub
 tags: [ai-agentic, guardrails, safety]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The safety filters and structural checks applied to model inputs and outputs — schema validation, content filtering, and policy enforcement — to keep an AI system within acceptable bounds.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.5.3
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 

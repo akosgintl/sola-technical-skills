@@ -3,8 +3,6 @@ title: API Gateways and Service Mesh
 aliases: [API gateway, service mesh, ingress, sidecar]
 type: concept
 domain: integration
-priority: P2
-roadmap_ref: "6.2"
 status: stub
 tags: [integration, api-gateway, service-mesh, networking]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Infrastructure layers that manage traffic: gateways handle north-south (external) API concerns, while service meshes manage east-west (service-to-service) communication.
 
-**Priority:** 🟡 P2 · **Domain:** [[tier-2-solid|Integration & API Architecture]] · **Roadmap:** §6.2
+**Domain:** [[tier-2-solid|Integration & API Architecture]]
 
 ## What it is
 

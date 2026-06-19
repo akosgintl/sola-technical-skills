@@ -3,8 +3,6 @@ title: <Source Title>
 aliases: []
 type: source
 domain: <domain slug>
-priority: ""
-roadmap_ref: ""
 status: seed
 tags: [source]
 updated: 2026-06-19

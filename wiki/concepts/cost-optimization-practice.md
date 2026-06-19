@@ -3,8 +3,6 @@ title: Cost Optimization Practice
 aliases: [cost optimization, right-sizing, showback, chargeback]
 type: concept
 domain: finops
-priority: P2
-roadmap_ref: "7.3"
 status: stub
 tags: [finops, optimization, right-sizing, accountability]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The ongoing operational discipline of reducing waste and aligning spend with value through right-sizing, commitment management, and cost accountability.
 
-**Priority:** 🟡 P2 · **Domain:** [[tier-2-solid|FinOps & Cost Architecture]] · **Roadmap:** §7.3
+**Domain:** [[tier-2-solid|FinOps & Cost Architecture]]
 
 ## What it is
 

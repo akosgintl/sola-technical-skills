@@ -81,8 +81,6 @@ title: Retrieval-Augmented Generation        # human-readable H1 name
 aliases: [RAG, retrieval augmented generation]  # for [[alias]] resolution & search
 type: concept            # concept | moc | meta | source
 domain: ai-agentic       # see §5 domain slugs
-priority: P0             # P0 | P1 | P2 | P3 (from the roadmap)
-roadmap_ref: "1.3.1"     # node id in technology-skills.md ("" if not on the roadmap)
 status: stub             # stub | seed | draft | mature  (see §6)
 tags: [llm, retrieval, vector-search]
 updated: 2026-06-19      # ISO date of last meaningful edit
@@ -94,29 +92,22 @@ sources: []              # list of raw/ files or URLs this page is grounded in
 
 ---
 
-## 5. Domains (the spine) & priorities
+## 5. Domains (the spine)
 
-`domain:` is one of these slugs (mirrors the roadmap sections):
+`domain:` is one of these slugs, each mapped to its navigation MOC:
 
-| Slug | Roadmap | MOC |
+| Slug | Area | MOC |
 |---|---|---|
-| `ai-agentic` | §1 AI & Agentic Architecture | [[tier-1-edge]] |
-| `cloud` | §2 Cloud Architecture | [[tier-1-edge]] |
-| `security` | §3 Security & Compliance | [[tier-1-edge]] |
-| `platform` | §4 Platform Engineering & IaC | [[tier-2-solid]] |
-| `data` | §5 Data Architecture | [[tier-2-solid]] |
-| `integration` | §6 Integration & API Architecture | [[tier-2-solid]] |
-| `finops` | §7 FinOps & Cost Architecture | [[tier-2-solid]] |
-| `observability` | §8 Observability & Reliability | [[tier-2-solid]] |
-| `emerging` | §9 Emerging & adjacent | [[tier-3-watch]] |
+| `ai-agentic` | AI & Agentic Architecture | [[tier-1-edge]] |
+| `cloud` | Cloud Architecture | [[tier-1-edge]] |
+| `security` | Security & Compliance | [[tier-1-edge]] |
+| `platform` | Platform Engineering & IaC | [[tier-2-solid]] |
+| `data` | Data Architecture | [[tier-2-solid]] |
+| `integration` | Integration & API Architecture | [[tier-2-solid]] |
+| `finops` | FinOps & Cost Architecture | [[tier-2-solid]] |
+| `observability` | Observability & Reliability | [[tier-2-solid]] |
+| `emerging` | Emerging & adjacent | [[tier-3-watch]] |
 | `meta` | Cross-cutting meta-skills | [[meta-skills]] |
-
-**Priority** (from the roadmap, surfaced on every page so depth is obvious):
-
-- 🔴 **P0** — go deep / own it
-- 🟠 **P1** — strong competence
-- 🟡 **P2** — working knowledge
-- 🟢 **P3** — keep an eye on
 
 ---
 
@@ -154,15 +145,23 @@ Use `templates/concept-page.md`. Standard sections (omit what doesn't apply):
 
 1. **`# Title`** + frontmatter
 2. **`> [!summary]`** one-paragraph definition (the "if you read nothing else")
-3. **Context line:** priority · domain MOC link · roadmap ref
+3. **Context line:** domain MOC link only — `**Domain:** [[<moc>|<Area>]]`
 4. **`## What it is`** — the concept, precisely
-5. **`## Why it matters (2026, senior architect lens)`** — why a veteran invests here
+5. **`## Why it matters`** — why it deserves attention; trade-offs over tutorials
 6. **`## Key concepts / building blocks`**
-7. **`## Design decisions & trade-offs`** — the architect's real job
-8. **`## State of the art (2026)`** — current tools, patterns, what changed
+7. **`## Design decisions & trade-offs`** — the defensible calls
+8. **`## State of the art`** — current tools, patterns, what changed
 9. **`## Pitfalls & anti-patterns`**
 10. **`## See also`** — `[[links]]`
 11. **`## Sources`** — `raw/` files and external citations
+
+**House style (enforced by `scripts/lint.ps1`):**
+
+- Frontmatter carries **no `priority` or `roadmap_ref`** — relevance comes from `domain`, `status`, and the MOCs.
+- The context line shows **Domain only** (no priority emoji, no `§` roadmap ref).
+- Section headings carry **no year and no role** — `## Why it matters`, `## State of the art` (never "(2026)" or "senior architect lens").
+- Page prose is **evergreen and audience-neutral**: no persona framing ("senior architect", "veteran", "15+ year") and no editorial-year framing ("the 2026 consensus", "the mistakes of 2026"). Factual year tokens are fine — standard/spec names, release/GA dates, citation titles, URLs, and the ISO `updated:` date.
+- Concepts stay **flat** in `wiki/concepts/`; organize via `domain:`, MOCs, and the [[dashboard]].
 
 ---
 

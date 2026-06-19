@@ -3,8 +3,6 @@ title: Prompt Injection
 aliases: [prompt injection, jailbreaking, indirect injection]
 type: concept
 domain: security
-priority: P0
-roadmap_ref: "3.2.1"
 status: stub
 tags: [security, ai-security, prompt-injection]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > An attack where adversarial instructions — placed directly or hidden in retrieved/tool content — hijack an LLM's behavior, the top security risk for agentic and RAG systems.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|Security & Compliance]] · **Roadmap:** §3.2.1
+**Domain:** [[tier-1-edge|Security & Compliance]]
 
 ## What it is
 

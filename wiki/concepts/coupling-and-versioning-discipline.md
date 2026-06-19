@@ -3,8 +3,6 @@ title: Coupling and Versioning Discipline
 aliases: [loose coupling, API versioning, contract testing]
 type: concept
 domain: integration
-priority: P1
-roadmap_ref: "6.3"
 status: stub
 tags: [integration, coupling, versioning, contracts]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The practices that keep systems independently evolvable — minimizing coupling, managing API versions deliberately, and verifying compatibility through contract testing.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-2-solid|Integration & API Architecture]] · **Roadmap:** §6.3
+**Domain:** [[tier-2-solid|Integration & API Architecture]]
 
 ## What it is
 

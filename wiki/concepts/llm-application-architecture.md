@@ -3,8 +3,6 @@ title: LLM Application Architecture
 aliases: [LLM app stack, LLM application stack]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.3"
 status: stub
 tags: [ai-agentic, llm, architecture]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The end-to-end stack for building LLM-powered applications — model access, retrieval, context assembly, memory, orchestration, and guardrails — and the design choices that connect them.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.3
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 

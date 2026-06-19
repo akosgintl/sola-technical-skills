@@ -3,8 +3,6 @@ title: CI/CD Pipeline Architecture
 aliases: [CI/CD, continuous integration, continuous delivery, progressive delivery]
 type: concept
 domain: platform
-priority: P1
-roadmap_ref: "4.4"
 status: stub
 tags: [platform, cicd, delivery, deployment]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The design of automated build, test, and deployment pipelines that move code from commit to production safely and repeatedly, including progressive delivery strategies.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-2-solid|Platform Engineering & IaC]] · **Roadmap:** §4.4
+**Domain:** [[tier-2-solid|Platform Engineering & IaC]]
 
 ## What it is
 

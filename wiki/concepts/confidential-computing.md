@@ -3,8 +3,6 @@ title: Confidential Computing
 aliases: [confidential computing, TEE, trusted execution environment, PET]
 type: concept
 domain: emerging
-priority: P3
-roadmap_ref: "9.4"
 status: stub
 tags: [emerging, security, privacy, tee]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Protecting data while it is being processed by running computation inside hardware-based trusted execution environments that shield it from the host and operator.
 
-**Priority:** 🟢 P3 · **Domain:** [[tier-3-watch|Emerging & Adjacent]] · **Roadmap:** §9.4
+**Domain:** [[tier-3-watch|Emerging & Adjacent]]
 
 ## What it is
 

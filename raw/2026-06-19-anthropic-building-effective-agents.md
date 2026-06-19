@@ -3,8 +3,6 @@ title: Building Effective Agents (Anthropic)
 aliases: [building effective agents]
 type: source
 domain: ai-agentic
-priority: ""
-roadmap_ref: ""
 status: seed
 tags: [source, agents, orchestration, workflows]
 updated: 2026-06-19

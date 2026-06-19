@@ -3,8 +3,6 @@ title: Retrieval-Augmented Generation
 aliases: [RAG, retrieval augmented generation, retrieval-augmented generation]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.3.1"
 status: mature
 tags: [llm, retrieval, vector-search, rag, grounding, reranking, graphrag, embeddings]
 updated: 2026-06-19
@@ -21,9 +19,9 @@ sources:
 # Retrieval-Augmented Generation
 
 > [!summary]
-> **RAG** grounds an LLM's output in an external corpus retrieved at query time, rather than relying solely on parametric (trained-in) knowledge. The classic pipeline is *chunk → embed → retrieve → (rerank) → generate with citations*. In 2026 the naive version of that pipeline is a commodity; the architect's value has moved up-stack to the hard parts: **retrieval quality** (hybrid search, contextual chunking, late-interaction rerankers), **agentic/iterative retrieval** loops, **GraphRAG** for multi-hop and global questions, faithful **citation/attribution**, and the strategic call of **RAG vs. long-context vs. fine-tuning**. RAG is not a model feature — it is a *system* whose quality is dominated by the retrieval layer, not the generator.
+> **RAG** grounds an LLM's output in an external corpus retrieved at query time, rather than relying solely on parametric (trained-in) knowledge. The classic pipeline is *chunk → embed → retrieve → (rerank) → generate with citations*. The naive version of that pipeline is a commodity; the value has moved up-stack to the hard parts: **retrieval quality** (hybrid search, contextual chunking, late-interaction rerankers), **agentic/iterative retrieval** loops, **GraphRAG** for multi-hop and global questions, faithful **citation/attribution**, and the strategic call of **RAG vs. long-context vs. fine-tuning**. RAG is not a model feature — it is a *system* whose quality is dominated by the retrieval layer, not the generator.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.3.1 · part of [[llm-application-architecture]]
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 
@@ -40,15 +38,15 @@ The canonical flow:
 
 Every stage is a design surface. The difference between a demo and a production system lives almost entirely in stages 1, 4, and 5 — the retrieval, not the generation.
 
-## Why it matters (2026, senior architect lens)
+## Why it matters
 
-Three reasons a veteran invests here over chasing the latest model:
+Three reasons to invest here over chasing the latest model:
 
 - **Retrieval is the dominant error source.** Most "hallucinations" in a RAG system are actually *retrieval failures* — the right chunk was never fetched, so the model confabulated. Anthropic's contextual-retrieval work reports that fixing the retrieval layer alone cut failures by ~49%, and ~67% with reranking added. You get more leverage from the retriever than from a bigger LLM.
 - **It is the cheapest, most governable way to ground an LLM in proprietary data.** Long-context prompting is ~20–24× more expensive per query at scale and doesn't give you provenance; fine-tuning bakes knowledge in opaquely and goes stale. For dynamic, citable, access-controlled data, RAG is still the default. The "RAG is dead" claims that follow every long-context release have not survived contact with production economics.
 - **RAG is the substrate for agents.** Agentic systems don't do one-shot retrieval — they *search, read, reason, re-search* in loops. RAG quality directly caps agent quality. See [[agentic-system-design]] and [[context-engineering]].
 
-The senior failure mode is treating RAG as a library call. It is a distributed retrieval system with its own SLOs, eval harness, and failure modes — closer in spirit to building search than to calling an API.
+The common failure mode is treating RAG as a library call. It is a distributed retrieval system with its own SLOs, eval harness, and failure modes — closer in spirit to building search than to calling an API.
 
 ## Key concepts / building blocks
 
@@ -66,7 +64,7 @@ The most under-rated lever. Options, roughly in order of sophistication:
 ### Embeddings & retrieval
 - **Dense (semantic)** — captures meaning; misses exact identifiers, SKUs, error codes, rare terms.
 - **Sparse / lexical (BM25)** — exact keyword match; strong precisely where dense fails.
-- **Hybrid** — run both, fuse scores (Reciprocal Rank Fusion is the workhorse). In 2026 hybrid is the assumed baseline, not an enhancement; dense-only retrieval is an anti-pattern for enterprise corpora full of identifiers.
+- **Hybrid** — run both, fuse scores (Reciprocal Rank Fusion is the workhorse). Hybrid is the assumed baseline, not an enhancement; dense-only retrieval is an anti-pattern for enterprise corpora full of identifiers.
 - **Multi-vector / late interaction (ColBERT)** — encode query and document as *token-level* embeddings and score with a MaxSim operator at search time. Document vectors precompute and cache; often beats dense+cross-encoder outright on identifier-heavy queries, at higher storage cost.
 
 ### Reranking
@@ -92,7 +90,7 @@ A two-stage pattern: cheap retriever pulls top ~50–100 candidates, then a heav
 | **RAG vs. long-context vs. fine-tuning** | See below — usually not exclusive. |
 
 ### RAG vs. long-context vs. fine-tuning
-The most common strategic question, and most teams get it wrong by treating it as either/or. The 2026 consensus:
+The most common strategic question, and most teams get it wrong by treating it as either/or. The current consensus:
 
 - **RAG** when knowledge is large, dynamic, must be cited, or must stay governable/separable from the model. Default first choice for Q&A over proprietary data.
 - **Fine-tuning** when you need *behavior* — voice, format, decision policy, structured output — not new facts; or when a fine-tuned small model is dramatically cheaper at high volume. "Fine-tune for how the model behaves, RAG for what it knows."
@@ -101,7 +99,7 @@ The most common strategic question, and most teams get it wrong by treating it a
 
 > [!warning] "Just use a 1M-token window" is a prototyping convenience, not an architecture. It does not give provenance, blows the cost budget at volume, and degrades on retrieval-in-the-middle. Long context complements RAG (fewer, richer chunks) — it does not replace it.
 
-## State of the art (2026)
+## State of the art
 
 - **Contextual retrieval is mainstream.** Prepending LLM-generated chunk context before embedding, combined with hybrid search and reranking, is the strong baseline — not an exotic technique.
 - **Agentic / iterative RAG is the dominant enterprise pattern.** Retrieval is embedded *inside* the model's reasoning loop: the agent decides *when* and *what* to retrieve, critiques its own evidence, and re-queries when confidence is low. Self-RAG (learned reflection tokens for adaptive retrieval) and Corrective RAG / CRAG (evaluate retrieved docs, take corrective action — e.g. web fallback — when they're weak) are the reference patterns. Reported gains: faithfulness ~0.95 vs. ~0.79 for naive RAG. This is RAG converging with [[agentic-system-design]] and [[multi-agent-orchestration]].

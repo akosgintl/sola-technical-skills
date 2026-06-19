@@ -3,8 +3,6 @@ title: Hybrid and On-Prem Topologies
 aliases: [hybrid cloud, on-premises architecture]
 type: concept
 domain: cloud
-priority: P1
-roadmap_ref: "2.2"
 status: stub
 tags: [cloud, hybrid, edge]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Architectures that combine public cloud with on-premises or edge infrastructure, driven by data gravity, latency, sovereignty, and existing investment.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-1-edge|Cloud Architecture]] · **Roadmap:** §2.2
+**Domain:** [[tier-1-edge|Cloud Architecture]]
 
 ## What it is
 

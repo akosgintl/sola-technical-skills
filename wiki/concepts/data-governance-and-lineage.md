@@ -3,8 +3,6 @@ title: Data Governance and Lineage
 aliases: [data governance, data lineage, data contracts, data catalog]
 type: concept
 domain: data
-priority: P1
-roadmap_ref: "5.3"
 status: stub
 tags: [data, governance, lineage, quality]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The policies, catalogs, contracts, and tracking that ensure data is discoverable, trustworthy, compliant, and traceable from origin to consumption.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-2-solid|Data Architecture]] · **Roadmap:** §5.3
+**Domain:** [[tier-2-solid|Data Architecture]]
 
 ## What it is
 

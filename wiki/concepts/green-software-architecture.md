@@ -3,8 +3,6 @@ title: Green Software Architecture
 aliases: [green software, sustainable software, sustainability, carbon-aware]
 type: concept
 domain: emerging
-priority: P3
-roadmap_ref: "9.7"
 status: stub
 tags: [emerging, sustainability, green, carbon]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Designing and operating software to minimize energy use and carbon emissions, treating sustainability as a measurable, first-class architectural quality.
 
-**Priority:** 🟢 P3 · **Domain:** [[tier-3-watch|Emerging & Adjacent]] · **Roadmap:** §9.7
+**Domain:** [[tier-3-watch|Emerging & Adjacent]]
 
 ## What it is
 

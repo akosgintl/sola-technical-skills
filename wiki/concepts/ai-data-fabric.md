@@ -3,8 +3,6 @@ title: AI Data Fabric
 aliases: [data fabric, AI data fabric]
 type: concept
 domain: data
-priority: P0
-roadmap_ref: "5.4"
 status: stub
 tags: [data, ai, fabric, ml-platform]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The unified data layer that feeds AI and ML systems — connecting vector stores, feature stores, and operational data into a coherent, governed substrate for inference and training.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-2-solid|Data Architecture]] · **Roadmap:** §5.4
+**Domain:** [[tier-2-solid|Data Architecture]]
 
 ## What it is
 

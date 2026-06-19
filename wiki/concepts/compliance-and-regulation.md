@@ -3,8 +3,6 @@ title: Compliance and Regulation
 aliases: [compliance, regulation, GDPR]
 type: concept
 domain: security
-priority: P1
-roadmap_ref: "3.3"
 status: stub
 tags: [security, compliance, regulation, privacy]
 updated: 2026-06-19
@@ -16,11 +14,11 @@ sources: []
 > [!summary]
 > Treating regulatory requirements — privacy laws, sector rules, and AI legislation — as design inputs rather than after-the-fact audits, so systems are compliant by construction.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-1-edge|Security & Compliance]] · **Roadmap:** §3.3
+**Domain:** [[tier-1-edge|Security & Compliance]]
 
 ## What it is
 
-Compliance and regulation is the architect's practice of folding legal and regulatory constraints into design decisions. Privacy regimes like GDPR shape data residency, minimization, and consent; regulated sectors (finance, health) impose auditability and control requirements; and emerging AI rules add transparency and risk-tiering obligations. Designing for compliance up front is far cheaper than retrofitting it.
+Compliance and regulation is the practice of folding legal and regulatory constraints into design decisions. Privacy regimes like GDPR shape data residency, minimization, and consent; regulated sectors (finance, health) impose auditability and control requirements; and emerging AI rules add transparency and risk-tiering obligations. Designing for compliance up front is far cheaper than retrofitting it.
 
 ## Key concepts
 

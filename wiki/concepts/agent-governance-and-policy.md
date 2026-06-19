@@ -3,8 +3,6 @@ title: Agent Governance and Policy
 aliases: [agent policy, agent allow-lists]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.2.2"
 status: stub
 tags: [ai-agentic, agents, governance, policy]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The rules, allow-lists, and audit mechanisms that constrain what agents may do and create a defensible record of what they did — the policy layer for autonomous actors.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.2.2
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 

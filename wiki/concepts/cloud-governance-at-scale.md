@@ -3,8 +3,6 @@ title: Cloud Governance at Scale
 aliases: [landing zones, cloud guardrails]
 type: concept
 domain: cloud
-priority: P1
-roadmap_ref: "2.4"
 status: stub
 tags: [cloud, governance, well-architected]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > The frameworks and controls — landing zones, Well-Architected reviews, and preventive guardrails — that keep a large, multi-account cloud estate secure, compliant, and cost-controlled.
 
-**Priority:** 🟠 P1 · **Domain:** [[tier-1-edge|Cloud Architecture]] · **Roadmap:** §2.4
+**Domain:** [[tier-1-edge|Cloud Architecture]]
 
 ## What it is
 

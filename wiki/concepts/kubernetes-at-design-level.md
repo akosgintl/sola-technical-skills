@@ -3,8 +3,6 @@ title: Kubernetes at the Design Level
 aliases: [Kubernetes, K8s]
 type: concept
 domain: cloud
-priority: P0
-roadmap_ref: "2.3.3"
 status: stub
 tags: [cloud, kubernetes, containers, orchestration]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Understanding Kubernetes as an architectural platform — its abstractions, extension model, and trade-offs — to make sound design calls rather than to operate clusters by hand.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|Cloud Architecture]] · **Roadmap:** §2.3.3
+**Domain:** [[tier-1-edge|Cloud Architecture]]
 
 ## What it is
 

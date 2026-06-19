@@ -3,8 +3,6 @@ title: Multi-Agent Orchestration
 aliases: [multi-agent systems, agent orchestration]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.1.1"
 status: draft
 tags: [ai-agentic, agents, orchestration, workflows]
 updated: 2026-06-19
@@ -23,7 +21,7 @@ sources:
 > patterns — reach for autonomous, dynamically-orchestrated agents only when the subtask graph
 > genuinely can't be predicted.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.1.1
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 
@@ -35,11 +33,11 @@ coherence or control. Per Anthropic's [[agentic-system-design|"Building Effectiv
 guidance, the foundational unit underneath all of this is the **augmented LLM** (a model with
 retrieval, tools, and memory), and the right default is the *simplest* composition that works.
 
-## Why it matters (2026, senior architect lens)
+## Why it matters
 
 Orchestration is where cost, latency, and reliability are won or lost. A predefined **workflow**
 gives you predictability, easy evaluation, and a debuggable code path; a dynamic **agent** buys
-flexibility at the price of non-determinism, token blow-up, and compounding errors. The senior
+flexibility at the price of non-determinism, token blow-up, and compounding errors. The key
 move is to **name the topology explicitly** and justify each step up the complexity ladder —
 not to default to "a swarm of agents" because it demos well. The same orchestration choices
 drive [[ai-gpu-economics|token economics]] and [[ai-agent-observability|observability]] burden.
@@ -75,7 +73,7 @@ planning independently with stopping conditions.
 | **One model vs. tiered** | Routing easy work to cheaper models saves cost but adds a classification failure surface. |
 | **How much autonomy** | Autonomy scales to open-ended tasks but raises cost and compounding-error risk — confine to trusted/sandboxed environments with guardrails. |
 
-## State of the art (2026)
+## State of the art
 
 The field has converged on Anthropic's framing: **start simple, add agents last.** Independent
 results reinforce restraint — under a fixed compute budget single agents often match multi-agent

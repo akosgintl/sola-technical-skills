@@ -3,8 +3,6 @@ title: Agents as System Citizens
 aliases: [agents as first-class actors]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.2"
 status: stub
 tags: [ai-agentic, agents, architecture]
 updated: 2026-06-19
@@ -16,7 +14,7 @@ sources: []
 > [!summary]
 > Treating agents as first-class actors in a system — with identities, permissions, quotas, and audit trails — rather than as ephemeral scripts, so they can be governed like any other principal.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.2
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 

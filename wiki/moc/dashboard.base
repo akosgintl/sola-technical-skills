@@ -3,28 +3,27 @@ filters:
     - file.folder == "wiki/concepts"
 views:
   - type: table
-    name: Ingest next — P0 stubs
+    name: Stubs by domain (ingest backlog)
     filters:
       and:
         - status == "stub"
-        - priority == "P0"
     order:
       - file.name
       - domain
-      - roadmap_ref
     sort:
       - property: domain
         direction: ASC
   - type: table
-    name: P1 stubs
+    name: In progress (draft / seed)
     filters:
-      and:
-        - status == "stub"
-        - priority == "P1"
+      or:
+        - status == "draft"
+        - status == "seed"
     order:
       - file.name
       - domain
-      - roadmap_ref
+      - status
+      - updated
   - type: table
     name: Mature (trusted, watch for staleness)
     filters:
@@ -33,15 +32,13 @@ views:
     order:
       - file.name
       - domain
-      - priority
       - updated
   - type: table
     name: All concepts by status
     order:
       - file.name
       - domain
-      - priority
       - status
     sort:
-      - property: priority
+      - property: status
         direction: ASC

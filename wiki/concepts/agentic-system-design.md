@@ -3,8 +3,6 @@ title: Agentic System Design
 aliases: [agentic architecture, agent system design, single-agent vs multi-agent, agent topologies]
 type: concept
 domain: ai-agentic
-priority: P0
-roadmap_ref: "1.1"
 status: mature
 tags: [agents, orchestration, multi-agent, llm, system-design, human-in-the-loop]
 updated: 2026-06-19
@@ -24,12 +22,12 @@ sources:
 > Agentic system design is the discipline of deciding **how many** LLM-driven agents
 > a problem needs, **how they are wired together** (sequential vs. parallel, flat vs.
 > hierarchical), **how control and context flow** between them, and **where humans sit**
-> in the loop. The senior architect's core judgment in 2026 is restraint: start with the
+> in the loop. The core judgment is restraint: start with the
 > simplest single-agent loop, add a workflow before adding an agent, and add a second
 > agent only when context isolation or true parallelism justifies the steep tax in
 > tokens, latency, debuggability, and failure surface that multi-agent buys you.
 
-**Priority:** 🔴 P0 · **Domain:** [[tier-1-edge|AI & Agentic Architecture]] · **Roadmap:** §1.1
+**Domain:** [[tier-1-edge|AI & Agentic Architecture]]
 
 ## What it is
 
@@ -53,15 +51,15 @@ component, and that is usually the right answer. The design space this page navi
 is: **single agent vs. multiple agents**, and if multiple, **what topology and what
 coordination contract** binds them.
 
-## Why it matters (2026, senior architect lens)
+## Why it matters
 
-Agentic design is where the most expensive architecture mistakes of 2026 are made,
+Agentic design is where the most expensive architecture mistakes are made,
 because the failure mode is *seductive*: a multi-agent demo looks sophisticated, maps
 neatly onto an org chart, and feels like good decomposition — then it ships and the
 context fragments, the token bill multiplies, and nobody can debug a non-deterministic
 five-agent conversation in production.
 
-The veteran's value here is **resisting premature distribution**. The same instinct that
+The key discipline here is **resisting premature distribution**. The same instinct that
 stops you from splitting a monolith into 30 microservices before you understand the
 domain should stop you from splitting one agent into a swarm. Anthropic's own guidance
 leads with *"find the simplest solution possible, and only increase complexity when
@@ -108,7 +106,7 @@ building blocks, in rough order of complexity:
 
 - **Orchestrator / lead-agent** — one agent owns the task and context, spawns isolated
   subagents, and integrates their summarized results. No peer-to-peer channel. This is
-  the 2026 consensus shape (see State of the art).
+  the current consensus shape (see State of the art).
 - **Planner–executor** — one agent plans, separate agents execute steps. Clean
   separation of "what" from "how"; the plan is an inspectable artifact.
 - **Hierarchical** — orchestrators of orchestrators; a tree (Google ADK's native shape).
@@ -182,29 +180,29 @@ wrong place — collapse them, or restructure so the orchestrator brokers the de
 - **Timeouts with safe defaults** — if a human approval or a sub-agent doesn't respond in
   the window, default to *reject / no-op*, never to "proceed."
 
-**Human-in-the-loop & the "delegate, review, own" stance.** The architect remains
+**Human-in-the-loop & the "delegate, review, own" stance.** You remain
 **accountable** for what the system does, regardless of how much it automates. Gate on
 *irreversibility and blast radius*, not on whim: financial transactions, data deletion,
 production changes, and outbound communications pass through an approval gate; read-only
 or trivially-reversible actions run autonomously. Synchronous gates suit safety-critical
 real-time actions; asynchronous (queue-based) gates scale review without blocking. The
-2026 regulatory backdrop makes this concrete — **EU AI Act Article 14** requires
+regulatory backdrop makes this concrete — **EU AI Act Article 14** requires
 demonstrable, *trained and provable* human oversight for high-risk systems, with an
 August 2026 compliance milestone. See [[human-in-the-loop-design]] and
 [[accountable-human-layer]].
 
-## State of the art (2026)
+## State of the art
 
 **The multi-agent debate has converged.** The polarized 2025 exchange — Cognition's
 *"Don't Build Multi-Agents"* vs. Anthropic's *"How we built our multi-agent research
-system"* — looked like a contradiction but resolved into a shared pattern by 2026:
+system"* — looked like a contradiction but resolved into a shared pattern:
 **an orchestrator that owns context and spawns *isolated* subagents, getting summaries
 back, with no peer-to-peer chatter.** Cognition's March 2026 *"Manage Devins"* coordinator
 adopts the same isolation argument it once used to caution against multi-agent designs.
 The disagreement was never really single vs. multi — it was *shared mutable context
 between peers* (fragile) vs. *isolated subagents under one orchestrator* (workable).
 
-**Framework landscape (2026):**
+**Framework landscape:**
 
 - **LangGraph** — the de-facto default for stateful, auditable production workflows.
   Explicit directed graph (nodes = agents/tools/checkpoints, edges = transitions),
@@ -221,7 +219,7 @@ between peers* (fragile) vs. *isolated subagents under one orchestrator* (workab
 **Interoperability is now table stakes.** [[agent-to-agent-protocols|A2A]] lets an ADK
 agent discover and invoke a LangGraph or CrewAI agent via a standard task interface, and
 [[model-context-protocol|MCP]] standardizes how any agent reaches tools and data.
-Increasingly the architect's job is wiring heterogeneous agents across frameworks, not
+Increasingly the job is wiring heterogeneous agents across frameworks, not
 picking one framework — see [[agents-as-system-citizens]].
 
 **Observability is the gating constraint on scale.** Non-deterministic, multi-step,
