@@ -9,6 +9,9 @@
     2. Orphan pages           - concept page with no inbound links and not in any MOC
     3. Index coverage gaps    - concept page on disk but not listed in index.md
     4. Stale mature pages     - status: mature with `updated:` older than -StaleMonths
+    5. House-style violations - priority/roadmap in frontmatter, year in heading, role framing
+    6. raw/ filename pattern  - files not matching YYYY-MM-DD-[series-[NN-]]slug.md
+    7. Broken sources: refs   - wiki pages citing a raw/ path that no longer exists
 
   Placeholder/example links in templates/ and CLAUDE.md are ignored by design
   (they demonstrate syntax, e.g. [[concept-one]], and are not real targets).
@@ -144,6 +147,53 @@ foreach ($f in $conceptFiles) {
   }
 }
 
+# --- [6] raw/ filename pattern (see CLAUDE.md §3): YYYY-MM-DD-*-slug.md ---
+$rawViol = @()
+$rawDir = Join-Path $Root 'raw'
+if (Test-Path $rawDir) {
+  Get-ChildItem -Path $rawDir -Filter '*.md' |
+    Where-Object { $_.BaseName -ne 'README' } |
+    ForEach-Object {
+      if ($_.Name -notmatch '^\d{4}-\d{2}-\d{2}(-[a-z0-9]+)*\.md$') {
+        $rawViol += $_.Name
+      }
+    }
+}
+
+# --- [7] broken sources: references in wiki concept pages ---
+$brokenSources = @()
+foreach ($f in $conceptFiles) {
+  $txt = Get-Content -Raw -LiteralPath $f.FullName
+  $rel = $f.FullName.Substring($Root.Length).TrimStart('\','/')
+  $inSources = $false
+  foreach ($line in ($txt -split '\r?\n')) {
+    if ($line -match '^\s*sources\s*:\s*\[(.+)\]') {
+      foreach ($item in ($Matches[1] -split ',')) {
+        $item = $item.Trim().Trim("'").Trim('"')
+        if ($item -match '^raw/') {
+          $fullPath = Join-Path $Root ($item -replace '/', '\')
+          if (-not (Test-Path $fullPath)) {
+            $brokenSources += [pscustomobject]@{ source = $item; from = $rel }
+          }
+        }
+      }
+      $inSources = $false
+    } elseif ($line -match '^\s*sources\s*:\s*$') {
+      $inSources = $true
+    } elseif ($inSources -and $line -match '^\s*-\s+(.+)$') {
+      $item = $Matches[1].Trim().Trim("'").Trim('"')
+      if ($item -match '^raw/') {
+        $fullPath = Join-Path $Root ($item -replace '/', '\')
+        if (-not (Test-Path $fullPath)) {
+          $brokenSources += [pscustomobject]@{ source = $item; from = $rel }
+        }
+      }
+    } elseif ($inSources -and $line -notmatch '^\s*[-\s]') {
+      $inSources = $false
+    }
+  }
+}
+
 # --- house style (see CLAUDE.md §8): scan wiki/ pages only ---
 # templates/ and CLAUDE.md legitimately describe/illustrate the rules, so are excluded.
 $houseViol = @()
@@ -178,10 +228,18 @@ foreach ($s in ($stale | Sort-Object page)) { "      $($s.page)  (updated: $($s.
 "[5] House-style violations (no priority/roadmap, no year/role; see CLAUDE.md §8): $($houseViol.Count)"
 foreach ($h in ($houseViol | Sort-Object)) { "      $h" }
 ""
+"[6] raw/ filename pattern violations (expected YYYY-MM-DD-*-slug.md): $($rawViol.Count)"
+foreach ($v in ($rawViol | Sort-Object)) { "      $v" }
+""
+"[7] Broken sources: refs (raw/ path cited by wiki page but file missing): $($brokenSources.Count)"
+foreach ($x in ($brokenSources | Sort-Object from, source)) { "      $($x.source)  <- $($x.from)" }
+""
 "--------------------------------------------------------------"
-$fail = ($broken.Count -gt 0) -or ($houseViol.Count -gt 0)
-if (-not $fail) { " PASS: no broken links, no house-style violations." }
-else { " FAIL: $($broken.Count) broken link(s), $($houseViol.Count) house-style violation(s)." }
+$fail = ($broken.Count -gt 0) -or ($houseViol.Count -gt 0) -or ($brokenSources.Count -gt 0)
+$warn = ($rawViol.Count -gt 0)
+if (-not $fail -and -not $warn) { " PASS: no broken links, no house-style violations, no raw/ naming issues, no broken sources." }
+elseif ($fail) { " FAIL: $($broken.Count) broken link(s), $($houseViol.Count) house-style violation(s), $($brokenSources.Count) broken source ref(s)." }
+else { " WARN: $($rawViol.Count) raw/ filename violation(s) (not CI-blocking)." }
 "--------------------------------------------------------------"
 
 if ($fail) { exit 1 } else { exit 0 }

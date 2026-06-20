@@ -7,8 +7,8 @@ status: draft
 tags: [ai-agentic, graphrag, knowledge-graph, retrieval, rag, ontology]
 updated: 2026-06-20
 sources:
-  - raw/graphrag-01-production-engineer-agent.md
-  - raw/graphrag-02-agentic-graphrag.md
+  - raw/2026-06-20-graphrag-01-production-engineer-agent.md
+  - raw/2026-06-20-graphrag-02-agentic-graphrag.md
 ---
 
 # GraphRAG

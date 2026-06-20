@@ -69,6 +69,19 @@ real "folder structure."
 - **Page title** (`# H1`) is the human-readable name; the filename is the slug.
 - **Never rename a file** without updating every inbound `[[wikilink]]` (run a lint).
 
+**`raw/` filenames** follow a stricter pattern: `YYYY-MM-DD-[<series>-[NN-]]<slug>.md`
+
+| Component | Meaning | Required |
+|---|---|---|
+| `YYYY-MM-DD` | Ingestion date (not the article's publication date) | Always |
+| `<series>` | Shared prefix for related articles (e.g. `graphrag`, `anthropic`) | When ≥2 articles share a topic |
+| `NN` | Zero-padded sequence number (01, 02, …) | When series is ordered |
+| `<slug>` | Descriptive kebab-case title — no publisher suffix | Always |
+
+Examples: `2026-06-20-recursive-language-models.md`, `2026-06-20-graphrag-01-production-engineer-agent.md`
+
+Decide the series prefix and sequence numbers **before scraping** so no post-ingest renames are needed. The lint script enforces this pattern (Check [6]).
+
 ---
 
 ## 4. Frontmatter spec

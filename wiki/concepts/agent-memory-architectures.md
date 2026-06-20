@@ -7,10 +7,10 @@ status: draft
 tags: [ai-agentic, agent-memory, knowledge-graph, pole-o, rag, graphrag]
 updated: 2026-06-20
 sources:
-  - raw/graphrag-02-agentic-graphrag.md
-  - raw/graphrag-03-neo4j-agent-memory.md
-  - raw/graphrag-04-knowledge-graph-ontology.md
-  - raw/graphrag-05-keep-knowledge-graph-clean.md
+  - raw/2026-06-20-graphrag-02-agentic-graphrag.md
+  - raw/2026-06-20-graphrag-03-neo4j-agent-memory.md
+  - raw/2026-06-20-graphrag-04-knowledge-graph-ontology.md
+  - raw/2026-06-20-graphrag-05-keep-knowledge-graph-clean.md
 ---
 
 # Agent Memory Architectures

@@ -10,10 +10,23 @@ captured content. Compiled understanding lives in [`../wiki/`](../wiki/).
 - Meeting notes, transcripts (e.g. via the `yt-transcribe` skill)
 - Datasets, screenshots, diagrams
 
-## Convention
+## Naming convention
+
+**Pattern:** `YYYY-MM-DD-[<series>-[NN-]]<slug>.md`
+
+| Pattern | When | Example |
+|---|---|---|
+| `YYYY-MM-DD-<slug>.md` | Standalone article or source | `2026-06-20-recursive-language-models.md` |
+| `YYYY-MM-DD-<series>-NN-<slug>.md` | Ordered series on one topic | `2026-06-20-graphrag-01-production-engineer-agent.md` |
+
+Rules:
+- **Date = ingestion date** (not the source's publication date — publication date goes in frontmatter `pub_date:`).
+- **Series prefix** (e.g. `graphrag`) groups related articles; decide it *before* scraping.
+- **No publisher suffix** in the slug — publisher lives in frontmatter `source_url`.
+- The lint script (`scripts/lint.ps1`) enforces this pattern and flags violations.
+
+## File structure
 
 Each captured source gets a header from [`../templates/source-note.md`](../templates/source-note.md):
-metadata, key takeaways, and which `wiki/concepts/` pages it feeds. Keep one source per
-file, named `kebab-case` by title or `YYYY-MM-DD-slug` for dated material.
-
-Analysis and takeaways go *above* the captured raw content; the raw content stays verbatim.
+frontmatter, key takeaways, and a `feeds:` list of which `wiki/concepts/` pages it informs.
+The raw content stays verbatim below a separator line. Analysis lives above it.

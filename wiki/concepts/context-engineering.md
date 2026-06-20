@@ -6,7 +6,7 @@ domain: ai-agentic
 status: seed
 tags: [ai-agentic, llm, context]
 updated: 2026-06-20
-sources: [raw/recursive-language-models-decodingai.md]
+sources: [raw/2026-06-20-recursive-language-models.md]
 ---
 
 # Context Engineering
