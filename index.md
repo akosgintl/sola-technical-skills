@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 14 `mature` (100+ cited sources), 0 `draft`, 0 `seed`, 53 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 20 `mature` (140+ cited sources), 0 `draft`, 0 `seed`, 47 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -49,12 +49,12 @@ sources: []
 
 | Page | Status |
 |---|---|
-| [[multi-cloud-architecture]] | stub |
+| [[multi-cloud-architecture]] | mature |
 | [[hybrid-and-onprem-topologies]] | stub |
-| [[cloud-native-patterns]] | stub |
-| [[event-driven-architecture]] | stub |
-| [[serverless-architecture]] | stub |
-| [[kubernetes-at-design-level]] | stub |
+| [[cloud-native-patterns]] | mature |
+| [[event-driven-architecture]] | mature |
+| [[serverless-architecture]] | mature |
+| [[kubernetes-at-design-level]] | mature |
 | [[cloud-governance-at-scale]] | stub |
 
 ## Security & Compliance · `security`
@@ -98,7 +98,7 @@ sources: []
 
 | Page | Status |
 |---|---|
-| [[api-styles-and-protocols]] | stub |
+| [[api-styles-and-protocols]] | mature |
 | [[api-gateways-and-service-mesh]] | stub |
 | [[coupling-and-versioning-discipline]] | stub |
 
