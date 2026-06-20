@@ -3,7 +3,7 @@ title: GraphRAG
 aliases: [Graph RAG, graph retrieval-augmented generation, knowledge graph RAG]
 type: concept
 domain: ai-agentic
-status: draft
+status: mature
 tags: [ai-agentic, graphrag, knowledge-graph, retrieval, rag, ontology]
 updated: 2026-06-20
 sources:
@@ -109,6 +109,20 @@ The two-stage algorithm: Stage 1 runs text + semantic search, merges results via
 |---|---|
 | Postgres or MongoDB | ≤2–3 hop traversals; thousands of nodes; simpler ops; avoid multi-DB overhead |
 | Neo4j | Deep traversals; specialized graph algorithms (community detection, path finding); data exploration at scale |
+
+### GraphRAG vs. plain RAG — when to choose
+
+| Dimension | Plain [[retrieval-augmented-generation\|RAG]] | GraphRAG |
+|---|---|---|
+| **Query type** | Similarity ("find relevant paragraphs") | Relational ("who owns X? what caused Y? trace this dependency") |
+| **Knowledge structure** | Flat document corpus | Entity-relationship graph |
+| **Infrastructure cost** | Low (vector DB + chunker) | High (graph DB + ontology + extraction pipeline) |
+| **Retrieval latency** | Fast (single ANN lookup) | Slower (graph traversal, multi-hop) |
+| **Multi-hop reasoning** | Poor (requires re-querying) | Native (edge traversal) |
+| **Update cost** | Cheap (upsert chunks) | Moderate (entity normalization, dedup pipeline) |
+| **Best fit** | FAQ, document search, semantic similarity | Agent memory, org knowledge bases, incident analysis, dependency mapping |
+
+**Default choice:** start with plain RAG. Move to GraphRAG when queries require multi-entity relationships, traversal over ownership/dependency chains, or compounding agent memory across sessions.
 
 ### Real-time vs. historical context layering
 

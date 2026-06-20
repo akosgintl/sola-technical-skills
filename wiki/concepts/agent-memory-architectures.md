@@ -3,7 +3,7 @@ title: Agent Memory Architectures
 aliases: [agent memory, LLM memory, conversational memory]
 type: concept
 domain: ai-agentic
-status: draft
+status: mature
 tags: [ai-agentic, agent-memory, knowledge-graph, pole-o, rag, graphrag]
 updated: 2026-06-20
 sources:

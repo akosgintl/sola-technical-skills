@@ -50,6 +50,14 @@ Sources captured to `raw/graphrag-01` through `raw/graphrag-05` (articles 2026-0
 - Promoted [[context-engineering]] `stub → seed`: added the three-pattern comparison table (CAG / RAG / RLMs) and linked to the new page.
 - Updated `index.md`: added `[[recursive-language-models]] | draft`, bumped `[[context-engineering]]` to `seed`.
 
+## [2026-06-20] build | Wave 0 — 4 draft/seed pages promoted to mature
+
+- [[multi-agent-orchestration]] `draft → mature`: expanded "State of the art" with the MAST failure-taxonomy paper (41–87% multi-agent failure rates, specification/coordination/verification gaps), added 2026 framework landscape table (LangGraph GA v1.0.10, CrewAI v1.10.1, Claude Agent SDK v0.1.48, OpenAI Agents SDK, Strands, AutoGen); added 4 new sources.
+- [[context-engineering]] `seed → mature`: full rewrite from seed to a research-backed 8-source mature page. Added: context budget allocation (system/retrieved/history/generation zones), information ordering (U-shaped attention / lost-in-the-middle, Liu et al. arXiv:2307.03172 + calibration study arXiv:2406.16008), compression patterns (sliding window / hierarchical summarization / selective preservation), prompt caching design (cache_control breakpoints, 90% cost reduction), relevance selection (top-k, MMR, reranking, late chunking), ContextBudget runtime control (arXiv:2604.01664), AgentSwing adaptive routing (arXiv:2603.27490), LOCA-bench context-rot benchmark (arXiv:2602.07962). Anchored in Anthropic's Sept 2025 "Effective context engineering" post.
+- [[agent-memory-architectures]] `draft → mature`: content already at mature quality (3-tier memory, POLE+O ontology, 3-stage extraction, entity normalization, dream pipeline, 8 sources); status updated.
+- [[graphrag]] `draft → mature`: added GraphRAG vs. plain RAG decision table (query type / infrastructure cost / latency / multi-hop / best-fit dimensions); all cross-links to [[retrieval-augmented-generation]] and [[agent-memory-architectures]] verified; status updated.
+- Updated `index.md`: 10 mature pages (70+ cited sources), 0 draft, 0 seed.
+
 ## [2026-06-20] build | Gap analysis — 4 missing roadmap nodes added as stubs
 
 - Audited all 63 concept pages against `skill-set/2026/technology-skills.md`; found 4 roadmap nodes with no wiki page.

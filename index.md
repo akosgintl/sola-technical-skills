@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 6 `mature` (40+ cited sources), 4 `draft` (in-flight research), 1 `seed`, 56 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 10 `mature` (70+ cited sources), 0 `draft`, 0 `seed`, 57 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -28,7 +28,7 @@ sources: []
 | Page | Status |
 |---|---|
 | [[agentic-system-design]] | mature |
-| [[multi-agent-orchestration]] | draft |
+| [[multi-agent-orchestration]] | mature |
 | [[agent-to-agent-protocols]] | stub |
 | [[human-in-the-loop-design]] | stub |
 | [[agents-as-system-citizens]] | stub |
@@ -37,9 +37,9 @@ sources: []
 | [[llm-application-architecture]] | stub |
 | [[recursive-language-models]] | draft |
 | [[retrieval-augmented-generation]] | mature |
-| [[context-engineering]] | seed |
-| [[agent-memory-architectures]] | draft |
-| [[graphrag]] | draft |
+| [[context-engineering]] | mature |
+| [[agent-memory-architectures]] | mature |
+| [[graphrag]] | mature |
 | [[model-selection-and-routing]] | stub |
 | [[model-context-protocol]] | mature |
 | [[ai-evaluation-and-quality]] | stub |

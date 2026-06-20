@@ -3,11 +3,15 @@ title: Multi-Agent Orchestration
 aliases: [multi-agent systems, agent orchestration]
 type: concept
 domain: ai-agentic
-status: draft
-tags: [ai-agentic, agents, orchestration, workflows]
-updated: 2026-06-19
+status: mature
+tags: [ai-agentic, agents, orchestration, workflows, langgraph, crewai, sdk]
+updated: 2026-06-20
 sources:
   - "https://www.anthropic.com/engineering/building-effective-agents"
+  - "https://openreview.net/forum?id=fAjbYBmonr"
+  - "https://letsdatascience.com/blog/ai-agent-frameworks-compared"
+  - "https://presenc.ai/research/multi-agent-orchestration-frameworks-2026"
+  - "https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026"
 ---
 
 # Multi-Agent Orchestration
@@ -77,11 +81,28 @@ planning independently with stopping conditions.
 
 The field has converged on Anthropic's framing: **start simple, add agents last.** Independent
 results reinforce restraint — under a fixed compute budget single agents often match multi-agent
-systems, and large-scale trace studies find multi-agent frameworks failing at high rates from
-specification/coordination/verification gaps (see [[agentic-system-design]]). Frameworks
-(Claude Agent SDK, LangGraph, Strands, CrewAI) make orchestration easier but add abstraction
-that can obscure the underlying prompts; understand the code beneath them. Hand-offs and
-contracts between agents are covered in [[agent-to-agent-protocols]].
+systems, and the MAST study (Qiu et al., 2024; OpenReview:fAjbYBmonr) found multi-agent
+LLM systems failing 41–87% of the time, with failures clustering in three categories:
+specification gaps (ambiguous task decomposition), coordination gaps (hand-off breakdowns),
+and verification gaps (no agent checking whether the result is correct). See [[agentic-system-design]]
+for the full failure-mode taxonomy.
+
+**Framework landscape (mid-2026):**
+
+| Framework | Position | Production status |
+|---|---|---|
+| **LangGraph** | Complex, stateful orchestration; strongest persistence + checkpointing | GA v1.0.10 (Oct 2025 GA); dominant enterprise footprint |
+| **CrewAI** | Rapid multi-agent prototyping; broadest protocol support (MCP + A2A) | v1.10.1; 44,600+ GitHub stars; strongest demo-to-prototype ergonomics |
+| **Claude Agent SDK** | MCP-native development; in-process server model with lifecycle hooks | v0.1.48; best fit for Anthropic-native agentic stacks |
+| **OpenAI Agents SDK** | Simplicity-first; fastest path from zero to working agent | Stable; best for teams unfamiliar with orchestration |
+| **Strands (AWS)** | AWS-integrated serverless orchestration | Early GA; favored for Lambda-based agentic workflows |
+| **AutoGen** | Research-oriented; flexible role assignment | v0.4+; popular in academic and experimental contexts |
+
+Framework selection guidance: choose LangGraph when workflow complexity is the primary challenge;
+CrewAI when multi-agent collaboration is central; Claude Agent SDK when MCP integration and
+lifecycle management matter. All frameworks add abstraction that can obscure the underlying
+prompts — understand the code beneath them. Hand-offs and contracts between agents are covered
+in [[agent-to-agent-protocols]].
 
 ## Pitfalls & anti-patterns
 
@@ -104,3 +125,7 @@ contracts between agents are covered in [[agent-to-agent-protocols]].
 ## Sources
 
 - [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (workflows vs. agents; the five composable patterns; orchestrator-workers; ACI principles) — captured at [[2026-06-19-anthropic-building-effective-agents]]
+- Qiu, Y., et al. (2024). Why Do Multi-Agent LLM Systems Fail? MAST taxonomy (specification / coordination / verification gaps; 41–87% failure rates). OpenReview: https://openreview.net/forum?id=fAjbYBmonr
+- Let's Data Science. (2026). AI Agent Frameworks 2026: LangGraph vs CrewAI & More. https://letsdatascience.com/blog/ai-agent-frameworks-compared
+- Presenc AI. (2026). Multi-Agent Orchestration Frameworks 2026. https://presenc.ai/research/multi-agent-orchestration-frameworks-2026
+- Alice Labs. (2026). Best AI Agent Frameworks 2026: 7 Production-Tested Rankings. https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026
