@@ -50,6 +50,16 @@ Sources captured to `raw/graphrag-01` through `raw/graphrag-05` (articles 2026-0
 - Promoted [[context-engineering]] `stub → seed`: added the three-pattern comparison table (CAG / RAG / RLMs) and linked to the new page.
 - Updated `index.md`: added `[[recursive-language-models]] | draft`, bumped `[[context-engineering]]` to `seed`.
 
+## [2026-06-20] build | Gap analysis — 4 missing roadmap nodes added as stubs
+
+- Audited all 63 concept pages against `skill-set/2026/technology-skills.md`; found 4 roadmap nodes with no wiki page.
+- Created [[encryption-and-key-management]] `stub` (§3.1.3, security) — envelope encryption, KMS, HSM, mTLS, CMK, secrets management.
+- Created [[network-segmentation]] `stub` (§3.1.4, security) — VPC segmentation, security groups, Kubernetes Network Policy, eBPF enforcement, mTLS east-west.
+- Created [[dynamic-team-staffing]] `stub` (§9.2, emerging) — agentic throughput layer, human judgment gates, Team Topologies framing.
+- Created [[ai-architecture-certifications]] `stub` (§9.3, emerging) — vendor AI architect tracks (AWS/Azure/GCP), nascent agentic-AI programs, TOGAF extensions.
+- Updated `index.md`: all 67 concept pages now registered; roadmap coverage is complete (every §1–§9 + meta node has a page).
+- Priority upgrade queue identified (plan file): Wave 0 = promote 4 in-flight drafts; Wave 1 = ai-data-fabric + ai-gpu-economics cluster; Wave 2 = multi-cloud + cloud-native cluster; Wave 3 = reliability + streaming + data + CI/CD.
+
 ## [2026-06-19] build | House-style change — drop priority/roadmap, de-frame prose
 
 - Removed `priority` and `roadmap_ref` frontmatter from all wiki pages, MOCs, templates, index, and the source note; trimmed every concept context line to **Domain only**.

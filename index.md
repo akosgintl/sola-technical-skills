@@ -5,7 +5,7 @@ type: moc
 domain: mixed
 status: seed
 tags: [index, catalog]
-updated: 2026-06-19
+updated: 2026-06-20
 sources: []
 ---
 
@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 6 research-backed exemplar pages at `mature` (40+ cited sources total), 1 `draft` ([[multi-agent-orchestration]], ingested 2026-06-19), the rest `stub` and ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 6 `mature` (40+ cited sources), 4 `draft` (in-flight research), 1 `seed`, 56 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -63,6 +63,8 @@ sources: []
 |---|---|
 | [[zero-trust-architecture]] | stub |
 | [[iam-and-secrets-management]] | stub |
+| [[encryption-and-key-management]] | stub |
+| [[network-segmentation]] | stub |
 | [[ai-specific-security]] | mature |
 | [[prompt-injection]] | stub |
 | [[model-supply-chain-security]] | stub |
@@ -121,6 +123,8 @@ sources: []
 | Page | Status |
 |---|---|
 | [[vibe-coding-governance]] | stub |
+| [[dynamic-team-staffing]] | stub |
+| [[ai-architecture-certifications]] | stub |
 | [[confidential-computing]] | stub |
 | [[wasm-at-the-edge]] | stub |
 | [[post-quantum-cryptography]] | stub |
