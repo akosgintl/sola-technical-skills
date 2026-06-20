@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 26 `mature` (180+ cited sources), 1 `draft`, 0 `seed`, 40 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 30 `mature` (205+ cited sources), 1 `draft`, 0 `seed`, 36 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -61,12 +61,12 @@ sources: []
 
 | Page | Status |
 |---|---|
-| [[zero-trust-architecture]] | stub |
-| [[iam-and-secrets-management]] | stub |
+| [[zero-trust-architecture]] | mature |
+| [[iam-and-secrets-management]] | mature |
 | [[encryption-and-key-management]] | stub |
 | [[network-segmentation]] | stub |
 | [[ai-specific-security]] | mature |
-| [[prompt-injection]] | stub |
+| [[prompt-injection]] | mature |
 | [[model-supply-chain-security]] | stub |
 | [[compliance-and-regulation]] | stub |
 | [[ai-governance-frameworks]] | stub |
@@ -80,7 +80,7 @@ sources: []
 | [[policy-as-code]] | stub |
 | [[developer-experience]] | stub |
 | [[cicd-pipeline-architecture]] | mature |
-| [[software-supply-chain-security]] | stub |
+| [[software-supply-chain-security]] | mature |
 
 ## Data Architecture · `data`
 
