@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 30 `mature` (205+ cited sources), 1 `draft`, 0 `seed`, 36 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 34 `mature` (230+ cited sources), 1 `draft`, 0 `seed`, 32 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -77,7 +77,7 @@ sources: []
 |---|---|
 | [[infrastructure-as-code]] | mature |
 | [[ai-generated-iac-reviewer]] | mature |
-| [[policy-as-code]] | stub |
+| [[policy-as-code]] | mature |
 | [[developer-experience]] | stub |
 | [[cicd-pipeline-architecture]] | mature |
 | [[software-supply-chain-security]] | mature |
@@ -88,8 +88,8 @@ sources: []
 |---|---|
 | [[data-storage-paradigms]] | mature |
 | [[streaming-and-event-data]] | mature |
-| [[event-sourcing-and-cqrs]] | stub |
-| [[data-governance-and-lineage]] | stub |
+| [[event-sourcing-and-cqrs]] | mature |
+| [[data-governance-and-lineage]] | mature |
 | [[ai-data-fabric]] | mature |
 | [[vector-and-embedding-stores]] | mature |
 | [[feature-stores]] | mature |
@@ -99,7 +99,7 @@ sources: []
 | Page | Status |
 |---|---|
 | [[api-styles-and-protocols]] | mature |
-| [[api-gateways-and-service-mesh]] | stub |
+| [[api-gateways-and-service-mesh]] | mature |
 | [[coupling-and-versioning-discipline]] | stub |
 
 ## FinOps & Cost Architecture · `finops`
