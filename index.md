@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 10 `mature` (70+ cited sources), 0 `draft`, 0 `seed`, 57 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 14 `mature` (100+ cited sources), 0 `draft`, 0 `seed`, 53 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -90,9 +90,9 @@ sources: []
 | [[streaming-and-event-data]] | stub |
 | [[event-sourcing-and-cqrs]] | stub |
 | [[data-governance-and-lineage]] | stub |
-| [[ai-data-fabric]] | stub |
-| [[vector-and-embedding-stores]] | stub |
-| [[feature-stores]] | stub |
+| [[ai-data-fabric]] | mature |
+| [[vector-and-embedding-stores]] | mature |
+| [[feature-stores]] | mature |
 
 ## Integration & API Architecture · `integration`
 
@@ -107,7 +107,7 @@ sources: []
 | Page | Status |
 |---|---|
 | [[cloud-cost-modeling]] | stub |
-| [[ai-gpu-economics]] | stub |
+| [[ai-gpu-economics]] | mature |
 | [[cost-optimization-practice]] | stub |
 
 ## Observability & Reliability · `observability`
