@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 20 `mature` (140+ cited sources), 0 `draft`, 0 `seed`, 47 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 26 `mature` (180+ cited sources), 1 `draft`, 0 `seed`, 40 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -75,19 +75,19 @@ sources: []
 
 | Page | Status |
 |---|---|
-| [[infrastructure-as-code]] | stub |
+| [[infrastructure-as-code]] | mature |
 | [[ai-generated-iac-reviewer]] | mature |
 | [[policy-as-code]] | stub |
 | [[developer-experience]] | stub |
-| [[cicd-pipeline-architecture]] | stub |
+| [[cicd-pipeline-architecture]] | mature |
 | [[software-supply-chain-security]] | stub |
 
 ## Data Architecture · `data`
 
 | Page | Status |
 |---|---|
-| [[data-storage-paradigms]] | stub |
-| [[streaming-and-event-data]] | stub |
+| [[data-storage-paradigms]] | mature |
+| [[streaming-and-event-data]] | mature |
 | [[event-sourcing-and-cqrs]] | stub |
 | [[data-governance-and-lineage]] | stub |
 | [[ai-data-fabric]] | mature |
@@ -114,8 +114,8 @@ sources: []
 
 | Page | Status |
 |---|---|
-| [[observability-fundamentals]] | stub |
-| [[distributed-systems-reliability]] | stub |
+| [[observability-fundamentals]] | mature |
+| [[distributed-systems-reliability]] | mature |
 | [[ai-agent-observability]] | mature |
 
 ## Emerging & Adjacent · `emerging`
