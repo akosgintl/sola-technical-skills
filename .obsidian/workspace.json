@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/concepts/event-driven-architecture.md",
+                "file": "wiki/concepts/serverless-architecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "event-driven-architecture"
+              "title": "serverless-architecture"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "wiki/concepts/event-driven-architecture.md",
+                "file": "wiki/concepts/serverless-architecture.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for event-driven-architecture"
+              "title": "Backlinks for serverless-architecture"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "wiki/concepts/event-driven-architecture.md",
+                "file": "wiki/concepts/serverless-architecture.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from event-driven-architecture"
+              "title": "Outgoing links from serverless-architecture"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/concepts/event-driven-architecture.md",
+                "file": "wiki/concepts/serverless-architecture.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of event-driven-architecture"
+              "title": "Outline of serverless-architecture"
             }
           }
         ]
@@ -183,35 +183,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "b9f2dfea9b05cc7f",
+  "active": "d749fe9e08d16e19",
   "lastOpenFiles": [
-    "log.md.tmp.41428.f7d329cf713f",
-    "scripts/lint.ps1.tmp.41428.087f3b6af1b4",
-    "scripts/lint.ps1.tmp.41428.73a917e5244e",
-    "templates/moc.md.tmp.41428.364bbef27c39",
-    "templates/concept-page.md.tmp.41428.c99f3c7a6201",
-    "templates/concept-page.md.tmp.41428.f0ab5d4105e9",
-    "CLAUDE.md.tmp.41428.f236e2a86b30",
-    "CLAUDE.md.tmp.41428.07ef874200ca",
-    "CLAUDE.md.tmp.41428.342873882120",
-    "wiki/moc/dashboard.md.tmp.41428.88ab35c354c3",
-    "wiki/moc/00-roadmap.md.tmp.41428.20d6d218abd9",
-    "wiki/concepts/serverless-architecture.md",
-    "wiki/concepts/wasm-at-the-edge.md",
+    "log.md.tmp.38156.b3b94d72fbf6",
+    "index.md.tmp.38156.4be4bb3c17cd",
+    "wiki/concepts/agent-memory-architectures.md.tmp.38156.c55fa232dd7e",
+    "wiki/concepts/graphrag.md",
+    "raw/graphrag-05-keep-knowledge-graph-clean.md.tmp.38156.30f866dd3f4e",
+    "raw/graphrag-04-knowledge-graph-ontology.md.tmp.38156.daa077b48d48",
+    "raw/graphrag-03-neo4j-agent-memory.md.tmp.38156.270ca059ffc1",
+    "raw/graphrag-02-agentic-graphrag.md.tmp.38156.95f511aff4a2",
+    "raw/graphrag-01-production-engineer-agent.md.tmp.38156.c912d955227c",
+    "raw/graphrag-05-keep-knowledge-graph-clean.md",
+    "raw/graphrag-04-knowledge-graph-ontology.md",
+    "raw/graphrag-03-neo4j-agent-memory.md",
+    "raw/graphrag-02-agentic-graphrag.md",
+    "raw/graphrag-01-production-engineer-agent.md",
+    "log.md.tmp.38156.279e5b829eb7",
+    "wiki/concepts/context-engineering.md.tmp.38156.6bad9aa107b6",
+    "index.md.tmp.38156.52d84f209deb",
+    "wiki/concepts/recursive-language-models.md",
+    "raw/recursive-language-models-decodingai.md",
+    "wiki/moc/00-roadmap.md",
     "wiki/moc/tier-3-watch.md",
     "wiki/moc/tier-2-solid.md",
+    "wiki/concepts/vector-and-embedding-stores.md",
     "wiki/moc/tier-1-edge.md",
     "wiki/moc/meta-skills.md",
     "wiki/moc/dashboard.md",
-    "wiki/moc/00-roadmap.md",
-    "templates/source-note.md",
-    "templates/moc.md",
-    "templates/concept-page.md",
-    "wiki/concepts/api-gateways-and-service-mesh.md",
-    "raw/2026-06-19-anthropic-building-effective-agents.md",
-    "wiki/concepts/observability-fundamentals.md",
-    "wiki/concepts/event-driven-architecture.md",
-    "wiki/concepts/cloud-native-patterns.md",
-    "wiki/concepts/ai-data-fabric.md"
+    "wiki/concepts/ai-governance-frameworks.md",
+    "wiki/concepts/ai-gpu-economics.md",
+    "wiki/concepts/delegate-review-own.md",
+    "wiki/concepts/agentic-system-design.md",
+    "wiki/concepts/accountable-human-layer.md",
+    "wiki/concepts/llm-application-architecture.md",
+    "wiki/concepts/post-quantum-cryptography.md",
+    "wiki/concepts/trade-off-judgment.md",
+    "wiki/concepts/wasm-at-the-edge.md",
+    "wiki/concepts/zero-trust-architecture.md"
   ]
 }

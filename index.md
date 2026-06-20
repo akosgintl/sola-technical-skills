@@ -35,9 +35,11 @@ sources: []
 | [[agent-identity-and-access]] | stub |
 | [[agent-governance-and-policy]] | stub |
 | [[llm-application-architecture]] | stub |
+| [[recursive-language-models]] | draft |
 | [[retrieval-augmented-generation]] | mature |
-| [[context-engineering]] | stub |
-| [[agent-memory-architectures]] | stub |
+| [[context-engineering]] | seed |
+| [[agent-memory-architectures]] | draft |
+| [[graphrag]] | draft |
 | [[model-selection-and-routing]] | stub |
 | [[model-context-protocol]] | mature |
 | [[ai-evaluation-and-quality]] | stub |

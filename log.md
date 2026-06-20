@@ -33,6 +33,23 @@ Consistent prefixes keep it greppable: `## [YYYY-MM-DD] <ingest|query|lint|build
   workflow patterns + orchestrator-workers and the workflows-vs-agents distinction.
 - Updated `index.md` status; this is the worked example of the §9.1 ingest workflow.
 
+## [2026-06-20] ingest | GraphRAG & Knowledge Graph Agent Memory series (Decoding AI, 5 articles)
+
+Sources captured to `raw/graphrag-01` through `raw/graphrag-05` (articles 2026-01-20 through 2026-06-02, Anca Muscalagiu & Paul Iusztin).
+
+**Series arc:** architecture design (articles 1–2) → Neo4j memory system internals (article 3) → ontology design (article 4) → graph hygiene pipeline (article 5).
+
+- Created [[graphrag]] `draft` — covers: what GraphRAG is (data modeling problem, not retrieval algorithm), knowledge graph fundamentals, property graph vs RDF, two-phase generation (extraction → communities → summaries) + two-stage retrieval (RRF entry points → 2–3 hop traversal), bottom-up vs top-down, append-only vs mutable data models, DB selection (Postgres/MongoDB vs Neo4j), agentic GraphRAG via MCP `search_memory`/`write_memory` tools, production layering (graph=historical, MCP=real-time).
+- Promoted [[agent-memory-architectures]] `stub → draft` — covers: 3 memory tiers (short-term/long-term/reasoning) joined by 3 typed edges, POLE+O ontology (5 fixed base types + subtypes), `:Fact` and `:Preference` primitives, 3-stage extraction cascade (spaCy → GLiNER → LLM), entity resolution vs deduplication (critical distinction), weighted dedup scores, `:SAME_AS` pending edge pattern for human review, dream pipeline (nightly re-dedup). Grounded in `neo4j-labs/agent-memory` reference implementation.
+- Updated `index.md`: added `[[graphrag]] | draft`, bumped `[[agent-memory-architectures]]` to `draft`.
+
+## [2026-06-20] ingest | Recursive Language Models (Decoding AI / Paul Iusztin)
+
+- Source captured to `raw/recursive-language-models-decodingai.md` (article, 2026-04-07, grounded in arXiv:2512.24601).
+- Created [[recursive-language-models]] `draft` — new concept page covering: REPL-based data navigation, root controller + worker sub-model architecture, `llm_query()`/`FINAL()` primitives, production guardrails (`maxIterations`, `maxDepth`, `maxStdoutLength`, sandboxing), four use cases (large file parsing, codebase comprehension, legal/financial analysis, deep research), and the RLM vs. RAG vs. CAG decision framework.
+- Promoted [[context-engineering]] `stub → seed`: added the three-pattern comparison table (CAG / RAG / RLMs) and linked to the new page.
+- Updated `index.md`: added `[[recursive-language-models]] | draft`, bumped `[[context-engineering]]` to `seed`.
+
 ## [2026-06-19] build | House-style change — drop priority/roadmap, de-frame prose
 
 - Removed `priority` and `roadmap_ref` frontmatter from all wiki pages, MOCs, templates, index, and the source note; trimmed every concept context line to **Domain only**.
