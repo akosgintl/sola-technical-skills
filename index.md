@@ -5,7 +5,7 @@ type: moc
 domain: mixed
 status: seed
 tags: [index, catalog]
-updated: 2026-06-20
+updated: 2026-06-21
 sources: []
 ---
 
@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 38 `mature` (260+ cited sources), 1 `draft`, 0 `seed`, 28 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 39 `mature` (262+ cited sources), 1 `draft`, 0 `seed`, 28 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -28,6 +28,7 @@ sources: []
 | Page | Status |
 |---|---|
 | [[agentic-system-design]] | mature |
+| [[agentic-loop]] | mature |
 | [[multi-agent-orchestration]] | mature |
 | [[agent-to-agent-protocols]] | stub |
 | [[human-in-the-loop-design]] | mature |

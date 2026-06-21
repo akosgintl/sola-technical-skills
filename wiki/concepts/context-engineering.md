@@ -5,7 +5,7 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [ai-agentic, llm, context, context-window, prompt-engineering, rag, caching]
-updated: 2026-06-20
+updated: 2026-06-21
 sources:
   - "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
   - "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
@@ -15,6 +15,7 @@ sources:
   - "https://arxiv.org/abs/2604.01664"
   - "https://agentmarketcap.ai/blog/2026/04/11/agent-context-engineering-sliding-windows-memory-2026"
   - "https://blog.jetbrains.com/research/2025/12/efficient-context-management/"
+  - raw/2026-06-21-loop-engineering.md
 ---
 
 # Context Engineering
@@ -132,6 +133,8 @@ Context-aware adaptive routing is emerging: AgentSwing (arXiv:2603.27490) dynami
 
 LOCA-bench (arXiv:2602.07962) provides a reproducible benchmark for agent context degradation under extreme context growth — the first standardized measure of "context rot" in production-realistic multi-step tasks.
 
+By mid-2026, the leading edge has moved beyond per-call context decisions toward [[agentic-loop|loop engineering]]: designing loops in which the agent autonomously manages its own context cycles — loading skills, invoking tools, summarizing intermediate state — without per-step human prompting. Context engineering decisions (window budgeting, compression strategy, cache layout, skill density) remain essential; in loop architectures they become the substrate that loop designers specify once in skills and memory, rather than curating on every call.
+
 ## Pitfalls & anti-patterns
 
 **Context stuffing.** Dumping all available information into the context window assumes the model will filter it — but context rot and the lost-in-the-middle bias mean it won't. Summarize and select; don't trust the model to ignore irrelevant tokens.
@@ -146,6 +149,7 @@ LOCA-bench (arXiv:2602.07962) provides a reproducible benchmark for agent contex
 
 ## See also
 
+- [[agentic-loop]]
 - [[llm-application-architecture]]
 - [[retrieval-augmented-generation]]
 - [[recursive-language-models]]
@@ -164,3 +168,4 @@ LOCA-bench (arXiv:2602.07962) provides a reproducible benchmark for agent contex
 - AgentMarketCap. (2026-04-11). Agent Context Engineering 2026: Sliding Windows, Hierarchical Summarization, and Memory Offloading. https://agentmarketcap.ai/blog/2026/04/11/agent-context-engineering-sliding-windows-memory-2026
 - JetBrains Research. (2025-12). Cutting Through the Noise: Smarter Context Management for LLM-Powered Agents. https://blog.jetbrains.com/research/2025/12/efficient-context-management/
 - Wang, Y., et al. (2026). ContextBudget: Budget-Aware Context Management for Long-Horizon Search Agents. arXiv:2604.01664. https://arxiv.org/abs/2604.01664
+- François, L. (2026). Loop Engineering Explained. Towards AI / YouTube. raw/2026-06-21-loop-engineering.md
