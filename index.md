@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 34 `mature` (230+ cited sources), 1 `draft`, 0 `seed`, 32 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 67 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 38 `mature` (260+ cited sources), 1 `draft`, 0 `seed`, 28 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -30,10 +30,10 @@ sources: []
 | [[agentic-system-design]] | mature |
 | [[multi-agent-orchestration]] | mature |
 | [[agent-to-agent-protocols]] | stub |
-| [[human-in-the-loop-design]] | stub |
-| [[agents-as-system-citizens]] | stub |
+| [[human-in-the-loop-design]] | mature |
+| [[agents-as-system-citizens]] | mature |
 | [[agent-identity-and-access]] | stub |
-| [[agent-governance-and-policy]] | stub |
+| [[agent-governance-and-policy]] | mature |
 | [[llm-application-architecture]] | stub |
 | [[recursive-language-models]] | draft |
 | [[retrieval-augmented-generation]] | mature |
@@ -43,7 +43,7 @@ sources: []
 | [[model-selection-and-routing]] | stub |
 | [[model-context-protocol]] | mature |
 | [[ai-evaluation-and-quality]] | stub |
-| [[guardrails-and-output-validation]] | stub |
+| [[guardrails-and-output-validation]] | mature |
 
 ## Cloud Architecture · `cloud`
 

@@ -17,7 +17,7 @@ sources:
 # Multi-Cloud Architecture
 
 > [!summary]
-> Designing systems that intentionally span more than one cloud provider — for resilience, regulatory reach, best-of-breed capabilities, or cost negotiation. Over 82% of enterprises run on multiple clouds as of 2025, but the main failure mode is accidental multi-cloud: data in AWS, development tools in Azure, analytics in GCP, with no coherent portability or governance strategy. The senior architect's job is the judgment call — what to abstract vs. use natively, and when the complexity of avoiding lock-in costs more than the lock-in itself.
+> Designing systems that intentionally span more than one cloud provider — for resilience, regulatory reach, best-of-breed capabilities, or cost negotiation. Over 82% of enterprises run on multiple clouds as of 2025, but the main failure mode is accidental multi-cloud: data in AWS, development tools in Azure, analytics in GCP, with no coherent portability or governance strategy. The key judgment call is what to abstract vs. use natively, and when the complexity of avoiding lock-in costs more than the lock-in itself.
 
 **Domain:** [[tier-1-edge|Cloud Architecture]]
 
@@ -89,7 +89,7 @@ Architectural implications:
 - Design cross-cloud flows around event notifications (lightweight) rather than data replication (expensive)
 - Use a cloud-neutral object store (or accept provider-specific primary store) as the hub for multi-cloud data sharing
 
-### Multi-cloud GPU orchestration (2026 pattern)
+### Multi-cloud GPU orchestration
 
 AI training and inference workloads have driven a new multi-cloud pattern: dynamically scheduling GPU workloads across providers based on spot/preemptible capacity availability. Organizations running 5,000+ GPU jobs can arbitrage H100 spot pricing — which varies significantly between AWS, Azure, and GCP on any given day. Airbnb demonstrated 47% cost reduction orchestrating 12,000 GPUs across all three providers simultaneously. Tooling: Volcano, Run:AI, and custom Kubernetes schedulers with cross-cluster federation.
 

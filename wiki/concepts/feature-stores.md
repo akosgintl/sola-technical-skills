@@ -66,7 +66,7 @@ Feature stores handle point-in-time correctness automatically via time-travel qu
 
 A catalog of all defined features: name, schema, entity type, owner, description, data source, freshness SLA, and lineage. The registry makes feature discovery possible across teams and enables quality monitoring (freshness drift, statistical distribution shifts). Feast, Tecton, and Hopsworks all ship a registry; the registry is what converts a "data pipeline" into a "feature store."
 
-### The 5 differentiating criteria (2026)
+### The 5 differentiating criteria
 
 Not all feature stores are architecturally equivalent. The five dimensions that actually separate them:
 

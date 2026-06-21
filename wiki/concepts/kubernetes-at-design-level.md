@@ -113,7 +113,7 @@ The CNI (Container Network Interface) plugin implements the network: Cilium (eBP
 
 **Cilium with eBPF** is the 2026 default for performance-sensitive deployments: implements networking at the kernel level without per-packet user-space overhead, removing kube-proxy from the data path entirely. Also provides Layer 7 network policy and transparent encryption.
 
-### GPU scheduling for AI workloads (2026)
+### GPU scheduling for AI workloads
 
 AI inference and training on Kubernetes require:
 - **NVIDIA device plugin** — exposes GPU resources as schedulable Kubernetes resources (`nvidia.com/gpu: 1`)

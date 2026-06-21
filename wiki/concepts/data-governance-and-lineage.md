@@ -142,7 +142,7 @@ Who can access which data under what conditions:
 
 **Audit logging:** every data access event (who accessed what table, at what time, which rows were returned) is logged for compliance and anomaly detection.
 
-### AI asset governance (2026)
+### AI asset governance
 
 Data governance has extended to ML/AI assets — models are data artifacts with their own lineage, quality, and access requirements:
 

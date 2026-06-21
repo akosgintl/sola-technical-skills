@@ -83,7 +83,7 @@ The Gateway API is now implemented by Kong, Envoy Gateway, Istio, Cilium, Traefi
 - **Distributed tracing** — sidecars automatically propagate `traceparent` headers and emit spans
 - **Authorization policy** — L7 allow/deny rules ("service A may call service B on GET /api/resource only")
 
-### Service mesh landscape (2026)
+### Service mesh landscape
 
 | Mesh | Proxy | Architecture | Standout |
 |---|---|---|---|

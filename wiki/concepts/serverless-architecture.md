@@ -109,7 +109,7 @@ The cost model favors containers when:
 
 Rule of thumb: serverless is cheaper below ~1 million invocations/month at moderate memory; above that, benchmark against equivalent container costs.
 
-### Serverless-first architecture pattern (2026)
+### Serverless-first architecture pattern
 
 The 2026 standard pattern combines FaaS with BaaS backends:
 

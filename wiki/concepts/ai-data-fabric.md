@@ -104,7 +104,7 @@ Without lineage, AI governance is impossible: you cannot answer "which predictio
 
 Unity Catalog (Databricks) and Apache Atlas / OpenLineage provide the integration points for cross-platform lineage.
 
-### Agentic data pipelines (2026 trend)
+### Agentic data pipelines
 
 AI agents are beginning to manage and maintain data pipelines themselves — detecting schema drift, auto-healing broken ingest jobs, and proposing schema migrations. This is early-stage but signals a shift: the data fabric of 2027+ will be partly self-maintaining.
 

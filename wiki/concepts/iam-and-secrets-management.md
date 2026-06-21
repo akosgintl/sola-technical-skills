@@ -112,7 +112,7 @@ PAM governs the highest-risk access: production database root, cloud account adm
 - **Session recording:** privileged sessions recorded and auditable (CyberArk, BeyondTrust, Teleport for infrastructure access)
 - **Break-glass accounts:** emergency admin accounts that exist but are sealed; access triggers an alert and requires dual authorization
 
-### IAM for AI agents (2026)
+### IAM for AI agents
 
 AI agents introduce a new IAM challenge: they act with delegated user authority, may be long-running, and invoke tools with real-world impact. Traditional IAM patterns (roles, static permissions) do not adequately model agent behavior.
 
