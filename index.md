@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 43 `mature` (290+ cited sources), 1 `draft`, 0 `seed`, 24 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 47 `mature` (315+ cited sources), 1 `draft`, 0 `seed`, 20 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -135,8 +135,8 @@ sources: []
 
 | Page | Status |
 |---|---|
-| [[systems-thinking-over-syntax]] | stub |
-| [[trade-off-judgment]] | stub |
-| [[delegate-review-own]] | stub |
+| [[systems-thinking-over-syntax]] | mature |
+| [[trade-off-judgment]] | mature |
+| [[delegate-review-own]] | mature |
 | [[accountable-human-layer]] | stub |
-| [[t-shaped-depth]] | stub |
+| [[t-shaped-depth]] | mature |
