@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 47 `mature` (315+ cited sources), 1 `draft`, 0 `seed`, 20 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 51 `mature` (345+ cited sources), 1 `draft`, 0 `seed`, 16 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -64,12 +64,12 @@ sources: []
 |---|---|
 | [[zero-trust-architecture]] | mature |
 | [[iam-and-secrets-management]] | mature |
-| [[encryption-and-key-management]] | stub |
-| [[network-segmentation]] | stub |
+| [[encryption-and-key-management]] | mature |
+| [[network-segmentation]] | mature |
 | [[ai-specific-security]] | mature |
 | [[prompt-injection]] | mature |
 | [[model-supply-chain-security]] | stub |
-| [[compliance-and-regulation]] | stub |
+| [[compliance-and-regulation]] | mature |
 | [[ai-governance-frameworks]] | stub |
 
 ## Platform Engineering & IaC · `platform`
@@ -107,7 +107,7 @@ sources: []
 
 | Page | Status |
 |---|---|
-| [[cloud-cost-modeling]] | stub |
+| [[cloud-cost-modeling]] | mature |
 | [[ai-gpu-economics]] | mature |
 | [[cost-optimization-practice]] | stub |
 
