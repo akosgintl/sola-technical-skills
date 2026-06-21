@@ -9,7 +9,7 @@ updated: 2026-06-21
 source_url: https://www.youtube.com/watch?v=NjXIIH9vcv0
 source_type: transcript
 ingested: 2026-06-21
-feeds: [agentic-loop, prompt-engineering, context-engineering, agent-orchestration]
+feeds: [agentic-loop, context-engineering, multi-agent-orchestration]
 ---
 
 # Loop Engineering Explained
@@ -39,9 +39,8 @@ feeds: [agentic-loop, prompt-engineering, context-engineering, agent-orchestrati
 ## Feeds these wiki pages
 
 - [[agentic-loop]]
-- [[prompt-engineering]]
 - [[context-engineering]]
-- [[agent-orchestration]]
+- [[multi-agent-orchestration]]
 
 ---
 *Raw source. Immutable — do not edit the captured content below this line; add analysis above.*
