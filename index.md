@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 51 `mature` (345+ cited sources), 1 `draft`, 0 `seed`, 16 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 55 `mature` (369+ cited sources), 1 `draft`, 0 `seed`, 12 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -70,7 +70,7 @@ sources: []
 | [[prompt-injection]] | mature |
 | [[model-supply-chain-security]] | stub |
 | [[compliance-and-regulation]] | mature |
-| [[ai-governance-frameworks]] | stub |
+| [[ai-governance-frameworks]] | mature |
 
 ## Platform Engineering & IaC · `platform`
 
@@ -109,7 +109,7 @@ sources: []
 |---|---|
 | [[cloud-cost-modeling]] | mature |
 | [[ai-gpu-economics]] | mature |
-| [[cost-optimization-practice]] | stub |
+| [[cost-optimization-practice]] | mature |
 
 ## Observability & Reliability · `observability`
 
@@ -123,12 +123,12 @@ sources: []
 
 | Page | Status |
 |---|---|
-| [[vibe-coding-governance]] | stub |
+| [[vibe-coding-governance]] | mature |
 | [[dynamic-team-staffing]] | stub |
 | [[ai-architecture-certifications]] | stub |
 | [[confidential-computing]] | stub |
 | [[wasm-at-the-edge]] | stub |
-| [[post-quantum-cryptography]] | stub |
+| [[post-quantum-cryptography]] | mature |
 | [[green-software-architecture]] | stub |
 
 ## Meta-Skills · `meta`
