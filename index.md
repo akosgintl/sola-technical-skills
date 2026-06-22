@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 55 `mature` (369+ cited sources), 1 `draft`, 0 `seed`, 12 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 59 `mature` (415+ cited sources), 0 `draft`, 0 `seed`, 9 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -30,13 +30,13 @@ sources: []
 | [[agentic-system-design]] | mature |
 | [[agentic-loop]] | mature |
 | [[multi-agent-orchestration]] | mature |
-| [[agent-to-agent-protocols]] | stub |
+| [[agent-to-agent-protocols]] | mature |
 | [[human-in-the-loop-design]] | mature |
 | [[agents-as-system-citizens]] | mature |
 | [[agent-identity-and-access]] | mature |
 | [[agent-governance-and-policy]] | mature |
 | [[llm-application-architecture]] | mature |
-| [[recursive-language-models]] | draft |
+| [[recursive-language-models]] | mature |
 | [[retrieval-augmented-generation]] | mature |
 | [[context-engineering]] | mature |
 | [[agent-memory-architectures]] | mature |
@@ -68,7 +68,7 @@ sources: []
 | [[network-segmentation]] | mature |
 | [[ai-specific-security]] | mature |
 | [[prompt-injection]] | mature |
-| [[model-supply-chain-security]] | stub |
+| [[model-supply-chain-security]] | mature |
 | [[compliance-and-regulation]] | mature |
 | [[ai-governance-frameworks]] | mature |
 
@@ -138,5 +138,5 @@ sources: []
 | [[systems-thinking-over-syntax]] | mature |
 | [[trade-off-judgment]] | mature |
 | [[delegate-review-own]] | mature |
-| [[accountable-human-layer]] | stub |
+| [[accountable-human-layer]] | mature |
 | [[t-shaped-depth]] | mature |

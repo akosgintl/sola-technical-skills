@@ -3,10 +3,16 @@ title: Recursive Language Models
 aliases: [RLM, RLMs, recursive LM]
 type: concept
 domain: ai-agentic
-status: draft
+status: mature
 tags: [ai-agentic, llm, context-engineering, inference, orchestration]
-updated: 2026-06-20
-sources: [raw/2026-06-20-recursive-language-models.md]
+updated: 2026-06-22
+sources:
+  - https://arxiv.org/abs/2512.24601
+  - https://www.decodingai.com/p/recursive-language-models
+  - https://www.primeintellect.ai/blog/rlm
+  - https://dextralabs.com/blog/recursive-language-models-rlm/
+  - https://towardsdatascience.com/going-beyond-the-context-window-recursive-language-models-in-action
+  - raw/2026-06-20-recursive-language-models.md
 ---
 
 # Recursive Language Models
@@ -42,7 +48,7 @@ RLMs offer a third path: keep the data outside the window entirely and let the m
 
 **Root controller.** A frontier model that plans the reasoning process, writes exploration code, and coordinates sub-calls. It never reads raw data directly — only metadata and execution results enter its context.
 
-**Worker sub-models.** Cheaper, faster models spawned via `llm_query()` for specific localized sub-tasks. External tools (web search, file I/O) are given *only* to workers, keeping the root controller's context clean.
+**Worker sub-models.** Cheaper, faster models spawned via `llm_query()` for specific localised sub-tasks. External tools (web search, file I/O) are given *only* to workers, keeping the root controller's context clean.
 
 **`llm_query(prompt, chunk)` primitive.** The recursive call that spawns a worker. The system pauses REPL execution, runs the sub-call, and injects the result back as a REPL value.
 
@@ -52,7 +58,7 @@ RLMs offer a third path: keep the data outside the window entirely and let the m
 
 ## Design decisions & trade-offs
 
-**Root model tier.** Use a frontier model for the root controller — it is responsible for planning, code correctness, and synthesizing the final answer. The cost is amortized because worker sub-calls use cheaper models.
+**Root model tier.** Use a frontier model for the root controller — it is responsible for planning, code correctness, and synthesising the final answer. The cost is amortised because worker sub-calls use cheaper models. See [[model-selection-and-routing]] for the cost-quality triangle that informs this choice.
 
 **Recursive depth.** `maxDepth = 1` is usually sufficient; deeper recursion amplifies error propagation through the call tree.
 
@@ -79,9 +85,9 @@ The seminal paper is Zhang, Kraska & Khattab (2025), arXiv:2512.24601, from MIT 
 
 Benchmark: LongBench-v2 CodeQA — Qwen3-Coder with a Python REPL outperformed the base model on codebase comprehension tasks by decomposing questions into parallel sub-queries and aggregating results.
 
-The only production-ready implementation as of mid-2026 is **DSPy's `dspy.RLM` module** (`dspy.ai`). Claude Code and Cursor use summarization-based context compression, file-system state tracking, and progressive disclosure — a succession of agents connected by file state rather than a persistent shared REPL.
+The only production-ready implementation as of mid-2026 is **DSPy's `dspy.RLM` module** (`dspy.ai`). Claude Code and Cursor use summarisation-based context compression, file-system state tracking, and progressive disclosure — a succession of agents connected by file state rather than a persistent shared REPL. This pattern sits at the context-assembly and retrieval+memory layers of the [[llm-application-architecture]] five-layer stack.
 
-**Practical approximation without a true REPL:** load data into a directory with an `index.yaml` (URIs + 1–2 sentence summaries per file), expose it to the agent as metadata, and spawn focused subagents to read specific slices. The filesystem serves as a proxy for REPL state — slower but deployable today.
+**Practical approximation without a true REPL:** load data into a directory with an `index.yaml` (URIs + 1–2 sentence summaries per file), expose it to the agent as metadata, and spawn focused subagents to read specific slices. The filesystem serves as a proxy for REPL state — slower but deployable today. This maps to the [[multi-agent-orchestration]] fan-out pattern applied to document exploration, and when workers run as remote agents the [[agent-to-agent-protocols|A2A protocol layer]] applies.
 
 ## Pitfalls & anti-patterns
 
@@ -105,11 +111,14 @@ The only production-ready implementation as of mid-2026 is **DSPy's `dspy.RLM` m
 - [[agentic-system-design]] — orchestrator/worker patterns RLMs instantiate
 - [[multi-agent-orchestration]] — parallel sub-call coordination
 - [[agent-memory-architectures]] — REPL as a short-term memory mechanism
+- [[model-selection-and-routing]] — root controller vs. worker model tier selection
+- [[agent-to-agent-protocols]] — protocol layer when worker sub-models run as remote agents
 
 ## Sources
 
-- Zhang, A. L., Kraska, T., & Khattab, O. (2025). Recursive Language Models. arXiv:2512.24601. https://arxiv.org/abs/2512.24601
-- Iusztin, P. (2026-04-07). Your RAG Pipeline Is Overkill. Decoding AI. https://www.decodingai.com/p/recursive-language-models
-- Prime Intellect. (n.d.). Recursive Language Models: the paradigm of 2026. https://www.primeintellect.ai/blog/rlm
-- Dextra Labs. (n.d.). Why Recursive Language Models (RLMs) Beat Long-Context LLMs. https://dextralabs.com/blog/recursive-language-models-rlm/
-- Mansurova, M. (2026-03-30). Going Beyond the Context Window: Recursive Language Models in Action. Towards Data Science.
+- Zhang, A. L., Kraska, T., & Khattab, O. (2025). *Recursive Language Models.* arXiv:2512.24601. https://arxiv.org/abs/2512.24601
+- Iusztin, P. (2026-04-07). *Your RAG Pipeline Is Overkill.* Decoding AI. https://www.decodingai.com/p/recursive-language-models
+- Prime Intellect. (2026). *Recursive Language Models: the paradigm of 2026.* https://www.primeintellect.ai/blog/rlm
+- Dextra Labs. (2026). *Why Recursive Language Models (RLMs) Beat Long-Context LLMs.* https://dextralabs.com/blog/recursive-language-models-rlm/
+- Mansurova, M. (2026-03-30). *Going Beyond the Context Window: Recursive Language Models in Action.* Towards Data Science. https://towardsdatascience.com/going-beyond-the-context-window-recursive-language-models-in-action
+- raw/2026-06-20-recursive-language-models.md
