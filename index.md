@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 63 `mature` (463+ cited sources), 0 `draft`, 0 `seed`, 5 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 67 `mature` (511+ cited sources), 0 `draft`, 0 `seed`, 1 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -124,12 +124,12 @@ sources: []
 | Page | Status |
 |---|---|
 | [[vibe-coding-governance]] | mature |
-| [[dynamic-team-staffing]] | stub |
+| [[dynamic-team-staffing]] | mature |
 | [[ai-architecture-certifications]] | stub |
-| [[confidential-computing]] | stub |
-| [[wasm-at-the-edge]] | stub |
+| [[confidential-computing]] | mature |
+| [[wasm-at-the-edge]] | mature |
 | [[post-quantum-cryptography]] | mature |
-| [[green-software-architecture]] | stub |
+| [[green-software-architecture]] | mature |
 
 ## Meta-Skills · `meta`
 
