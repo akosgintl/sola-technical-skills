@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 59 `mature` (415+ cited sources), 0 `draft`, 0 `seed`, 9 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
+**Coverage:** 68 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page). 63 `mature` (463+ cited sources), 0 `draft`, 0 `seed`, 5 `stub` ready to ingest. See [[dashboard]] for what to ingest next.
 
 ---
 
@@ -51,12 +51,12 @@ sources: []
 | Page | Status |
 |---|---|
 | [[multi-cloud-architecture]] | mature |
-| [[hybrid-and-onprem-topologies]] | stub |
+| [[hybrid-and-onprem-topologies]] | mature |
 | [[cloud-native-patterns]] | mature |
 | [[event-driven-architecture]] | mature |
 | [[serverless-architecture]] | mature |
 | [[kubernetes-at-design-level]] | mature |
-| [[cloud-governance-at-scale]] | stub |
+| [[cloud-governance-at-scale]] | mature |
 
 ## Security & Compliance · `security`
 
@@ -79,7 +79,7 @@ sources: []
 | [[infrastructure-as-code]] | mature |
 | [[ai-generated-iac-reviewer]] | mature |
 | [[policy-as-code]] | mature |
-| [[developer-experience]] | stub |
+| [[developer-experience]] | mature |
 | [[cicd-pipeline-architecture]] | mature |
 | [[software-supply-chain-security]] | mature |
 
@@ -101,7 +101,7 @@ sources: []
 |---|---|
 | [[api-styles-and-protocols]] | mature |
 | [[api-gateways-and-service-mesh]] | mature |
-| [[coupling-and-versioning-discipline]] | stub |
+| [[coupling-and-versioning-discipline]] | mature |
 
 ## FinOps & Cost Architecture · `finops`
 
