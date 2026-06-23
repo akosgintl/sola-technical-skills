@@ -5,10 +5,13 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [agent-loops, agentic, loop-engineering, sub-agents, skills, automation]
-updated: 2026-06-21
+updated: 2026-06-23
 sources:
   - raw/2026-06-21-loop-engineering.md
   - "https://www.anthropic.com/engineering/building-effective-agents"
+  - raw/2026-06-23-decodingai-01-ai-workflows-vs-agents.md
+  - raw/2026-06-23-decodingai-06-agent-planning.md
+  - raw/2026-06-23-decodingai-07-react-agents.md
 ---
 
 # Agentic Loop
@@ -28,6 +31,8 @@ An agentic loop is an autonomous execution unit that contrasts with two older pa
 A loop is different because the **decision-maker is inside the loop**. The agent observes the current state, selects its next action, executes it, checks the outcome, and decides whether to continue, retry, roll back, or stop — without a human intervening between steps.
 
 The term **loop engineering** (popularized mid-2026 by Peter Steinberger, creator of OpenClaw, and independently confirmed by Boris Turney, who leads Claude Code at Anthropic) describes the practice of designing these loops rather than prompting agents directly. The practitioner's job shifts from "write the best prompt" to "design the trigger, define the verifiable goal, and build the skills and tools the loop will use."
+
+**The autonomy slider.** A useful framing: loops and workflows are not binary categories but points on a spectrum from fully controlled (all steps predefined, high predictability) to fully autonomous (model decides every step, high adaptability). Most production systems sit in the middle as deliberate hybrids — a deterministic workflow handles known request types; an agentic loop handles open-ended ones. The design decision is: how much autonomy does this specific task actually require? (See [[agentic-system-design]] for the workflow-vs-agent decision framework.)
 
 Every working agentic loop has two hard prerequisites:
 
@@ -56,6 +61,15 @@ Every working agentic loop has two hard prerequisites:
 | **Plugins / connectors** | Tools the agent can invoke (GitHub, Linear, Slack, databases) to create real-world effects |
 | **Sub-agents** | Separation of concerns: the writing agent ≠ the reviewing agent |
 | **Memory** | Persistence across runs; the loop remembers what the model has forgotten |
+
+### Internal planning: how the loop decides
+
+The decision-making inside a loop is governed by a [[agent-planning|planning pattern]]. Bare loops (observe → act without reasoning) fail at complex tasks because each action is locally chosen without a strategy. Two canonical planning patterns structure loop decisions:
+
+- **ReAct** (Reason + Act) — the loop interleaves explicit reasoning with action selection. The model generates a Thought, selects a [[llm-tool-use|tool]], observes the result, and reasons again. High interpretability; natural error recovery; adapts dynamically. The dominant pattern for exploratory loops.
+- **Plan-and-Execute** — the loop opens by generating a complete plan, validates it, then executes steps (potentially in parallel). More efficient for predictable tasks where parallelism matters; less adaptive to unexpected tool outputs.
+
+Modern reasoning models (Gemini 2.5, Claude with extended thinking) internalize planning into their inference process, making the Thought step implicit. For loops built on these models, explicit reasoning nodes are unnecessary — the model plans inside a single API call.
 
 ### Skills as the compounding lever
 
@@ -109,6 +123,7 @@ As of mid-2026, agentic loop patterns have reached production-grade tooling:
 - **OpenAI Codex** has a built-in agentic loop that runs autonomously until the stated task is complete, including work tree isolation.
 - **Anthropic Claude Code** supports work trees, sub-agent spawning, schedule-based automations, and persistent skills — all components of the 5+1 anatomy above.
 - **Cursor** supports automation-based loop patterns via its tool invocation and agent session infrastructure.
+- **LangGraph** implements the ReAct loop natively (model node + tools node + conditional edges), with built-in state management and HITL interrupt support.
 
 The paradigm shift was catalyzed by two independent public statements in mid-2026: Peter Steinberger (OpenClaw) stating that developers should no longer prompt agents but design loops, and Boris Turney (Claude Code, Anthropic) independently stating that his job is now to write loops, not prompts. The convergence from both the OpenAI and Anthropic ecosystems accelerated adoption.
 
@@ -126,9 +141,13 @@ Addy Osmani's 5+1 framework (automations, work trees, skills, plugins, sub-agent
 
 **Mistaking automation for a loop.** A fixed automation executes predetermined steps in order; it does not observe state or adapt. A loop's value comes from the decision-maker being inside the execution cycle. Building a sophisticated automation and calling it a loop produces none of the adaptability benefits.
 
+**No planning inside the loop.** A loop that reacts to observations without reasoning about strategy is a tool-calling loop, not an agent. See [[agent-planning]] for the planning patterns that give loops coherent multi-step reasoning.
+
 ## See also
 
 - [[context-engineering]]
+- [[agent-planning]]
+- [[llm-tool-use]]
 - [[multi-agent-orchestration]]
 - [[agent-memory-architectures]]
 - [[agentic-system-design]]
@@ -140,3 +159,6 @@ Addy Osmani's 5+1 framework (automations, work trees, skills, plugins, sub-agent
 
 - François, L. (2026). Loop Engineering Explained. Towards AI / YouTube. raw/2026-06-21-loop-engineering.md
 - Anthropic. (2025). Building effective agents. https://www.anthropic.com/engineering/building-effective-agents
+- Iusztin, P. (Decoding AI). AI Workflows vs Agents: The Autonomy Slider. raw/2026-06-23-decodingai-01-ai-workflows-vs-agents.md
+- Iusztin, P. (Decoding AI). Writing AI Agents From Scratch: Planning Is The Key. raw/2026-06-23-decodingai-06-agent-planning.md
+- Iusztin, P. (Decoding AI). Building Production ReAct Agents From Scratch. raw/2026-06-23-decodingai-07-react-agents.md

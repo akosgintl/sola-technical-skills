@@ -11,14 +11,10 @@
             "id": "b9f2dfea9b05cc7f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/concepts/serverless-architecture.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "serverless-architecture"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "wiki/concepts/serverless-architecture.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for serverless-architecture"
+              "title": "Backlinks"
             }
           },
           {
@@ -113,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "wiki/concepts/serverless-architecture.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from serverless-architecture"
+              "title": "Outgoing links"
             }
           },
           {
@@ -156,13 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/concepts/serverless-architecture.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of serverless-architecture"
+              "title": "Outline"
             }
           }
         ]
@@ -183,43 +176,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "d749fe9e08d16e19",
+  "active": "b9f2dfea9b05cc7f",
   "lastOpenFiles": [
-    "log.md.tmp.38156.ef8f1fa784d4",
-    "index.md.tmp.38156.a27d76419580",
-    "index.md.tmp.38156.3c8c5f75e8d4",
-    "index.md.tmp.38156.3f40b2b72e4b",
-    "index.md.tmp.38156.1220c0a20767",
-    "index.md.tmp.38156.5d8d6a998c1d",
-    "wiki/concepts/cicd-pipeline-architecture.md.tmp.38156.b0b164ddf849",
-    "wiki/concepts/infrastructure-as-code.md.tmp.38156.912b39e8f538",
-    "wiki/concepts/data-storage-paradigms.md.tmp.38156.13c9dd743b45",
-    "wiki/concepts/streaming-and-event-data.md.tmp.38156.051ab0cc0cd9",
-    "wiki/concepts/distributed-systems-reliability.md.tmp.38156.b338cbaacc80",
+    "log.md.tmp.78668.e600f4b10493",
+    "index.md.tmp.78668.a4de1f52cb4e",
+    "wiki/concepts/rag-query-understanding.md",
+    "wiki/concepts/rag-query-understanding.md.tmp.78668.374d4d66a621",
+    "wiki/concepts/retrieval-augmented-generation.md.tmp.78668.4ec8a26468a8",
+    "raw/2026-06-22-edi-09-vague-questions.md",
+    "raw/2026-06-22-edi-09-vague-questions.md.tmp.78668.7e555b402f16",
+    "raw/2026-06-22-edi-08-dispatching.md",
+    "raw/2026-06-22-edi-08-dispatching.md.tmp.78668.2bbeb83c8e63",
+    "raw/2026-06-22-edi-07-question-parser-fields.md",
+    "raw/2026-06-22-edi-07-question-parser-fields.md.tmp.78668.22f254cded96",
+    "raw/2026-06-22-edi-06-question-parsing-intro.md",
+    "raw/2026-06-22-edi-06-question-parsing-intro.md.tmp.78668.b6bdec139d87",
+    "raw/2026-06-22-edi-05-technique-selection.md",
+    "raw/2026-06-22-edi-05-technique-selection.md.tmp.78668.7dffe5875548",
+    "raw/2026-06-22-edi-04-rag-not-ml.md",
+    "raw/2026-06-22-edi-04-rag-not-ml.md.tmp.78668.d53d58b506c2",
+    "raw/2026-06-22-edi-03-rerankers.md",
+    "raw/2026-06-22-edi-03-rerankers.md.tmp.78668.8d9cbc2ef262",
+    "raw/2026-06-22-edi-02-embeddings-failure-modes.md",
+    "raw/2026-06-22-edi-01-baseline-rag.md",
+    "raw/2026-06-22-edi-00-series-intro.md",
+    "wiki/concepts/agentic-loop.md",
+    "raw/2026-06-21-loop-engineering.md",
+    "CLAUDE.md",
+    "wiki/concepts/model-context-protocol.md",
+    "wiki/concepts/ai-specific-security.md",
+    "wiki/concepts/ai-gpu-economics.md",
     "wiki/concepts/ai-architecture-certifications.md",
+    "wiki/concepts/accountable-human-layer.md",
+    "wiki/concepts/serverless-architecture.md",
     "wiki/concepts/dynamic-team-staffing.md",
     "wiki/concepts/network-segmentation.md",
     "wiki/concepts/encryption-and-key-management.md",
     "raw/2026-06-20-graphrag-05-keep-knowledge-graph-clean.md",
-    "raw/2026-06-20-graphrag-04-knowledge-graph-ontology.md",
-    "raw/2026-06-20-graphrag-03-neo4j-agent-memory.md",
-    "raw/2026-06-20-graphrag-02-agentic-graphrag.md",
-    "raw/2026-06-20-graphrag-01-production-engineer-agent.md",
-    "raw/2026-06-20-recursive-language-models.md",
-    "wiki/concepts/graphrag.md",
-    "raw/graphrag-05-keep-knowledge-graph-clean.md",
-    "raw/graphrag-04-knowledge-graph-ontology.md",
-    "raw/graphrag-03-neo4j-agent-memory.md",
-    "raw/graphrag-02-agentic-graphrag.md",
-    "raw/graphrag-01-production-engineer-agent.md",
-    "wiki/concepts/recursive-language-models.md",
-    "raw/recursive-language-models-decodingai.md",
-    "wiki/moc/00-roadmap.md",
-    "wiki/moc/tier-3-watch.md",
-    "wiki/moc/tier-2-solid.md",
-    "wiki/concepts/vector-and-embedding-stores.md",
-    "wiki/moc/tier-1-edge.md",
-    "wiki/moc/meta-skills.md",
-    "wiki/moc/dashboard.md"
+    "raw/2026-06-20-graphrag-04-knowledge-graph-ontology.md"
   ]
 }

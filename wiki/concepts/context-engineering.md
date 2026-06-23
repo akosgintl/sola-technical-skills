@@ -5,7 +5,7 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [ai-agentic, llm, context, context-window, prompt-engineering, rag, caching]
-updated: 2026-06-21
+updated: 2026-06-23
 sources:
   - "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
   - "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
@@ -16,6 +16,7 @@ sources:
   - "https://agentmarketcap.ai/blog/2026/04/11/agent-context-engineering-sliding-windows-memory-2026"
   - "https://blog.jetbrains.com/research/2025/12/efficient-context-management/"
   - raw/2026-06-21-loop-engineering.md
+  - raw/2026-06-23-decodingai-02-context-engineering.md
 ---
 
 # Context Engineering
@@ -31,11 +32,15 @@ Context engineering is the practice of designing the information architecture ar
 
 Anthropic's September 2025 post ["Effective context engineering for AI agents"](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) crystallized the field shift: building with language models had moved from *"find the right words"* (prompt engineering) to *"design the right information configuration"* — covering system prompts, retrieved documents, conversation history, tool outputs, and the interleaving of all of them. The key question is not what to say but what to show.
 
+Andrej Karpathy's operating system analogy is instructive: "LLMs are like a new kind of operating system, where the model acts as the CPU and its context window functions as the RAM." Context engineering manages what occupies this working memory — what gets loaded into the window for each computation, and what stays on disk (external memory, retrieval stores).
+
 ## Why it matters
 
 **Context failures dominate production agent issues.** A 2025–2026 analysis of enterprise AI deployments found that nearly 65% of agent failures were attributable to context drift or memory loss during multi-step reasoning — not model capability gaps.
 
 **More context ≠ better output.** The "lost in the middle" problem (Liu et al., 2023; arXiv:2307.03172) demonstrated a 30%+ accuracy drop on multi-document QA when the relevant document shifted from position 1 to position 10 in a 20-document context. A 2024 calibration study (arXiv:2406.16008) confirmed a U-shaped attention bias: models reliably attend to the start and end of context, while the middle competes against strong positional anchors.
+
+**Context decay.** Model performance drops significantly after approximately 32,000 tokens even with larger advertised windows — the advertised limit and the effective quality limit are not the same number.
 
 **Cost and latency are linear in token count.** Every token in the context window costs inference time and money. Context engineering is simultaneously a quality problem and a FinOps problem — the same decisions that improve output quality reduce per-call cost.
 
@@ -53,6 +58,18 @@ The context window is divided into competing zones, each with a cost:
 | Generation headroom | Space for the model's output | 10–20% |
 
 Budget each zone explicitly. When any zone grows, another must shrink. Without explicit budgeting, conversation history expands until it crowds out retrieved context.
+
+### The five context components
+
+Every context passed to an LLM in an agentic system is assembled from five dynamically composed elements (Iusztin, 2026):
+
+1. **System prompt** — core instructions, rules, agent persona, and behavioral constraints. The procedural memory encoded at design time.
+2. **Message history** — recent conversation exchanges including user inputs and the agent's prior reasoning (short-term working memory).
+3. **User preferences and past experiences** — personalized context retrieved from episodic memory stores (vector or graph databases). What the agent knows about this specific user.
+4. **Retrieved information** — factual knowledge pulled from knowledge bases or live APIs for the current query. The semantic memory layer — the core of [[retrieval-augmented-generation|RAG]].
+5. **Tool and output schemas** — definitions of available [[llm-tool-use|tools]] and response format constraints. Enables the model to select actions and produce structured output.
+
+These five elements are assembled dynamically per call. The user's query triggers retrieval from long-term memory sources (components 3 and 4), which combines with short-term context (component 2) to form the full window. After the response, new facts feed back into long-term storage.
 
 ### Information ordering
 
@@ -74,6 +91,14 @@ For long-running agents, verbatim history grows without bound. Three compression
 
 The 2026 production consensus is a layered approach: sliding window for the live session, hierarchical summarization for sessions older than N turns, memory offloading for long-term retention (see [[agent-memory-architectures]]).
 
+### Format optimization
+
+The format of injected content affects token efficiency independently of the content itself. YAML is approximately 66% more token-efficient than JSON for equivalent structured data — a material difference in high-volume pipelines where retrieved context is serialized at every call. XML tags and markdown headers add structural signal that models parse better than prose delimiters, reducing the model's "attention overhead" for finding section boundaries.
+
+### Context isolation (multi-agent)
+
+Splitting a complex problem across multiple specialized agents, each with a focused context window, is a context engineering strategy as much as an orchestration one. Separate contexts prevent interference — one agent's accumulated tool output doesn't crowd out another agent's retrieval. This is the primary context-engineering justification for [[agentic-system-design|multi-agent patterns]] in cases where isolated context windows are the actual benefit.
+
 ### Prompt caching
 
 Anthropic's prompt caching (available on Claude 3.x+) caches the KV state of the context prefix, delivering up to 90% cost reduction and 85% latency reduction on cache hits. The key design constraint: **the cached prefix must be stable across calls**. Long, dynamic system prompts that change per-request destroy cache efficiency.
@@ -92,6 +117,10 @@ Not all retrieved content is equally relevant. Relevance selection decisions:
 - **Maximal marginal relevance (MMR)** — penalize redundancy; prefer diverse, complementary chunks
 - **Query expansion** — rewrite the query before retrieval to surface more relevant results
 - **Late chunking** — chunk at retrieval time rather than ingestion time to preserve document-level embeddings
+
+### Tool context and the Gorilla benchmark
+
+Tool definitions consume context tokens — every schema, description, and parameter list loaded into the window is unavailable for retrieved content or history. The Gorilla Benchmark (UC Berkeley) found that "nearly all models perform worse when given more than one tool." The degradation stems from tool selection confusion when descriptions are ambiguous or overlapping. Context engineering implication: load only the tools relevant to the current task; design tool descriptions with distinctive, non-overlapping language; treat tool schema density as a first-class context budget item alongside retrieved content.
 
 ### Three patterns for large inputs
 
@@ -147,6 +176,8 @@ By mid-2026, the leading edge has moved beyond per-call context decisions toward
 
 **Treating context engineering as prompt engineering.** Context engineering is an architecture discipline: it involves data pipelines (chunking, embedding), storage (vector DBs, graph memory), runtime loops (summarization, retrieval), and cost modeling. It cannot be solved by rewriting the system prompt.
 
+**Over-formatted JSON context.** Injecting retrieved content as verbose JSON when YAML or structured markdown would convey the same information with 40–66% fewer tokens is a common token waste pattern. Format choice is a context engineering decision.
+
 ## See also
 
 - [[agentic-loop]]
@@ -157,6 +188,7 @@ By mid-2026, the leading edge has moved beyond per-call context decisions toward
 - [[graphrag]]
 - [[model-selection-and-routing]]
 - [[ai-gpu-economics]]
+- [[llm-tool-use]]
 
 ## Sources
 
@@ -169,3 +201,4 @@ By mid-2026, the leading edge has moved beyond per-call context decisions toward
 - JetBrains Research. (2025-12). Cutting Through the Noise: Smarter Context Management for LLM-Powered Agents. https://blog.jetbrains.com/research/2025/12/efficient-context-management/
 - Wang, Y., et al. (2026). ContextBudget: Budget-Aware Context Management for Long-Horizon Search Agents. arXiv:2604.01664. https://arxiv.org/abs/2604.01664
 - François, L. (2026). Loop Engineering Explained. Towards AI / YouTube. raw/2026-06-21-loop-engineering.md
+- Iusztin, P. (2026). Context Engineering Guide 101. Decoding AI. raw/2026-06-23-decodingai-02-context-engineering.md

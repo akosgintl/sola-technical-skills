@@ -5,7 +5,7 @@ type: moc
 domain: mixed
 status: seed
 tags: [index, catalog]
-updated: 2026-06-21
+updated: 2026-06-23
 sources: []
 ---
 
@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 69 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 1 ingest-sourced expansion. **69 `mature`** (534+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
+**Coverage:** 73 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 5 ingest-sourced expansions. **73 `mature`** (580+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
 
 ---
 
@@ -46,6 +46,10 @@ sources: []
 | [[model-context-protocol]] | mature |
 | [[ai-evaluation-and-quality]] | mature |
 | [[guardrails-and-output-validation]] | mature |
+| [[llm-structured-outputs]] | mature |
+| [[llm-tool-use]] | mature |
+| [[agent-planning]] | mature |
+| [[multimodal-document-processing]] | mature |
 
 ## Cloud Architecture · `cloud`
 

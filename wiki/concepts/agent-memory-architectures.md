@@ -5,12 +5,13 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [ai-agentic, agent-memory, knowledge-graph, pole-o, rag, graphrag]
-updated: 2026-06-20
+updated: 2026-06-23
 sources:
   - raw/2026-06-20-graphrag-02-agentic-graphrag.md
   - raw/2026-06-20-graphrag-03-neo4j-agent-memory.md
   - raw/2026-06-20-graphrag-04-knowledge-graph-ontology.md
   - raw/2026-06-20-graphrag-05-keep-knowledge-graph-clean.md
+  - raw/2026-06-23-decodingai-08-agent-memory.md
 ---
 
 # Agent Memory Architectures
@@ -22,7 +23,7 @@ sources:
 
 ## What it is
 
-Agent memory is the mechanism by which an agent accumulates knowledge beyond its context window and across session boundaries. Without it, every conversation starts from scratch and the agent loses preferences, relationships, and past reasoning patterns.
+Agent memory is the mechanism by which an agent accumulates knowledge beyond its context window and across session boundaries. Without it, every conversation starts from scratch and the agent loses preferences, relationships, and past reasoning patterns. As Paul Iusztin puts it: "Memory is the component that transforms a stateless chat application into a personalized agent."
 
 The evolution of agent memory follows an arc: plain RAG (retrieve from static corpus) → agentic RAG (agent decides when to retrieve) → **agent memory** (agent reads *and writes*, compounding knowledge over time).
 
@@ -34,7 +35,26 @@ The fundamental problem with simpler approaches:
 
 ## Key concepts / building blocks
 
-### Three memory tiers
+### Four memory types (functional taxonomy)
+
+A complementary taxonomy to the 3-tier architecture below — organized by *what* is stored and *where*:
+
+| Memory type | Description | Persistence |
+|---|---|---|
+| **Internal Knowledge** | The model's pre-trained world knowledge encoded in weights | Permanent, frozen at training time |
+| **Context Window** | The information slice passed during one inference call — the model's "reality" for that call | Ephemeral (one call) |
+| **Short-Term Memory** | Active context across a session: recent turns, working state, tool outputs | Session-scoped (volatile) |
+| **Long-Term Memory** | External persistent storage for cross-session personalization and accumulated facts | Persistent (disk) |
+
+The context window is not really "memory" in the durable sense — it is the interface through which all memory types are accessed. [[context-engineering]] is the discipline of assembling short-term memory + long-term retrieval into the right context window slice for each call.
+
+**Long-term memory subtypes** (by the nature of what is stored):
+
+- **Semantic memory** — individual facts and structured knowledge: `"User prefers vegetarian meals"`, product attributes, domain knowledge. The agent's encyclopedia. Stored as entities or fact nodes.
+- **Episodic memory** — past interactions with timestamps: what happened, when, and who was involved. Enables relationship continuity ("last Tuesday the user mentioned..."). Stored as event/interaction records.
+- **Procedural memory** — learned workflows and multi-step task patterns: the agent's muscle memory for repeatable processes. A monthly report procedure, a customer escalation workflow. Stored as reasoning traces or workflow templates.
+
+### Three memory tiers (graph architecture)
 
 The `neo4j-labs/agent-memory` reference architecture uses **1 graph, 3 tiers** joined by typed edges:
 
@@ -51,6 +71,33 @@ Three typed edges stitch the tiers together. These make every cross-tier questio
 | `:MENTIONS` | Short-term → long-term (a conversation references an entity) |
 | `:INITIATED_BY` | Reasoning → short-term (a reasoning trace was started by a conversation) |
 | `:TOUCHED` | Reasoning → long-term (a reasoning step read or modified an entity) |
+
+### Storage approaches for long-term memory
+
+Three approaches for persisting long-term memory, with different trade-offs:
+
+| Approach | Mechanism | Pros | Cons |
+|---|---|---|---|
+| **Raw Strings** | Natural language facts stored as text | Simple setup; preserves nuance and emotional tone | Imprecise retrieval; hard to update; no structural clarity about state changes |
+| **Entities (JSON/Structured)** | Typed records with fields and schemas | Precise field-level filtering; easy updates; ideal for semantic memory | Requires upfront schema design; rigid if data doesn't fit the structure |
+| **Knowledge Graphs** | Nodes and typed relationships in a graph DB | Complex relationship modeling; temporal awareness; auditable reasoning paths | Highest complexity/cost; difficult to convert from unstructured text; potentially slower retrieval |
+
+The choice depends on domain breadth and relationship complexity. For narrow vertical agents: "our data wasn't actually that big... we could retrieve relevant data with simple SQL queries" (Iusztin, 2026) — don't over-engineer the storage layer. For agents that accumulate knowledge across many users, conversations, and entities, knowledge graphs provide the relationship traversal and deduplication capabilities that flat stores cannot.
+
+### The memory cycle (10 steps)
+
+The full memory lifecycle in an agent system:
+
+1. **User input** — triggers the memory pipeline
+2. **Ingestion** — populates long-term memory via data pipelines or API calls (async, not in the call path)
+3. **Retrieval** — pulls relevant long-term memory into short-term using search tools
+4. **Short-term assembly** — combines retrieved facts with current user input, recent history, LLM output schema
+5. **Context engineering** — slices and formats short-term memory to fit the context window (see [[context-engineering]])
+6. **Inference** — passes the assembled window to the LLM for response generation
+7. **Loop** — LLM output fed back into short-term memory for next-turn context
+8. **Update from short-term** — new user facts extracted and written to long-term memory (episodic, semantic)
+9. **Update from external world** — continuous refresh of long-term memory via data pipelines
+10. **Persistence** — saves short-term session state for next session (enables conversation continuity)
 
 ### POLE+O ontology
 
@@ -131,6 +178,15 @@ No cross-store join logic. No orchestrator. One query engine.
 
 ## Design decisions & trade-offs
 
+### Storage approach selection
+
+Start with the simplest approach that satisfies the use case:
+- **Raw strings** work for prototype personalization with a small, focused knowledge domain.
+- **Entities (SQL/JSON)** are the right fit for most vertical AI agents — structured, queryable, and operationally simple.
+- **Knowledge graphs** are justified when entity relationships are complex, multi-hop traversal is required, or temporal modeling of relationships matters.
+
+Don't reach for a knowledge graph because it sounds sophisticated. Structured SQL entities cover most production vertical agent use cases.
+
 ### Single mutable collection vs. append-only log
 
 **Single mutable collection:** each extraction directly upserts into the queryable store. Real-time visibility, simpler ops, no audit trail. Best for most use cases.
@@ -161,13 +217,15 @@ The 0.85 / 0.95 dedup thresholds are not universal. Tune them based on:
 
 The `neo4j-labs/agent-memory` open-source SDK (Neo4j Labs, 2026) is the most complete reference implementation. It ships 3-tier memory, POLE+O ontology, a 3-stage extraction pipeline, composite entity resolver, SAME\_AS dedup pattern, and a 15-tool FastMCP server with 9 framework adapters (LangChain, LlamaIndex, etc.). The SDK exposes `MemoryClient.get_context()` that fuses all three tiers in one graph call.
 
-mem0 and cognee are alternative open-source agent memory solutions with slightly different resolution/dedup approaches.
+mem0 and cognee are alternative open-source agent memory solutions with slightly different resolution/dedup approaches. mem0 specializes in episodic memory compression and cross-session continuity for chatbot-style agents.
 
 As of mid-2026, Claude Code and similar harnesses use file-system memory (progressive disclosure over markdown files). As knowledge bases scale past tens of documents, performance degrades and a graph-backed memory layer becomes the right next step.
 
 ## Pitfalls & anti-patterns
 
 **Perfect-ontology paralysis.** Designing an exhaustive schema before running any extraction freezes the project. Start with generic POLE+O, ship, discover clashes from real data, extend incrementally.
+
+**Over-engineering the storage layer.** Building a knowledge graph for a narrow vertical agent whose data "wasn't actually that big" — a common mistake when simpler SQL queries would suffice. Match storage complexity to actual relationship and scale requirements.
 
 **Skipping the dream pipeline.** Parallel ingest creates invisible duplicate nodes that the live pipeline never compares. Without the nightly re-dedup pass, duplicates accumulate silently until the graph becomes untrustworthy.
 
@@ -188,6 +246,7 @@ As of mid-2026, Claude Code and similar harnesses use file-system memory (progre
 - [[model-context-protocol]] — MCP as the interface exposing `search_memory` and `write_memory` to agents
 - [[agentic-system-design]] — where memory fits in the broader agent architecture
 - [[human-in-the-loop-design]] — human review for uncertain dedup decisions
+- [[agentic-loop]] — the execution context that reads and writes agent memory each iteration
 
 ## Sources
 
@@ -195,6 +254,7 @@ As of mid-2026, Claude Code and similar harnesses use file-system memory (progre
 - Iusztin, P. (2026-05-19). Inside Neo4j's Agent Memory. Decoding AI. https://www.decodingai.com/p/understanding-neo4j-graph-agent-memory-system
 - Iusztin, P. (2026-05-26). Stop Chasing the Perfect Ontology. Decoding AI. https://www.decodingai.com/p/ship-a-knowledge-graph-ontology-in-5-minutes
 - Iusztin, P. (2026-06-02). How to Keep Your AI Agent's Knowledge Graph Clean. Decoding AI. https://www.decodingai.com/p/keep-knowledge-graph-clean
+- Iusztin, P. (2026). How Does Memory for AI Agents Work? Decoding AI. raw/2026-06-23-decodingai-08-agent-memory.md
 - Neo4j Labs. (2026). neo4j-labs/agent-memory. GitHub. https://github.com/neo4j-labs/agent-memory
 - Neo4j Labs. (n.d.). POLE+O Data Model. https://neo4j.com/labs/agent-memory/explanation/poleo-model/
 - Neo4j Labs. (n.d.). Entity Resolution and Deduplication. https://neo4j.com/labs/agent-memory/explanation/resolution-deduplication/
