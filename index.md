@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 73 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 5 ingest-sourced expansions. **73 `mature`** (580+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
+**Coverage:** 77 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 9 ingest-sourced expansions. **77 `mature`** (610+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
 
 ---
 
@@ -135,6 +135,10 @@ sources: []
 | [[wasm-at-the-edge]] | mature |
 | [[post-quantum-cryptography]] | mature |
 | [[green-software-architecture]] | mature |
+| [[spec-driven-development]] | mature |
+| [[ears-notation]] | mature |
+| [[spec-driven-development-tools]] | mature |
+| [[git-worktrees-parallel-agents]] | mature |
 
 ## Meta-Skills · `meta`
 
