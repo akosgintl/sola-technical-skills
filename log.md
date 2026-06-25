@@ -244,3 +244,11 @@ User supplied four research-report syntheses captured to `raw/2026-06-25-ssd01-0
 - Extended [[git-worktrees-parallel-agents]] `mature`: **four parallel strategies** (one-per-task / ensemble agents / pipeline stages / database isolation incl. Neon/PlanetScale branching); **agent-runtime security at scale** (shared-memory poisoning, container escape, resource exhaustion via cgroups, token-budget overage) as a layer worktrees don't cover; +2 sources; linked [[agents-as-system-citizens]].
 - Extended [[ears-notation]] `mature`: 2009 formalization (Mavin et al.); EARS as near-universal SDD requirements layer; Kiro SMT contradiction-detection enabled by EARS structure; +2 sources.
 - Lint clean (132 md files, 0 broken links/orphans). `index.md` unchanged (no new pages; still 77 mature).
+
+## [2026-06-25] ingest | github/spec-kit `spec-driven.md` — the Spec Kit methodology essay
+
+Ingested the canonical SDD methodology essay (distinct from the [[2026-06-25-sdd-03-github-spec-kit|repo capture]]). Its signature contribution — under-captured until now — is **Spec Kit's constitutional framework of nine numbered articles** and the **"power inversion"** framing. No new page; extended the existing cluster.
+
+- Captured to `raw/2026-06-25-sdd-09-spec-kit-constitution.md` (seed): the nine articles verbatim-grounded, the power inversion, executable specs, and the three "why now" trends.
+- Extended [[spec-driven-development]] `mature`: new **"The constitutional framework: Spec Kit's nine articles"** subsection (table — I Library-First, II CLI Interface, III Test-First/red-green, IV–VI project-defined, VII Simplicity/max-3-projects, VIII Anti-Abstraction, IX Integration-First), tied to the "code serves specifications" inversion, and explicitly distinguished from the security-oriented [[ai-specific-security|Constitutional SDD]] (architecture/quality vs. CWE/compliance — both put a versioned constitution upstream of generation). Added the `spec-driven.md` source to frontmatter + Sources.
+- `index.md` unchanged (no new pages; still 77 mature). Recommend a lint pass before commit.

@@ -10,6 +10,7 @@ sources:
   - https://arxiv.org/abs/2602.00180
   - https://developer.microsoft.com/blog/spec-driven-development-ai-native-engineering
   - https://github.com/github/spec-kit
+  - https://github.com/github/spec-kit/blob/main/spec-driven.md
   - https://www.ibm.com/think/topics/spec-driven-development
   - https://www.itential.com/resource/guide/spec-driven-development/
   - https://agentfactory.panaversity.org/docs/General-Agents-Foundations/spec-driven-development/three-levels-of-sdd
@@ -96,6 +97,22 @@ SDD is easy to demonstrate on greenfield ("0-to-1") work and much harder on exis
 
 SDD did not appear from nowhere. It is the AI-era descendant of **behavior-driven development** (Given/When/Then scenarios as executable specs), **contract-first** API design (OpenAPI/Protobuf as the authoritative interface), and formal **requirements engineering**. What is new is the executor: an LLM agent capable of turning a rich spec into a working implementation, which makes the spec-as-source ambition newly plausible. API-first development is SDD's most mature beachhead: Postman's 2025 survey reports 82% of organizations have adopted some level of API-first (up from 74% in 2024 and 66% in 2023), which means spec-first thinking is already standard operating procedure at the interface layer even where the broader methodology is new.
 
+### The constitutional framework: Spec Kit's nine articles
+
+The constitution layer is not just "write down your principles." [[spec-driven-development-tools|Spec Kit]]'s methodology essay (`spec-driven.md`) ships an opinionated, numbered **constitution of nine articles** — immutable architectural rules every generated system must obey. They encode a deliberate style: small, observable, test-first, and aggressively un-clever.
+
+| Article | Rule | What it forces |
+|---|---|---|
+| **I — Library-First** | "Every feature MUST begin its existence as a standalone library." | No feature welded directly into the app; each starts self-contained and independently testable. |
+| **II — CLI Interface** | Expose all library functionality via a CLI: text in, text out, JSON for structured data. | Observable, composable, scriptable units. |
+| **III — Test-First** | No implementation before tests are written, user-approved, and confirmed to **FAIL**. | Strict red-green TDD as a non-negotiable. |
+| **IV–VI — Project-Defined** | Intentionally blank slots (integration testing, observability, versioning, breaking changes). | Each project fills these in without breaking the nine-article skeleton. |
+| **VII — Simplicity** | Max **3 projects** initially; more needs documented justification. Avoid future-proofing. | Kills speculative architecture up front. |
+| **VIII — Anti-Abstraction** | Use frameworks **directly**; don't wrap them. Keep a single model representation. | No parallel DTO/domain mirrors, no homemade abstraction layers. |
+| **IX — Integration-First** | Real databases over mocks, real service instances over stubs. | Tests exercise real contracts, not fakes. |
+
+This is the embodiment of the essay's **"power inversion"**: *"specifications don't serve code — code serves specifications."* The articles are how the methodology keeps generated code from sprawling — the LLM is powerful enough to over-engineer convincingly, so the constitution pins it to a simple, testable shape *by construction*. Note this is a distinct sense of "constitution" from the security framing below: Spec Kit's articles govern **architecture and quality**; Constitutional SDD (next) governs **security and compliance**. Both share the move of putting a versioned, machine-readable constitution upstream of generation.
+
 ### Constitutional SDD: security by construction
 
 A notable 2026 extension (Marri, arXiv:2602.02584) embeds non-negotiable security principles into the **constitution** layer so that AI-generated code satisfies them *by construction rather than by inspection*. The constitution becomes a versioned, machine-readable document encoding constraints derived from CWE / MITRE Top 25 and regulatory frameworks, with enforcement levels stated in RFC 2119 semantics (MUST / SHOULD / MAY). The reported case study found constitutional constraints cut security defects by ~73% versus unconstrained generation with no significant velocity loss — a "shift-left" of security into the spec. For regulated domains (fintech, healthcare, automotive) this closes the gap between "the agent wrote it" and "we can prove it complies." See [[ai-specific-security]] and [[guardrails-and-output-validation]]. *(The 73% figure is a single case study, not a controlled result — see the evidence caveat below.)*
@@ -163,6 +180,7 @@ The academic side is nascent but active: Piskala's framing paper (arXiv:2602.001
 - Piskala, D. B. (2026). *Spec-Driven Development: From Code to Contract in the Age of AI Coding Assistants.* arXiv:2602.00180. https://arxiv.org/abs/2602.00180
 - Microsoft (2026). *Spec-Driven Development: A Spec-First Approach to AI-Native Engineering.* https://developer.microsoft.com/blog/spec-driven-development-ai-native-engineering
 - GitHub (2026). *Spec Kit — Toolkit for Spec-Driven Development.* https://github.com/github/spec-kit
+- GitHub (2026). *Spec-Driven Development* (`spec-driven.md` — the methodology essay, incl. the nine constitutional articles & "power inversion"). https://github.com/github/spec-kit/blob/main/spec-driven.md · captured: [[2026-06-25-sdd-09-spec-kit-constitution]]
 - IBM (2026). *What is Spec-Driven Development?* https://www.ibm.com/think/topics/spec-driven-development
 - Itential (2026). *Spec-Driven Development (SDD) — Fundamentals & Definitions.* https://www.itential.com/resource/guide/spec-driven-development/
 - Panaversity (2026). *The Three Levels of SDD.* https://agentfactory.panaversity.org/docs/General-Agents-Foundations/spec-driven-development/three-levels-of-sdd
