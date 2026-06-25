@@ -13,6 +13,8 @@ sources:
   - https://github.com/cameronsjo/spec-compare
   - https://www.verdent.ai/guides/multi-agent-coding-tools
   - https://github.com/Priivacy-ai/spec-kitty
+  - https://www.augmentcode.com/guides/agent-runtime-infrastructure-layer
+  - raw/2026-06-25-ssd01-02-research-report.md
 ---
 
 # Git Worktrees for Parallel AI Agents
@@ -46,9 +48,29 @@ The OpenSpec + OpenCode workflow (intent-driven.dev) is the clearest articulatio
 2. **Implement in worktrees.** Each sub-agent receives a spec-backed proposal and works in its own isolated worktree branch, sharing the object store. Verification happens *inside* the worktree: confirm the implementation matches the proposal's spec/design/tasks before it leaves the tree.
 3. **Merge → Archive, in that order, every time.** Merge the verified branch to main first, *then* archive (sync the delta specs back into the source-of-truth specs). Archiving before merging risks incomplete spec merges because other completed features aren't visible on main yet.
 
+### Four parallel-execution strategies
+
+Practitioner experience has crystallized into four recurring worktree patterns:
+
+1. **One worktree per task** — the default. Each agent gets a dedicated directory (`project-feature-auth/`, `project-bugfix-422/`); physical separation stops agents from seeing each other's half-written, uncompilable code.
+2. **Ensemble agents** — when the design is ambiguous, run the *same* spec in several worktrees, often with different competing models, then a human or verifier agent picks the best output. Trades compute for quality.
+3. **Pipeline stages** — agents pass a baton via branches: Analyst commits the spec → Implementor codes → Reviewer reviews → Tester writes tests. Preserves a clean, auditable, step-by-step history.
+4. **Database isolation** — the pattern teams forget until it bites. File isolation is useless if parallel agents share one local database: a destructive migration by agent A destroys agent B's running tests. The fix is a unique `.env.local` per worktree pointing at a dedicated store — a per-tree SQLite file for small systems, or **database branching** (Neon, PlanetScale) that gives each worktree a physical clone for enterprise Postgres.
+
 ### Per-agent environment isolation
 
-A worktree isolates files, but real parallel agents also need isolated *runtime*: separate dev-server ports, separate `node_modules`/virtualenvs (or a shared cache with per-tree state), and separate test databases. Mature setups script this — each worktree gets a unique port and its own ephemeral services — so agents can run and self-test concurrently without colliding.
+A worktree isolates files, but real parallel agents also need isolated *runtime*: separate dev-server ports, separate `node_modules`/virtualenvs (or a shared cache with per-tree state), and separate test databases (see database isolation above). Mature setups script this — each worktree gets a unique port and its own ephemeral services — so agents can run and self-test concurrently without colliding.
+
+### Agent-runtime security at scale
+
+As agents move from a developer's laptop to continuously running cloud fleets, file- and DB-level isolation is no longer enough. Platforms running many agents (e.g. Augment Cosmos) flag four kernel-level failure modes that worktrees do *not* address:
+
+- **Shared-memory poisoning** — without namespace isolation in the storage layer, one bad write corrupts every agent's memory.
+- **Container escape** — a shared host kernel is a real vulnerability when agents run arbitrary third-party tools.
+- **Resource exhaustion** — an agent stuck in a runaway loop will consume the host's memory unless capped by OS-level **cgroups**.
+- **Token-budget overage** — a three-tier limit (hard token cap, compaction threshold, pre-execution budget check) prevents a single faulty run from burning a month's API budget.
+
+These are [[agents-as-system-citizens|infrastructure concerns]], distinct from the git-level isolation worktrees provide — the two layers compose.
 
 ### Orchestration and cleanup
 
@@ -97,6 +119,7 @@ As of mid-2026, worktree-based parallelism has moved from a power-user trick to 
 - [[spec-driven-development]] — the coordination layer that tells each agent what to build
 - [[spec-driven-development-tools]] — Spec Kitty / OpenSpec and their worktree orchestration
 - [[multi-agent-orchestration]] — orchestrator-workers, the pattern worktrees execute for code
+- [[agents-as-system-citizens]] — the runtime/infrastructure isolation worktrees don't provide
 - [[vibe-coding-governance]] — governing the output of parallel autonomous agents
 - [[cicd-pipeline-architecture]] — where merged branches land and get gated
 
@@ -108,3 +131,5 @@ As of mid-2026, worktree-based parallelism has moved from a power-user trick to 
 - Jo, C. (2026). *spec-compare — git worktree analysis.* https://github.com/cameronsjo/spec-compare
 - Verdent AI (2026). *Multi-Agent Coding: Team Tools.* https://www.verdent.ai/guides/multi-agent-coding-tools
 - Priivacy-ai (2026). *Spec Kitty.* https://github.com/Priivacy-ai/spec-kitty
+- Augment Code (2026). *Agent Runtime: Infrastructure Layer Most Teams Underestimate.* https://www.augmentcode.com/guides/agent-runtime-infrastructure-layer
+- Research synthesis (ingested 2026-06-25): [[2026-06-25-ssd01-02-research-report]]

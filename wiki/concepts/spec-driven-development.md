@@ -15,6 +15,14 @@ sources:
   - https://agentfactory.panaversity.org/docs/General-Agents-Foundations/spec-driven-development/three-levels-of-sdd
   - https://arxiv.org/abs/2605.02455
   - https://www.augmentcode.com/guides/what-is-spec-driven-development
+  - https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html
+  - https://arxiv.org/abs/2602.02584
+  - https://brooker.co.za/blog/2026/04/09/waterfall-vs-spec.html
+  - https://www.epam.com/insights/ai/blogs/ai-trends-in-software-development
+  - raw/2026-06-25-ssd01-01-research-report.md
+  - raw/2026-06-25-ssd01-02-research-report.md
+  - raw/2026-06-25-ssd01-03-research-report.md
+  - raw/2026-06-25-ssd01-04-research-report.md
 ---
 
 # Spec-Driven Development
@@ -46,6 +54,12 @@ Constitution → Specify → Clarify → Plan → Tasks → Implement → Valida
 
 The human spends their attention on the constitution, spec, and plan; the assistant does the mechanical translation to code. This is the [[delegate-review-own|delegate / review / own]] discipline applied at the level of the whole feature rather than the individual completion.
 
+### Origins and lineage
+
+SDD crystallized across 2025 without a single inventor; several threads converged. Sean Grove (OpenAI), in his "The New Code" talk at the 2025 AI Engineer World's Fair, supplied the sharpest framing: developers keep generated code and throw the prompt away, which is "like shredding the source and version-controlling the binary" — so the durable, versioned *specification* should be the real artifact. Thoughtworks Distinguished Engineer Birgitta Böckeler then gave the field its working vocabulary in an October 2025 analysis (on martinfowler.com), naming the spec-first / spec-anchored / spec-as-source ladder. Andrej Karpathy — who coined "[[vibe-coding-governance|vibe coding]]" in February 2025 — reframed the professional practice by 2026 as **agentic engineering**: orchestrating fallible, stochastic agents against detailed, human-authored specs, with diff review, eval design, and security oversight as the core skills.
+
+The idea is older than the term. SDD is, as practitioner Bryan Finster put it, "not a revolution… it's just BDD with branding" — the branding's value is the reminder that specs should be *authoritative, not advisory*. Its roots run through [[ears-notation|requirements engineering]], Design by Contract (Meyer, 1992), model-driven engineering, specification by example / behavior-driven development (Given/When/Then), consumer-driven contracts, and contract-first API description (OpenAPI, Protobuf, AsyncAPI). What changed in 2025 is the executor: LLMs collapsed the cost of authoring and maintaining specs and supplied an agent that can actually turn a rich spec into working code — making spec-first viable at modern velocity, and making spec-as-source newly plausible.
+
 ## Why it matters
 
 **It fixes the failure mode of [[vibe-coding-governance|vibe coding]].** Vibe coding — accepting AI output without reading every line, using tests and observed behavior as the feedback signal — is fast but transfers all quality risk downstream to review and runtime. SDD keeps the velocity but relocates the human checkpoint to the spec, where a misunderstanding costs a sentence to fix rather than a refactor. The two are not opposites so much as the same velocity with the control point in a different place.
@@ -60,7 +74,7 @@ The human spends their attention on the constitution, spec, and plan; the assist
 
 ### The three levels of SDD
 
-The most useful mental model — appearing independently in Piskala's paper, Panaversity's "three levels," and the [[spec-driven-development-tools|spec-compare]] research — is a **maturity ladder** defined by how much authority the spec holds over the code:
+The most useful mental model — coined by Böckeler (Thoughtworks, October 2025) and echoed in Piskala's paper, Panaversity's "three levels," and the [[spec-driven-development-tools|spec-compare]] research — is a **maturity ladder** defined by how much authority the spec holds over the code:
 
 | Level | Spec's role | Code's role | What persists | Example tooling |
 |---|---|---|---|---|
@@ -80,7 +94,15 @@ SDD is easy to demonstrate on greenfield ("0-to-1") work and much harder on exis
 
 ### Relationship to BDD and contract-first
 
-SDD did not appear from nowhere. It is the AI-era descendant of **behavior-driven development** (Given/When/Then scenarios as executable specs), **contract-first** API design (OpenAPI/Protobuf as the authoritative interface), and formal **requirements engineering**. What is new is the executor: an LLM agent capable of turning a rich spec into a working implementation, which makes the spec-as-source ambition newly plausible.
+SDD did not appear from nowhere. It is the AI-era descendant of **behavior-driven development** (Given/When/Then scenarios as executable specs), **contract-first** API design (OpenAPI/Protobuf as the authoritative interface), and formal **requirements engineering**. What is new is the executor: an LLM agent capable of turning a rich spec into a working implementation, which makes the spec-as-source ambition newly plausible. API-first development is SDD's most mature beachhead: Postman's 2025 survey reports 82% of organizations have adopted some level of API-first (up from 74% in 2024 and 66% in 2023), which means spec-first thinking is already standard operating procedure at the interface layer even where the broader methodology is new.
+
+### Constitutional SDD: security by construction
+
+A notable 2026 extension (Marri, arXiv:2602.02584) embeds non-negotiable security principles into the **constitution** layer so that AI-generated code satisfies them *by construction rather than by inspection*. The constitution becomes a versioned, machine-readable document encoding constraints derived from CWE / MITRE Top 25 and regulatory frameworks, with enforcement levels stated in RFC 2119 semantics (MUST / SHOULD / MAY). The reported case study found constitutional constraints cut security defects by ~73% versus unconstrained generation with no significant velocity loss — a "shift-left" of security into the spec. For regulated domains (fintech, healthcare, automotive) this closes the gap between "the agent wrote it" and "we can prove it complies." See [[ai-specific-security]] and [[guardrails-and-output-validation]]. *(The 73% figure is a single case study, not a controlled result — see the evidence caveat below.)*
+
+### The living specification
+
+The spec-anchored level depends on the **living specification** — a spec versioned alongside code and kept honest by CI. **Spec drift** (divergence between written spec and actual behavior) is the failure mode it exists to prevent; the standard mitigation is enforcing spec validation in CI/CD (contract tests with Pact/Specmatic, property-based tests) so drift fails the build immediately rather than surfacing at a quarterly review. A spec that gates nothing decays into stale documentation.
 
 ## Design decisions & trade-offs
 
@@ -91,6 +113,8 @@ SDD did not appear from nowhere. It is the AI-era descendant of **behavior-drive
 **Over-specification is a real failure mode.** Microsoft's guidance — "treat specs as living documents, avoid over-specification" — warns against the opposite extreme: a spec so detailed it becomes a second implementation to maintain, with all the cost of code and none of the executability. The spec should pin down *intent and contracts*, not pre-write the code in prose.
 
 **Spec-first vs. spec-anchored as an organizational choice.** Spec-first is cheaper to adopt (no sync discipline) but the specs rot the moment code diverges, destroying their value as documentation. Spec-anchored demands the discipline to update the spec on every change — the same discipline that keeps ADRs and API docs honest, and the same place most teams fail. Choosing the level is really choosing how much sync discipline the team will sustain.
+
+**"Is this just waterfall?"** The most persistent criticism is that writing specs up front is a return to waterfall. AWS principal engineer Marc Brooker's rebuttal is the cleanest: SDD "isn't about pulling designs *up-front*, it's about pulling designs *up*" — making specs explicit, versioned, living artifacts from which implementation flows, while the iteration cycle stays Agile (hours, not quarters) and the artifact being iterated is the spec rather than the code. The criticism lands, though, when SDD is applied rigidly: Thoughtworks' Technology Radar rates SDD **"Assess," not "Adopt,"** explicitly warning against "a bias toward heavy up-front specification and big-bang releases." The defensible position is that SDD is iterative spec-then-generate, not frozen design — but only if the team actually keeps specs lean and the loop tight.
 
 ## State of the art
 
@@ -105,6 +129,8 @@ As of mid-2026 the SDD tooling landscape has consolidated around a handful of ap
 
 The academic side is nascent but active: Piskala's framing paper (arXiv:2602.00180) supplies the taxonomy and decision framework; SSDE (arXiv:2605.02455) tackles repository-level generation from structured specs. Both are positioning/pilot work rather than large empirical evaluations — the field is still defining its terms.
 
+**Adoption is real; the efficacy evidence is thin and contested.** The demand driver is clear: ~84% of developers use or plan to use AI tools (Stack Overflow 2025), yet trust in AI accuracy *fell* from 40% (2024) to 29% (2025), and the top frustration is "AI solutions that are almost right, but not quite" — precisely SDD's target. EPAM's 2026 trends piece predicts SDD will "dominate brownfield engineering," where legacy systems lack explicit intent. Vendor and case-study numbers are encouraging but not controlled: a financial-services OpenAPI case in the SDD paper reports a 75% cut in API integration cycle time; AWS reports large gains from Kiro at Delta Air Lines and Rackspace. Against this sit credible skeptics: Scott Logic's hands-on review found the reviewer "around ten times faster *without* SDD" on small tasks, and Marmelab ("The Waterfall Strikes Back") documented Spec Kit ballooning a trivial date-display feature into 8 files and ~1,300 lines of markdown. The honest summary: SDD's payoff is well-argued and directionally supported for complex, long-lived, multi-team, or regulated work, but controlled efficacy data specific to SDD barely exists — treat the headline percentages as illustrative, not proof.
+
 > [!tip]
 > A pragmatic adoption path (Microsoft's recommendation): pilot SDD on **one** misaligned, painful feature rather than mandating it everywhere. Keep the spec living (spec-anchored), write requirements in [[ears-notation|EARS]] so they double as test cases, and expand only where the value is obvious. Don't apply the full ceremony to throwaway work.
 
@@ -115,7 +141,9 @@ The academic side is nascent but active: Piskala's framing paper (arXiv:2602.001
 - **Vague specs at full speed.** SDD amplifies whatever you feed it. An ambiguous spec now yields confidently wrong code, fast. "Spec quality = output quality" is not a slogan; it is the load-bearing risk.
 - **Applying SDD universally.** Full SDD ceremony on trivial or exploratory work is pure overhead. Match the rigor level (spec-first / anchored / as-source) to the stakes.
 - **Skipping the clarify step.** The phase that resolves ambiguity *before* planning is the one most often dropped under time pressure — and it is precisely where SDD's value is created. Skipping it reduces SDD back to dressed-up vibe coding.
+- **Review overload ("markdown madness").** Tools can emit thousands of lines of spec/plan markdown for a modest feature, and "double code review" (reviewing both the spec *and* the generated code) can cost more than it saves. If review time doubles without fewer defects, you are over-specifying — pull back to the minimum that removes ambiguity.
 - **No human accountability for the spec.** The spec is now the contract; an unreviewed or auto-generated spec that no human owns reintroduces, at the contract level, exactly the risk SDD was meant to remove. See [[accountable-human-layer]].
+- **Forgetting LLM non-determinism.** The same spec can generate materially different code across runs, which can make diffs noisy and regressions hard to track. This is the unsolved core risk at the spec-as-source level; property-based testing (verifying invariants regardless of implementation) partially mitigates it.
 
 ## See also
 
@@ -126,6 +154,8 @@ The academic side is nascent but active: Piskala's framing paper (arXiv:2602.001
 - [[context-engineering]] — the spec as durable, structured agent context
 - [[delegate-review-own]] — the human discipline SDD scales to the feature level
 - [[accountable-human-layer]] — who owns the contract
+- [[ai-specific-security]] — where Constitutional SDD enforces security-by-construction
+- [[guardrails-and-output-validation]] — runtime checks that complement spec validation
 - [[developer-experience]] — SDD as a platform-level developer workflow
 
 ## Sources
@@ -138,3 +168,8 @@ The academic side is nascent but active: Piskala's framing paper (arXiv:2602.001
 - Panaversity (2026). *The Three Levels of SDD.* https://agentfactory.panaversity.org/docs/General-Agents-Foundations/spec-driven-development/three-levels-of-sdd
 - *LLM-Assisted Repository-Level Generation with Structured Spec-Driven Engineering (SSDE).* arXiv:2605.02455. https://arxiv.org/abs/2605.02455
 - Augment Code (2026). *What Is Spec-Driven Development? A Complete Guide.* https://www.augmentcode.com/guides/what-is-spec-driven-development
+- Böckeler, B. (2025). *Understanding Spec-Driven Development: Kiro, spec-kit, and Tessl.* martinfowler.com. https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html
+- Marri, S. R. (2026). *Constitutional Spec-Driven Development: Enforcing Security by Construction in AI-Assisted Code Generation.* arXiv:2602.02584. https://arxiv.org/abs/2602.02584
+- Brooker, M. (2026). *Spec Driven Development isn't Waterfall.* https://brooker.co.za/blog/2026/04/09/waterfall-vs-spec.html
+- EPAM (2026). *7 AI trends redefining software development workflows in 2026.* https://www.epam.com/insights/ai/blogs/ai-trends-in-software-development
+- Research syntheses (ingested 2026-06-25): [[2026-06-25-ssd01-01-research-report]], [[2026-06-25-ssd01-02-research-report]], [[2026-06-25-ssd01-03-research-report]], [[2026-06-25-ssd01-04-research-report]]

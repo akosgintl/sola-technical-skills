@@ -13,6 +13,8 @@ sources:
   - http://requirekit.ai/core-concepts/ears-notation/
   - https://visuresolutions.com/alm-guide/adopting-ears-notation/
   - https://sites.mdu.se/download/18.3f19ad5f18d548ea2e0187ba/1707230632933/An%20Experiment%20in%20Requirements%20Engineering%20and%20Testing%20using%20EARS%20Notation%20for%20PLC%20Systems.pdf
+  - raw/2026-06-25-ssd01-02-research-report.md
+  - raw/2026-06-25-ssd01-03-research-report.md
 ---
 
 # EARS Notation
@@ -24,7 +26,7 @@ sources:
 
 ## What it is
 
-EARS is a constraint, not a language. As Mavin's canonical reference puts it, EARS is "a mechanism to gently constrain textual requirements" — it keeps requirements in plain English but forces each one into one of a few fixed shapes. It emerged at Rolls-Royce PLC from the practical problem of analyzing airworthiness regulations for jet-engine control systems, where ambiguous requirements are a safety hazard.
+EARS is a constraint, not a language. As Mavin's canonical reference puts it, EARS is "a mechanism to gently constrain textual requirements" — it keeps requirements in plain English but forces each one into one of a few fixed shapes. It emerged at Rolls-Royce PLC from the practical problem of analyzing airworthiness regulations for jet-engine control systems, where ambiguous requirements are a safety hazard, and was formalized by Mavin and colleagues in a 2009 paper. A decade and a half later it found an unexpected second life as the requirements layer of [[spec-driven-development|AI-native development]] — nearly every major SDD tool uses EARS or a close variant.
 
 The whole method is **five patterns**, each a template with a designated keyword and a single normative verb, `shall`. One requirement expresses exactly one `shall`.
 
@@ -85,7 +87,7 @@ In [[spec-driven-development|spec-driven]] tooling, requirements are increasingl
 
 ## State of the art
 
-EARS is mature and stable as a notation; what changed in 2025–2026 is its adoption as the **default requirements layer of AI-native development**. Kiro (AWS) generates its `requirements.md` directly in EARS and runs an analysis pass for "inconsistencies, ambiguities, conflicting constraints, and gaps" before design. Tooling such as RequireKit and Visure Solutions now offer EARS authoring and linting, and EARS-aware patterns are appearing in [[spec-driven-development-tools|Spec Kit and OpenSpec]] specs. Empirical validation continues in safety-critical domains — e.g., a Mälardalen University study experimentally applied EARS to requirements engineering and testing for PLC control systems, reinforcing the requirement-to-test mapping that makes the notation attractive for SDD.
+EARS is mature and stable as a notation; what changed in 2025–2026 is its adoption as the **default requirements layer of AI-native development**. Kiro (AWS) generates its `requirements.md` directly in EARS and runs an analysis pass for "inconsistencies, ambiguities, conflicting constraints, and gaps" before design — in Kiro's case backed by SMT (satisfiability-modulo-theories) solvers that can detect logically contradictory requirements before any code is written, which is only tractable because EARS gives the requirements a parseable structure. Tooling such as RequireKit and Visure Solutions now offer EARS authoring and linting, and EARS-aware patterns are appearing in [[spec-driven-development-tools|Spec Kit and OpenSpec]] specs. Empirical validation continues in safety-critical domains — e.g., a Mälardalen University study experimentally applied EARS to requirements engineering and testing for PLC control systems, reinforcing the requirement-to-test mapping that makes the notation attractive for SDD.
 
 > [!tip]
 > When reviewing an EARS spec, scan for the keyword first. A requirement with no WHEN/WHILE/WHERE/IF that is *not* genuinely universal is a hidden conditional — the author dropped the trigger. And any sentence with two `shall`s should be split before it reaches implementation.

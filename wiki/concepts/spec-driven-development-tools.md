@@ -15,6 +15,11 @@ sources:
   - https://daily.dev/posts/understanding-spec-driven-development-kiro-spec-kit-and-tessl-wbu9w3aj6
   - https://www.augmentcode.com/tools/best-spec-driven-development-tools
   - https://www.augmentcode.com/tools/kiro-vs-antigravity
+  - https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html
+  - https://github.com/bmad-code-org/BMAD-METHOD
+  - raw/2026-06-25-ssd01-02-research-report.md
+  - raw/2026-06-25-ssd01-03-research-report.md
+  - raw/2026-06-25-ssd01-04-research-report.md
 ---
 
 # Spec-Driven Development Tools
@@ -55,21 +60,23 @@ This mirrors the three levels in [[spec-driven-development|SDD]] theory — the 
 | **Tessl** | Proprietary | Active | **Spec-as-Source**: edit spec, regenerate code; Framework + Registry | ✗ |
 | **BMad Method** | Open source | Stable (v6.x) | Enterprise framework, **~21 specialized agents** | ✗ |
 
-**GitHub Spec Kit** is the canonical open-source implementation. Its seven phases — `constitution → specify → clarify → plan → tasks → analyze → implement` — are exposed as `/speckit.*` slash commands and run across 30+ agents (Claude Code, Copilot, Cursor, Gemini CLI, Codex CLI). Artifacts are durable files: `.specify/memory/constitution.md`, `specs/<feature>/spec.md`, `plan.md`, `tasks.md`. Extensions/presets/bundles customize it. Battle-tested on greenfield; the `/speckit.clarify` step is a workaround for small changes, and there is no worktree support.
+**GitHub Spec Kit** is the canonical open-source implementation, open-sourced 2 September 2025 (Den Delimarsky / from John Lam's research) under MIT, and the breakout success of the category — roughly 110K GitHub stars by mid-2026 (up ~40K since February). Its seven phases — `constitution → specify → clarify → plan → tasks → analyze → implement` — are exposed as `/speckit.*` slash commands and run across 30+ agents (Claude Code, Copilot, Cursor, Gemini CLI, Codex, Windsurf, Zed). Artifacts are durable files: `.specify/memory/constitution.md`, `specs/<feature>/spec.md`, `plan.md`, `tasks.md`. The v0.10 line replaced `--ai` flags with an `--integration` system plus extensions/presets and an agent-skills install mode. GitHub explicitly frames it as "an experiment designed to test how well the methodologies behind SDD actually work," not a finished product. Battle-tested on greenfield; `/speckit.clarify` is a workaround for small changes, and there is no worktree support.
 
-**Kiro** (AWS) is the spec-first idea delivered as a full agentic IDE — GA since November 2025. Each feature is the [[ears-notation|EARS]]-based triple `requirements.md` / `design.md` / `tasks.md`, with requirements-first and design-first variants and an analysis pass for gaps and conflicts. Native IDE experience is its strength; like Spec Kit it lacks worktrees and is inefficient for tiny edits.
+**Kiro** (AWS) is the spec-first idea delivered as a full agentic IDE (a Code OSS / VS Code fork) — public preview July 2025, GA 17 November 2025, and positioned as the successor to Amazon Q Developer. It reportedly reached 250,000+ developers in its first three months. Each feature is the [[ears-notation|EARS]]-based triple `requirements.md` / `design.md` / `tasks.md`, plus "steering" files (product/tech/structure) and event-triggered hooks. Its distinctive capability is **formal requirements analysis** — using SMT (satisfiability-modulo-theories) solvers to detect specification contradictions before coding — alongside property-based testing that verifies code against spec *invariants*, not just examples. AWS cites enterprise wins at Delta Air Lines and Rackspace. Weaknesses: static specs that don't auto-update with code, tight AWS lock-in, and an early pricing rollout that drew criticism. Like Spec Kit it lacks worktrees and is inefficient for tiny edits.
 
-**Spec Kitty** (Priivacy-ai) is the parallel-work specialist: it pioneered automatic per-feature [[git-worktrees-parallel-agents|git worktree]] creation, parallel isolation, and cleanup, paired with a Kanban dashboard and auto-merge. Its 0.14 line popularized a pattern where Claude Code writes the spec, plans, designs tasks, then launches **sub-agents** to implement and review each task.
+**Spec Kitty** (Priivacy-ai) is the parallel-work specialist: it pioneered automatic per-feature [[git-worktrees-parallel-agents|git worktree]] creation, parallel isolation, and cleanup, paired with a local Kanban dashboard, a mission system, governance commands (`spec-kitty dispatch`), and auto-merge — all as an open-source Python CLI, no SaaS subscription. Its 0.14 line popularized a pattern where Claude Code writes the spec, plans, designs tasks, then launches **sub-agents** to implement and review each task.
 
-**OpenSpec** is the brownfield answer. Its **delta format** (`ADDED` / `MODIFIED` / `REMOVED`) expresses *change* against existing specs rather than rewriting them, directly attacking SDD's hardest problem. It pairs with OpenCode and git worktrees for [[git-worktrees-parallel-agents|parallel agents]].
+**OpenSpec** (Fission-AI) is the brownfield answer: lightweight, tool-agnostic (works with 20+ assistants via slash commands, no API keys or MCP required, "no Python, 5-minute setup"), and on the Thoughtworks Technology Radar. Its **delta format** (`ADDED` / `MODIFIED` / `REMOVED`) expresses *change* against a single source-of-truth spec rather than restating it, directly attacking SDD's hardest problem. Artifacts: `proposal.md`, `specs/`, `design.md`, `tasks.md`. It pairs with OpenCode and git worktrees for [[git-worktrees-parallel-agents|parallel agents]].
 
-**Tessl** is the commercial bet on full **spec-as-source**: the spec is the only artifact a human edits and code is regenerated, like a compiler target. It is now public as a Framework + Registry. Highest ambition, highest barrier to entry.
+**Tessl** is the commercial bet on full **spec-as-source**, founded by Guy Podjarny (ex-Snyk founder) and funded with $125M before shipping a product. Specs are `.spec.md` files with YAML frontmatter; generated code can carry a `// GENERATED FROM SPEC - DO NOT EDIT` marker with 1:1 spec-to-file mapping. It is now public as the Tessl Framework + Spec Registry, with MCP integration. Highest ambition, highest barrier to entry — and the clearest test of whether spec-as-source generalizes beyond safety-critical embedded work.
 
-**BMad Method** is the enterprise heavyweight — ~21 specialized agents and comprehensive workflows. Powerful for large efforts, but, as the comparison literature dryly notes, "a sledgehammer to crack a nut" for trivial changes.
+**BMad Method** (Breakthrough Method for Agile AI-Driven Development) is the enterprise heavyweight — an MIT-licensed multi-agent framework (~50K GitHub stars, v6.x) that uses specialized **agent personas** (Analyst, PM, Architect, Developer, QA) handing off artifacts (brief → PRD → architecture → sharded story files), mirroring an agile team. Installs via `npx bmad-method install`. Powerful for large, traceable efforts, but, as the comparison literature dryly notes, "a sledgehammer to crack a nut" for trivial changes.
 
 ### Adjacent tooling: ADEs and parallel runners
 
 The lines blur with **agentic IDEs / ADEs** (agentic development environments). Google's **Antigravity** (a free ADE) and **Warp** (a terminal-based ADE) compete with Kiro on developer experience rather than on a formal spec workflow. Separately, parallel-agent runners like **Conductor** (macOS) and skills frameworks like **Superpowers** automate [[git-worktrees-parallel-agents|git worktrees]] without being full SDD tools.
+
+Two more adjacent layers matter. **Org-scale platforms** — Augment Code's **Cosmos** (a cloud Context Engine maintaining living specs and architectural memory across hundreds of microservices / 400K+ files, with OS-level cgroup isolation between agents) and **Zenflow/Zencoder** (massively parallel workflows with cross-agent verification gates) — push SDD from the local workspace toward fleet scale. And beneath all of these sits the **context-file standard**: `CLAUDE.md` (Anthropic) and the cross-tool `AGENTS.md` convention (donated to the Linux Foundation's Agentic AI Foundation in late 2025, alongside MCP), plus Anthropic's composable **Agent Skills**. These hold the durable, cross-session project context (stack, conventions, guardrails) that specs reference but don't duplicate; Spec Kit's skills-mode aligns with this substrate. Thoughtworks' own **SPDD** (Structured Prompt-Driven Development) is a related variant that versions the *prompts* themselves as first-class artifacts.
 
 ## Design decisions & trade-offs
 
@@ -94,7 +101,7 @@ The selection guidance from the [[spec-driven-development|spec-compare]] researc
 | Want a polished native IDE | **Kiro** | GA, integrated agentic IDE, EARS specs |
 | Spec-as-source regeneration | **Tessl** | Public Framework + Registry |
 
-The trajectory is toward (1) better brownfield/modification support across all tools, (2) worktree-based parallelism becoming table stakes, and (3) convergence of the SDD workflow with agentic IDEs (Kiro, Antigravity, Warp) so the spec lifecycle lives where the developer already works.
+The trajectory is toward (1) better brownfield/modification support across all tools, (2) worktree-based parallelism becoming table stakes, and (3) convergence of the SDD workflow with agentic IDEs (Kiro, Antigravity, Warp) so the spec lifecycle lives where the developer already works. Reception is not uniformly enthusiastic: Thoughtworks places SDD at "Assess" (not "Adopt") on its Technology Radar, and hands-on reviewers (Scott Logic, Marmelab) report Spec Kit generating overwhelming volumes of markdown for small features — a reminder that tool ceremony is a cost, and the heaviest tool is rarely the right default.
 
 > [!tip]
 > Don't start by picking a tool — start by placing your work on the maturity ladder and the greenfield/brownfield/parallel axes. The tool falls out of that. And whatever you pick, the [[ears-notation|EARS]] requirements layer and a living spec matter more than the brand.
@@ -125,3 +132,5 @@ The trajectory is toward (1) better brownfield/modification support across all t
 - InfoWorld (2026). *4 cutting-edge tools for spec-driven development.* https://www.infoworld.com/article/4171332/4-cutting-edge-tools-for-spec-driven-development.html
 - daily.dev (2026). *Understanding Spec-Driven Development: Kiro, spec-kit, and Tessl.* https://daily.dev/posts/understanding-spec-driven-development-kiro-spec-kit-and-tessl-wbu9w3aj6
 - Augment Code (2026). *6 Best Spec-Driven Development Tools for AI Coding in 2026* / *Kiro vs Antigravity.* https://www.augmentcode.com/tools/best-spec-driven-development-tools · https://www.augmentcode.com/tools/kiro-vs-antigravity
+- Böckeler, B. (2025). *Understanding Spec-Driven Development: Kiro, spec-kit, and Tessl.* martinfowler.com. https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html
+- Research syntheses (ingested 2026-06-25): [[2026-06-25-ssd01-02-research-report]], [[2026-06-25-ssd01-03-research-report]], [[2026-06-25-ssd01-04-research-report]]
