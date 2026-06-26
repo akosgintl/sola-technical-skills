@@ -100,6 +100,8 @@ Named after ship bulkheads (watertight compartments that limit flooding). Isolat
 
 **RPO (Recovery Point Objective):** maximum tolerable data loss. Sets the bar for backup frequency and replication lag.
 
+These objectives are the input to [[disaster-recovery-and-continuity|disaster recovery]] — the planned response to failures too large or correlated for in-place resilience to absorb (region loss, ransomware, mass corruption), as opposed to the in-system patterns above that keep a system serving under *partial* failure.
+
 | HA pattern | RTO | RPO | Cost |
 |---|---|---|---|
 | Active-active multi-region | <1 min | Near-zero | Highest — full capacity in 2+ regions |
@@ -161,6 +163,7 @@ The arXiv:2512.16959v1 systematic review (2024) identifies circuit breakers, ret
 
 ## See also
 
+- [[disaster-recovery-and-continuity]]
 - [[observability-fundamentals]]
 - [[cloud-native-patterns]]
 - [[streaming-and-event-data]]

@@ -305,3 +305,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: QLoRA + HF PEFT/TRL stack (Unsloth/Axolotl), DPO/ORPO/KTO, RFT rising, distillation-into-small, model merging, multi-adapter serving. ~6 sources (LoRA/QLoRA/DPO papers + PEFT/TRL docs).
 - Wired inbound links from [[model-selection-and-routing]] (decision-table + See also) and [[retrieval-augmented-generation]] (no orphan). Bumped `index.md` 79 → 80 mature.
 
+## [2026-06-26] ingest | Disaster Recovery & Business Continuity (new page)
+
+- Created [[disaster-recovery-and-continuity]] `mature` (cloud) — closes the DR/BCP gap: [[distributed-systems-reliability]] owned in-system **resilience** (timeouts/retries/circuit-breakers/chaos) and touched RTO/RPO, but no page owned the **recovery** discipline.
+- Scope split made explicit: resilience = "stay serving under *partial* failure"; DR = "recover from *correlated/catastrophic* failure" (region loss, ransomware, mass corruption, accidental deletion, provider outage). Shared RTO/RPO + HA-pattern table cross-referenced, not duplicated.
+- Content: BIA-driven tiering; the cloud DR strategy ladder (backup&restore → pilot light → warm standby → multi-site active/active) as a cost-vs-recovery dial; backup strategy 3-2-1 → **3-2-1-1-0** (immutability/WORM — S3 Object Lock, Azure Immutable Blob, GCS bucket lock; isolation; tested restores); DR-as-code + automated failover; testing cadence/game-days; the neglected **failback**.
+- State of the art grounded in live search: ransomware-targets-backups → immutability mainstream, DR testing as compliance evidence (DORA, ISO 22301/27001), continuous data protection + automated failover, sovereign fault domains, IaC-defined recovery. ~6 sources (AWS Well-Architected DR, Rubrik, CalmOps, Harness, ISO 22301).
+- Wired inbound links from [[distributed-systems-reliability]] (inline + See also) and [[multi-cloud-architecture]] (no orphan). Bumped `index.md` 80 → 81 mature.
+

@@ -135,6 +135,7 @@ Cross-cloud Kubernetes federation via Google Anthos and Azure Arc reached mainst
 - [[hybrid-and-onprem-topologies]]
 - [[cloud-native-patterns]]
 - [[cloud-governance-at-scale]]
+- [[disaster-recovery-and-continuity]]
 - [[cloud-cost-modeling]]
 - [[ai-gpu-economics]]
 - [[infrastructure-as-code]]
