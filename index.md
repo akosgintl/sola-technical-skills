@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 79 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 11 ingest-sourced expansions. **79 `mature`** (625+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
+**Coverage:** 80 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 12 ingest-sourced expansions. **80 `mature`** (630+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
 
 ---
 
@@ -44,6 +44,7 @@ sources: []
 | [[agent-memory-architectures]] | mature |
 | [[graphrag]] | mature |
 | [[model-selection-and-routing]] | mature |
+| [[model-customization]] | mature |
 | [[model-context-protocol]] | mature |
 | [[ai-evaluation-and-quality]] | mature |
 | [[guardrails-and-output-validation]] | mature |

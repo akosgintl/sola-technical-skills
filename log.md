@@ -297,3 +297,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: AI-assisted threat modeling mainstreamed (MS TMT v4.2, STRIDE-GPT), ThreatModeler↔IriusRisk consolidation (Jan 2026), OWASP Threat Dragon/Threagile/CAIRIS. ~10 sources.
 - Wired inbound links from [[ai-specific-security]], [[prompt-injection]], [[model-supply-chain-security]] (no orphan). Bumped `index.md` 78 → 79 mature.
 
+## [2026-06-26] ingest | Model Customization (new page)
+
+- Created [[model-customization]] `mature` (ai-agentic) — backs roadmap node 1.3.3.3 ("fine-tuning vs. prompting vs. RAG"), which [[model-selection-and-routing]] framed as a *decision* but no page owned as *techniques + economics*.
+- Scope split: model-selection-and-routing keeps the capability-acquisition **decision**; this page owns **how**: the adaptation spectrum (continued pretraining → SFT → preference opt → RFT → distillation), PEFT (LoRA/QLoRA), DPO-as-default, reinforcement fine-tuning, quantization-as-serving-lever, and the "fine-tune for *form*, retrieve for *facts*" principle.
+- Trade-offs centered on the senior call to **defer** fine-tuning (Prompt → RAG → Fine-tune → Distill), open-weight vs hosted-API vs un-tunable-frontier, LoRA-vs-full, data-quality, eval-gating, and the base-model maintenance treadmill.
+- State of the art grounded in live search: QLoRA + HF PEFT/TRL stack (Unsloth/Axolotl), DPO/ORPO/KTO, RFT rising, distillation-into-small, model merging, multi-adapter serving. ~6 sources (LoRA/QLoRA/DPO papers + PEFT/TRL docs).
+- Wired inbound links from [[model-selection-and-routing]] (decision-table + See also) and [[retrieval-augmented-generation]] (no orphan). Bumped `index.md` 79 → 80 mature.
+

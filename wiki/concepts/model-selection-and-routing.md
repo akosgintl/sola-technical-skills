@@ -86,7 +86,7 @@ Routing also applies to the *capability acquisition* decision — how to make a 
 | **Fine-tuning** | Task is narrow and repetitive; latency/cost must be minimised; model behaviour must be shaped | Training cost + hosting; amortises at high volume |
 | **Prompt caching** | Stable system prompt + few-shot examples; same prefix repeated across many requests | 90 % cost reduction on cached prefix (Anthropic, Google) |
 
-Fine-tuning is frequently over-selected. It is justified when: (a) the task is stable enough that training data will remain relevant, (b) volume is high enough to amortise training cost, and (c) prompting + RAG does not meet latency or cost targets. For most new applications, prompting with a well-chosen model tier and RAG for knowledge gaps reaches acceptable quality faster.
+Fine-tuning is frequently over-selected. It is justified when: (a) the task is stable enough that training data will remain relevant, (b) volume is high enough to amortise training cost, and (c) prompting + RAG does not meet latency or cost targets. For most new applications, prompting with a well-chosen model tier and RAG for knowledge gaps reaches acceptable quality faster. See [[model-customization]] for the techniques (LoRA/QLoRA, DPO, distillation) and economics behind this row.
 
 ### Batch vs. real-time routing
 
@@ -138,6 +138,7 @@ Not all requests need real-time responses. Async batch APIs (Anthropic Batch API
 - [[ai-gpu-economics]] — token pricing tables and self-hosted vs. API cost crossover
 - [[context-engineering]] — prompt caching, context budgeting, and window management
 - [[retrieval-augmented-generation]] — RAG as the alternative to fine-tuning for knowledge grounding
+- [[model-customization]] — fine-tuning, LoRA/QLoRA, DPO, and distillation techniques behind the capability-acquisition decision
 - [[agentic-system-design]] — multi-agent task routing
 
 ## Sources

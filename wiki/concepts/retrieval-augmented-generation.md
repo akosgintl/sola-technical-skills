@@ -176,6 +176,7 @@ The most common strategic question, and most teams get it wrong by treating it a
 - [[context-engineering]]
 - [[llm-application-architecture]]
 - [[model-selection-and-routing]]
+- [[model-customization]]
 - [[ai-evaluation-and-quality]]
 - [[guardrails-and-output-validation]]
 - [[agentic-system-design]]
