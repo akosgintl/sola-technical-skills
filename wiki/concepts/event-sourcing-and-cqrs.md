@@ -169,6 +169,7 @@ Event sourcing is a mature pattern with well-understood trade-offs, not a new tr
 
 - [[streaming-and-event-data]]
 - [[event-driven-architecture]]
+- [[saga-and-outbox-patterns]]
 - [[data-storage-paradigms]]
 - [[coupling-and-versioning-discipline]]
 - [[distributed-systems-reliability]]

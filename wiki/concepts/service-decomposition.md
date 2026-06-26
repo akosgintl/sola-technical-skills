@@ -119,7 +119,8 @@ point in 2026.
   distributed monolith, coordination overhead, and latency from chatty inter-service calls. The
   sweet spot is team-ownable and bounded-context-aligned.
 - **Data is the real cost of splitting.** Microservices imply database-per-service, which turns
-  in-process transactions into distributed-data problems (eventual consistency, sagas) — see
+  in-process transactions into distributed-data problems (eventual consistency,
+  [[saga-and-outbox-patterns|sagas and the outbox]]) — see also
   [[coupling-and-versioning-discipline]] and [[event-sourcing-and-cqrs]]. Underestimating this is
   the most common reason microservices migrations stall.
 - **Platform investment lowers the microservices tax.** Internal developer platforms (Backstage,
@@ -166,6 +167,7 @@ point in 2026.
 
 - [[domain-driven-design]]
 - [[coupling-and-versioning-discipline]]
+- [[saga-and-outbox-patterns]]
 - [[cloud-native-patterns]]
 - [[event-driven-architecture]]
 - [[kubernetes-at-design-level]]

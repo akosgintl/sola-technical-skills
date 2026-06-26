@@ -336,3 +336,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - 2026 framing grounded in live search: the **microservices backlash / monolith comeback**, modular-monolith-first, IDPs (Backstage/Port/Cortex) lowering the ops tax, distributed-monolith as the cardinal anti-pattern. ~5 sources (Fowler MonolithFirst/StranglerFig, Newman, Horizon Labs, DevX).
 - Wired reciprocal inbound links into [[domain-driven-design]] and [[coupling-and-versioning-discipline]] See-also. Bumped `index.md` 83 → 84 mature.
 
+## [2026-06-26] ingest | Saga & Outbox Patterns (new page)
+
+- Created [[saga-and-outbox-patterns]] `mature` (data) — fills the distributed-data-consistency gap (saga/outbox/idempotency mentioned across ~8 pages, owned by none). The correctness backbone behind [[service-decomposition]] + [[event-driven-architecture]]; delineated from [[event-sourcing-and-cqrs]] (event log/projections) which owns a different problem.
+- Scope: why 2PC is rejected; **saga** (local txns + compensating txns, backward/forward recovery); **orchestration vs choreography** table; the **dual-write problem**; **transactional outbox** (polling vs CDC/Debezium); **idempotency** under at-least-once; "exactly-once is effectively-once"; durable-execution (Temporal) as managed orchestration.
+- Key senior framing: a saga is a *consequence* of decomposition — first question whether the boundary should exist; compensation design (un-compensable steps, semantic locks) is the hard part; eventual consistency is a UX decision.
+- State of the art grounded in live search: outbox+CDC (Debezium 2.5+/Kafka KRaft/Strimzi) standard combo, durable-execution engines, idempotency+DLQ baseline. ~5 sources (microservices.io, AWS Prescriptive Guidance, InfoQ, Debezium).
+- Wired inbound links from [[service-decomposition]] (linkified + See also) and [[event-sourcing-and-cqrs]] (See also). Bumped `index.md` 84 → 85 mature.
+
