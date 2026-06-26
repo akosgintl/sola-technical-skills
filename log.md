@@ -273,3 +273,13 @@ Grounded the harness page in the official Claude Code documentation (sub-agents,
 - Captured Claude Code doc facts inline + cited (no separate raw/ capture — official docs cited by URL per schema §10).
 - Updated `index.md`: [[agentic-harness]] draft → mature; coverage now **78 mature**, 0 draft (615+ sources).
 - Recommend a lint pass before commit.
+
+## [2026-06-26] ingest | Loop engineering — Osmani anatomy + LangChain four-loop stack
+
+Deepened the existing [[agentic-loop]] page (no new page; same concept) with two canonical sources. Of the nine URLs supplied, only these two were machine-readable: the seven X.com links are login-gated long-form Articles (WebFetch 402, Tavily teaser-only, Firecrawl refuses X, browser extension offline) — and six of them are derivative popularizations of these same two originals (e.g. @sydneyrunkle's X Article *is* the LangChain post; @0xwhrrari, @Saboo_Shubham_ (PM angle), @shmidtqq (259-PRs anecdote), @DamiDefi, @AnatoliKopadze, @dunik_7 are reposts). Per "ground everything," no body content was fabricated from the unreadable articles; recorded here only as a popularization signal.
+
+- Captured `raw/2026-06-26-loop-engineering-osmani-anatomy.md` (seed, full text): the five pieces + memory; intent debt / comprehension debt / orchestration tax / cognitive surrender; adversarial code review; `/loop` vs `/goal`; Codex↔Claude Code primitive map; "two people, same loop, opposite results."
+- Captured `raw/2026-06-26-loop-engineering-langchain-stack.md` (seed, full text): Swyx's "loopcraft" stacking; the four-loop stack (agent → verification → event-driven → hill-climbing), LangChain/LangSmith primitives (`create_agent`, `RubricMiddleware`, Deployment/Fleet, Engine), HITL at every level, Nadella "learning loops" framing.
+- Extended [[agentic-loop]] `mature`: new **"Stacking loops: the four-loop view"** subsection (level table + hill-climbing's reach-inside feedback); new **"The human cost ledger"** subsection (intent/comprehension/orchestration/cognitive-surrender table); sharpened writer/judge → **adversarial code review** + `/goal` stop-condition split; product-features-not-bash framing + harness positioning; State-of-the-art gains LangSmith stack (loops 3–4) and the loopcraft/5+1 vocabulary convergence; +5 sources (total 10).
+- **Correction:** fixed **Boris Turney → Boris Cherny** (head of Claude Code) in two places — the earlier YouTube transcript mis-transcribed the name; both blogs confirm Cherny.
+- `index.md` unchanged (no new pages; still 78 mature, source count nudges past 615). Recommend a lint pass before commit.

@@ -5,9 +5,13 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [agent-loops, agentic, loop-engineering, sub-agents, skills, automation]
-updated: 2026-06-23
+updated: 2026-06-26
 sources:
   - raw/2026-06-21-loop-engineering.md
+  - raw/2026-06-26-loop-engineering-osmani-anatomy.md
+  - raw/2026-06-26-loop-engineering-langchain-stack.md
+  - "https://addyosmani.com/blog/loop-engineering/"
+  - "https://www.langchain.com/blog/the-art-of-loop-engineering"
   - "https://www.anthropic.com/engineering/building-effective-agents"
   - raw/2026-06-23-decodingai-01-ai-workflows-vs-agents.md
   - raw/2026-06-23-decodingai-06-agent-planning.md
@@ -30,7 +34,7 @@ An agentic loop is an autonomous execution unit that contrasts with two older pa
 
 A loop is different because the **decision-maker is inside the loop**. The agent observes the current state, selects its next action, executes it, checks the outcome, and decides whether to continue, retry, roll back, or stop — without a human intervening between steps.
 
-The term **loop engineering** (popularized mid-2026 by Peter Steinberger, creator of OpenClaw, and independently confirmed by Boris Turney, who leads Claude Code at Anthropic) describes the practice of designing these loops rather than prompting agents directly. The practitioner's job shifts from "write the best prompt" to "design the trigger, define the verifiable goal, and build the skills and tools the loop will use."
+The term **loop engineering** (popularized mid-2026 by Peter Steinberger, creator of OpenClaw, and independently confirmed by Boris Cherny, who leads Claude Code at Anthropic) describes the practice of designing these loops rather than prompting agents directly. The practitioner's job shifts from "write the best prompt" to "design the trigger, define the verifiable goal, and build the skills and tools the loop will use."
 
 **The autonomy slider.** A useful framing: loops and workflows are not binary categories but points on a spectrum from fully controlled (all steps predefined, high predictability) to fully autonomous (model decides every step, high adaptability). Most production systems sit in the middle as deliberate hybrids — a deterministic workflow handles known request types; an agentic loop handles open-ended ones. The design decision is: how much autonomy does this specific task actually require? (See [[agentic-system-design]] for the workflow-vs-agent decision framework.)
 
@@ -61,6 +65,23 @@ Every working agentic loop has two hard prerequisites:
 | **Plugins / connectors** | Tools the agent can invoke (GitHub, Linear, Slack, databases) to create real-world effects |
 | **Sub-agents** | Separation of concerns: the writing agent ≠ the reviewing agent |
 | **Memory** | Persistence across runs; the loop remembers what the model has forgotten |
+
+Osmani frames the same five primitives as **product features rather than bespoke scripts**: a year ago a loop meant a pile of hand-maintained bash; now the primitives ship inside the coding agents themselves, and the capability map is near-identical across OpenAI Codex and Claude Code (automations ↔ scheduled tasks/`/loop`/`/goal`; worktrees ↔ `git worktree`/`isolation: worktree`; skills ↔ `SKILL.md`; connectors ↔ MCP; sub-agents ↔ `.codex/agents/` or `.claude/agents/`). The design discipline is therefore tool-agnostic: design a loop whose shape survives whichever agent you happen to be sitting in. Loop engineering "sits one floor above the [[agentic-harness|harness]]" — the harness is the environment a single agent runs inside; the loop is that harness made to run on a timer, spawn helpers, and feed itself.
+
+### Stacking loops: the four-loop view
+
+The 5+1 anatomy lists the *parts*; the **stacked-loops** view (Swyx's "loopcraft," instrumented by LangChain) describes how loops *nest*, each outer loop wrapping the one below. This reframes "loop engineering" as choosing how many layers a task justifies:
+
+| Level | Loop | What it adds | Impact |
+|---|---|---|---|
+| 1 | **Agent loop** | A model calls [[llm-tool-use|tools]] until the task is complete | Automate work |
+| 2 | **Verification loop** | A grader (deterministic or [[ai-evaluation-and-quality\|LLM-as-judge]]) scores output against a rubric and retries with feedback on failure | Ensure quality/correctness |
+| 3 | **Event-driven loop** | An event (webhook, schedule, new document, message) fires the agent so it runs continuously in the background | Automated work at scale |
+| 4 | **Hill-climbing loop** | An analysis agent reads production [[ai-agent-observability\|traces]] and rewrites the harness config (prompts, tools, graders) | Improvement, not just work |
+
+The decisive property of loop 4 is that **its feedback arrow reaches *inside* and updates the inner loops directly** — each outer cycle makes the agent loop more effective, rather than merely re-running it. The same trace signal can feed prompt/tool tweaks, RL fine-tuning for open-weight models, or improved memory and retrieved skills. Loops 1–2 are well understood; the compounding value is now in loops 3–4, where agents are embedded in an ecosystem and improve against your own criteria over time. This is the mechanism behind the strategic claim that organizations building learning loops early — "where human judgment and token capital compound together" (Nadella) — gain an advantage that is hard to replicate.
+
+Human oversight has a natural insertion point at *each* level: require approval before sensitive tool calls (loop 1), act as the grader for sensitive workflows (loop 2), approve outputs before release (loop 3), and review harness changes before they deploy (loop 4). See [[human-in-the-loop-design]].
 
 ### Internal planning: how the loop decides
 
@@ -110,11 +131,24 @@ Every serious loop needs hard limits that override the agent's own assessment:
 **Autonomy budget:**
 The cost of a loop scales super-linearly with autonomy and run time. An agent that self-prompts, reviews itself, spawns helpers, and retries can burn millions of tokens overnight. Treat token/dollar budget as a first-class design constraint, not an afterthought. Start with supervised, manual-launch loops; extend to fully autonomous only when value per token is demonstrated.
 
-**Separation of writer and judge:**
-The sub-agent that produces output should not be the sub-agent that decides whether it is good enough. The reviewing sub-agent should have access to the verifiable goal (test results, spec) and independent context, not just the writer's narrative of what it did.
+**Separation of writer and judge (adversarial code review):**
+The sub-agent that produces output should not be the sub-agent that decides whether it is good enough — "the model that wrote the code is too nice grading its own homework." This maker/checker split, sometimes called **adversarial code review**, is what makes a loop's "it's done" mean something while you are not watching; give the reviewer different instructions and often a different model. Claude Code's `/goal` applies the same split to the *stop condition itself*: a fresh model decides whether the loop is complete after each turn, rather than the model that did the work.
 
 **Skills maintenance overhead:**
 Skills must be kept current. A skill encoding an outdated convention silently degrades loop quality on every run. Treat skill maintenance as part of the engineering workflow — skills are code, not documentation.
+
+### The human cost ledger: what loops do not remove
+
+A better loop makes three problems *sharper*, not easier — and none of them are tokens. Osmani names them precisely:
+
+| Liability | What it is | Mitigation |
+|---|---|---|
+| **Intent debt** | The agent starts every run cold and fills any gap in your intent with a confident guess. | Write intent down on the outside as skills — conventions, build steps, the "we don't do it like this because of that incident." Skills are how intent stops costing you every cycle. |
+| **Comprehension debt** | The faster the loop ships code you didn't write, the wider the gap between what exists and what you understand. | Read what the loop produced; verification ("done" is a claim, not a proof) stays a human responsibility. |
+| **Orchestration tax** | Worktrees remove the *mechanical* collision of parallel agents, but your review bandwidth — not the tool — is the real ceiling on parallelism. | Scale concurrency to the review capacity you actually have, not to what the tool permits. |
+| **Cognitive surrender** | The comfortable posture of accepting whatever the loop returns without forming an opinion. | Treat loop design as judgment work; it is the cure when done to move faster on understood work, the accelerant when done to avoid understanding. |
+
+The defining warning: **"two people can build the exact same loop and get completely opposite results."** One uses it to move faster on work they understand; the other to avoid understanding the work at all. The loop does not know the difference — which is why the leverage moved to loop *design*, and why design is harder than prompt engineering, not easier.
 
 ## State of the art
 
@@ -124,8 +158,11 @@ As of mid-2026, agentic loop patterns have reached production-grade tooling:
 - **Anthropic Claude Code** supports work trees, sub-agent spawning, schedule-based automations, and persistent skills — all components of the 5+1 anatomy above.
 - **Cursor** supports automation-based loop patterns via its tool invocation and agent session infrastructure.
 - **LangGraph** implements the ReAct loop natively (model node + tools node + conditional edges), with built-in state management and HITL interrupt support.
+- **LangChain / LangSmith** instrument the higher stack levels: `create_agent` for the agent loop, `RubricMiddleware` for the verification loop, LangSmith Deployment (cron triggers, webhooks) and Fleet channels for the event-driven loop, and LangSmith **Engine** (a trace-analysis agent) for the hill-climbing loop that rewrites harness config. OpenClaw "heartbeats" are a common event-driven trigger.
 
-The paradigm shift was catalyzed by two independent public statements in mid-2026: Peter Steinberger (OpenClaw) stating that developers should no longer prompt agents but design loops, and Boris Turney (Claude Code, Anthropic) independently stating that his job is now to write loops, not prompts. The convergence from both the OpenAI and Anthropic ecosystems accelerated adoption.
+The vocabulary itself converged in mid-2026: the **stacked-loops / "loopcraft"** framing (Swyx) names how loops nest, and Osmani's 5+1 anatomy names the parts. Together they moved "loop engineering" from a Twitter slogan to a design discipline with named primitives, named liabilities, and product support across both major coding-agent ecosystems.
+
+The paradigm shift was catalyzed by two independent public statements in mid-2026: Peter Steinberger (OpenClaw) stating that developers should no longer prompt agents but design loops, and Boris Cherny (Claude Code, Anthropic) independently stating that his job is now to write loops, not prompts. The convergence from both the OpenAI and Anthropic ecosystems accelerated adoption.
 
 Addy Osmani's 5+1 framework (automations, work trees, skills, plugins, sub-agents + memory) is the current canonical anatomy for describing and designing agentic loops.
 
@@ -159,6 +196,8 @@ Addy Osmani's 5+1 framework (automations, work trees, skills, plugins, sub-agent
 ## Sources
 
 - François, L. (2026). Loop Engineering Explained. Towards AI / YouTube. raw/2026-06-21-loop-engineering.md
+- Osmani, A. (2026-06-07). Loop Engineering. https://addyosmani.com/blog/loop-engineering/ — raw/2026-06-26-loop-engineering-osmani-anatomy.md
+- Runkle, S. (2026-06-16). The Art of Loop Engineering. LangChain. https://www.langchain.com/blog/the-art-of-loop-engineering — raw/2026-06-26-loop-engineering-langchain-stack.md
 - Anthropic. (2025). Building effective agents. https://www.anthropic.com/engineering/building-effective-agents
 - Iusztin, P. (Decoding AI). AI Workflows vs Agents: The Autonomy Slider. raw/2026-06-23-decodingai-01-ai-workflows-vs-agents.md
 - Iusztin, P. (Decoding AI). Writing AI Agents From Scratch: Planning Is The Key. raw/2026-06-23-decodingai-06-agent-planning.md
