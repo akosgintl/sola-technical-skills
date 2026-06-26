@@ -177,6 +177,7 @@ puts domain experts and engineers at the same wall.
 
 ## See also
 
+- [[service-decomposition]]
 - [[coupling-and-versioning-discipline]]
 - [[event-driven-architecture]]
 - [[event-sourcing-and-cqrs]]

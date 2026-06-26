@@ -180,6 +180,7 @@ Standard deprecation process:
 ## See also
 
 - [[domain-driven-design]] — bounded contexts as the principled service boundaries that decoupling preserves
+- [[service-decomposition]] — the granularity/deployment decision that creates the boundaries this discipline keeps decoupled
 - [[api-styles-and-protocols]] — REST, gRPC, GraphQL, and AsyncAPI as the protocol substrate for versioned interfaces
 - [[api-gateways-and-service-mesh]] — gateway routing that enables multiple API versions to coexist
 - [[event-sourcing-and-cqrs]] — database-per-service and event-driven patterns that reduce data coupling

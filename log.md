@@ -329,3 +329,10 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: DDD still the standard for microservice/module boundaries (Azure Architecture Center, Vernon), event storming mainstream, modular-monolith resurgence reinforces (not replaces) DDD, AI-assisted modeling. ~5 sources.
 - Wired inbound links from [[coupling-and-versioning-discipline]] (linkified pitfall + See also) and [[event-driven-architecture]] (See also). Bumped `index.md` 82 → 83 mature.
 
+## [2026-06-26] ingest | Service Decomposition (new page)
+
+- Created [[service-decomposition]] `mature` (integration) — completes the decomposition trio: [[domain-driven-design]] finds the seams, [[coupling-and-versioning-discipline]] keeps them decoupled, this page owns the *whether/how-much-to-split* granularity decision (monolith → modular monolith → microservices → nano).
+- Scope: the spectrum table; what *actually* justifies a split (deploy/team autonomy, independent scaling, tech/lifecycle, fault isolation — not fashion); granularity heuristics (bounded-context upper bound, team-ownable, avoid nano); strategies (by capability, Strangler Fig, by volatility); modular-monolith-as-default + extraction path.
+- 2026 framing grounded in live search: the **microservices backlash / monolith comeback**, modular-monolith-first, IDPs (Backstage/Port/Cortex) lowering the ops tax, distributed-monolith as the cardinal anti-pattern. ~5 sources (Fowler MonolithFirst/StranglerFig, Newman, Horizon Labs, DevX).
+- Wired reciprocal inbound links into [[domain-driven-design]] and [[coupling-and-versioning-discipline]] See-also. Bumped `index.md` 83 → 84 mature.
+
