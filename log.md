@@ -368,3 +368,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: privacy-by-design mandated (GDPR 25, NIST Privacy Framework, AWS lens), tokenization/vaulting mainstream, differential privacy in production, crypto-shredding for erasure, machine-unlearning frontier. ~5 sources (AWS WA, Protecto, DataStealth, GDPR Art.17, NIST).
 - Wired inbound links from [[data-governance-and-lineage]] and [[compliance-and-regulation]] See-also. Bumped `index.md` 87 → 88 mature.
 
+## [2026-06-26] ingest | Data Pipelines & Orchestration (new page)
+
+- Created [[data-pipelines-and-orchestration]] `mature` (data) — owns the batch/ELT transform + orchestration layer, distinct from [[streaming-and-event-data]] (real-time) and [[data-storage-paradigms]] (where data lives).
+- Scope: ETL vs **ELT** (the 2026 default); the **medallion architecture** (bronze/silver/gold); ingestion (batch/CDC, Fivetran/Airbyte); transformation via **dbt** (tested/versioned SQL); orchestration (**Airflow** task-centric vs **Dagster** software-defined assets vs Prefect); incremental processing/backfills/late data; **idempotency + reproducibility**; in-pipeline quality gates + OpenLineage.
+- Trade-offs: ELT-vs-ETL (privacy may force pre-load transform), batch-vs-incremental-vs-streaming, task-vs-asset orchestrator, composable stack vs monolith, build-vs-buy ingestion.
+- State of the art grounded in live search: ELT default, dbt standard, Airflow dominant + Dagster rising, medallion mainstream, composable stacks over monoliths, declarative/asset orchestration. ~5 sources (Alps Agility, Dagster, dbt, MS Learn medallion, Airflow).
+- Wired inbound links from [[data-storage-paradigms]] and [[streaming-and-event-data]] See-also. Bumped `index.md` 88 → 89 mature.
+

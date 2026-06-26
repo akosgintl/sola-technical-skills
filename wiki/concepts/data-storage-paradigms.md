@@ -182,6 +182,7 @@ The lakehouse has moved from emerging pattern to mainstream production architect
 ## See also
 
 - [[streaming-and-event-data]]
+- [[data-pipelines-and-orchestration]]
 - [[data-governance-and-lineage]]
 - [[ai-data-fabric]]
 - [[event-sourcing-and-cqrs]]

@@ -160,6 +160,7 @@ Kafka remains the dominant event streaming backbone in 2026, with Confluent Clou
 - [[event-sourcing-and-cqrs]]
 - [[event-driven-architecture]]
 - [[data-storage-paradigms]]
+- [[data-pipelines-and-orchestration]]
 - [[data-governance-and-lineage]]
 - [[distributed-systems-reliability]]
 - [[ai-data-fabric]]
