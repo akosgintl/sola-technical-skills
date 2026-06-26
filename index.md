@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 87 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 19 ingest-sourced expansions. **87 `mature`** (665+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
+**Coverage:** 88 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 20 ingest-sourced expansions. **88 `mature`** (670+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
 
 ---
 
@@ -103,6 +103,7 @@ sources: []
 | [[event-sourcing-and-cqrs]] | mature |
 | [[saga-and-outbox-patterns]] | mature |
 | [[data-governance-and-lineage]] | mature |
+| [[data-privacy-engineering]] | mature |
 | [[ai-data-fabric]] | mature |
 | [[vector-and-embedding-stores]] | mature |
 | [[feature-stores]] | mature |

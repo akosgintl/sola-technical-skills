@@ -140,6 +140,7 @@ High-risk AI systems require registration in an EU database, CE marking (for pro
 
 - [[ai-governance-frameworks]] — framework-level AI governance aligned with regulation
 - [[data-governance-and-lineage]] — data cataloguing, classification, and lineage as compliance infrastructure
+- [[data-privacy-engineering]] — the technical privacy controls (de-identification, residency, erasure) that implement the law
 - [[encryption-and-key-management]] — encryption controls required by most regulatory regimes
 - [[human-in-the-loop-design]] — EU AI Act Article 14 HITL mandate
 - [[agent-governance-and-policy]] — audit log and policy requirements for AI systems

@@ -360,3 +360,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: BOLA still #1, OAuth 2.1 secure-defaults, runtime API security tooling, positive-security schema enforcement, agentic/MCP expanding the surface. ~5 sources (OWASP API Top 10, RFC 9700, OIDC, Wiz).
 - Wired inbound links from [[api-gateways-and-service-mesh]] and [[iam-and-secrets-management]] See-also. Bumped `index.md` 86 → 87 mature.
 
+## [2026-06-26] ingest | Data Privacy Engineering (new page)
+
+- Created [[data-privacy-engineering]] `mature` (data) — triangulated against [[compliance-and-regulation]] (the *law*) and [[data-governance-and-lineage]] (access control + lineage): this page owns the *technical privacy controls that transform the data itself*.
+- Scope: privacy-by-design + classification entry point; the de-identification spectrum (masking/tokenization/pseudonymization/anonymization/generalization/field-encryption) with **reversibility + GDPR status**; the anonymization-vs-pseudonymization legal cliff (Art. 4(5)); tokenization details (vaulted vs vaultless, deterministic vs random); differential privacy + PETs (TEEs/HE/SMPC/federated); lifecycle controls (minimization, residency/sovereignty, **right-to-erasure incl. crypto-shredding and erasure from model weights/machine unlearning**).
+- AI-era framing: PII in training data/prompts/logs, model memorization, Art. 17 applied to weights — links [[ai-specific-security]] / [[model-supply-chain-security]] / [[ai-governance-frameworks]].
+- State of the art grounded in live search: privacy-by-design mandated (GDPR 25, NIST Privacy Framework, AWS lens), tokenization/vaulting mainstream, differential privacy in production, crypto-shredding for erasure, machine-unlearning frontier. ~5 sources (AWS WA, Protecto, DataStealth, GDPR Art.17, NIST).
+- Wired inbound links from [[data-governance-and-lineage]] and [[compliance-and-regulation]] See-also. Bumped `index.md` 87 → 88 mature.
+

@@ -195,6 +195,7 @@ Market consolidation: 42 vendors documented in the 2025/2026 market perspective;
 - [[data-storage-paradigms]]
 - [[streaming-and-event-data]]
 - [[ai-data-fabric]]
+- [[data-privacy-engineering]]
 - [[compliance-and-regulation]]
 - [[coupling-and-versioning-discipline]]
 - [[event-sourcing-and-cqrs]]
