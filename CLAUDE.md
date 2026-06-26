@@ -43,20 +43,29 @@ Plus two ledgers at the root: **`index.md`** (catalog of every page) and **`log.
 │   ├── moc.md                    # Map of Content template
 │   └── source-note.md            # raw-source capture template
 ├── wiki/
-│   ├── moc/                      # Maps of Content (navigation hubs)
-│   │   ├── 00-roadmap.md         # master MOC — mirrors the skills roadmap
-│   │   ├── tier-1-edge.md        # AI/agentic, cloud, security
-│   │   ├── tier-2-solid.md       # platform, data, integration, finops, observability
-│   │   ├── tier-3-watch.md       # emerging/adjacent
-│   │   └── meta-skills.md        # the 15+ year differentiators
 │   └── concepts/                 # the pages — ONE concept per file, flat, kebab-case
 │       └── *.md
+├── archive/
+│   ├── README.md                 # what's retired and why
+│   └── moc/                      # ARCHIVED Maps of Content — superseded by index.md
+│       ├── 00-roadmap.md         # former master MOC — mirrors the skills roadmap
+│       ├── tier-{1,2,3}-*.md     # former tier MOCs
+│       ├── meta-skills.md        # former meta-skills MOC
+│       └── dashboard.{md,base}   # former Obsidian Bases dashboard
 ├── raw/                          # immutable sources (see raw/README.md)
 └── skill-set/2026/technology-skills.md   # the seed roadmap (source of the spine)
 ```
 
+> [!note] MOCs are archived
+> The `wiki/moc/` hubs have been moved to `archive/moc/`; **`index.md` is now the live
+> catalog and navigation entry point.** Because Obsidian and `scripts/lint.ps1` resolve
+> `[[wikilinks]]` by basename across the whole repo, every page's `**Domain:** [[tier-1-edge|…]]`
+> context line (§8) still resolves to the archived MOC — the convention is left intact for now.
+> A future "hard decouple" could replace those context lines with plain text or an `index.md`
+> link if the dependency is unwanted.
+
 **Flat `concepts/` on purpose.** Obsidian favors *links over folders*. Don't nest by
-topic — let `[[wikilinks]]`, tags, and MOCs do the organizing. The graph view is the
+topic — let `[[wikilinks]]`, tags, and the [[index]] do the organizing. The graph view is the
 real "folder structure."
 
 ---

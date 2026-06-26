@@ -283,3 +283,10 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - Extended [[agentic-loop]] `mature`: new **"Stacking loops: the four-loop view"** subsection (level table + hill-climbing's reach-inside feedback); new **"The human cost ledger"** subsection (intent/comprehension/orchestration/cognitive-surrender table); sharpened writer/judge → **adversarial code review** + `/goal` stop-condition split; product-features-not-bash framing + harness positioning; State-of-the-art gains LangSmith stack (loops 3–4) and the loopcraft/5+1 vocabulary convergence; +5 sources (total 10).
 - **Correction:** fixed **Boris Turney → Boris Cherny** (head of Claude Code) in two places — the earlier YouTube transcript mis-transcribed the name; both blogs confirm Cherny.
 - `index.md` unchanged (no new pages; still 78 mature, source count nudges past 615). Recommend a lint pass before commit.
+
+## [2026-06-26] build | Archive MOCs (soft archive)
+
+- Moved `wiki/moc/` → `archive/moc/` (7 files: `00-roadmap`, `tier-1/2/3`, `meta-skills`, `dashboard.md/.base`) as `git mv` renames (R100, history preserved). Added `archive/README.md`.
+- Safe because `scripts/lint.ps1` resolves `[[wikilinks]]` by **basename across the whole repo**, so all 78 concept `**Domain:** [[tier-1-edge|…]]` context lines + the `index.md` MOC links still resolve — **0 broken links**. `dashboard.base` still renders (absolute `file.folder` filter).
+- `index.md` is now the live catalog/navigation hub; noted in `CLAUDE.md` §2. Convention left intact (no §5/§7/§8 rewrite) — a future hard-decouple can replace the context lines if wanted.
+
