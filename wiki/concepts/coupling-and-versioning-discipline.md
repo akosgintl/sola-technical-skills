@@ -175,10 +175,11 @@ Standard deprecation process:
 - **Versioning without a deprecation policy.** Releasing v2 without a plan for removing v1 produces an indefinitely growing set of versions to maintain. Announce the sunset date for v1 when you release v2.
 - **Contract testing on the happy path only.** Pact tests that only test successful responses miss the error codes, authentication failures, and validation errors that consumers actually handle in production. Include error-case interactions in consumer contracts.
 - **Schema compatibility checking without a schema registry.** Manually checking schema compatibility is error-prone and does not scale. Automate compatibility validation in CI with a schema registry (Confluent Schema Registry for Avro/JSON/Protobuf, Buf for Protobuf, OpenAPI diff tools for REST).
-- **Treating microservices as a deployment topology rather than a domain boundary.** Small services with arbitrary boundaries produce high coupling and high operational overhead. Service boundaries should follow domain boundaries (DDD bounded contexts), not technical layers. See [[api-styles-and-protocols]].
+- **Treating microservices as a deployment topology rather than a domain boundary.** Small services with arbitrary boundaries produce high coupling and high operational overhead. Service boundaries should follow domain boundaries ([[domain-driven-design|DDD bounded contexts]]), not technical layers. See [[api-styles-and-protocols]].
 
 ## See also
 
+- [[domain-driven-design]] — bounded contexts as the principled service boundaries that decoupling preserves
 - [[api-styles-and-protocols]] — REST, gRPC, GraphQL, and AsyncAPI as the protocol substrate for versioned interfaces
 - [[api-gateways-and-service-mesh]] — gateway routing that enables multiple API versions to coexist
 - [[event-sourcing-and-cqrs]] — database-per-service and event-driven patterns that reduce data coupling

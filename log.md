@@ -321,3 +321,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: docs-as-code default, MADR + Log4brains stack, adr.github.io, AI-assisted ADR authoring, ADL as governance/audit evidence. ~5 sources.
 - Wired inbound links from [[trade-off-judgment]] (subsection pointer) and [[delegate-review-own]] (See also). Bumped `index.md` 81 → 82 mature.
 
+## [2026-06-26] ingest | Domain-Driven Design (new page)
+
+- Created [[domain-driven-design]] `mature` (integration) — foundational modeling discipline referenced in passing by [[coupling-and-versioning-discipline]] / [[event-driven-architecture]] / [[event-sourcing-and-cqrs]] but owned by no page.
+- Scope: strategic DDD (bounded contexts, ubiquitous language, core/supporting/generic subdomains, context mapping incl. ACL/OHS/Conformist) as the *principled service seams*; tactical patterns (aggregate/entity/value-object/domain-event) kept brief; event storming as the discovery technique. Delineated from coupling-and-versioning (keeps boundaries *decoupled* once split) and the forthcoming service-decomposition (the granularity/deployment decision).
+- Key trade-off emphasized: **a bounded context is not necessarily a microservice** — model boundary vs deployment boundary are separate calls; modular monolith can hold many contexts.
+- State of the art grounded in live search: DDD still the standard for microservice/module boundaries (Azure Architecture Center, Vernon), event storming mainstream, modular-monolith resurgence reinforces (not replaces) DDD, AI-assisted modeling. ~5 sources.
+- Wired inbound links from [[coupling-and-versioning-discipline]] (linkified pitfall + See also) and [[event-driven-architecture]] (See also). Bumped `index.md` 82 → 83 mature.
+

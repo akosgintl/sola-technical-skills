@@ -158,6 +158,7 @@ AI-era implications: event streams are the natural data source for real-time age
 - [[serverless-architecture]]
 - [[streaming-and-event-data]]
 - [[event-sourcing-and-cqrs]]
+- [[domain-driven-design]]
 - [[api-styles-and-protocols]]
 - [[distributed-systems-reliability]]
 - [[ai-agent-observability]]
