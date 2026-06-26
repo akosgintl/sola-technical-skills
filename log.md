@@ -290,3 +290,10 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - Safe because `scripts/lint.ps1` resolves `[[wikilinks]]` by **basename across the whole repo**, so all 78 concept `**Domain:** [[tier-1-edge|…]]` context lines + the `index.md` MOC links still resolve — **0 broken links**. `dashboard.base` still renders (absolute `file.folder` filter).
 - `index.md` is now the live catalog/navigation hub; noted in `CLAUDE.md` §2. Convention left intact (no §5/§7/§8 rewrite) — a future hard-decouple can replace the context lines if wanted.
 
+## [2026-06-26] ingest | Threat Modeling (new page)
+
+- Created [[threat-modeling]] `mature` (security) — fills the clearest coverage gap: §3 is framed "secure-by-design," but the methodology that operationalizes it had only passing mentions across 9 pages ("STRIDE" appeared nowhere). Positioned as the **methodology** page; [[ai-specific-security]] remains the AI **attack catalog**.
+- Content: Shostack's four questions + DFD/trust boundaries; STRIDE (per-element), PASTA, attack trees, LINDDUN (privacy), DREAD-deprecated; AI extensions **MAESTRO** (CSA, Feb 2025, 7-layer) + NIST AI 100-2 as the AI threat catalog; lifecycle/threat-model-as-code; trade-offs (depth-vs-cadence, who-holds-the-pen, AI-assisted as draft-review-own).
+- State of the art grounded in live search: AI-assisted threat modeling mainstreamed (MS TMT v4.2, STRIDE-GPT), ThreatModeler↔IriusRisk consolidation (Jan 2026), OWASP Threat Dragon/Threagile/CAIRIS. ~10 sources.
+- Wired inbound links from [[ai-specific-security]], [[prompt-injection]], [[model-supply-chain-security]] (no orphan). Bumped `index.md` 78 → 79 mature.
+

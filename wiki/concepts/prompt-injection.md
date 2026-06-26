@@ -165,6 +165,7 @@ The field is actively researching; defenses are improving but no architectural s
 ## See also
 
 - [[ai-specific-security]]
+- [[threat-modeling]]
 - [[guardrails-and-output-validation]]
 - [[model-supply-chain-security]]
 - [[agent-governance-and-policy]]

@@ -217,6 +217,7 @@ checklist items.
 
 ## See also
 
+- [[threat-modeling]]
 - [[prompt-injection]]
 - [[model-supply-chain-security]]
 - [[agent-identity-and-access]]

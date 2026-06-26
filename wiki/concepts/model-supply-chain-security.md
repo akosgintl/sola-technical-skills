@@ -153,6 +153,7 @@ Data poisoning introduces malicious training examples that cause a model to misb
 ## See also
 
 - [[ai-specific-security]] — broader AI security including prompt injection and inference attacks
+- [[threat-modeling]] — the methodology for which NIST AI 100-2/100-4 supplies the AI threat catalog
 - [[software-supply-chain-security]] — SLSA, Sigstore, SBOM, and dependency controls for code artifacts
 - [[prompt-injection]] — attack pattern that exploits the model's instruction-following at runtime
 - [[ai-governance-frameworks]] — EU AI Act Article 9/10 data governance requirements for high-risk AI
