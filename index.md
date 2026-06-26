@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 85 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 17 ingest-sourced expansions. **85 `mature`** (655+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
+**Coverage:** 86 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 18 ingest-sourced expansions. **86 `mature`** (660+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
 
 ---
 
@@ -64,6 +64,7 @@ sources: []
 | [[event-driven-architecture]] | mature |
 | [[serverless-architecture]] | mature |
 | [[kubernetes-at-design-level]] | mature |
+| [[caching-strategies]] | mature |
 | [[cloud-governance-at-scale]] | mature |
 
 ## Security & Compliance · `security`

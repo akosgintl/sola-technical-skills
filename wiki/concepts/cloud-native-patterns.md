@@ -152,6 +152,7 @@ CNCF 2025 Annual Survey: 82% of container users run Kubernetes in production; cl
 - [[kubernetes-at-design-level]]
 - [[multi-cloud-architecture]]
 - [[distributed-systems-reliability]]
+- [[caching-strategies]]
 - [[observability-fundamentals]]
 - [[infrastructure-as-code]]
 - [[developer-experience]]

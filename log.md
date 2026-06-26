@@ -344,3 +344,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: outbox+CDC (Debezium 2.5+/Kafka KRaft/Strimzi) standard combo, durable-execution engines, idempotency+DLQ baseline. ~5 sources (microservices.io, AWS Prescriptive Guidance, InfoQ, Debezium).
 - Wired inbound links from [[service-decomposition]] (linkified + See also) and [[event-sourcing-and-cqrs]] (See also). Bumped `index.md` 84 → 85 mature.
 
+## [2026-06-26] ingest | Caching Strategies (new page)
+
+- Created [[caching-strategies]] `mature` (cloud) — cross-cutting discipline owned by no page; prompt/KV-cache *cost* lived only in [[ai-gpu-economics]]. This page owns the general discipline and treats prompt/semantic caching as one section linking back for economics.
+- Scope: cache layers (client→CDN/edge→app→distributed→DB); read/write patterns (cache-aside, read/write-through, write-behind, write-around, refresh-ahead); invalidation (TTL/explicit/event-driven/versioned — "the hard part"); eviction; failure modes (stampede→single-flight/SETNX/probabilistic-early-expiration, penetration, hot keys, cold cache); **semantic caching** for LLMs (embedding-similarity match) + prompt/KV caching pointer.
+- Trade-offs: staleness-tolerance sets TTL, cache-aside vs write-through, local vs distributed, closer-is-harder-to-invalidate, cache-as-availability-crutch, don't-cache-prematurely.
+- State of the art grounded in live search: multi-tier as first-class layer, Redis + CDN edge KV, stampede protection standard, semantic caching emerging. ~5 sources (Redis, AWS Builders' Library, Hello Interview, PyImageSearch).
+- Wired inbound links from [[ai-gpu-economics]] and [[cloud-native-patterns]] See-also. Bumped `index.md` 85 → 86 mature.
+
