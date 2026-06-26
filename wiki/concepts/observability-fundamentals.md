@@ -155,6 +155,7 @@ OpenTelemetry reached all-stable signals (traces, metrics, logs) in 2024-2025 an
 ## See also
 
 - [[distributed-systems-reliability]]
+- [[incident-management]]
 - [[ai-agent-observability]]
 - [[cloud-native-patterns]]
 - [[api-gateways-and-service-mesh]]

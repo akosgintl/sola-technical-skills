@@ -376,3 +376,10 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: ELT default, dbt standard, Airflow dominant + Dagster rising, medallion mainstream, composable stacks over monoliths, declarative/asset orchestration. ~5 sources (Alps Agility, Dagster, dbt, MS Learn medallion, Airflow).
 - Wired inbound links from [[data-storage-paradigms]] and [[streaming-and-event-data]] See-also. Bumped `index.md` 88 → 89 mature.
 
+## [2026-06-26] ingest | Incident Management (new page)
+
+- Created [[incident-management]] `mature` (observability) — the response/learning *process* discipline; [[observability-fundamentals]] owns SLO/error-budget *metrics*, [[distributed-systems-reliability]] owns resilience patterns, [[disaster-recovery-and-continuity]] owns recovery. Frame: observability detects, resilience absorbs, DR recovers, incident management runs the response + closes the learning loop.
+- Scope: incident lifecycle; **severity levels** (SEV1-4); **incident commander** (coordinate, not troubleshoot) + comms/ops leads; **blameless postmortems** (safety → honest accounts → tracked fixes); **error-budget policy** (halt releases when budget exhausted) as the reliability-vs-velocity governance lever; on-call/alert quality; **AIOps** (correlation, MTTR gains, AI-drafted postmortems) as assist-not-autonomy.
+- State of the art grounded in live search: Google SRE canonical, incident.io/Rootly/PagerDuty tooling, AIOps double-digit MTTR gains, AI-drafted postmortem timelines, agentic-system incidents as a frontier. ~5 sources (Google SRE book/workbook, incident.io, Rootly).
+- Wired inbound links from [[observability-fundamentals]] and [[distributed-systems-reliability]] See-also. Bumped `index.md` 89 → 90 mature.
+

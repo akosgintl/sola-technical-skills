@@ -164,6 +164,7 @@ The arXiv:2512.16959v1 systematic review (2024) identifies circuit breakers, ret
 ## See also
 
 - [[disaster-recovery-and-continuity]]
+- [[incident-management]]
 - [[observability-fundamentals]]
 - [[cloud-native-patterns]]
 - [[streaming-and-event-data]]

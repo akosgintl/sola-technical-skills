@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 89 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 21 ingest-sourced expansions. **89 `mature`** (675+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
+**Coverage:** 90 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 22 ingest-sourced expansions. **90 `mature`** (680+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
 
 ---
 
@@ -133,6 +133,7 @@ sources: []
 |---|---|
 | [[observability-fundamentals]] | mature |
 | [[distributed-systems-reliability]] | mature |
+| [[incident-management]] | mature |
 | [[ai-agent-observability]] | mature |
 
 ## Emerging & Adjacent · `emerging`
