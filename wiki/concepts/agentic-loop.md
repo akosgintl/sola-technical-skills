@@ -145,6 +145,7 @@ Addy Osmani's 5+1 framework (automations, work trees, skills, plugins, sub-agent
 
 ## See also
 
+- [[agentic-harness]]
 - [[context-engineering]]
 - [[agent-planning]]
 - [[llm-tool-use]]

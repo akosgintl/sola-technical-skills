@@ -251,6 +251,7 @@ running these systems in production.
 
 ## See also
 
+- [[agentic-harness]]
 - [[multi-agent-orchestration]]
 - [[agent-to-agent-protocols]]
 - [[human-in-the-loop-design]]
