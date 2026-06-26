@@ -262,3 +262,14 @@ Ingested Iusztin's reverse-engineering of a production coding-agent harness. Its
 - Cross-linked: added [[agentic-harness]] to See-also of [[agentic-system-design]] and [[agentic-loop]].
 - Updated `index.md`: 78 pages (77 mature + 1 draft); added [[agentic-harness]] under AI & Agentic Architecture; bumped ingest-sourced expansions 9 → 10.
 - Recommend a lint pass before commit.
+
+## [2026-06-26] ingest | Claude Code docs — deepen [[agentic-harness]] draft → mature
+
+Grounded the harness page in the official Claude Code documentation (sub-agents, skills, settings/permissions, memory). The docs both confirmed Iusztin's anatomy and **corrected** it, so the page now carries primary-source mechanics rather than a single blog's framing.
+
+- Promoted [[agentic-harness]] `draft → mature` (+4 Claude Code doc sources, 5 total). Deepened every component with cited specifics: subagent frontmatter table (`tools`/`disallowedTools`/`model`/`permissionMode`/`skills`/`memory`/`hooks`/`isolation`), fresh-isolated-context + summary-return, nested-subagent depth cap; `SKILL.md` progressive disclosure + `allowed-tools`/`disable-model-invocation`/`user-invocable`; `permissions.allow/ask/deny` `Action(pattern)` rules, deny-overrides-allow, scope merge, modes.
+- **Two corrections captured as `[!warning]` callouts:** (1) Claude Code reads **`CLAUDE.md`, not `AGENTS.md`** (AGENTS.md is imported via `@AGENTS.md`); the article's `logs/YYYY-MM-DD.md` daily-append memory is superseded by the `MEMORY.md` index + on-demand topic-file design (first 200 lines/25 KB loaded, no embeddings). (2) Sharpened the deterministic-vs-prompt-side enforcement distinction with the docs' own words — CLAUDE.md/skills/plan-mode are "context, not enforced configuration"; the real enforcement primitive is the **`PreToolUse` hook** (exit 2 to block). Added **hooks** as a first-class component and to tags.
+- New cross-links added: [[git-worktrees-parallel-agents]], [[policy-as-code]].
+- Captured Claude Code doc facts inline + cited (no separate raw/ capture — official docs cited by URL per schema §10).
+- Updated `index.md`: [[agentic-harness]] draft → mature; coverage now **78 mature**, 0 draft (615+ sources).
+- Recommend a lint pass before commit.
