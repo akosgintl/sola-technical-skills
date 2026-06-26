@@ -383,3 +383,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: Google SRE canonical, incident.io/Rootly/PagerDuty tooling, AIOps double-digit MTTR gains, AI-drafted postmortem timelines, agentic-system incidents as a frontier. ~5 sources (Google SRE book/workbook, incident.io, Rootly).
 - Wired inbound links from [[observability-fundamentals]] and [[distributed-systems-reliability]] See-also. Bumped `index.md` 89 → 90 mature.
 
+## [2026-06-26] ingest | Identity Federation & SSO (new page)
+
+- Created [[identity-federation-and-sso]] `mature` (security) — tightly scoped to the parts [[iam-and-secrets-management]] (one-paragraph SSO subsection) and [[api-security]] (token validation) don't own: the **cross-organization identity plane**.
+- Scope: SSO vs federation; SAML vs OIDC (the "ship both for enterprise" B2B reality); **SCIM** provisioning vs JIT (the deprovisioning/orphaned-accounts gap); **federation topology** (direct vs brokered/**identity gateway** — Keycloak/Auth0/Entra External ID translating SAML→internal OIDC); workforce vs CIAM; session/SLO/assertion validation.
+- Trade-offs: SAML/OIDC/both, SCIM vs JIT, direct vs brokered, build-vs-buy IdP (don't DIY federation), IdP-as-SPOF/break-glass.
+- State of the art grounded in live search: SCIM a hard procurement requirement (~74% of >$100k deals), OIDC winning new/SAML entrenched a decade, identity gateways standard for B2B SaaS, passkeys at the IdP, NHI/agent identity frontier. ~5 sources (Clerk, Gupta, RFC 7644, SSOJet, AWS Builder).
+- Wired inbound links from [[iam-and-secrets-management]] (linkified SSO subsection + See also) and [[api-security]] (See also). Bumped `index.md` 90 → 91 mature.
+

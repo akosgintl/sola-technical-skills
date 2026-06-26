@@ -44,7 +44,7 @@ The 2026 expansion: traditional IAM was designed for human users. Cloud-native a
 
 **MFA (Multi-Factor Authentication):** the baseline for human authentication. Factors: something you know (password), something you have (TOTP, hardware key), something you are (biometric). FIDO2/WebAuthn hardware keys (YubiKey) are phishing-resistant; TOTP is phishable (real-time phishing proxies can intercept codes). For privileged access, hardware keys are the standard.
 
-**SSO (Single Sign-On):** one authentication event grants access to multiple systems. Protocols: SAML 2.0 (enterprise federation, IdP-initiated), OIDC/OAuth 2.0 (cloud-native, developer-friendly). Providers: Okta, Microsoft Entra ID (AAD), Google Workspace, Ping Identity.
+**SSO (Single Sign-On):** one authentication event grants access to multiple systems. Protocols: SAML 2.0 (enterprise federation, IdP-initiated), OIDC/OAuth 2.0 (cloud-native, developer-friendly). Providers: Okta, Microsoft Entra ID (AAD), Google Workspace, Ping Identity. See [[identity-federation-and-sso]] for federation topology (direct vs. brokered/identity-gateway), SCIM provisioning, and the B2B SSO model.
 
 **Passwordless:** FIDO2/WebAuthn passkeys replace passwords with public-key cryptography bound to the authenticating device. Phishing-resistant by design; the private key never leaves the device. Broadly supported in 2026 across major platforms (Apple, Google, Microsoft).
 
@@ -158,6 +158,7 @@ Workload identity federation has become the standard for cloud-native NHI authen
 - [[zero-trust-architecture]]
 - [[agent-identity-and-access]]
 - [[api-security]]
+- [[identity-federation-and-sso]]
 - [[encryption-and-key-management]]
 - [[cloud-governance-at-scale]]
 - [[software-supply-chain-security]]
