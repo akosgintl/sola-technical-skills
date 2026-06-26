@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 86 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 18 ingest-sourced expansions. **86 `mature`** (660+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
+**Coverage:** 87 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 19 ingest-sourced expansions. **87 `mature`** (665+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
 
 ---
 
@@ -75,6 +75,7 @@ sources: []
 | [[iam-and-secrets-management]] | mature |
 | [[encryption-and-key-management]] | mature |
 | [[network-segmentation]] | mature |
+| [[api-security]] | mature |
 | [[threat-modeling]] | mature |
 | [[ai-specific-security]] | mature |
 | [[prompt-injection]] | mature |

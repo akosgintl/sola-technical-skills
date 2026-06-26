@@ -157,6 +157,7 @@ Workload identity federation has become the standard for cloud-native NHI authen
 
 - [[zero-trust-architecture]]
 - [[agent-identity-and-access]]
+- [[api-security]]
 - [[encryption-and-key-management]]
 - [[cloud-governance-at-scale]]
 - [[software-supply-chain-security]]

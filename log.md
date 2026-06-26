@@ -352,3 +352,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: multi-tier as first-class layer, Redis + CDN edge KV, stampede protection standard, semantic caching emerging. ~5 sources (Redis, AWS Builders' Library, Hello Interview, PyImageSearch).
 - Wired inbound links from [[ai-gpu-economics]] and [[cloud-native-patterns]] See-also. Bumped `index.md` 85 → 86 mature.
 
+## [2026-06-26] ingest | API Security (new page)
+
+- Created [[api-security]] `mature` (security) — the API-layer security discipline was scattered across [[iam-and-secrets-management]] (identity/secrets), [[zero-trust-architecture]] (principles), and [[api-gateways-and-service-mesh]] (enforcement mechanism); no page owned the API threat model + controls.
+- Scope: OWASP API Security Top 10 (2023) as shared vocabulary; **BOLA** (API1, ~40% of attacks) and the authorization-granularity story (object/property/function level); authN (OAuth2/OAuth2.1, OIDC, JWT validation incl. alg:none, mTLS, API-keys-aren't-auth); resource limits as security; API inventory (shadow/zombie); **the gateway can't do object-level authZ — the service must**.
+- Trade-offs: where authZ lives (gateway coarse vs service fine), JWT vs opaque tokens, mTLS vs token for east-west, positive (OpenAPI schema) vs negative security, zero-trust at the API layer.
+- State of the art grounded in live search: BOLA still #1, OAuth 2.1 secure-defaults, runtime API security tooling, positive-security schema enforcement, agentic/MCP expanding the surface. ~5 sources (OWASP API Top 10, RFC 9700, OIDC, Wiz).
+- Wired inbound links from [[api-gateways-and-service-mesh]] and [[iam-and-secrets-management]] See-also. Bumped `index.md` 86 → 87 mature.
+

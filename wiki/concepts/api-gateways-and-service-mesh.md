@@ -150,6 +150,7 @@ For AI inference workloads: gateways are increasingly used as the routing layer 
 ## See also
 
 - [[api-styles-and-protocols]]
+- [[api-security]]
 - [[observability-fundamentals]]
 - [[zero-trust-architecture]]
 - [[kubernetes-at-design-level]]
