@@ -115,6 +115,7 @@ Anthropic's *Building Effective Agents* (2024) recommends for agentic AI: human 
 - [[human-in-the-loop-design]] — the system-level pattern for human oversight gates in agentic workflows
 - [[accountable-human-layer]] — the broader principle of retained human accountability in AI systems
 - [[trade-off-judgment]] — the judgment capacity the reviewer applies
+- [[architecture-decision-records]] — the human-authored record of the decisions the owner retains
 - [[ai-evaluation-and-quality]] — defining review criteria as measurable eval standards
 - [[guardrails-and-output-validation]] — automated review of AI output properties
 - [[agent-governance-and-policy]] — organisational accountability structures

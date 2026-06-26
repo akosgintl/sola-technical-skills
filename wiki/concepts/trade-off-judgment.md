@@ -1,6 +1,6 @@
 ---
 title: Trade-off Judgment
-aliases: [tradeoff judgment, architectural trade-offs, ADR, architecture decision records]
+aliases: [tradeoff judgment, architectural trade-offs, architecture trade-off analysis]
 type: concept
 domain: meta
 status: mature
@@ -61,20 +61,7 @@ No pair has a universally correct answer. The answer depends on the context: reg
 
 ### Architecture Decision Records
 
-Michael Nygard's ADR format (2011) is the standard for capturing trade-off reasoning. A minimal ADR contains:
-
-1. **Title** — a short, imperative statement of the decision.
-2. **Status** — proposed / accepted / deprecated / superseded.
-3. **Context** — the forces at play; the situation that makes a decision necessary.
-4. **Decision** — what was chosen.
-5. **Consequences** — what becomes easier, what becomes harder, what is now at risk.
-
-The *consequences* section is the highest-value part. Naming what gets worse as a result of the decision is what distinguishes an ADR from a design document. An ADR that claims all positive consequences is not honest about the trade-off.
-
-ADRs live in version control alongside the code. They are readable by the next architect who touches the system — who may otherwise make the same decision, or worse, reverse it without understanding why it was made.
-
-> [!tip]
-> The most common ADR failure is the missing alternatives section. "We considered X, Y, and Z; X failed because of A; Y was eliminated because of B" is what converts a record of a decision into a transferable argument. Without it, the decision is authority-based ("the previous architect chose Kafka") rather than reasoning-based ("the previous architect chose Kafka because of these constraints that still apply").
+The artifact that captures trade-off reasoning is the [[architecture-decision-records|Architecture Decision Record (ADR)]] — a short, version-controlled note of the context, the decision, the alternatives considered, and the consequences accepted. Its highest-value parts are the two most often skipped: the **consequences** (naming what gets *worse* is what makes it a trade-off analysis rather than marketing) and the **alternatives** ("we considered X, Y, Z; X failed on A"), which converts a record of a decision into a transferable argument rather than an appeal to authority. See [[architecture-decision-records]] for the format, templates (Nygard, MADR), status lifecycle, and tooling.
 
 ### Calibrating analysis to stakes
 

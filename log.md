@@ -313,3 +313,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: ransomware-targets-backups → immutability mainstream, DR testing as compliance evidence (DORA, ISO 22301/27001), continuous data protection + automated failover, sovereign fault domains, IaC-defined recovery. ~6 sources (AWS Well-Architected DR, Rubrik, CalmOps, Harness, ISO 22301).
 - Wired inbound links from [[distributed-systems-reliability]] (inline + See also) and [[multi-cloud-architecture]] (no orphan). Bumped `index.md` 80 → 81 mature.
 
+## [2026-06-26] ingest | Architecture Decision Records (new page + split)
+
+- Created [[architecture-decision-records]] `mature` (meta) — the ADR *practice/artifact* had no page; it lived only as a subsection of [[trade-off-judgment]], which also **claimed the `ADR` / `architecture decision records` aliases**.
+- **Split (one concept per file):** new page owns the artifact (Nygard + MADR/Y-statement/42010 templates, status lifecycle + immutability/supersede, docs-as-code + Log4brains/adr-tools, "alternatives section is the point", one-decision-per-record, AI-drafted ADRs); trade-off-judgment keeps the *judgment* and now points to the dedicated page (subsection condensed; colliding aliases removed to end the alias clash).
+- AI-era framing emphasized: the ADR as the human-authored accountability record over generated output — ties [[delegate-review-own]] / [[accountable-human-layer]] / [[vibe-coding-governance]] / [[spec-driven-development]].
+- State of the art grounded in live search: docs-as-code default, MADR + Log4brains stack, adr.github.io, AI-assisted ADR authoring, ADL as governance/audit evidence. ~5 sources.
+- Wired inbound links from [[trade-off-judgment]] (subsection pointer) and [[delegate-review-own]] (See also). Bumped `index.md` 81 → 82 mature.
+
