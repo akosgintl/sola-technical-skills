@@ -153,6 +153,7 @@ GPU nodes have unique segmentation requirements:
 ## See also
 
 - [[zero-trust-architecture]] — the broader ZTA model of which micro-segmentation is the network pillar
+- [[cloud-network-architecture]] — the VPC/hub-spoke topology that segmentation is enforced within
 - [[encryption-and-key-management]] — mTLS certificates and the PKI backing service-to-service authentication
 - [[iam-and-secrets-management]] — identity layer above the network layer
 - [[kubernetes-at-design-level]] — Kubernetes CNI, network policy, and multi-tenancy

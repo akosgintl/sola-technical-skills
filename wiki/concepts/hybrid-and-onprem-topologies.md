@@ -145,6 +145,7 @@ GitOps (Flux, ArgoCD) targeting both cloud and on-prem clusters from the same re
 - [[cloud-governance-at-scale]] — landing zones and guardrails that extend to hybrid accounts
 - [[zero-trust-architecture]] — consistent identity and access policy across the hybrid boundary
 - [[network-segmentation]] — segmentation patterns applicable to hybrid network topologies
+- [[cloud-network-architecture]] — VPC/hub-spoke topology, transit gateways, and DNS the hybrid links plug into
 - [[confidential-computing]] — hardware-level encryption for sensitive workloads at the edge or on-prem
 - [[wasm-at-the-edge]] — lightweight runtime for ultra-constrained edge nodes
 - [[encryption-and-key-management]] — key management across on-prem and cloud boundaries

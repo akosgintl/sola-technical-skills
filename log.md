@@ -391,3 +391,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: SCIM a hard procurement requirement (~74% of >$100k deals), OIDC winning new/SAML entrenched a decade, identity gateways standard for B2B SaaS, passkeys at the IdP, NHI/agent identity frontier. ~5 sources (Clerk, Gupta, RFC 7644, SSOJet, AWS Builder).
 - Wired inbound links from [[iam-and-secrets-management]] (linkified SSO subsection + See also) and [[api-security]] (See also). Bumped `index.md` 90 → 91 mature.
 
+## [2026-06-26] ingest | Cloud Network Architecture (new page)
+
+- Created [[cloud-network-architecture]] `mature` (cloud) — the network *topology/connectivity design* layer; [[network-segmentation]] owns the security/isolation lens and [[hybrid-and-onprem-topologies]] owns on-prem connectivity, but cloud network topology was unowned.
+- Scope: IP/CIDR planning (non-overlapping); VPC/subnet design; **hub-and-spoke + transit gateway** (vs O(N²) full-mesh peering); **peering vs PrivateLink** (network- vs service-level); centralized **egress** (NAT vs hub firewall — cost + exfil control); **DNS** architecture (private hosted zones/split-horizon); global load balancing; landing-zone network foundation.
+- Trade-offs: hub-spoke vs mesh, peering vs PrivateLink, centralized vs distributed egress, CIDR-up-front vs retrofit, few-large vs many-small VPCs, provider equivalencies (TGW ≈ vWAN ≈ NCC).
+- State of the art grounded in live search: hub-spoke+transit-gateway as the default landing-zone network, centralized PrivateLink endpoints + egress firewall, cloud-WAN backbones, networking-as-code, multi-tenant hub-spoke for GenAI. ~5 sources (GCP VPC design, AWS multi-VPC whitepaper, GCP/Azure hub-spoke, GCP landing-zone).
+- Wired inbound links from [[network-segmentation]] and [[hybrid-and-onprem-topologies]] See-also. Bumped `index.md` 91 → 92 mature.
+
