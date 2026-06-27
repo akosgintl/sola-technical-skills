@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 93 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 25 ingest-sourced expansions. **93 `mature`** (695+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
+**Coverage:** 94 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 26 ingest-sourced expansions. **94 `mature`** (700+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
 
 ---
 
@@ -45,6 +45,7 @@ sources: []
 | [[graphrag]] | mature |
 | [[model-selection-and-routing]] | mature |
 | [[model-customization]] | mature |
+| [[ai-gateway]] | mature |
 | [[model-context-protocol]] | mature |
 | [[ai-evaluation-and-quality]] | mature |
 | [[guardrails-and-output-validation]] | mature |

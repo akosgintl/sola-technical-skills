@@ -407,3 +407,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: tiered/hybrid mainstream, RLS-backed pooling default + silos for regulated, AI auto-promotion of noisy/high-value tenants, cell-based routing at hyperscale. ~5 sources (AWS SaaS lens, GainHQ, Brocoders, Ariel, Coderkube).
 - Wired inbound links from [[cloud-governance-at-scale]] and [[api-security]] See-also. Bumped `index.md` 92 → 93 mature.
 
+## [2026-06-27] ingest | AI Gateway (new page)
+
+- Created [[ai-gateway]] `mature` (ai-agentic) — the LLM/agent traffic control plane, distinct from [[model-selection-and-routing]] (the routing *strategy* it executes), [[model-context-protocol]] (tool/data protocol), and [[api-gateways-and-service-mesh]] (general, non-token-aware).
+- Scope: unified provider-abstraction API; routing/fallback; **cost governance** (virtual keys, per-team budgets, quotas); prompt + **semantic caching**; centralized **guardrails + PII redaction**; unified observability; key vaulting + per-tenant rate limiting.
+- Trade-offs: build/buy/self-host (LiteLLM vs Portkey vs Cloudflare vs Kong vs Helicone), self-hosted vs managed, centralized gateway vs per-app SDK (HA/SPOF in every call's path), reuse-API-gateway vs LLM-specialized.
+- State of the art grounded in live search: AI gateway now a recognized category; LiteLLM OSS standard, Portkey managed control plane, Cloudflare edge, Kong enterprise, Helicone cost; semantic caching/guardrails/budgets standard; extending to agent/MCP traffic. ~5 sources (Digital Applied, Gupta, LiteLLM, Portkey, Contabo).
+- Wired inbound links from [[model-selection-and-routing]] and [[llm-application-architecture]] See-also. Bumped `index.md` 93 → 94 mature.
+

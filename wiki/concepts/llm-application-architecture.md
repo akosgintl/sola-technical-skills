@@ -155,6 +155,7 @@ Prompt caching requires the cached prefix to be identical byte-for-byte. Design 
 - [[retrieval-augmented-generation]] — the retrieval layer in depth
 - [[agent-memory-architectures]] — the memory layer in depth
 - [[model-selection-and-routing]] — routing to the right model for each request
+- [[ai-gateway]] — the control-plane proxy that fronts providers with routing, budgets, caching, and guardrails
 - [[guardrails-and-output-validation]] — the validation and safety layer
 - [[model-context-protocol]] — tool registration and execution standard
 - [[agentic-loop]] — loop engineering for repeating agentic tasks
