@@ -73,7 +73,7 @@ Mature Operators exist for: PostgreSQL (CloudNative PG), Kafka (Strimzi), Redis,
 
 ### Multi-tenancy
 
-Kubernetes multi-tenancy ranges from **soft** (namespace isolation, shared control plane) to **hard** (separate clusters per tenant).
+Kubernetes multi-tenancy ranges from **soft** (namespace isolation, shared control plane) to **hard** (separate clusters per tenant). The general isolation-model trade-offs (silo/pool/bridge) are covered in [[multi-tenancy-architecture]].
 
 **Namespace-based isolation (soft):**
 - Namespaces provide naming isolation and the boundary for RBAC, NetworkPolicy, and ResourceQuota

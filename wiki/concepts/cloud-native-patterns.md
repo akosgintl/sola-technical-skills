@@ -115,7 +115,7 @@ The trade-off: managed services reduce operational burden but increase vendor co
 ## Design decisions & trade-offs
 
 **Microservices vs. modular monolith:**
-Cloud-native does not require microservices. A modular monolith deployed on Kubernetes is cloud-native; an incorrectly decomposed microservices mesh is not. The decomposition question: "Do these capabilities need to scale, deploy, and fail independently?" If not, keep them together. Splitting prematurely produces distributed monolith anti-patterns — all the network overhead of microservices with all the coupling of a monolith.
+Cloud-native does not require microservices. A modular monolith deployed on Kubernetes is cloud-native; an incorrectly decomposed microservices mesh is not. The decomposition question: "Do these capabilities need to scale, deploy, and fail independently?" If not, keep them together. Splitting prematurely produces distributed monolith anti-patterns — all the network overhead of microservices with all the coupling of a monolith. See [[service-decomposition]] for the granularity decision in depth.
 
 **Stateless vs. stateful services:**
 Cloud-native strongly favors stateless services: they are trivially horizontally scalable and disposable. When you need state (user sessions, accumulated computation), externalize it to a managed store (Redis, DynamoDB). Stateful services (databases) run as StatefulSets or fully managed services — not as regular Deployments.

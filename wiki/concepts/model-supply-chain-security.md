@@ -134,7 +134,7 @@ Data poisoning introduces malicious training examples that cause a model to misb
 
 **CycloneDX ML-BOM v1.6** (2025) added support for agentic AI artifacts, including tool definitions, agent capability declarations, and multi-agent workflow descriptions. This makes it the most complete standard for AI-BOM in agentic systems.
 
-**NIST AI 100-4** (Adversarial Machine Learning, 2024) is the authoritative taxonomy for AI attack types including data poisoning, model evasion, and model extraction. It is the reference standard for threat modelling AI systems and maps attack types to mitigation families.
+**NIST AI 100-4** (Adversarial Machine Learning, 2024) is the authoritative taxonomy for AI attack types including data poisoning, model evasion, and model extraction. It is the reference standard for [[threat-modeling|threat modelling]] AI systems and maps attack types to mitigation families.
 
 **EU AI Act Article 9** (quality management for high-risk AI) and Article 10 (data and data governance requirements) mandate training data provenance documentation and quality assurance processes — effectively requiring AI-BOM capabilities for high-risk AI systems in scope. These requirements are enforceable from August 2026.
 

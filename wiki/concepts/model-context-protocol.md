@@ -125,7 +125,7 @@ runs with ambient user privilege and has no real authN/authZ story — fine for 
 for a product. Remote MCP with OAuth 2.1 is the only defensible posture for multi-tenant SaaS, but
 you now own token audience-binding, per-tenant scoping, and an MCP **gateway**.
 
-**Per-tenant scoping in multi-tenant products.** The protocol does **not** isolate tenants for you.
+**Per-tenant scoping in [[multi-tenancy-architecture|multi-tenant products]].** The protocol does **not** isolate tenants for you.
 You must: (1) bind every token to a single tenant and a single server audience; (2) scope which
 tools/resources a tenant's agent can even *see* at `tools/list` (don't leak the catalog across
 tenants); (3) push tenant identity through to the downstream system so the *real* backend enforces

@@ -166,7 +166,7 @@ The most common strategic question, and most teams get it wrong by treating it a
 - **Applying the classic RAG playbook regardless of document type.** A fixed-template invoice corpus + engineer-controlled questions is a regex problem. A vision-rich schematic corpus is a vision model problem. Run the diagnostic grid first.
 - **Reaching for GraphRAG / full agentic loops prematurely.** They add real cost and latency. Exhaust hybrid + contextual + rerank before escalating complexity.
 - **Stale index / silent corpus drift.** RAG's freshness advantage evaporates if ingestion lags. Treat the index as a pipeline with its own SLOs and lineage — see [[ai-data-fabric]].
-- **Ignoring access control at retrieval time.** Multi-tenant RAG must filter by entitlement *before* generation, or you leak data across tenants.
+- **Ignoring access control at retrieval time.** [[multi-tenancy-architecture|Multi-tenant]] RAG must filter by entitlement *before* generation, or you leak data across tenants.
 
 ## See also
 

@@ -447,3 +447,12 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
   - **Runaway and loop prevention** (1.1.2.3) — hard stopping conditions, no-progress/loop detection, cost circuit breaker, bounded delegation/fan-out, blast-radius sandboxing.
 - Added two pitfalls (no termination guarantee; no final verifier); expanded See-also ([[agentic-loop]], [[delegate-review-own]], [[llm-structured-outputs]]); `updated` → 2026-06-27. No new page (status already `mature`); index count unchanged.
 
+## [2026-06-27] lint | Linkify sweep — wire prose mentions to new canonical pages
+
+- Focused (not mechanical) sweep converting plain-prose mentions of this session's new pages into wikilinks in older pages:
+  - → [[service-decomposition]]: [[cloud-native-patterns]] (Microservices-vs-modular-monolith), [[agentic-system-design]] ("30 microservices").
+  - → [[saga-and-outbox-patterns]]: [[event-driven-architecture]] (transactional-outbox subsection + See-also), [[distributed-systems-reliability]] (saga compensation).
+  - → [[multi-tenancy-architecture]]: [[kubernetes-at-design-level]] (multi-tenancy section), [[model-context-protocol]] (per-tenant scoping), [[retrieval-augmented-generation]] (multi-tenant RAG).
+  - → [[threat-modeling]]: [[model-supply-chain-security]] (threat modelling AI systems).
+- 8 files touched; lint PASS (0 broken links). Scope held to clear, high-value mentions — not every occurrence.
+

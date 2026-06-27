@@ -143,7 +143,7 @@ Integration tests catch interface contracts; chaos engineering catches resilienc
 
 ## State of the art
 
-The arXiv:2512.16959v1 systematic review (2024) identifies circuit breakers, retries, and saga compensation as the most widely adopted microservice recovery patterns. Chaos engineering adoption is growing but still below 50% in mid-market.
+The arXiv:2512.16959v1 systematic review (2024) identifies circuit breakers, retries, and [[saga-and-outbox-patterns|saga compensation]] as the most widely adopted microservice recovery patterns. Chaos engineering adoption is growing but still below 50% in mid-market.
 
 **Sovereign fault domains (InfoQ, 2026):** a new reliability framing for geopolitically sensitive deployments — treating legal/political jurisdictions as failure boundaries separate from physical topology. Systems operating across EU/US/APAC should define explicit region evacuation playbooks and test cross-region traffic blackholing.
 

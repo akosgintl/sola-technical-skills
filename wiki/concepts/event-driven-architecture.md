@@ -93,7 +93,7 @@ Rule of thumb: **choreography within a bounded context** (tight domain ownership
 
 A subtle but critical correctness issue: a service updates a database row and then publishes an event — two non-atomic operations. If the app crashes between the DB write and the broker publish, the event is lost and the system is inconsistent.
 
-The **transactional outbox** solves this:
+The **[[saga-and-outbox-patterns|transactional outbox]]** solves this:
 1. Write the state change AND the event to an `outbox` table inside the same database transaction
 2. A separate **relay process** (Debezium CDC, custom poller) reads the outbox table and publishes events to the broker
 3. The relay marks events as published once acknowledged by the broker
@@ -158,6 +158,7 @@ AI-era implications: event streams are the natural data source for real-time age
 - [[serverless-architecture]]
 - [[streaming-and-event-data]]
 - [[event-sourcing-and-cqrs]]
+- [[saga-and-outbox-patterns]]
 - [[domain-driven-design]]
 - [[api-styles-and-protocols]]
 - [[distributed-systems-reliability]]

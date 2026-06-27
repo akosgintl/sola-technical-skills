@@ -60,7 +60,7 @@ context fragments, the token bill multiplies, and nobody can debug a non-determi
 five-agent conversation in production.
 
 The key discipline here is **resisting premature distribution**. The same instinct that
-stops you from splitting a monolith into 30 microservices before you understand the
+stops you from splitting a monolith into 30 [[service-decomposition|microservices]] before you understand the
 domain should stop you from splitting one agent into a swarm. Anthropic's own guidance
 leads with *"find the simplest solution possible, and only increase complexity when
 needed. This might mean not building agentic systems at all."* That sentence is the whole
