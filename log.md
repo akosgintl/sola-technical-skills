@@ -431,3 +431,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: Gartner >60% sensitive-data training synthetic, EU AI Act recognizes it, standard recipes, privacy-preserving generation (DP+federated), model-collapse mitigation. ~5 sources (Digital Applied, Future AGI, model-collapse paper arXiv:2305.17493, Google Research, Tetrate).
 - Wired inbound links from [[model-customization]] and [[data-privacy-engineering]] See-also. Bumped `index.md` 95 → 96 mature.
 
+## [2026-06-27] ingest | Cell-Based Architecture (new page)
+
+- Created [[cell-based-architecture]] `mature` (cloud) — the cellular partitioning resilience/scalability topology; distinct from [[distributed-systems-reliability]] (in-process bulkheads), [[multi-tenancy-architecture]] (silo = one tenant; cell pools many), and [[service-decomposition]] (functional/vertical split; cells are horizontal full-stack).
+- Scope: the cell (independent full-stack replica); the **cell router** as the one shared SPOF risk (keep trivial/HA); **blast radius = 1/N** + cell sizing dial; **shuffle sharding** (combinatorial isolation); cellular deployment + tenant migration; per-cell data partitioning.
+- Trade-offs: cell-size dial, trivial router, partition-data/avoid-cross-cell, adopt-at-right-scale (not premature), cell-vs-silo, automation-mandatory.
+- State of the art grounded in live search: cellular the standard hyperscale resilience pattern (AWS Well-Architected/Builders' Library, Slack, Amex, DoorDash, Netflix), shuffle sharding standard, cellular deployment, control/data-plane separation, 2026 agentic blast-radius use. ~5 sources (AWS guidance/builder/shuffle-sharding, InfoQ, Amex).
+- Wired inbound links from [[distributed-systems-reliability]] and [[multi-tenancy-architecture]] See-also. Bumped `index.md` 96 → 97 mature.
+

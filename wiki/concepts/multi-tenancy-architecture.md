@@ -150,6 +150,7 @@ tenant-serving workload).
 - [[cost-optimization-practice]]
 - [[model-context-protocol]]
 - [[cloud-network-architecture]]
+- [[cell-based-architecture]]
 
 ## Sources
 
