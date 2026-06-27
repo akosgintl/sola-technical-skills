@@ -439,3 +439,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: cellular the standard hyperscale resilience pattern (AWS Well-Architected/Builders' Library, Slack, Amex, DoorDash, Netflix), shuffle sharding standard, cellular deployment, control/data-plane separation, 2026 agentic blast-radius use. ~5 sources (AWS guidance/builder/shuffle-sharding, InfoQ, Amex).
 - Wired inbound links from [[distributed-systems-reliability]] and [[multi-tenancy-architecture]] See-also. Bumped `index.md` 96 → 97 mature.
 
+## [2026-06-27] deepen | multi-agent-orchestration (P0 depth pass)
+
+- Deepened [[multi-agent-orchestration]] (the thinnest P0 anchor) to close three roadmap sub-nodes it had deferred, **without duplicating** [[agent-to-agent-protocols]] (which owns A2A wire protocols / state-passing / failure handling):
+  - **Context flow and result synthesis** (1.1.2.2) — how state moves through each of the five topologies; context accretion in chains; aggregation/synthesis; scoped-context-per-participant default.
+  - **Hand-off design: specialist chains** (1.1.1.3) — the worked **schema → API → test → review** example; typed-contract hand-offs + end-of-chain verifier, tied to the MAST coordination/verification gaps.
+  - **Runaway and loop prevention** (1.1.2.3) — hard stopping conditions, no-progress/loop detection, cost circuit breaker, bounded delegation/fan-out, blast-radius sandboxing.
+- Added two pitfalls (no termination guarantee; no final verifier); expanded See-also ([[agentic-loop]], [[delegate-review-own]], [[llm-structured-outputs]]); `updated` → 2026-06-27. No new page (status already `mature`); index count unchanged.
+

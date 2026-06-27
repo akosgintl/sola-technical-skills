@@ -5,7 +5,7 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [ai-agentic, agents, orchestration, workflows, langgraph, crewai, sdk]
-updated: 2026-06-20
+updated: 2026-06-27
 sources:
   - "https://www.anthropic.com/engineering/building-effective-agents"
   - "https://openreview.net/forum?id=fAjbYBmonr"
@@ -67,6 +67,71 @@ The five composable patterns, in increasing complexity (Anthropic):
 Above these sit **autonomous agents**: LLMs using tools in a loop on environmental feedback,
 planning independently with stopping conditions.
 
+### Context flow and result synthesis
+
+Each topology implies a different way state moves between participants — an orchestration concern
+distinct from the wire-level [[agent-to-agent-protocols|state-passing protocol]]:
+
+- **Prompt chaining** passes each step's full output forward; the risk is *context accretion* — the
+  chain accumulates tokens at every hop. Trim each hand-off to what the next step actually needs
+  (see [[context-engineering]]).
+- **Routing** passes the input plus a classification label; state stays small.
+- **Parallelization** fans the same (or partitioned) context out to N workers and must **aggregate**
+  their results — by concatenation, voting/quorum, or a reducer LLM.
+- **Orchestrator-workers** is the hardest: the orchestrator builds a **scoped context bundle** per
+  worker (goal + just-enough background), then **synthesizes** heterogeneous worker outputs into a
+  coherent whole. The synthesis step is where most quality is won or lost.
+
+The default is **scoped context per participant**, not a shared blackboard — it bounds cost and the
+blast radius of a bad or compromised participant (the scoped-vs-shared state trade-off is detailed
+in [[agent-to-agent-protocols]]).
+
+## Hand-off design: specialist chains
+
+A common production topology is a **chain of specialists**, each owning one stage and handing a
+typed artifact to the next — for example a **schema → API → test → review** pipeline for a code
+change:
+
+1. **Schema agent** produces the data/contract definition.
+2. **API agent** consumes the schema and implements endpoints against it.
+3. **Test agent** consumes the API contract and writes tests.
+4. **Review agent** checks the whole against the original spec and either approves or returns it.
+
+Two rules make these chains reliable:
+
+- **Make the hand-off a typed contract, not prose.** Each stage should emit a structured artifact
+  ([[llm-structured-outputs|structured output]]) the next stage consumes deterministically — the
+  orchestration-level analogue of the wire contract in [[agent-to-agent-protocols]]. Loose prose
+  hand-offs are exactly the *coordination gap* the MAST study found behind a large share of
+  multi-agent failures.
+- **Put a verifier at the end (and optionally between stages).** A review/evaluator stage closes the
+  MAST *verification gap* — a chain with no agent checking the result against the spec ships
+  plausible-but-wrong output. This is the [[human-in-the-loop-design|review gate]] /
+  [[delegate-review-own|delegate-review-own]] pattern expressed inside the orchestration.
+
+## Runaway and loop prevention
+
+Autonomous and dynamically-orchestrated agents fail *expensively* — spinning in a loop, retrying a
+failing action, or fanning out without bound. Because the failure mode is cost and time, not just a
+wrong answer, orchestration needs explicit brakes:
+
+- **Hard stopping conditions.** Every agentic loop needs a termination guarantee beyond "the model
+  decides it's done": a **max-iteration cap**, a **wall-clock timeout**, and a **token/cost budget**
+  that aborts the run. Anthropic's guidance is explicit that autonomous agents require clear stopping
+  conditions.
+- **No-progress / loop detection.** Detect repetition — identical or cyclic tool calls, unchanging
+  state, oscillation between two actions — and break out rather than burn budget (see the
+  runaway-prevention discussion in [[agentic-loop]]).
+- **Cost circuit breaker.** Track spend per run and trip at a threshold — the same
+  [[distributed-systems-reliability|circuit-breaker]] logic applied to token economics, so one
+  runaway agent can't spend unbounded money.
+- **Bounded delegation and fan-out.** Cap delegation depth (two levels is the practical maximum —
+  see [[agent-to-agent-protocols]]) and the number of parallel workers, so dynamic decomposition
+  can't explode combinatorially.
+- **Sandbox the blast radius.** Confine autonomous loops to scoped credentials and reversible
+  actions, with a [[human-in-the-loop-design|human gate]] on anything irreversible — autonomy raises
+  compounding-error risk, so contain what a runaway can touch.
+
 ## Design decisions & trade-offs
 
 | Decision | The real trade-off |
@@ -110,15 +175,22 @@ in [[agent-to-agent-protocols]].
 - **Over-decomposition** — so many tiny agents that coordination overhead dwarfs the work.
 - **Ignoring the bill** — treating an N× token multiplier as free because the demo worked once.
 - **No gates** between chained steps, so an early error propagates silently.
+- **No termination guarantee** — an autonomous loop with no max-iteration cap, timeout, or cost
+  budget can run away on spend.
+- **No final verifier** — a specialist chain that never checks its output against the spec (the MAST
+  verification gap), shipping confident-but-wrong results.
 - **Framework lock-in without understanding** the prompts/loops underneath.
 
 ## See also
 
 - [[agentic-system-design]]
 - [[agent-to-agent-protocols]]
+- [[agentic-loop]]
 - [[human-in-the-loop-design]]
+- [[delegate-review-own]]
 - [[agents-as-system-citizens]]
 - [[model-selection-and-routing]]
+- [[llm-structured-outputs]]
 - [[ai-agent-observability]]
 - [[context-engineering]]
 
