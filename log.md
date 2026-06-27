@@ -399,3 +399,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: hub-spoke+transit-gateway as the default landing-zone network, centralized PrivateLink endpoints + egress firewall, cloud-WAN backbones, networking-as-code, multi-tenant hub-spoke for GenAI. ~5 sources (GCP VPC design, AWS multi-VPC whitepaper, GCP/Azure hub-spoke, GCP landing-zone).
 - Wired inbound links from [[network-segmentation]] and [[hybrid-and-onprem-topologies]] See-also. Bumped `index.md` 91 → 92 mature.
 
+## [2026-06-27] ingest | Multi-Tenancy Architecture (new page)
+
+- Created [[multi-tenancy-architecture]] `mature` (cloud) — core SaaS pattern referenced in passing (MCP per-tenant scoping, agent-identity) but owned by no page.
+- Scope: the **silo → bridge → pool** isolation spectrum; data isolation (DB-per-tenant / schema-per-tenant / shared-table+RLS); tenant context + routing + enforcement at every layer; **noisy neighbor** controls + AI-driven auto-promotion; **tiered/hybrid tenancy** (2026 default); control-plane vs application-plane (AWS SaaS lens); onboarding/offboarding lifecycle.
+- Framing: tenant isolation = **org-level BOLA** → tightly linked to [[api-security]]; cross-tenant leak as the catastrophic risk; defense-in-depth isolation; one-way-door decision.
+- State of the art grounded in live search: tiered/hybrid mainstream, RLS-backed pooling default + silos for regulated, AI auto-promotion of noisy/high-value tenants, cell-based routing at hyperscale. ~5 sources (AWS SaaS lens, GainHQ, Brocoders, Ariel, Coderkube).
+- Wired inbound links from [[cloud-governance-at-scale]] and [[api-security]] See-also. Bumped `index.md` 92 → 93 mature.
+

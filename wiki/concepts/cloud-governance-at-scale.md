@@ -170,6 +170,7 @@ See [[ai-governance-frameworks]] for the broader programme context that landing 
 ## See also
 
 - [[multi-cloud-architecture]] — multi-provider strategy layered on top of per-cloud landing zones
+- [[multi-tenancy-architecture]] — tenant isolation for SaaS built on top of the account/landing-zone structure
 - [[hybrid-and-onprem-topologies]] — extending governance controls to on-premises and hybrid environments
 - [[policy-as-code]] — OPA, Checkov, and Sentinel for IaC-level policy evaluation before provisioning
 - [[infrastructure-as-code]] — IaC patterns that implement landing zone resources

@@ -169,6 +169,7 @@ The recurring failure is checking authorization at the wrong granularity (or onl
 - [[identity-federation-and-sso]]
 - [[api-gateways-and-service-mesh]]
 - [[api-styles-and-protocols]]
+- [[multi-tenancy-architecture]]
 - [[threat-modeling]]
 - [[ai-specific-security]]
 - [[model-context-protocol]]
