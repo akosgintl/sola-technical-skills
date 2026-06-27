@@ -415,3 +415,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: AI gateway now a recognized category; LiteLLM OSS standard, Portkey managed control plane, Cloudflare edge, Kong enterprise, Helicone cost; semantic caching/guardrails/budgets standard; extending to agent/MCP traffic. ~5 sources (Digital Applied, Gupta, LiteLLM, Portkey, Contabo).
 - Wired inbound links from [[model-selection-and-routing]] and [[llm-application-architecture]] See-also. Bumped `index.md` 93 → 94 mature.
 
+## [2026-06-27] ingest | Small Language Models (new page)
+
+- Created [[small-language-models]] `mature` (ai-agentic) — the small-specialist-vs-frontier architectural stance; distinct from [[model-customization]] (how to build the specialist), [[model-selection-and-routing]] (routing across tiers), and [[ai-gpu-economics]] (cost math).
+- Scope: model-size spectrum + 2026 lineup (Phi-4, Gemma 3, Qwen 2.5, Llama 3.2, Ministral) + hardware footprint/quantization; the **specialization thesis** (80–90% of frontier on focused tasks); on-device/edge/on-prem (privacy/sovereignty/latency/offline); **heterogeneous SLM+frontier** systems; the agentic-SLM thesis (NVIDIA arXiv:2506.02153).
+- Trade-offs: small-specialist vs frontier-generalist, on-device vs hosted, heterogeneous mix vs single model, build vs prompt-frontier, respect the capability ceiling.
+- State of the art grounded in live search: mature competitive SLM lineup, quantization → edge/laptop runnable, agentic-SLM thesis rising, privacy/sovereignty/efficiency drivers. ~5 sources (NVIDIA SLM-agents paper, Digital Applied, Future AGI, Intuz, Renard).
+- Wired inbound links from [[model-selection-and-routing]] and [[ai-gpu-economics]] See-also. Bumped `index.md` 94 → 95 mature.
+

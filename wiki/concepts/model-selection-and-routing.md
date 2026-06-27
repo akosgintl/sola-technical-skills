@@ -139,6 +139,7 @@ Not all requests need real-time responses. Async batch APIs (Anthropic Batch API
 - [[context-engineering]] — prompt caching, context budgeting, and window management
 - [[retrieval-augmented-generation]] — RAG as the alternative to fine-tuning for knowledge grounding
 - [[model-customization]] — fine-tuning, LoRA/QLoRA, DPO, and distillation techniques behind the capability-acquisition decision
+- [[small-language-models]] — the small-specialist tier a router sends narrow tasks to
 - [[ai-gateway]] — the control-plane component that operationalizes routing, fallback, budgets, and caching for all LLM traffic
 - [[agentic-system-design]] — multi-agent task routing
 

@@ -173,6 +173,7 @@ The 2026 FinOps frontier is **agentic cost management**: LLM-powered agents with
 - [[cloud-cost-modeling]]
 - [[cost-optimization-practice]]
 - [[model-selection-and-routing]]
+- [[small-language-models]]
 - [[context-engineering]]
 - [[caching-strategies]]
 - [[llm-application-architecture]]
