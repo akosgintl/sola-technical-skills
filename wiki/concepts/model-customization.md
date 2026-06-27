@@ -190,6 +190,7 @@ a re-tune to correct them.
 - [[context-engineering]]
 - [[llm-application-architecture]]
 - [[ai-gpu-economics]]
+- [[synthetic-data]]
 - [[ai-evaluation-and-quality]]
 - [[model-supply-chain-security]]
 

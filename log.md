@@ -423,3 +423,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - State of the art grounded in live search: mature competitive SLM lineup, quantization → edge/laptop runnable, agentic-SLM thesis rising, privacy/sovereignty/efficiency drivers. ~5 sources (NVIDIA SLM-agents paper, Digital Applied, Future AGI, Intuz, Renard).
 - Wired inbound links from [[model-selection-and-routing]] and [[ai-gpu-economics]] See-also. Bumped `index.md` 94 → 95 mature.
 
+## [2026-06-27] ingest | Synthetic Data (new page)
+
+- Created [[synthetic-data]] `mature` (data) — the generate-vs-collect strategy; scattered across [[model-customization]] (consumes it), [[data-privacy-engineering]] (privacy substitution), [[ai-evaluation-and-quality]] (eval sets) but owned by none.
+- Scope: use cases + methods (Self-Instruct/Evol-Instruct, Constitutional AI, DPO pairs, function-call traces, synthetic RAG QA, augmentation, privacy substitution); **model collapse** (recursive synthetic-only training → "accumulate don't replace"); fidelity/diversity/coverage; **false privacy** (generator leaking memorized seed PII → DP/leakage testing).
+- Trade-offs: synthetic vs real vs hybrid (hybrid default), privacy-substitution-requires-proof, method-by-use-case, teacher ToS/bias inheritance, eval-the-data-itself.
+- State of the art grounded in live search: Gartner >60% sensitive-data training synthetic, EU AI Act recognizes it, standard recipes, privacy-preserving generation (DP+federated), model-collapse mitigation. ~5 sources (Digital Applied, Future AGI, model-collapse paper arXiv:2305.17493, Google Research, Tetrate).
+- Wired inbound links from [[model-customization]] and [[data-privacy-engineering]] See-also. Bumped `index.md` 95 → 96 mature.
+

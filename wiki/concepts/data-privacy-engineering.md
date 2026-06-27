@@ -165,6 +165,7 @@ for them when the data genuinely cannot move or decrypt.
 
 - [[compliance-and-regulation]]
 - [[data-governance-and-lineage]]
+- [[synthetic-data]]
 - [[encryption-and-key-management]]
 - [[confidential-computing]]
 - [[ai-specific-security]]
