@@ -12,9 +12,10 @@
 ## 1. What this knowledge base is
 
 A self-maintaining, interlinked markdown wiki that compiles raw source material into
-durable, encyclopedia-style pages. It is built on a **spine**: the 2026 Solution
-Architect skills roadmap (`skill-set/2026/technology-skills.md`). Every roadmap topic
-is (or becomes) a wiki page; the roadmap itself is the master Map of Content.
+durable, encyclopedia-style pages. It was **seeded from a spine**: the 2026 Solution
+Architect skills roadmap (now retired to `archive/skill-set/2026/technology-skills.md`).
+Every roadmap topic became a wiki page; with coverage complete, that seed is preserved
+as history and **`index.md` is the live master Map of Content.**
 
 Unlike RAG (which re-reads raw documents on every query), this wiki **pre-compiles**
 knowledge into structured pages so understanding **compounds** over time. Answers get
@@ -47,13 +48,13 @@ Plus two ledgers at the root: **`index.md`** (catalog of every page) and **`log.
 │       └── *.md
 ├── archive/
 │   ├── README.md                 # what's retired and why
-│   └── moc/                      # ARCHIVED Maps of Content — superseded by index.md
-│       ├── 00-roadmap.md         # former master MOC — mirrors the skills roadmap
-│       ├── tier-{1,2,3}-*.md     # former tier MOCs
-│       ├── meta-skills.md        # former meta-skills MOC
-│       └── dashboard.{md,base}   # former Obsidian Bases dashboard
-├── raw/                          # immutable sources (see raw/README.md)
-└── skill-set/2026/technology-skills.md   # the seed roadmap (source of the spine)
+│   ├── moc/                      # ARCHIVED Maps of Content — superseded by index.md
+│   │   ├── 00-roadmap.md         # former master MOC — mirrors the skills roadmap
+│   │   ├── tier-{1,2,3}-*.md     # former tier MOCs
+│   │   ├── meta-skills.md        # former meta-skills MOC
+│   │   └── dashboard.{md,base}   # former Obsidian Bases dashboard
+│   └── skill-set/2026/technology-skills.md   # RETIRED seed roadmap — spine coverage complete
+└── raw/                          # immutable sources (see raw/README.md)
 ```
 
 > [!note] MOCs are archived
@@ -232,7 +233,6 @@ It exits non-zero if any `[[wikilink]]` is broken (CI-gateable) and reports:
 
 - **Status drift** — frontmatter `status:` disagrees with the `index.md` catalog.
 - **Contradictions** — two pages making incompatible claims.
-- **Roadmap coverage** — nodes in `skill-set/2026/technology-skills.md` with no page yet.
 
 Report findings, fix the mechanical ones, append a `lint` entry to `log.md`, and ask before
 large rewrites.

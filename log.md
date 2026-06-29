@@ -456,3 +456,9 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
   - → [[threat-modeling]]: [[model-supply-chain-security]] (threat modelling AI systems).
 - 8 files touched; lint PASS (0 broken links). Scope held to clear, high-value mentions — not every occurrence.
 
+
+## [2026-06-29] lint | Archive the seed roadmap (spine retired)
+
+- Moved `skill-set/2026/technology-skills.md` → `archive/skill-set/2026/technology-skills.md` and removed the now-empty `skill-set/` tree. The 2026 roadmap that seeded the wiki is retired now that coverage is complete (every §1–§9 + meta node has a `mature` page per `index.md`), joining the already-archived MOCs.
+- Updated live references: `CLAUDE.md` §1 (spine reworded as seeded-and-retired; `index.md` is the live master MOC), §2 (directory tree), and **dropped the §9.3 "Roadmap coverage" judgment check** — no live workflow consumes the roadmap any more. Repointed `README.md` header link; added a `skill-set/` section to `archive/README.md` and fixed its cross-reference.
+- Archived `moc/*` `sources:` frontmatter still lists the old path by design (frozen history). Lint PASS — `lint.ps1` never read the roadmap mechanically, so no links/orphans regressed.

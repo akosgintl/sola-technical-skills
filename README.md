@@ -2,7 +2,7 @@
 
 A self-maintaining **[LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)**:
 an interlinked markdown wiki that compiles raw sources into durable, encyclopedia-style
-pages. Built on the spine of the **[2026 Solution Architect Technology Skills Roadmap](skill-set/2026/technology-skills.md)**.
+pages. Seeded from the spine of the **[2026 Solution Architect Technology Skills Roadmap](archive/skill-set/2026/technology-skills.md)** (now retired to `archive/` — coverage complete; see [`index.md`](index.md)).
 
 > *Obsidian is the IDE, the LLM is the programmer, the wiki is the codebase.* — A. Karpathy
 

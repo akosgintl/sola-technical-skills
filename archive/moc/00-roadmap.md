@@ -12,7 +12,7 @@ sources: ["skill-set/2026/technology-skills.md"]
 # Master Roadmap MOC
 
 > [!summary]
-> The spine of this knowledge base. Mirrors the **[skills roadmap](../../skill-set/2026/technology-skills.md)**.
+> The spine of this knowledge base. Mirrors the **[skills roadmap](../skill-set/2026/technology-skills.md)**.
 > Every roadmap node maps to a `[[wiki page]]`.
 
 Navigate by tier: [[tier-1-edge]] · [[tier-2-solid]] · [[tier-3-watch]] · [[meta-skills]].
