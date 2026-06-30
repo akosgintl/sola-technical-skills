@@ -154,4 +154,6 @@ foreach ($e in $emitted) {
   ""
 }
 
+""
+"DONE: $($emitted.Count) saved, $failed failed."
 if ($failed -gt 0) { exit 1 } else { exit 0 }

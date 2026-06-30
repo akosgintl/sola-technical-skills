@@ -490,3 +490,16 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - Embedded them into the concept pages (with captions + source credit): five workflow diagrams into [[multi-agent-orchestration]] ("The five patterns, visualized"); augmented LLM + autonomous agent + coding-agent flow into [[agentic-system-design]]; added the raw-note credit to its Sources.
 - Added a `## Key visuals` table to the source note; bumped its `updated:` to 2026-06-30.
 - Lint PASS (0 broken links / house-style / broken sources). No new pages; index unchanged.
+
+## [2026-06-30] ingest | Visual backfill reingest of all raw/ sources + ingest-workflow retro
+
+- Backfilled local, curated diagrams across the whole `raw/` corpus (the image workflow shipped earlier this day was only proven on one source). Localized ~110 diagrams into `raw/assets/<slug>/` and embedded ~45 into concept pages, in six committed phases:
+  - **B** Decoding AI graphrag + RLM (35 imgs → [[graphrag]], [[agent-memory-architectures]], [[recursive-language-models]]).
+  - **C** Decoding AI Foundations decodingai-01..10 (48 imgs → agentic-system-design, agentic-loop, agentic-harness, agent-planning, agent-memory-architectures, context-engineering, llm-structured-outputs, llm-tool-use, multimodal-document-processing).
+  - **D** Enterprise Document Intelligence edi-* (20 imgs → [[retrieval-augmented-generation]], [[rag-query-understanding]]; 3/10 articles had no real diagrams).
+  - **E** loop-engineering (LangChain four-loop ×8 → [[agentic-loop]]) + Spec Kit lifecycle → [[spec-driven-development]].
+  - **F** SSDE arXiv figure → [[spec-driven-development]]; Piskala arXiv deferred (inline TikZ figures).
+- **Retro** at `raw/assets/INGEST-RETRO.md` tracks every source (done/none/blocked/deferred) and the friction log. Headline: the paywall hypothesis was wrong — all publishers were fetchable; the real costs were *not capturing visuals at first ingest* and *curation* (separating diagrams from dataframe/code/result-table screenshots).
+- **Workflow improvements adopted** (Phase G): rewrote CLAUDE.md §9.1 step 2 (capture-at-ingest, WebFetch-enumerate + verify URLs, expanded drop rubric, arXiv HTML→docling, paste emitted embed lines); expanded `raw/assets/README.md` rubric; `fetch-assets.ps1` now prints a `DONE: N saved, M failed` summary.
+- **Deferred:** video frame extraction (4 transcripts; needs yt-dlp), Piskala arXiv via PDF→docling, optional lint check for hotlinked CDN URLs in wiki pages.
+- Lint PASS after every phase. No new wiki pages; index unchanged.

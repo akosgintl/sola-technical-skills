@@ -31,7 +31,12 @@ resolves with no collisions and no full-path embed needed.
 graphs, annotated screenshots, data tables shown as images, on-screen diagram frames.
 
 **Drop** (leave as remote links or omit): avatars and author/profile pics, logos, sponsor /
-ad banners, social-share buttons, purely decorative hero images, comment-thread images.
+ad banners, social-share buttons, purely decorative hero images, comment-thread images — **and
+also** dataframe/output-table screenshots, code screenshots, registry-config screenshots, and
+raw benchmark result tables (they look like figures but carry little durable, explanatory value).
+
+> Curation is the real cost of visual ingest, not access. Screenshot-heavy code walkthroughs
+> often yield only one or two genuine diagrams; enumerate, then keep ruthlessly.
 
 ## Helpers
 

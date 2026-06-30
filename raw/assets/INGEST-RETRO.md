@@ -113,9 +113,32 @@ images skipped + logged.
   far more than it kept. The real friction for this publisher is *signal-to-noise in the images*,
   not access — a per-source judgement the enumerate→curate step handled but which cost the most time.
 
-### Proposed workflow improvements (accumulating → Phase G)
-- **Capture visuals at ingest time** (biggest lever): when first scraping a source, run the
-  WebFetch-enumerate → `fetch-assets.ps1` step immediately, so backfill is never needed and content
-  is grabbed while the page is reachable.
-- **Validate enumerated URLs** (UUID/extension shape) and **cross-check caption↔URL** before download.
-- Consider a lint check flagging remote-CDN `![...](http…)` hotlinks left in `wiki/` pages.
+## Synthesis (Phase G) — outcome & adopted improvements
+
+**The pass.** Visual backfill across all 44 `raw/` sources. Localized **~110 curated diagrams**
+into `raw/assets/<slug>/` and embedded **~45** into concept pages, committed in six phases
+(B–F). Coverage: **27 done**, **8 none** (text/screenshot-only), **1 blocked** (TikZ-figure
+arXiv paper), **4 deferred** (video frames), **4 prior** (the Anthropic pilot + this scaffold).
+
+**Headline finding.** The pre-pass hypothesis was *paywalls will block re-fetching*. It was
+**wrong** — every publisher hit (Anthropic, Decoding AI/Substack ×16, Towards Data Science/Medium
+×10, LangChain, Microsoft, arXiv HTML) was fully fetchable. The real costs were **(1)** that
+visuals weren't captured at first ingest, forcing a whole backfill pass, and **(2)** *curation* —
+separating genuine diagrams from dataframe/code/result-table screenshots, which dominated the time.
+
+**Adopted this phase (committed):**
+- CLAUDE.md §9.1 step 2 rewritten: capture visuals **at first ingest**; **WebFetch-enumerate**
+  (`URL | caption`) as the canonical method; **verify** URLs (shape / full Substack path);
+  expanded **drop** rubric (dataframe/code/registry screenshots, benchmark tables); arXiv
+  HTML-then-docling guidance; **paste the script's emitted embed lines** (correct extension).
+- `raw/assets/README.md` curation rubric expanded with the same drop categories + a "curation is
+  the real cost" note.
+- `fetch-assets.ps1` now prints a `DONE: N saved, M failed` summary (batch loops can detect
+  failures without parsing `WARNING:`-prefixed lines).
+
+**Deferred (next pass, not blocking):**
+- Video frame extraction for the 4 transcripts (needs `yt-dlp` via `update-tooling` + manual
+  timestamps) — `grab-frames.ps1` is ready.
+- arXiv `sdd-01` (Piskala) figures via PDF → `docling-convert` (HTML had no raster figures).
+- Optional lint check flagging remote-CDN `![](http…)` hotlinks left in `wiki/` pages.
+- Optional content-hash dedupe in `fetch-assets.ps1` for cross-article image reuse (rare).

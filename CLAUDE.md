@@ -219,12 +219,25 @@ When given a new source (paper, article, doc, transcript, note):
 
 1. **Capture** the raw source into `raw/` (convert PDFs/HTML to markdown; use the
    `docling-convert` skill for local files). Add a `templates/source-note.md` header.
-2. **Capture the visuals** — sources with real diagrams/charts need their visuals
-   *localized*, not left as remote hotlinks (which rot). **Curate** with the keep/drop
-   rubric (keep original diagrams, architecture/sequence figures, charts, annotated
-   screenshots; drop avatars, logos, ad/sponsor banners, decorative hero images), then:
-   - **Blogs/articles:** `pwsh scripts/fetch-assets.ps1 -Slug <source-slug> -Url <…>` (or
-     `-UrlFile`) downloads the keepers into `raw/assets/<source-slug>/`.
+2. **Capture the visuals** — do this *now, at first ingest*, while the page is reachable;
+   backfilling months later is far harder (the lesson of the 2026-06-30 visual-backfill pass,
+   see [[INGEST-RETRO]]). Sources with real diagrams/charts need their visuals *localized*,
+   not left as remote hotlinks (which rot).
+   - **Enumerate** the diagrams: `WebFetch` the source URL asking for `image-URL | caption`,
+     content diagrams only — this is more reliable than parsing the raw capture's markdown.
+     **Verify** each URL is a real image (sane extension / UUID shape; for Substack demand the
+     full `…/https%3A%2F%2F…` path) — WebFetch occasionally truncates or hallucinates URLs.
+   - **Curate** with the keep/drop rubric. **Keep:** original diagrams, architecture/sequence/
+     pipeline figures, decision matrices, conceptual charts, annotated screenshots. **Drop:**
+     avatars, logos, ad/sponsor banners, subscribe widgets, decorative hero images, **and also
+     dataframe/output-table screenshots, code screenshots, registry-config screenshots, and
+     raw benchmark result tables** (curation is the real cost — screenshot-heavy walkthroughs
+     yield few true diagrams).
+   - **Blogs/articles:** `pwsh scripts/fetch-assets.ps1 -Slug <source-slug> -UrlFile <list>`
+     downloads the keepers into `raw/assets/<source-slug>/` and **prints paste-ready embed
+     lines** — use those verbatim in step 4 (don't hand-type the extension; `.jpeg`→`.jpg`).
+   - **arXiv papers:** prefer the HTML version's `/assets/*.png`; fall back to PDF →
+     `docling-convert` for papers whose figures are inline TikZ/SVG (no raster `src`).
    - **Videos (YouTube/other):** keep the `yt-transcribe` text, and for on-screen diagrams
      run `pwsh scripts/grab-frames.ps1 -Slug <source-slug> -Url <…> -Timestamps "…"` to
      pull key frames.
