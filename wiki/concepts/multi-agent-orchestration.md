@@ -67,6 +67,23 @@ The five composable patterns, in increasing complexity (Anthropic):
 Above these sit **autonomous agents**: LLMs using tools in a loop on environmental feedback,
 planning independently with stopping conditions.
 
+### The five patterns, visualized
+
+![[2026-06-19-anthropic-building-effective-agents-02.png|Prompt chaining: LLM calls in sequence with gates between steps]]
+*Figure: Prompt chaining — sequential calls with programmatic gates. Source [[2026-06-19-anthropic-building-effective-agents]].*
+
+![[2026-06-19-anthropic-building-effective-agents-03.png|Routing: a classifier dispatches the input to a specialized follow-up]]
+*Figure: Routing — classify, then dispatch to a specialized handler. Source [[2026-06-19-anthropic-building-effective-agents]].*
+
+![[2026-06-19-anthropic-building-effective-agents-04.png|Parallelization: fan the task out to parallel calls and aggregate]]
+*Figure: Parallelization — sectioning/voting across parallel calls, then aggregate. Source [[2026-06-19-anthropic-building-effective-agents]].*
+
+![[2026-06-19-anthropic-building-effective-agents-05.png|Orchestrator-workers: an orchestrator decomposes at runtime and a synthesizer recombines]]
+*Figure: Orchestrator-workers — runtime decomposition by the orchestrator, recombined by a synthesizer. Source [[2026-06-19-anthropic-building-effective-agents]].*
+
+![[2026-06-19-anthropic-building-effective-agents-06.png|Evaluator-optimizer: a generator and a critic LLM in a refinement loop]]
+*Figure: Evaluator-optimizer — generator + critic in a refinement loop. Source [[2026-06-19-anthropic-building-effective-agents]].*
+
 ### Context flow and result synthesis
 
 Each topology implies a different way state moves between participants — an orchestration concern

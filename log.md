@@ -482,3 +482,11 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
   - [[vibe-coding-governance]] — new subsection "Code quality as a governance concern — 'code is not cheap'" (specs-to-code entropy critique; bad codebases make bad agents). See-also → [[ai-assisted-development-workflow]], [[deep-modules]].
   - [[delegate-review-own]] — new subsection "Reviewing AI-generated code in practice" (review-in-the-smart-zone / clear before review; push-to-reviewer vs pull-for-implementer standards). See-also → [[ai-assisted-development-workflow]], [[deep-modules]].
 - Lint PASS (0 broken links / orphans / house-style / broken sources). 101 pages unchanged; the 4 ingest pages now have inbound links from established hubs.
+
+## [2026-06-30] ingest | Building Effective Agents (Anthropic) — reingest with visuals
+
+- Reingest of the wiki's first source ([[2026-06-19-anthropic-building-effective-agents]]) to exercise the new image workflow (`scripts/fetch-assets.ps1`).
+- Localized all **8 canonical diagrams** to `raw/assets/2026-06-19-anthropic-building-effective-agents/` (augmented LLM, the five workflows, autonomous agent, coding-agent flow) — previously only remote CDN hotlinks.
+- Embedded them into the concept pages (with captions + source credit): five workflow diagrams into [[multi-agent-orchestration]] ("The five patterns, visualized"); augmented LLM + autonomous agent + coding-agent flow into [[agentic-system-design]]; added the raw-note credit to its Sources.
+- Added a `## Key visuals` table to the source note; bumped its `updated:` to 2026-06-30.
+- Lint PASS (0 broken links / house-style / broken sources). No new pages; index unchanged.

@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, agents, orchestration, workflows]
-updated: 2026-06-19
+updated: 2026-06-30
 source_url: https://www.anthropic.com/engineering/building-effective-agents
 source_type: article
 ingested: 2026-06-19
@@ -39,6 +39,28 @@ feeds: ["multi-agent-orchestration", "agentic-system-design", "agent-to-agent-pr
   as in prompts.
 - Frameworks (Claude Agent SDK, Strands, Rivet, Vellum) speed the start but add abstraction
   that obscures prompts/responses; understand the underlying code.
+
+## Key visuals
+
+The article's eight canonical diagrams, localized to `raw/assets/2026-06-19-anthropic-building-effective-agents/`
+(reingested 2026-06-30 with the image workflow). Embedded into the concept pages noted.
+
+| Asset | Diagram | Embedded in |
+|---|---|---|
+| `…-01.png` | The augmented LLM (retrieval + tools + memory) | [[agentic-system-design]] |
+| `…-02.png` | Prompt chaining workflow | [[multi-agent-orchestration]] |
+| `…-03.png` | Routing workflow | [[multi-agent-orchestration]] |
+| `…-04.png` | Parallelization workflow | [[multi-agent-orchestration]] |
+| `…-05.png` | Orchestrator-workers workflow | [[multi-agent-orchestration]] |
+| `…-06.png` | Evaluator-optimizer workflow | [[multi-agent-orchestration]] |
+| `…-07.png` | Autonomous agent (tool loop on feedback) | [[agentic-system-design]] |
+| `…-08.png` | High-level flow of a coding agent | [[agentic-system-design]] |
+
+![[2026-06-19-anthropic-building-effective-agents-01.png|The augmented LLM]]
+*Figure: The augmented LLM — the basic building block.*
+
+![[2026-06-19-anthropic-building-effective-agents-05.png|The orchestrator-workers workflow]]
+*Figure: Orchestrator-workers — runtime decomposition + synthesis.*
 
 ## Feeds these wiki pages
 

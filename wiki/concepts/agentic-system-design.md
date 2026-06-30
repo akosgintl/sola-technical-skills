@@ -46,6 +46,12 @@ together as "agents":
 - **Agents** — the model *dynamically* directs its own process and tool use, deciding
   the control flow at runtime.
 
+![[2026-06-19-anthropic-building-effective-agents-07.png|Autonomous agent: an LLM acting in a loop on environmental feedback until a stop condition]]
+*Figure: Autonomous agent — the LLM plans and acts in a loop on environmental feedback, with explicit stopping conditions. Source [[2026-06-19-anthropic-building-effective-agents]].*
+
+![[2026-06-19-anthropic-building-effective-agents-08.png|High-level flow of a coding agent as a concrete autonomous-agent example]]
+*Figure: A coding agent as a concrete instance of the autonomous loop. Source [[2026-06-19-anthropic-building-effective-agents]].*
+
 Most production "agentic" systems are actually workflows with one genuinely agentic
 component, and that is usually the right answer. The design space this page navigates
 is: **single agent vs. multiple agents**, and if multiple, **what topology and what
@@ -83,7 +89,11 @@ the second agent pays for itself* is now a load-bearing architectural skill.
 **Single-agent loop.** One model, one context window, one continuous chain of reasoning.
 All state is visible to all decisions. Easiest to reason about, prompt, evaluate, and
 debug. The default. Augment it with [[context-engineering]] and tools long before
-reaching for a second agent.
+reaching for a second agent. The foundational unit is the **augmented LLM** — a model
+wired to retrieval, tools, and memory:
+
+![[2026-06-19-anthropic-building-effective-agents-01.png|The augmented LLM: a model with retrieval, tools, and memory]]
+*Figure: The augmented LLM — the basic building block underneath every agentic system. Source [[2026-06-19-anthropic-building-effective-agents]].*
 
 **Workflow patterns (deterministic orchestration)** — Anthropic's five composable
 building blocks, in rough order of complexity:
@@ -264,7 +274,7 @@ running these systems in production.
 
 ## Sources
 
-- [Anthropic — Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) (workflow vs. agent distinction; the five composable patterns; "simplest solution" principle)
+- [Anthropic — Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) (workflow vs. agent distinction; the five composable patterns; "simplest solution" principle) — captured with diagrams at [[2026-06-19-anthropic-building-effective-agents]]
 - [Anthropic — How we built our multi-agent research system](https://www.anthropic.com/engineering/built-multi-agent-research-system) (orchestrator + isolated subagents; ~15× tokens; +90.2% research eval)
 - [Cognition — Don't Build Multi-Agents](https://cognition.ai/blog/dont-build-multi-agents) (context-sharing fragility; single-threaded execution; context compression)
 - [LangChain — How and when to build multi-agent systems](https://blog.langchain.com/how-and-when-to-build-multi-agent-systems/) (when multi-agent helps vs. hurts; convergence on isolated subagents)
