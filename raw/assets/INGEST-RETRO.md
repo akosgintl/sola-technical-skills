@@ -46,8 +46,8 @@ images skipped + logged.
 | 2026-06-25-sdd-08-worktrees-openspec-opencode | blog (re-fetch) | **none** | 0 | prose + cover photo only |
 | 2026-06-26-loop-engineering-osmani-anatomy | blog (re-fetch) | **none** | 0 | comparison table (not an image) + headshot |
 | 2026-06-26-loop-engineering-langchain-stack | blog (re-fetch) | **done** | 8 | four-loop diagrams → agentic-loop |
-| 2026-06-25-sdd-01-piskala-code-to-contract | arXiv paper | todo | | PDF → docling figures |
-| 2026-06-25-sdd-07-ssde-repo-level-arxiv | arXiv paper | todo | | PDF → docling figures |
+| 2026-06-25-sdd-01-piskala-code-to-contract | arXiv paper | **blocked** | 0 | HTML has no raster figures (TikZ/SVG-inline); needs PDF→docling — deferred |
+| 2026-06-25-sdd-07-ssde-repo-level-arxiv | arXiv paper | **done** | 1 | overview.png from arXiv HTML → spec-driven-development |
 | 2026-06-25-sdd-03-github-spec-kit | docs (GitHub) | none | | README — quick-check then skip |
 | 2026-06-25-sdd-04-spec-compare-tools | docs (GitHub) | none | | |
 | 2026-06-25-sdd-05-ears-mavin-canonical | docs | none | | EARS reference text |
@@ -101,6 +101,12 @@ images skipped + logged.
 - **Extension mismatch in hand-written embeds** (`.jpeg` sources save as `.jpg`, not `.png`):
   caught by lint as broken `.png` embed links. Fix: paste the embed lines `fetch-assets.ps1`
   already emits (correct extension) instead of hand-typing `.png`.
+- **arXiv HTML works for raster-figure papers, not TikZ/SVG ones.** SSDE (2605.02455) exposed a
+  direct `/assets/overview.png` — grabbed cleanly, no PDF/docling needed. The Piskala paper
+  (2602.00180) renders its figures inline (LaTeXML, no `<img …png>`), so the HTML path yielded
+  nothing and WebFetch *hallucinated* plausible image URLs (`x1.png`…) that 404'd. Lesson: verify
+  arXiv image URLs exist before trusting an LLM's enumeration; fall back to PDF→`docling-convert`
+  for vector-figure papers (deferred here).
 - **TDS/Medium also fully fetchable** (paywall hypothesis again did not hold); images on a
   WordPress CDN. BUT the EDI series is **screenshot-heavy code walkthroughs** — 3/10 articles had
   **zero genuine diagrams** (only dataframe/result-table screenshots), and curation had to discard

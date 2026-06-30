@@ -74,6 +74,9 @@ The idea is older than the term. SDD is, as practitioner Bryan Finster put it, "
 
 **Repository-scale generation becomes tractable.** The SSDE research (arXiv:2605.02455) observes that LLMs excel at function-level generation but "degrade significantly at repository scale," and argues that structured specifications as inputs "make high-quality, repository-level code generation a tangible goal." Structure buys verifiability that free-form prompting cannot.
 
+![[2026-06-25-sdd-07-ssde-repo-level-arxiv-01.png|SSDE pipeline: NL spec + Gherkin + controller template + domain model feed an LLM that generates verified controller and model-layer code]]
+*Figure: SSDE — structured inputs (NL spec, Gherkin, controller template, domain model) drive LLM generation with manual + automated evaluation gates — source [[2026-06-25-sdd-07-ssde-repo-level-arxiv]].*
+
 ## Key concepts / building blocks
 
 ### The three levels of SDD

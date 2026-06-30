@@ -5,7 +5,7 @@ type: source
 domain: emerging
 status: seed
 tags: [source, emerging, spec-driven-development, llm, code-generation, research]
-updated: 2026-06-25
+updated: 2026-06-30
 source_url: https://arxiv.org/abs/2605.02455
 source_type: paper
 ingested: 2026-06-25
@@ -28,6 +28,14 @@ feeds: [spec-driven-development]
 
 - The abstract emphasizes feasibility and challenges over precise benchmark numbers — a positioning/pilot paper rather than a large empirical evaluation.
 - Bridges automated code generation with formal specification practices for enterprise-scale systems.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-25-sdd-07-ssde-repo-level-arxiv/` (1 figure from the arXiv HTML version, visual backfill 2026-06-30).
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | SSDE pipeline applied to the pilot study (structured inputs → LLM → evaluated code) | [[spec-driven-development]] |
 
 ## Feeds these wiki pages
 
