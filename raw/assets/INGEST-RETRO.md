@@ -127,6 +127,14 @@ gap diagrams** into their matching sections (48 → 60 embeds), the biggest bein
 images — ~25–30) were left localized-only by design. Lesson reinforced: **embed at ingest time at
 full coverage**; don't let a long session's context budget silently throttle embedding.
 
+**Page-driven audit pass.** Inverted the lens — walked `wiki/concepts/` asking "which page lacks a
+diagram it deserves, given a feeding note has a fitting asset?" Result: **+2 verified gap embeds
+(60 → 62)** — `ai-evaluation-and-quality` (eval loop) and `llm-application-architecture` (RAG
+pipeline), both previously 0-embed `mature` pages. Most other 0-embed pages were confirmed
+**no-fit / no-source-visual** (e.g. `vector-and-embedding-stores` had no captured visuals;
+`model-context-protocol`/`agent-to-agent-protocols` only had assets already embedded elsewhere).
+Two oversold candidates were dropped on image review (a table screenshot, an editorial timeline).
+
 **Headline finding.** The pre-pass hypothesis was *paywalls will block re-fetching*. It was
 **wrong** — every publisher hit (Anthropic, Decoding AI/Substack ×16, Towards Data Science/Medium
 ×10, LangChain, Microsoft, arXiv HTML) was fully fetchable. The real costs were **(1)** that

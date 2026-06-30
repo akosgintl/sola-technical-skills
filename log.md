@@ -510,3 +510,10 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - Embedded **+12 high-value gap diagrams** into matching sections (48 → 60): [[agentic-harness]] +6 (build/configure/use triage, subagent spawn, skills pipeline, three memory designs, bash routing, permission tree); [[graphrag]] +2 (MongoDB append-only vs single-collection data models); [[retrieval-augmented-generation]] +1 (technique-selection decision matrix); [[agent-planning]] +1 (Plan-and-Execute); [[agentic-system-design]] +1 (five-pattern overview); [[agent-memory-architectures]] +1 (semantic/episodic/procedural).
 - True skips left localized-only by design: duplicate canonical workflow set (decodingai-04 variants), LangChain `docs_writer` worked examples, registry/dataframe/screenshot images. Updated each raw note's `## Key visuals` Embedded markers + the INGEST-RETRO synthesis.
 - Lint PASS.
+
+## [2026-06-30] enrich | Page-driven diagram-gap audit (+2 embeds)
+
+- Inverted the lens from asset-driven to **page-driven**: walked `wiki/concepts/` for pages missing a diagram they deserve given a feeding `raw/` note has a fitting asset. (15 of 101 pages carry diagrams; the other 86 were roadmap-seeded with no image-bearing source — not gaps.)
+- Embedded **+2 verified gap diagrams** (60 → 62): [[ai-evaluation-and-quality]] ← the "scientific method" optimize-evaluate loop (decodingai-03-02), placed in *Eval-driven development*; [[llm-application-architecture]] ← the baseline RAG pipeline (edi-00-01), placed in the *RAG pipeline* reference architecture. Both were previously 0-embed `mature` pages.
+- Confirmed **no-fix** for the other 0-embed candidates: `vector-and-embedding-stores` (edi-02 captured no visuals), `model-context-protocol`/`agent-to-agent-protocols`/`guardrails-and-output-validation` (only assets already embedded elsewhere or no fitting diagram). Dropped two oversold candidates on image review (a table screenshot, an editorial timeline).
+- Added the two raw notes to their target pages' `sources:`, bumped `updated:`, flipped Embedded markers, extended decodingai-03 `feeds:`. Lint PASS.

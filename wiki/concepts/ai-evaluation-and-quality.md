@@ -5,8 +5,9 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [ai-agentic, evaluation, quality, llm-eval, hallucination, drift]
-updated: 2026-06-21
+updated: 2026-06-30
 sources:
+  - raw/2026-06-23-decodingai-03-llm-structured-outputs.md
   - https://arxiv.org/abs/2306.05685
   - https://arxiv.org/abs/2212.10560
   - https://arxiv.org/abs/2309.15217
@@ -114,6 +115,9 @@ The recommended workflow, analogous to test-driven development: **write the eval
 3. Establish a baseline score on the current system.
 4. Make the change.
 5. Re-run the eval; accept if improvement >= threshold AND no regression on other task classes.
+
+![[2026-06-23-decodingai-03-llm-structured-outputs-02.png|Scientific-method optimization loop]]
+*Figure: The optimize-evaluate loop: configure → run → measure → compare → repeat until metrics clear the bar — source [[2026-06-23-decodingai-03-llm-structured-outputs]].*
 
 This disciplines prompt engineering from an art into a measured engineering practice.
 

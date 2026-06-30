@@ -5,8 +5,9 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [ai-agentic, llm, architecture, system-design, rag, orchestration]
-updated: 2026-06-21
+updated: 2026-06-30
 sources:
+  - raw/2026-06-22-edi-00-series-intro.md
   - https://www.anthropic.com/research/building-effective-agents
   - https://arxiv.org/abs/2312.10997
   - https://arxiv.org/abs/2407.01421
@@ -72,6 +73,9 @@ A production LLM application has five layers, each composable independently:
 **Simple prompt → response.** One model call; no retrieval, no memory, no orchestration. Appropriate for: classification, extraction from a provided document, code generation from a specification. The entire application logic lives in the system prompt and the output parser.
 
 **RAG pipeline.** Query → embed → retrieve → assemble context → model → validate. The workhorse for knowledge-intensive applications. The retrieval step is the main quality variable; context assembly order is secondary. See [[retrieval-augmented-generation]] for the full pattern.
+
+![[2026-06-22-edi-00-series-intro-01.png|Baseline RAG pipeline: inputs, pipeline, outputs]]
+*Figure: A baseline RAG reference architecture — document/question parsing, retrieval, generation, and validated JSON output — source [[2026-06-22-edi-00-series-intro]].*
 
 **Agentic loop.** The model decides at each step which tool to call based on the current state. The loop continues until the model emits a `FINAL` signal or a stopping condition is met (max iterations, budget). See [[agentic-loop]] for the architectural primitives. The application must manage state serialisation, [[human-in-the-loop-design|interrupt/resume]], and error recovery.
 

@@ -9,7 +9,7 @@ updated: 2026-06-30
 source_url: https://www.decodingai.com/p/llm-structured-outputs-the-only-way
 source_type: article
 ingested: 2026-06-23
-feeds: [llm-structured-outputs, guardrails-and-output-validation]
+feeds: [llm-structured-outputs, guardrails-and-output-validation, ai-evaluation-and-quality]
 ---
 
 # LLM Structured Outputs: The Silent Hero of Production AI
@@ -40,7 +40,7 @@ Localized to `raw/assets/2026-06-23-decodingai-03-llm-structured-outputs/` (2 di
 | Asset | Diagram | Embedded |
 |---|---|---|
 | `…-01.png` | Structured outputs bridging LLM and downstream code | [[llm-structured-outputs]] |
-| `…-02.png` | Scientific method for evaluating/optimizing AI systems | |
+| `…-02.png` | Scientific method for evaluating/optimizing AI systems | [[ai-evaluation-and-quality]] |
 
 ## Feeds these wiki pages
 

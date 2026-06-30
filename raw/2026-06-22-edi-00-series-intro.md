@@ -41,7 +41,7 @@ Localized to `raw/assets/2026-06-22-edi-00-series-intro/` (7 diagrams, visual ba
 
 | Asset | Diagram | Embedded |
 |---|---|---|
-| `…-01.png` | Four-brick RAG pipeline | |
+| `…-01.png` | Four-brick RAG pipeline | [[llm-application-architecture]] |
 | `…-02.png` | Academic vs. enterprise RAG | [[retrieval-augmented-generation]] |
 | `…-03.png` | One PDF → eight linked tables | |
 | `…-04.png` | Question parsing mirrors document parsing | |
