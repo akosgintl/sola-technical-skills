@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, ai-agentic, agent-planning, react, plan-and-execute, reasoning]
-updated: 2026-06-23
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/ai-agents-planning
 source_type: article
 ingested: 2026-06-23
@@ -33,6 +33,18 @@ feeds: [agent-planning, agentic-loop]
 - "Modern AI agents at their core implement derivatives of ReAct and Plan-and-Execute patterns."
 - ReAct: two LLM calls per loop — one for reasoning, one for action selection — maintaining full context history.
 - Plan-and-Execute advantage: parallelization and batch processing for predictable, well-defined tasks.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-23-decodingai-06-agent-planning/` (5 diagrams, visual backfill 2026-06-30).
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Separating planning/reasoning from action/tool-calling | |
+| `…-02.png` | ReAct (Reason + Act) interleaved loop | [[agent-planning]] |
+| `…-03.png` | Plan-and-Execute agent pattern | |
+| `…-04.png` | Input / reasoning / output tokens with reasoning LLMs | |
+| `…-05.png` | ReAct agents with reasoning LLMs | |
 
 ## Feeds these wiki pages
 

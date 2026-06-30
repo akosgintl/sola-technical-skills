@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, ai-agentic, context-engineering, llm, rag, memory]
-updated: 2026-06-23
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/context-engineering-2025s-1-skill
 source_type: article
 ingested: 2026-06-23
@@ -34,6 +34,15 @@ feeds: [context-engineering]
 - Author built a workflow that took 30 minutes to run due to naive context approach (practical failure example).
 - "Mastering context engineering is less about learning a specific algorithm and more about building intuition."
 - Series of 9 parts covering the full AI Agents Foundations stack from workflows to multimodal agents.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-23-decodingai-02-context-engineering/` (2 diagrams, visual backfill 2026-06-30; promo graphics dropped).
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | What makes up the context (system components) | [[context-engineering]] |
+| `…-02.jpg` | Context engineering cheat sheet | |
 
 ## Feeds these wiki pages
 

@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, ai-agentic, agentic-harness, claude-code, subagents, skills, permissions, sandbox, memory, runtime]
-updated: 2026-06-26
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/agentic-harness-system-design
 source_type: article
 ingested: 2026-06-26
@@ -36,6 +36,22 @@ feeds: [agentic-harness, agentic-system-design, agentic-loop, agent-memory-archi
 - "Overbuild, and you burn weeks reimplementing… Under-build, and you stay a renter of someone else's system."
 - The permission layer "has almost no AI in it, yet it's what makes the whole system safe to run."
 - "The context layer behind an MCP server is the moat. It's harness-portable, fully yours."
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-26-decodingai-10-agentic-harness-system-design/` (9 diagrams, visual backfill 2026-06-30). Embedded into [[agentic-harness]].
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Three-tier decision: use-as-is / configure / build | |
+| `…-02.png` | Five-layer agentic harness architecture | [[agentic-harness]] |
+| `…-03.png` | Message flow: priority gate, loop, compaction | [[agentic-harness]] |
+| `…-04.png` | Parent orchestrator spawning a subagent | |
+| `…-05.png` | Parent-subagent channel with output compression | |
+| `…-06.png` | Skills pipeline injected as a system reminder | |
+| `…-07.png` | Three memory designs (file / SQLite / session-tree) | |
+| `…-08.png` | Bash execution routing (remote/local/host) | |
+| `…-09.png` | Permission decision tree (modes + rules) | |
 
 ## Feeds
 

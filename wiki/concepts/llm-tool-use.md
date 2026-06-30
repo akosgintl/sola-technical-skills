@@ -36,6 +36,9 @@ The 5-step tool calling flow:
 
 This loop can repeat multiple times — tool calls triggering further tool calls — until the model determines it has enough information to answer, or a stopping condition is reached (see [[agent-planning]] for how planning patterns structure this loop).
 
+![[2026-06-23-decodingai-05-tool-calling-02.png|Five-step tool-calling flow: request, execute, respond]]
+*Figure: The five-step tool-calling flow — model requests a call, runtime executes, result returns, model responds — source [[2026-06-23-decodingai-05-tool-calling]].*
+
 ## Why it matters
 
 **The transformation from text to action.** Without tools, an LLM can only produce text about the world. With tools, it can search the web, query a database, run code, send emails, and modify files. Tools are what make an agent useful beyond a chatbot.

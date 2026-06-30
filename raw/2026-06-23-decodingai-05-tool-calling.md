@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, ai-agentic, tool-use, tool-calling, production, llm]
-updated: 2026-06-23
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/tool-calling-from-scratch-to-production
 source_type: article
 ingested: 2026-06-23
@@ -33,6 +33,16 @@ feeds: [llm-tool-use]
 - "Tool calling is at the core of what makes an AI agent useful."
 - "Understanding how to build, monitor, and debug tool interactions is one of the most important skills for an AI Engineer."
 - Agents in production use 10–100+ tools simultaneously — LLMOps observability is critical at that scale.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-23-decodingai-05-tool-calling/` (3 diagrams, visual backfill 2026-06-30).
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | LLM agent interacting with external tools | |
+| `…-02.png` | Five-step tool-calling request-execute-respond flow | [[llm-tool-use]] |
+| `…-03.png` | Mapping agent actions to tool calls and outputs | |
 
 ## Feeds these wiki pages
 

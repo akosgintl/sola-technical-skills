@@ -48,6 +48,9 @@ A complementary taxonomy to the 3-tier architecture below — organized by *what
 
 The context window is not really "memory" in the durable sense — it is the interface through which all memory types are accessed. [[context-engineering]] is the discipline of assembling short-term memory + long-term retrieval into the right context window slice for each call.
 
+![[2026-06-23-decodingai-08-agent-memory-01.png|Four memory types for AI agents and their data flow]]
+*Figure: The four memory types — internal knowledge, context window, short-term, long-term — and how data flows between them — source [[2026-06-23-decodingai-08-agent-memory]].*
+
 **Long-term memory subtypes** (by the nature of what is stored):
 
 - **Semantic memory** — individual facts and structured knowledge: `"User prefers vegetarian meals"`, product attributes, domain knowledge. The agent's encyclopedia. Stored as entities or fact nodes.
@@ -101,6 +104,9 @@ The full memory lifecycle in an agent system:
 8. **Update from short-term** — new user facts extracted and written to long-term memory (episodic, semantic)
 9. **Update from external world** — continuous refresh of long-term memory via data pipelines
 10. **Persistence** — saves short-term session state for next session (enables conversation continuity)
+
+![[2026-06-23-decodingai-08-agent-memory-05.png|The complete memory cycle across long-term, short-term, context window, and internal memory]]
+*Figure: The complete memory cycle — how information flows between long-term, short-term, context window, and the model's internal memory — source [[2026-06-23-decodingai-08-agent-memory]].*
 
 ### POLE+O ontology
 

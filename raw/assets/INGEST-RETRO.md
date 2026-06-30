@@ -22,16 +22,16 @@ images skipped + logged.
 | 2026-06-20-graphrag-04-knowledge-graph-ontology | article | **done** | 5 | 1 diagram lost (malformed URL) |
 | 2026-06-20-graphrag-05-keep-knowledge-graph-clean | article | **done** | 3 | → [[agent-memory-architectures]] |
 | 2026-06-20-recursive-language-models | article | **done** | 5 | → [[recursive-language-models]] |
-| 2026-06-23-decodingai-01-ai-workflows-vs-agents | article (re-fetch) | todo | | Substack — paywall risk |
-| 2026-06-23-decodingai-02-context-engineering | article (re-fetch) | todo | | Substack |
-| 2026-06-23-decodingai-03-llm-structured-outputs | article (re-fetch) | todo | | Substack |
-| 2026-06-23-decodingai-04-workflow-patterns | article (re-fetch) | todo | | Substack |
-| 2026-06-23-decodingai-05-tool-calling | article (re-fetch) | todo | | Substack |
-| 2026-06-23-decodingai-06-agent-planning | article (re-fetch) | todo | | Substack |
-| 2026-06-23-decodingai-07-react-agents | article (re-fetch) | todo | | Substack |
-| 2026-06-23-decodingai-08-agent-memory | article (re-fetch) | todo | | Substack |
-| 2026-06-23-decodingai-09-multimodal-agents | article (re-fetch) | todo | | Substack |
-| 2026-06-26-decodingai-10-agentic-harness-system-design | article (re-fetch) | todo | | Substack |
+| 2026-06-23-decodingai-01-ai-workflows-vs-agents | article (re-fetch) | **done** | 9 | → agentic-system-design, agentic-loop |
+| 2026-06-23-decodingai-02-context-engineering | article (re-fetch) | **done** | 2 | → context-engineering; promo graphics dropped |
+| 2026-06-23-decodingai-03-llm-structured-outputs | article (re-fetch) | **done** | 2 | → llm-structured-outputs |
+| 2026-06-23-decodingai-04-workflow-patterns | article (re-fetch) | **done** | 6 | localized; patterns already on multi-agent-orchestration |
+| 2026-06-23-decodingai-05-tool-calling | article (re-fetch) | **done** | 3 | → llm-tool-use |
+| 2026-06-23-decodingai-06-agent-planning | article (re-fetch) | **done** | 5 | → agent-planning |
+| 2026-06-23-decodingai-07-react-agents | article (re-fetch) | **done** | 1 | 2 figures were dups of -06 (cross-article reuse) |
+| 2026-06-23-decodingai-08-agent-memory | article (re-fetch) | **done** | 5 | → agent-memory-architectures |
+| 2026-06-23-decodingai-09-multimodal-agents | article (re-fetch) | **done** | 3 | truncated URLs recovered via 2nd targeted prompt |
+| 2026-06-26-decodingai-10-agentic-harness-system-design | article (re-fetch) | **done** | 9 | → agentic-harness |
 | 2026-06-22-edi-00-series-intro | article (re-fetch) | todo | | TDS/Medium — paywall risk |
 | 2026-06-22-edi-01-baseline-rag | article (re-fetch) | todo | | TDS |
 | 2026-06-22-edi-02-embeddings-failure-modes | article (re-fetch) | todo | | TDS |
@@ -89,6 +89,18 @@ images skipped + logged.
 - **Embed-vs-localize gap.** Mature pages can't absorb 11 diagrams each; many are localized but not
   embedded (logged in each raw note's `## Key visuals`). Acceptable, but argues for capturing
   visuals once at ingest and embedding lazily.
+- **WebFetch truncates some image URLs** (decodingai-09): the first enumeration returned only the
+  CDN transform prefix with no encoded source path — unusable. A **second, more specific prompt**
+  (demand the full `…/https%3A%2F%2F…` path, write SKIP otherwise) recovered all three. Worth doing
+  by default for image-heavy pages.
+- **Cross-article image reuse** (decodingai-07 reused two figures verbatim from -06). Per-source
+  folders mean the same bytes get stored twice under different names. Minor; a content-hash dedupe
+  in `fetch-assets.ps1` could collapse these, but cross-source duplication is rare enough to ignore.
+- **Confirmed at scale: Decoding AI / Substack is fully fetchable** (16/16 posts, ~80 diagrams) —
+  the paywall hypothesis did NOT hold for this publisher. The real cost was curation, not access.
+- **Extension mismatch in hand-written embeds** (`.jpeg` sources save as `.jpg`, not `.png`):
+  caught by lint as broken `![[…png]]` links. Fix: paste the embed lines `fetch-assets.ps1`
+  already emits (correct extension) instead of hand-typing `.png`.
 
 ### Proposed workflow improvements (accumulating → Phase G)
 - **Capture visuals at ingest time** (biggest lever): when first scraping a source, run the

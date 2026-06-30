@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, ai-agentic, structured-outputs, pydantic, llm, production]
-updated: 2026-06-23
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/llm-structured-outputs-the-only-way
 source_type: article
 ingested: 2026-06-23
@@ -32,6 +32,15 @@ feeds: [llm-structured-outputs, guardrails-and-output-validation]
 - "Regex patterns failed to match slightly different response formats, data types were inconsistent, and downstream processes couldn't handle the unpredictable data." (opening production failure)
 - Native API structured output eliminates manual schema injection and is optimized by vendor for better accuracy.
 - Scientific model selection: run experiments per configuration → compute business metrics via LLM-as-judge → analyze with LLMOps tools → iterate.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-23-decodingai-03-llm-structured-outputs/` (2 diagrams, visual backfill 2026-06-30).
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Structured outputs bridging LLM and downstream code | [[llm-structured-outputs]] |
+| `…-02.png` | Scientific method for evaluating/optimizing AI systems | |
 
 ## Feeds these wiki pages
 

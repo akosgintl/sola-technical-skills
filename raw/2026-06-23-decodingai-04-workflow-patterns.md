@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, ai-agentic, workflows, patterns, orchestration, production]
-updated: 2026-06-23
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/stop-building-ai-agents-use-these
 source_type: article
 ingested: 2026-06-23
@@ -33,6 +33,19 @@ feeds: [agentic-system-design]
 - "Why Not Jump to Agents? Too many moving parts to debug. Unpredictable costs and reliability issues."
 - Orchestrator-Worker is like Map-Reduce but with LLM decision-making for task decomposition.
 - Evaluator-Optimizer supports multiple specialized evaluators (logical correctness, readability, syntax).
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-23-decodingai-04-workflow-patterns/` (6 diagrams, visual backfill 2026-06-30; 2 Opik-platform screenshots dropped). Not embedded — the five patterns are already diagrammed on [[multi-agent-orchestration]] from the canonical Anthropic source; kept here as the "applied to a writing workflow" variant.
+
+| Asset | Diagram |
+|---|---|
+| `…-01.png` | The five core workflow patterns |
+| `…-02.png` | Prompt chaining applied to a writing workflow |
+| `…-03.png` | Parallelization applied to a writing workflow |
+| `…-04.png` | Routing applied to a writing agent |
+| `…-05.png` | Orchestrator-worker applied to a writing workflow |
+| `…-06.png` | Evaluator-optimizer applied to a writing agent |
 
 ## Feeds these wiki pages
 

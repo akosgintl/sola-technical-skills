@@ -57,6 +57,9 @@ component, and that is usually the right answer. The design space this page navi
 is: **single agent vs. multiple agents**, and if multiple, **what topology and what
 coordination contract** binds them.
 
+![[2026-06-23-decodingai-01-ai-workflows-vs-agents-04.png|The autonomy slider from fully-controlled workflows to fully-autonomous agents]]
+*Figure: Workflow vs. agent is a slider, not a binary — autonomy increases from fixed code paths to model-directed control — source [[2026-06-23-decodingai-01-ai-workflows-vs-agents]].*
+
 ## Why it matters
 
 Agentic design is where the most expensive architecture mistakes are made,

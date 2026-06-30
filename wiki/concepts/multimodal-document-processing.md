@@ -47,9 +47,18 @@ The alternative: treat documents as the multimodal objects they are. A modern vi
 
 Two primary architectures achieve multimodal understanding:
 
+![[2026-06-23-decodingai-09-multimodal-agents-01.jpg|The two main approaches to building multimodal LLMs]]
+*Figure: The two main approaches to developing multimodal LLM architectures — source [[2026-06-23-decodingai-09-multimodal-agents]].*
+
 **Unified Embedding Decoder:** Text and image are encoded separately (text tokenizer + vision encoder), the embeddings are concatenated, and the full sequence is passed to the LLM transformer. Simpler to implement; higher accuracy for OCR-heavy tasks because image features are explicitly aligned with token positions.
 
+![[2026-06-23-decodingai-09-multimodal-agents-02.jpg|Unified embedding decoder: concatenate image and text embeddings]]
+*Figure: Unified embedding decoder architecture — source [[2026-06-23-decodingai-09-multimodal-agents]].*
+
 **Cross-modality Attention:** Image embeddings are injected directly into the attention mechanism at each transformer layer rather than concatenated to the input. More computationally efficient for high-resolution images; better at reasoning about fine-grained visual relationships. This is the architecture used by models like Claude 3 and Gemini 2.5.
+
+![[2026-06-23-decodingai-09-multimodal-agents-03.jpg|Cross-modality attention: inject image embeddings into each attention layer]]
+*Figure: Cross-modality attention architecture — source [[2026-06-23-decodingai-09-multimodal-agents]].*
 
 Both architectures rely on **vision encoders** (CLIP, OpenCLIP, SigLIP) that embed images into the same vector space as text — enabling semantic comparison between image content and text queries without explicit OCR.
 

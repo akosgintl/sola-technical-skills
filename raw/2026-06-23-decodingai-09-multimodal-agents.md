@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, ai-agentic, multimodal, vision, pdf, audio, colpali, rag]
-updated: 2026-06-23
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/stop-converting-documents-to-text
 source_type: article
 ingested: 2026-06-23
@@ -33,6 +33,16 @@ feeds: [multimodal-document-processing, retrieval-augmented-generation]
 - Traditional OCR pipelines are brittle, slow, and expensive — fail on unexpected layouts or specialized diagrams.
 - Base64 encoding: ~33% file size increase vs. raw bytes; URL-based: no size overhead, requires cloud storage.
 - Gemini API accepts PDFs identically to images via `Part.from_bytes(data=pdf_bytes, mime_type="application/pdf")`.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-23-decodingai-09-multimodal-agents/` (3 architecture diagrams, visual backfill 2026-06-30). The first WebFetch returned truncated image URLs (transform prefix only, no source path); a second, more specific prompt recovered the full URLs. Example photos/screenshots were excluded.
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.jpg` | The two main approaches to multimodal LLMs | [[multimodal-document-processing]] |
+| `…-02.jpg` | Unified embedding decoder architecture | [[multimodal-document-processing]] |
+| `…-03.jpg` | Cross-modality attention architecture | [[multimodal-document-processing]] |
 
 ## Feeds these wiki pages
 

@@ -72,6 +72,9 @@ Every context passed to an LLM in an agentic system is assembled from five dynam
 
 These five elements are assembled dynamically per call. The user's query triggers retrieval from long-term memory sources (components 3 and 4), which combines with short-term context (component 2) to form the full window. After the response, new facts feed back into long-term storage.
 
+![[2026-06-23-decodingai-02-context-engineering-01.png|What makes up the context: the system components assembled into each window]]
+*Figure: What makes up the context — the components dynamically assembled into each call's window — source [[2026-06-23-decodingai-02-context-engineering]].*
+
 ### Information ordering
 
 LLM attention exhibits a **U-shaped positional bias**: information at the start and end of context receives the most reliable attention; the middle is systematically under-attended.

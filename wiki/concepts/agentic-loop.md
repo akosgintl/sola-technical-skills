@@ -34,6 +34,9 @@ An agentic loop is an autonomous execution unit that contrasts with two older pa
 
 A loop is different because the **decision-maker is inside the loop**. The agent observes the current state, selects its next action, executes it, checks the outcome, and decides whether to continue, retry, roll back, or stop — without a human intervening between steps.
 
+![[2026-06-23-decodingai-01-ai-workflows-vs-agents-07.png|A coding agent's autonomous operational loop (Gemini CLI)]]
+*Figure: A coding agent's operational loop — the decision-maker runs the observe→act→verify cycle inside the loop — source [[2026-06-23-decodingai-01-ai-workflows-vs-agents]].*
+
 The term **loop engineering** (popularized mid-2026 by Peter Steinberger, creator of OpenClaw, and independently confirmed by Boris Cherny, who leads Claude Code at Anthropic) describes the practice of designing these loops rather than prompting agents directly. The practitioner's job shifts from "write the best prompt" to "design the trigger, define the verifiable goal, and build the skills and tools the loop will use."
 
 **The autonomy slider.** A useful framing: loops and workflows are not binary categories but points on a spectrum from fully controlled (all steps predefined, high predictability) to fully autonomous (model decides every step, high adaptability). Most production systems sit in the middle as deliberate hybrids — a deterministic workflow handles known request types; an agentic loop handles open-ended ones. The design decision is: how much autonomy does this specific task actually require? (See [[agentic-system-design]] for the workflow-vs-agent decision framework.)

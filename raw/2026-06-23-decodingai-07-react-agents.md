@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, ai-agentic, react, langgraph, agents, production, structured-outputs]
-updated: 2026-06-23
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/building-production-react-agents
 source_type: article
 ingested: 2026-06-23
@@ -35,6 +35,14 @@ feeds: [agent-planning, agentic-loop]
 - "Simple conditional logic and basic loops that should require minimal effort become complex when forced into graph paradigms."
 - ToolStrategy: agent "calls" the Pydantic schema as a tool to signal completion; framework parses args into model; triggers loop termination.
 - Failure handling: agent observes tool failures as data points — resilience is built into the ReAct observation phase.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-23-decodingai-07-react-agents/` (1 diagram, visual backfill 2026-06-30). Two further diagrams in this article are byte-identical reuses of figures in [[2026-06-23-decodingai-06-agent-planning]] (cross-article image reuse) and were not re-localized.
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Theoretical ReAct loop vs. LangGraph implementation | [[agent-planning]] |
 
 ## Feeds these wiki pages
 

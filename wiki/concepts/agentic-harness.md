@@ -55,6 +55,9 @@ grounded in **Claude Code**, the most fully documented reference harness.
 | **Presentation** | Multiple front-ends (TUI, web, mobile) over a pub/sub bus or custom services | Configure |
 | **Observability** | Tracing, logging, metrics across the whole stack | Use as-is |
 
+![[2026-06-26-decodingai-10-agentic-harness-system-design-02.png|The five-layer agentic harness architecture]]
+*Figure: The five-layer agentic harness — agent, harness, runtime, presentation, observability — source [[2026-06-26-decodingai-10-agentic-harness-system-design]].*
+
 ## Why it matters
 
 **The leverage has moved up a layer.** Writing a tool-calling loop is no longer where
@@ -222,7 +225,10 @@ The happy path: user message → TUI → **priority queue** → wait for agent a
 agent loop (stream → check → tool call → append → recurse) → answer → TUI → user.
 **Compaction** triggers as token usage approaches the context limit, collapsing history to
 `[system prompt] + [summary] + [recent tail]` — the harness-level expression of
-[[context-engineering]]. Notably, project-root CLAUDE.md **survives compaction** (it is
+[[context-engineering]].
+
+![[2026-06-26-decodingai-10-agentic-harness-system-design-03.png|Message flow: priority gate, agentic loop, context compaction]]
+*Figure: Message flow through the harness — priority gate → agentic loop → context compaction — source [[2026-06-26-decodingai-10-agentic-harness-system-design]].* Notably, project-root CLAUDE.md **survives compaction** (it is
 re-read from disk and re-injected), while conversation-only instructions do not — a
 concrete reason to write durable rules to disk rather than the chat.
 

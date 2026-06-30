@@ -55,11 +55,17 @@ ReAct (Yao et al., arXiv:2210.03629) creates an interleaved Thought–Action–O
 
 Every cycle updates the model's understanding before selecting the next action. The model is always planning from observed state, not from a static assumption.
 
+![[2026-06-23-decodingai-06-agent-planning-02.png|ReAct interleaved Thought–Action–Observation loop]]
+*Figure: The ReAct loop — interleaved reasoning and acting — source [[2026-06-23-decodingai-06-agent-planning]].*
+
 **LangGraph implementation:** Two nodes and conditional edges form the loop:
 
 - **Model node** — receives the full message history (including past tool outputs as `ToolMessage` objects), generates a `Thought` and optionally one or more `tool_calls` in the `AIMessage`.
 - **Tools node** — `ToolNode` executes all pending `tool_calls` in parallel (via `Send` objects), returns `ToolMessage` results, appends to state.
 - **Conditional edge** — routes back to the model node if more tool calls are needed; routes to END when the model generates `structured_response` with no pending tool calls.
+
+![[2026-06-23-decodingai-07-react-agents-01.png|Theoretical ReAct loop mapped to a LangGraph implementation]]
+*Figure: The theoretical ReAct loop mapped onto a concrete LangGraph implementation — source [[2026-06-23-decodingai-07-react-agents]].*
 
 State management: `AgentState` maintains `messages: Sequence[BaseMessage]` — the full Thought-Action-Observation history — plus `structured_response` for the terminal typed output. An `add_messages` reducer appends each new message without overwriting history, giving the model complete visibility into all past reasoning and tool outcomes.
 

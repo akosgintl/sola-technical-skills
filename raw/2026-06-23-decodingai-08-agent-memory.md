@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, ai-agentic, agent-memory, short-term, long-term, semantic, episodic, procedural]
-updated: 2026-06-23
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/how-does-memory-for-ai-agents-work
 source_type: article
 ingested: 2026-06-23
@@ -32,6 +32,18 @@ feeds: [agent-memory-architectures]
 - Semantic memory example: `"User prefers vegetarian meals"` or `{"music": "User likes rock music"}`.
 - Episodic memory example: "On Tuesday, the user expressed frustration that their brother always forgets their birthday."
 - Procedural memory example: a monthly report procedure with defined steps (query DB → summarize → email user).
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-23-decodingai-08-agent-memory/` (5 diagrams, visual backfill 2026-06-30).
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Four memory types and their data flow | [[agent-memory-architectures]] |
+| `…-02.png` | Memory types by proximity to the LLM | |
+| `…-03.png` | Semantic, episodic, and procedural long-term memory | |
+| `…-04.jpg` | Memory as a knowledge graph of entities | |
+| `…-05.png` | The complete memory cycle across all tiers | [[agent-memory-architectures]] |
 
 ## Feeds these wiki pages
 

@@ -28,6 +28,9 @@ LLM responses are inherently free-text — the model produces tokens that look l
 
 The framing from Paul Iusztin's "AI Agents Foundations" series is precise: structured outputs are "a bridge between LLM (Software 3.0) and Python (Software 1.0)" — the contract at the boundary between probabilistic generation and deterministic computation. Without this bridge, any change in the model's phrasing, any hallucinated field, or any missing key propagates silently through the pipeline and surfaces as a runtime exception or corrupted output far from its source.
 
+![[2026-06-23-decodingai-03-llm-structured-outputs-01.png|Structured outputs bridging the LLM and downstream code]]
+*Figure: Structured outputs as the bridge between probabilistic LLM generation and deterministic downstream code — source [[2026-06-23-decodingai-03-llm-structured-outputs]].*
+
 The canonical failure mode: a production demo crashes because regex parsing fails on a slightly different response format than the model was trained to produce. Data types become inconsistent. Downstream processes can't handle the unpredictable structure. This is solved by schema enforcement at the output boundary, not by more careful prompting.
 
 ## Why it matters
