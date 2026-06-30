@@ -285,6 +285,37 @@ It exits non-zero if any `[[wikilink]]` is broken (CI-gateable) and reports:
 Report findings, fix the mechanical ones, append a `lint` entry to `log.md`, and ask before
 large rewrites.
 
+### 9.4 Substack archive ingest (periodic)
+
+A lightweight front-end to §9.1 for **Substack newsletters**, run on a cadence (≈weekly) to pull
+each author's *latest* posts. Publications live in a registry, **`scripts/substack-sources.json`**,
+keyed by a short lowercase key with `{title, host, series, command}`. Each has a thin slash
+command in `.claude/commands/` — currently `/ingest-decodingai` and `/ingest-theneuralmaze`.
+
+> [!note] Add an author
+> Append an entry to `scripts/substack-sources.json` (pick a fresh `series` prefix), then copy
+> an existing `.claude/commands/ingest-<key>.md`, substituting the key. Nothing else to wire up.
+
+**Procedure:**
+
+1. **Inspect the archive** — `pwsh scripts/fetch-substack-archive.ps1 -Source <key>`. This is
+   read-only: it hits the publication's `…/api/v1/archive` JSON API and reports which recent posts
+   are **NEW** vs already ingested. The match key is the recorded `source_url:` (= the post's
+   `canonical_url`), **not** the raw filename. The report proposes a raw filename and the next
+   sequence number for the series.
+2. **List & pick** — show the NEW posts to the user and let them choose which to ingest. Don't
+   bulk-ingest; honor the per-wave page limit and never auto-commit.
+3. **Ingest each picked post via §9.1**, capturing the body into
+   `raw/<TODAY>-<series>-NN-<slug>.md` with the `templates/source-note.md` header and
+   `source_url: <canonical_url>`. `<TODAY>` is the ingest date (§3); `<slug>` may be the Substack
+   slug or a better descriptive one. Then run §9.1 steps 2–7 (visuals, write/extend pages,
+   cross-link, `index.md`, `log.md`).
+
+> [!warning] The archive API returns metadata only — the body lives at `canonical_url`. The
+> `audience` field gates the capture path: **`everyone`** → `firecrawl scrape <canonical_url>`;
+> **`only_paid`** → capture via **`claude-in-chrome`** in the user's authenticated session
+> (navigate to `canonical_url`, then `get_page_text` / `read_page`), since the body is paywalled.
+
 ---
 
 ## 10. Operating principles

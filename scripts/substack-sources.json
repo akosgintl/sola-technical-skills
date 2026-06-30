@@ -1,0 +1,15 @@
+{
+  "_comment": "Registry of Substack publications for the periodic archive-ingest workflow (CLAUDE.md §9.4). Add an author: append an entry below, then copy .claude/commands/ingest-<key>.md substituting the key. Keys are lowercase, used as -Source <key>.",
+  "decodingai": {
+    "title": "Decoding AI",
+    "host": "www.decodingai.com",
+    "series": "decodingai",
+    "command": "ingest-decodingai"
+  },
+  "theneuralmaze": {
+    "title": "The Neural Maze",
+    "host": "theneuralmaze.substack.com",
+    "series": "theneuralmaze",
+    "command": "ingest-theneuralmaze"
+  }
+}
