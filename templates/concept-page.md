@@ -28,6 +28,11 @@ sources: []
 
 - ...
 
+<!-- Embed a genuinely explanatory diagram (local, credited). Delete if none:
+![[source-slug-NN-desc.png|short alt]]
+*Figure: <caption> — source [[raw-source-note]].* -->
+
+
 ## Design decisions & trade-offs
 
 <The defensible calls: cost vs. risk vs. scale vs. time.>

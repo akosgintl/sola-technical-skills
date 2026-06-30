@@ -30,3 +30,17 @@ Rules:
 Each captured source gets a header from [`../templates/source-note.md`](../templates/source-note.md):
 frontmatter, key takeaways, and a `feeds:` list of which `wiki/concepts/` pages it informs.
 The raw content stays verbatim below a separator line. Analysis lives above it.
+
+## Images & media
+
+A source's **valuable visuals** are downloaded into [`assets/<source-slug>/`](assets/) so the
+wiki never depends on a CDN that can rot or paywall an image. **Keep** original diagrams,
+architecture/sequence figures, charts, annotated screenshots, and key video frames; **drop**
+avatars, logos, sponsor/ad banners, social buttons, and decorative hero images.
+
+- **Naming:** `<source-slug>-NN-[<short-desc>].<ext>` (video frames `<source-slug>-frame-NN.<ext>`) —
+  unique basenames so `![[…]]` embeds resolve cleanly. See [`assets/README.md`](assets/README.md).
+- **Helpers:** [`../scripts/fetch-assets.ps1`](../scripts/fetch-assets.ps1) downloads curated
+  image URLs; [`../scripts/grab-frames.ps1`](../scripts/grab-frames.ps1) extracts video frames.
+- List the keepers under `## Key visuals` in the source note; embed the genuinely explanatory
+  ones into the relevant `wiki/concepts/` page with a caption + source credit.

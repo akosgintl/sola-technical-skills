@@ -55,6 +55,7 @@ Plus two ledgers at the root: **`index.md`** (catalog of every page) and **`log.
 │   │   └── dashboard.{md,base}   # former Obsidian Bases dashboard
 │   └── skill-set/2026/technology-skills.md   # RETIRED seed roadmap — spine coverage complete
 └── raw/                          # immutable sources (see raw/README.md)
+    └── assets/<source-slug>/     # local copies of a source's curated visuals (diagrams, frames)
 ```
 
 > [!note] MOCs are archived
@@ -91,6 +92,24 @@ real "folder structure."
 Examples: `2026-06-20-recursive-language-models.md`, `2026-06-20-graphrag-01-production-engineer-agent.md`
 
 Decide the series prefix and sequence numbers **before scraping** so no post-ingest renames are needed. The lint script enforces this pattern (Check [6]).
+
+**Asset filenames** (curated images/diagrams/video frames) live in
+`raw/assets/<source-slug>/` and are named `<source-slug>-NN-[<short-desc>].<ext>`
+(video frames: `<source-slug>-frame-NN.<ext>`).
+
+| Component | Meaning |
+|---|---|
+| `<source-slug>` | The owning source note's slug — used as both the sub-folder name and the filename prefix |
+| `NN` | Zero-padded sequence number (01, 02, …) |
+| `<short-desc>` | Optional kebab-case hint (e.g. `architecture`, `pipeline`) |
+| `<ext>` | `png` / `jpg` / `svg` / `webp` / `gif` |
+
+The slug prefix makes every **basename unique across the vault** — Obsidian and
+`scripts/lint.ps1` resolve `![[embeds]]` by basename, so `![[<source-slug>-02.png]]`
+always resolves with no collisions. Generate assets with `scripts/fetch-assets.ps1`
+(image URLs) and `scripts/grab-frames.ps1` (video frames); both apply this naming and
+print paste-ready embed lines. The `raw/` pattern check (Check [6]) is non-recursive, so
+`raw/assets/**` is intentionally exempt.
 
 ---
 
@@ -185,6 +204,10 @@ Use `templates/concept-page.md`. Standard sections (omit what doesn't apply):
 - Section headings carry **no year and no role** — `## Why it matters`, `## State of the art` (never "(2026)" or "senior architect lens").
 - Page prose is **evergreen and audience-neutral**: no persona framing ("senior architect", "veteran", "15+ year") and no editorial-year framing ("the 2026 consensus", "the mistakes of 2026"). Factual year tokens are fine — standard/spec names, release/GA dates, citation titles, URLs, and the ISO `updated:` date.
 - Concepts stay **flat** in `wiki/concepts/`; organize via `domain:`, MOCs, and the [[dashboard]].
+- Embedded images are **local and credited**: embed only genuinely explanatory visuals from
+  `raw/assets/` with `![[asset|alt]]` followed by a caption line crediting the source note
+  (`*Figure: … — source [[raw-note]].*`). Never embed chrome/decorative images, and never
+  hotlink a remote CDN URL into a wiki page.
 
 ---
 
@@ -196,12 +219,24 @@ When given a new source (paper, article, doc, transcript, note):
 
 1. **Capture** the raw source into `raw/` (convert PDFs/HTML to markdown; use the
    `docling-convert` skill for local files). Add a `templates/source-note.md` header.
-2. **Read & discuss** — surface the key takeaways with the user.
-3. **Write/extend pages** — for each concept the source informs, create or update the
+2. **Capture the visuals** — sources with real diagrams/charts need their visuals
+   *localized*, not left as remote hotlinks (which rot). **Curate** with the keep/drop
+   rubric (keep original diagrams, architecture/sequence figures, charts, annotated
+   screenshots; drop avatars, logos, ad/sponsor banners, decorative hero images), then:
+   - **Blogs/articles:** `pwsh scripts/fetch-assets.ps1 -Slug <source-slug> -Url <…>` (or
+     `-UrlFile`) downloads the keepers into `raw/assets/<source-slug>/`.
+   - **Videos (YouTube/other):** keep the `yt-transcribe` text, and for on-screen diagrams
+     run `pwsh scripts/grab-frames.ps1 -Slug <source-slug> -Url <…> -Timestamps "…"` to
+     pull key frames.
+   - List the kept visuals under `## Key visuals` in the source note (see template).
+3. **Read & discuss** — surface the key takeaways with the user.
+4. **Write/extend pages** — for each concept the source informs, create or update the
    relevant `wiki/concepts/` page. Ground claims in the source; add it to `sources:`.
-4. **Cross-link** new and changed pages (`[[links]]`, See-also).
-5. **Update `index.md`** — add new pages, bump statuses.
-6. **Append to `log.md`** — `## [YYYY-MM-DD] ingest | <source title>` + 2–4 bullets.
+   **Embed** any genuinely explanatory diagram into the page with `![[asset|alt]]` + a
+   caption line crediting the source note (§8 house style).
+5. **Cross-link** new and changed pages (`[[links]]`, See-also).
+6. **Update `index.md`** — add new pages, bump statuses.
+7. **Append to `log.md`** — `## [YYYY-MM-DD] ingest | <source title>` + 2–4 bullets.
 
 ### 9.2 Query (answer a question → file the answer)
 

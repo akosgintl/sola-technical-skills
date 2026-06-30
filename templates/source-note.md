@@ -25,6 +25,15 @@ feeds: []   # wiki/concepts pages this source informs
 
 - ...
 
+## Key visuals
+
+> Curated, localized visuals (diagrams, charts, key video frames). Drop chrome
+> (avatars, logos, ad banners, decorative images). Generate with
+> `scripts/fetch-assets.ps1` / `scripts/grab-frames.ps1`. Remove this section if none.
+
+- ![[<source-slug>-01.png|short alt]] — what it shows
+- ![[<source-slug>-frame-01.png|short alt]] — what it shows (video @ MM:SS)
+
 ## Feeds these wiki pages
 
 - [[concept-one]]
