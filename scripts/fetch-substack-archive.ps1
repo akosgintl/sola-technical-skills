@@ -24,10 +24,15 @@
   Publication key into scripts/substack-sources.json (e.g. decodingai, theneuralmaze).
 
 .PARAMETER Limit
-  How many recent posts to fetch from the archive (default 15).
+  Maximum number of recent posts to scan (default 25). The archive is fetched in
+  pages of 50 (the Substack API max) and accumulated until this many posts are
+  collected or the archive is exhausted — so values above 50 work via automatic
+  pagination. The anonymous first page often returns fewer than requested, so a
+  single call under-counts; pagination by the actual returned count fixes that.
 
 .PARAMETER Offset
-  Archive pagination offset (default 0). Use with -Limit to page back further.
+  Starting archive offset for the first page (default 0). Advanced use — pagination
+  advances automatically from here.
 
 .PARAMETER IncludeIngested
   Also list the already-ingested posts (dimmed) below the NEW ones.
@@ -47,7 +52,7 @@
 [CmdletBinding()]
 param(
   [Parameter(Mandatory = $true)][string]$Source,
-  [int]$Limit = 15,
+  [int]$Limit = 25,
   [int]$Offset = 0,
   [switch]$IncludeIngested,
   [string]$Root = (Split-Path -Parent $PSScriptRoot)
@@ -110,11 +115,33 @@ if (Test-Path -LiteralPath $rawDir) {
 $nextSeq = $maxSeq + 1
 $today = Get-Date -Format 'yyyy-MM-dd'
 
-# --- fetch the archive ---
-$api = "https://$host_/api/v1/archive?sort=new&search=&offset=$Offset&limit=$Limit"
-Write-Host "Fetching $title archive: $api" -ForegroundColor Cyan
-$posts = Invoke-RestMethod -Uri $api -Headers @{ 'Accept' = 'application/json' }
-if (-not $posts) { Write-Host 'No posts returned.' -ForegroundColor Yellow; return }
+# --- fetch the archive (paginated) ---
+# Substack caps page size at 50, and the anonymous first page can return fewer than
+# requested (e.g. 23), so a single call under-counts. Page by the actual returned
+# count until we have $Limit posts or the archive is exhausted; dedup by id guards
+# against any overlap between pages.
+$pageSize = 50
+Write-Host "Fetching $title archive (paging by $pageSize, up to $Limit posts): https://$host_/api/v1/archive" -ForegroundColor Cyan
+$posts = New-Object System.Collections.Generic.List[object]
+$seenIds = New-Object System.Collections.Generic.HashSet[long]
+$pageOffset = $Offset
+while ($posts.Count -lt $Limit) {
+  $api = "https://$host_/api/v1/archive?sort=new&search=&offset=$pageOffset&limit=$pageSize"
+  # PS 7 emits a JSON array as a single pipeline object, so @(Invoke-RestMethod) wraps the
+  # whole array as one element — iterate the response instead to flatten reliably.
+  $resp = Invoke-RestMethod -Uri $api -Headers @{ 'Accept' = 'application/json' }
+  $page = @(); foreach ($item in $resp) { $page += $item }
+  if ($page.Count -eq 0) { break }
+  $added = 0
+  foreach ($p in $page) {
+    if ($seenIds.Add([long]$p.id)) { $posts.Add($p); $added++ }
+  }
+  $pageOffset += $page.Count
+  if ($added -eq 0) { break }   # no new ids on this page → archive exhausted
+}
+if ($posts.Count -eq 0) { Write-Host 'No posts returned.' -ForegroundColor Yellow; return }
+# trim to the requested cap (we accumulate whole pages, then cut to $Limit)
+if ($posts.Count -gt $Limit) { $posts = $posts.GetRange(0, $Limit) }
 
 # --- partition into NEW vs INGESTED, preserving archive order (newest first) ---
 $new = @()
