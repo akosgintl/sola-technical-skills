@@ -462,3 +462,14 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - Moved `skill-set/2026/technology-skills.md` → `archive/skill-set/2026/technology-skills.md` and removed the now-empty `skill-set/` tree. The 2026 roadmap that seeded the wiki is retired now that coverage is complete (every §1–§9 + meta node has a `mature` page per `index.md`), joining the already-archived MOCs.
 - Updated live references: `CLAUDE.md` §1 (spine reworded as seeded-and-retired; `index.md` is the live master MOC), §2 (directory tree), and **dropped the §9.3 "Roadmap coverage" judgment check** — no live workflow consumes the roadmap any more. Repointed `README.md` header link; added a `skill-set/` section to `archive/README.md` and fixed its cross-reference.
 - Archived `moc/*` `sources:` frontmatter still lists the old path by design (frozen history). Lint PASS — `lint.ps1` never read the roadmap mechanically, so no links/orphans regressed.
+
+## [2026-06-30] ingest | Matt Pocock — three AI-coding talks (fundamentals, workflow, skills)
+
+- Captured 3 YouTube transcripts to `raw/` (auto-captions via yt-transcribe): `2026-06-30-pocock-01-software-fundamentals-keynote.md`, `-02-ai-coding-workflow-walkthrough.md`, `-03-building-great-agent-skills.md`. Shared thesis: software fundamentals matter *more* with AI, not less; code is not cheap; keep the codebase as the battleground (vs. specs-to-code that ignores the code).
+- Created **4 new `draft` pages**:
+  - [[deep-modules]] (meta) — Ousterhout deep vs shallow modules; testable boundaries; *design the interface, delegate the implementation* (gray boxes).
+  - [[tracer-bullets]] (meta) — vertical slices vs horizontal layering; feedback is the speed limit; the unit of an AI backlog / DAG node.
+  - [[agent-skill-design]] (ai-agentic) — Pocock's skill checklist: trigger (user vs model invoked / context vs cognitive load), structure (steps+reference, tiny SKILL.md, context pointers), steering (leading words, leg work / split), pruning (DRY, sediment, no-ops, deletion test).
+  - [[ai-assisted-development-workflow]] (ai-agentic) — the spine: grill→PRD→Kanban DAG→AFK/Ralph loop→QA/review; smart vs dumb zone; clear>compact; human-in-loop vs AFK (day/night shift); push/pull standards; doc rot; Sandcastle.
+- `index.md`: added the 4 rows (AI-agentic ×2, meta ×2); coverage 97 → 101 pages, 97 mature + 4 draft.
+- Cross-linking: the 4 pages interlink densely; outbound links to existing [[context-engineering]], [[domain-driven-design]], [[git-worktrees-parallel-agents]], [[delegate-review-own]], [[vibe-coding-governance]], [[spec-driven-development]], [[agentic-loop]], [[human-in-the-loop-design]]. **Pending (next wave):** inbound links + enrichments to those existing pages (smart/dumb-zone framing into context-engineering; ubiquitous-language-for-AI into domain-driven-design; "code is not cheap" into vibe-coding-governance; review-in-smart-zone + push/pull into delegate-review-own).

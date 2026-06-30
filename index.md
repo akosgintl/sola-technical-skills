@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 97 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 29 ingest-sourced expansions. **97 `mature`** (715+ cited sources), 0 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
+**Coverage:** 101 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 33 ingest-sourced expansions. **97 `mature`** (715+ cited sources), 4 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
 
 ---
 
@@ -54,6 +54,8 @@ sources: []
 | [[llm-tool-use]] | mature |
 | [[agent-planning]] | mature |
 | [[multimodal-document-processing]] | mature |
+| [[agent-skill-design]] | draft |
+| [[ai-assisted-development-workflow]] | draft |
 
 ## Cloud Architecture · `cloud`
 
@@ -169,3 +171,5 @@ sources: []
 | [[delegate-review-own]] | mature |
 | [[accountable-human-layer]] | mature |
 | [[t-shaped-depth]] | mature |
+| [[deep-modules]] | draft |
+| [[tracer-bullets]] | draft |
