@@ -526,3 +526,25 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - Trade-offs: *decouple only what is worth decoupling* (anti-over-engineering, tied to [[trade-off-judgment]]); organize-by-actionability vs folder-per-type; explicit interfaces vs duck typing; simplicity over purity.
 - Embedded **3 diagrams** (four-layer "Structuring AI Projects", the inward dependency rule, the 6-step request data flow); ~6 sources (raw note + Uncle Bob Clean Architecture, Cosmic Python, Pydantic, LangGraph, MCP).
 - Cross-linked from/to [[llm-application-architecture]], [[deep-modules]], [[domain-driven-design]], [[agentic-system-design]], [[model-context-protocol]], [[llm-structured-outputs]], [[trade-off-judgment]], [[service-decomposition]]. `index.md`: 101 → 102 pages, 97 → 98 mature.
+
+## [2026-06-30] ingest | LLM Knowledge Base (new page) — first Substack-archive ingest
+
+- First run of the new **Substack archive ingest** workflow (`CLAUDE.md §9.4`): `pwsh scripts/fetch-substack-archive.ps1 -Source decodingai` surfaced 9 new posts; ingested the picked one via firecrawl (free post).
+- Captured [[2026-06-30-decodingai-12-personal-llm-knowledge-base]] (Paul Iusztin, Decoding AI, *Karpathy Named It. I Built One on My Notes.*, 2026-04-21). Localized **5 of 8 diagrams** to `raw/assets/2026-06-30-decodingai-12-personal-llm-knowledge-base/` (dropped 2 `index.yaml` code screenshots, 1 memory-dir screenshot, 1 course-ad GIF per the keep/drop rubric).
+- Created [[llm-knowledge-base]] `draft` (ai-agentic) — Karpathy's LLM Knowledge Base: pre-compile curated private sources into an `index.yaml`-routed file tree, progressive disclosure (summary → key-highlights → full doc), filesystem-over-RAG, CLIs-over-MCP token economics (~100 vs ~20,000 tokens, ~200×), orchestrator-never-loads context isolation, the `/research_create`·`/research_search`·`/research_distill` pipeline. Embedded 4 diagrams; ~4 sources (raw note + Karpathy gist + LlamaIndex benchmark).
+- Extended [[recursive-language-models]] `mature` (the "files over vectors" sibling — added the LlamaIndex filesystem-vs-vector benchmark + cross-link) and [[model-context-protocol]] `mature` (CLI-over-MCP token-economics trade-off bullet + cross-link); bumped both `updated:`.
+- `index.md`: 102 → 103 pages, 4 → 5 draft. Lint PASS.
+
+## [2026-06-30] ingest | Eval vs patching failures (The Neural Maze) — free-path test
+
+- First **theneuralmaze** ingest, free post via firecrawl: [[2026-06-30-theneuralmaze-01-eval-vs-patching-failures]] (Mai guest / Miguel Otero Pedrido, *You Didn't Fix the Model. You Memorized the Failure.*, 2026-06-20). No visuals localized — all images are decorative AI hero illustrations (dropped per rubric).
+- Extended [[ai-evaluation-and-quality]] `mature`: enriched the *Evaluation data contamination* trade-off with field-level evidence (MMLU/HumanEval/HellaSwag/GSM8K effectively retired to contamination; lexical-obfuscation defenses fail; LiveBench-style cleaner splits) and added a *split-order / patching ≠ improvement* trade-off (train/val/test discipline, reverse-engineered fixes contaminate eval, residual ticket-shaped sampling bias). Added the raw note + article to `sources:`.
+- No new page (fed an existing mature page); `index.md` counts unchanged. Lint PASS.
+- **Paid-path test deferred:** [03] *Building Agent Memory with Knowledge Graphs* (`only_paid`) needs the authenticated Chrome capture; the Claude browser extension was not connected at ingest time.
+
+## [2026-06-30] ingest | Temporal knowledge-graph agent memory (The Neural Maze) — paid-path test
+
+- **Paid-path test passed:** captured the `only_paid` post [[2026-06-30-theneuralmaze-02-temporal-knowledge-graph-memory]] (Miguel Otero Pedrido, *Building Agent Memory with Knowledge Graphs*, 2026-06-04) via **authenticated Chrome** (`claude-in-chrome` `get_page_text` over the user's logged-in session) — confirms the audience-gated branch in `CLAUDE.md §9.4` (free → firecrawl, paid → Chrome). No visuals localized (only an external GraphRAG screenshot + a video + code blocks; `get_page_text` returns text only).
+- Extended [[agent-memory-architectures]] `mature`: added a **Graphiti (Zep)** State-of-the-art paragraph (incremental episode ingestion, bi-temporal model = event-time + learned-time, contradicted facts marked superseded not deleted, hybrid vector+BM25+traversal retrieval at sub-second p95, ~0.5–2 s LLM extraction cost per episode) — Graphiti was previously unmentioned. Added 2 sources, bumped `updated:`.
+- Extended [[graphrag]] `mature`: added the **static-vs-dynamic** distinction to State of the art (Microsoft community-summary GraphRAG is for fixed corpora / tens-of-seconds query summarisation; Graphiti for continuously-learning agent memory). Added source, bumped `updated:`.
+- No new page (fed two existing mature pages); `index.md` counts unchanged. Lint PASS.

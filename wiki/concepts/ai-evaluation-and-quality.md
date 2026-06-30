@@ -8,6 +8,7 @@ tags: [ai-agentic, evaluation, quality, llm-eval, hallucination, drift]
 updated: 2026-06-30
 sources:
   - raw/2026-06-23-decodingai-03-llm-structured-outputs.md
+  - raw/2026-06-30-theneuralmaze-01-eval-vs-patching-failures.md
   - https://arxiv.org/abs/2306.05685
   - https://arxiv.org/abs/2212.10560
   - https://arxiv.org/abs/2309.15217
@@ -129,7 +130,9 @@ This disciplines prompt engineering from an art into a measured engineering prac
 
 **Offline eval depth vs. CI speed.** A comprehensive eval suite that takes 20 minutes to run will be skipped. Design a fast "smoke eval" (< 2 min, critical paths only) for every CI run, and a full eval suite run nightly or on release branches.
 
-**Evaluation data contamination.** If test examples are leaked into the model's training data (or into the prompt's few-shot examples), scores are inflated. Treat the eval set as sensitive; never include test examples in prompts or fine-tuning data.
+**Evaluation data contamination.** If test examples are leaked into the model's training data (or into the prompt's few-shot examples), scores are inflated. Treat the eval set as sensitive; never include test examples in prompts or fine-tuning data. This is not a niche risk: contamination accumulated badly enough that **MMLU, HumanEval, HellaSwag, and the original GSM8K have effectively been retired** — top models cluster in the 90s and the scores no longer rank frontier work. Lexical-obfuscation defenses (shuffling MCQ options, synonym substitution, reversible ciphers) mostly fail because models trained on the obfuscated formats too; the field's response was harder benchmarks with cleaner splits (e.g. LiveBench), not abandoning evals.
+
+**Hold the split order, and don't confuse patching with improvement.** Train on one chunk, tune (prompt edits, rules, patches) against a *validation* chunk, and touch the *test* chunk only once at the end — "the validation set is where you're allowed to fail; the test set is where failing means something." Reverse-engineering a fix from the exact case that failed and then scoring it on a set that includes that case contaminates your own evaluation: the metric goes up but stops meaning anything. Patching one surfaced failure at a time is overfitting in its most literal form — it does not tell you the system got better, only that you memorized the cases you happened to see ([[2026-06-30-theneuralmaze-01-eval-vs-patching-failures|Mai / The Neural Maze]]). Note the residual trap a clean split does *not* fix: ticket-shaped **sampling bias** means an honest number can still be honest about the wrong region of the input space.
 
 ## State of the art
 
@@ -173,3 +176,4 @@ This disciplines prompt engineering from an art into a measured engineering prac
 - Yao, S. et al. (2024). *τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains.* arXiv:2407.10457. https://arxiv.org/abs/2407.10457
 - Yen, H. et al. (2025). *HELMET: How to Evaluate Long-Context Language Models Effectively and Thoroughly.* arXiv:2501.05249. https://arxiv.org/abs/2501.05249
 - Weights & Biases (2026). *Weave — LLM Application Evaluation and Observability.* https://wandb.ai/site/weave
+- Mai & Otero Pedrido, M. (2026-06-20). *You Didn't Fix the Model. You Memorized the Failure.* The Neural Maze. https://theneuralmaze.substack.com/p/you-didnt-fix-the-model-you-memorized

@@ -5,7 +5,7 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [llm, agents, mcp, integration, protocol, ai-security, oauth, governance]
-updated: 2026-06-19
+updated: 2026-06-30
 sources:
   - "https://modelcontextprotocol.io/specification/2025-11-25"
   - "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization"
@@ -116,6 +116,7 @@ Stay with a **custom/direct integration** (plain SDK call, function tool, REST) 
 - The path is **latency- or throughput-critical** (high-volume RAG retrieval, tight loops); MCP adds a JSON-RPC hop and a model round-trip to *decide* to call.
 - The operation is **deterministic and doesn't need model reasoning** — call the API directly from code; don't route it through the LLM at all.
 - You can't accept the **untrusted-tool-description** threat model for that data domain.
+- **Context/token economics dominate.** A server dumps its full tool catalog into the model's context at boot — e.g. Notion's MCP server is ~20,000 tokens of self-documenting tools whether used or not, versus ~100 tokens for a lazily-loaded skill/CLI (~200× more boot context). When you control the client and want a minimal context budget, a CLI the agent calls via bash (composing with `jq`, redirects, no model round-trip) can beat MCP. See [[llm-knowledge-base]] for this CLI-over-MCP argument worked through.
 
 > [!tip] Heuristic: MCP earns its keep at the **many-to-many** boundary and as a **governance chokepoint**.
 > For one-to-one, latency-bound, or fully-deterministic paths, a direct call is simpler and safer.
@@ -206,6 +207,7 @@ MCP's power — arbitrary data access and code execution, with descriptions the 
 - [[prompt-injection]]
 - [[agent-to-agent-protocols]]
 - [[api-styles-and-protocols]]
+- [[llm-knowledge-base]] — the CLI-over-MCP token-economics trade-off in practice
 
 ## Sources
 

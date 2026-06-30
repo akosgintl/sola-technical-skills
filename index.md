@@ -5,7 +5,7 @@ type: moc
 domain: mixed
 status: seed
 tags: [index, catalog]
-updated: 2026-06-23
+updated: 2026-06-30
 sources: []
 ---
 
@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 102 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 34 ingest-sourced expansions. **98 `mature`** (720+ cited sources), 4 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
+**Coverage:** 103 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 35 ingest-sourced expansions. **98 `mature`** (720+ cited sources), 5 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
 
 ---
 
@@ -39,6 +39,7 @@ sources: []
 | [[llm-application-architecture]] | mature |
 | [[clean-architecture-for-ai-systems]] | mature |
 | [[recursive-language-models]] | mature |
+| [[llm-knowledge-base]] | draft |
 | [[retrieval-augmented-generation]] | mature |
 | [[rag-query-understanding]] | mature |
 | [[context-engineering]] | mature |

@@ -5,7 +5,7 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [ai-agentic, agent-memory, knowledge-graph, pole-o, rag, graphrag]
-updated: 2026-06-23
+updated: 2026-06-30
 sources:
   - raw/2026-06-20-graphrag-02-agentic-graphrag.md
   - raw/2026-06-20-graphrag-03-neo4j-agent-memory.md
@@ -246,6 +246,8 @@ The `neo4j-labs/agent-memory` open-source SDK (Neo4j Labs, 2026) is the most com
 
 mem0 and cognee are alternative open-source agent memory solutions with slightly different resolution/dedup approaches. mem0 specializes in episodic memory compression and cross-session continuity for chatbot-style agents.
 
+**Graphiti (Zep)** is the temporal-knowledge-graph memory framework displacing naive vector "memory" for long-lived agents. It ingests new information as discrete **episodes** (a message, a document, an event) and folds each *incrementally* into a Neo4j graph — extracting entities and relationships and reconciling them against prior state without recomputing the whole graph. Its defining feature is a **bi-temporal model**: every edge tracks both when the event actually happened and when the system learned about it, so a contradicted fact is marked *superseded* (with an invalidation time) rather than deleted — history is preserved and the graph never contradicts itself ("where did the user live last spring?" vs "where now?"). Retrieval avoids LLM calls at query time, fusing vector + BM25 + graph traversal into one hybrid query at sub-second p95 — fast enough behind a voice assistant. This contrasts with the Microsoft GraphRAG community-summary approach (extract → cluster into communities → pre-compute LLM summaries), which is built for *static* corpora: updates force large recomputation and query-time summarisation can take tens of seconds, a non-starter for an agent updating its world model mid-conversation. The trade-off Graphiti makes explicit: every ingested episode costs an LLM extraction call (~0.5–2 s and real money at volume), and extraction is not guaranteed complete — pay that write-path cost only where identity and time earn their keep, not to search a static document pile.
+
 As of mid-2026, Claude Code and similar harnesses use file-system memory (progressive disclosure over markdown files). As knowledge bases scale past tens of documents, performance degrades and a graph-backed memory layer becomes the right next step.
 
 ## Pitfalls & anti-patterns
@@ -286,3 +288,5 @@ As of mid-2026, Claude Code and similar harnesses use file-system memory (progre
 - Neo4j Labs. (n.d.). POLE+O Data Model. https://neo4j.com/labs/agent-memory/explanation/poleo-model/
 - Neo4j Labs. (n.d.). Entity Resolution and Deduplication. https://neo4j.com/labs/agent-memory/explanation/resolution-deduplication/
 - Monigatti, L. (n.d.). The Evolution From RAG to Agentic RAG to Agent Memory. https://www.leoniemonigatti.com/blog/from-rag-to-agent-memory.html
+- Otero Pedrido, M. (2026-06-04). Building Agent Memory with Knowledge Graphs. The Neural Maze. raw/2026-06-30-theneuralmaze-02-temporal-knowledge-graph-memory.md
+- Chalef, D. (Zep AI). Graphiti: Knowledge Graph Memory for an Agentic World. Neo4j Developer Blog. https://neo4j.com/blog/developer/graphiti-knowledge-graph-memory/

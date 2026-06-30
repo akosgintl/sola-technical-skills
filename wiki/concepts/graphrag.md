@@ -5,10 +5,11 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [ai-agentic, graphrag, knowledge-graph, retrieval, rag, ontology]
-updated: 2026-06-20
+updated: 2026-06-30
 sources:
   - raw/2026-06-20-graphrag-01-production-engineer-agent.md
   - raw/2026-06-20-graphrag-02-agentic-graphrag.md
+  - raw/2026-06-30-theneuralmaze-02-temporal-knowledge-graph-memory.md
 ---
 
 # GraphRAG
@@ -161,6 +162,8 @@ Production topology changes slowly. Daily graph sync (nightly scheduled job) is 
 
 Microsoft Research introduced the term GraphRAG and demonstrated its value over plain RAG for global queries on narrative private data (2024). Their implementation uses hierarchical community detection and community summaries as the primary retrieval unit.
 
+That community-summary design is built for **static** corpora — when the underlying data changes you recompute large parts of the graph, and query-time multi-step summarisation can take tens of seconds. That is a non-starter for agent *memory*, which must update its world model mid-conversation and answer in real time. **Graphiti (Zep)** targets this dynamic regime: it folds new information in *incrementally* as discrete episodes (no whole-graph recompute), uses a **bi-temporal model** (tracking both when an event happened and when the system learned it) to mark contradicted facts superseded rather than deleting them, and keeps query-time fast by fusing vector + BM25 + graph traversal into one hybrid query with no LLM call on the read path (sub-second p95). The lesson: GraphRAG-style community summarisation is for analysing fixed datasets; temporal-graph memory is for agents that learn continuously — see [[agent-memory-architectures]].
+
 The LlamaIndex `PropertyGraph` integration provides built-in support for agentic GraphRAG queries on Neo4j. The `neo4j-labs/agent-memory` SDK (open-source, 2026) ships a complete graph-backed agent memory layer with 15 MCP tools, POLE+O ontology, and a 3-stage extraction pipeline.
 
 **Agentic GraphRAG** closes the loop: the agent not only reads from the KG but also writes to it autonomously via `write_memory` tools, enabling continual learning — the agent ingests the current conversation into the graph, updating preferences and facts in real time.
@@ -196,3 +199,4 @@ The LlamaIndex `PropertyGraph` integration provides built-in support for agentic
 - Larson, J. (2024). GraphRAG: Unlocking LLM Discovery on Narrative Private Data. Microsoft Research. https://www.microsoft.com/en-us/research/blog/graphrag-unlocking-llm-discovery-on-narrative-private-data/
 - Negro, A., et al. (n.d.). Knowledge Graphs and LLMs in Action. Manning. https://www.manning.com/books/knowledge-graphs-and-llms-in-action
 - LlamaIndex. (n.d.). Agentic GraphRAG with Property Graphs. https://developers.llamaindex.ai/python/examples/property_graph/agentic_graph_rag_vertex/
+- Otero Pedrido, M. (2026-06-04). Building Agent Memory with Knowledge Graphs. The Neural Maze. raw/2026-06-30-theneuralmaze-02-temporal-knowledge-graph-memory.md

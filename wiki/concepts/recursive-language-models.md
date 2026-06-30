@@ -5,7 +5,7 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [ai-agentic, llm, context-engineering, inference, orchestration]
-updated: 2026-06-22
+updated: 2026-06-30
 sources:
   - https://arxiv.org/abs/2512.24601
   - https://www.decodingai.com/p/recursive-language-models
@@ -96,7 +96,7 @@ Benchmark: LongBench-v2 CodeQA — Qwen3-Coder with a Python REPL outperformed t
 
 The only production-ready implementation as of mid-2026 is **DSPy's `dspy.RLM` module** (`dspy.ai`). Claude Code and Cursor use summarisation-based context compression, file-system state tracking, and progressive disclosure — a succession of agents connected by file state rather than a persistent shared REPL. This pattern sits at the context-assembly and retrieval+memory layers of the [[llm-application-architecture]] five-layer stack.
 
-**Practical approximation without a true REPL:** load data into a directory with an `index.yaml` (URIs + 1–2 sentence summaries per file), expose it to the agent as metadata, and spawn focused subagents to read specific slices. The filesystem serves as a proxy for REPL state — slower but deployable today. This maps to the [[multi-agent-orchestration]] fan-out pattern applied to document exploration, and when workers run as remote agents the [[agent-to-agent-protocols|A2A protocol layer]] applies.
+**Practical approximation without a true REPL:** load data into a directory with an `index.yaml` (URIs + 1–2 sentence summaries per file), expose it to the agent as metadata, and spawn focused subagents to read specific slices. The filesystem serves as a proxy for REPL state — slower but deployable today. This maps to the [[multi-agent-orchestration]] fan-out pattern applied to document exploration, and when workers run as remote agents the [[agent-to-agent-protocols|A2A protocol layer]] applies. Developed as a first-class pattern in [[llm-knowledge-base]], where an `index.yaml` over curated files replaces the retrieval stack at personal/team scale — backed by LlamaIndex's benchmark showing a filesystem-explorer agent beating hybrid vector RAG on correctness (8.4 vs 6.4) and relevance (9.6 vs 8.0) at sub-60-document scale.
 
 ## Pitfalls & anti-patterns
 
@@ -122,6 +122,7 @@ The only production-ready implementation as of mid-2026 is **DSPy's `dspy.RLM` m
 - [[agent-memory-architectures]] — REPL as a short-term memory mechanism
 - [[model-selection-and-routing]] — root controller vs. worker model tier selection
 - [[agent-to-agent-protocols]] — protocol layer when worker sub-models run as remote agents
+- [[llm-knowledge-base]] — the filesystem-state sibling: `index.yaml` over curated files in place of retrieval
 
 ## Sources
 
