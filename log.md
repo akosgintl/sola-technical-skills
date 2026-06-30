@@ -473,3 +473,12 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
   - [[ai-assisted-development-workflow]] (ai-agentic) — the spine: grill→PRD→Kanban DAG→AFK/Ralph loop→QA/review; smart vs dumb zone; clear>compact; human-in-loop vs AFK (day/night shift); push/pull standards; doc rot; Sandcastle.
 - `index.md`: added the 4 rows (AI-agentic ×2, meta ×2); coverage 97 → 101 pages, 97 mature + 4 draft.
 - Cross-linking: the 4 pages interlink densely; outbound links to existing [[context-engineering]], [[domain-driven-design]], [[git-worktrees-parallel-agents]], [[delegate-review-own]], [[vibe-coding-governance]], [[spec-driven-development]], [[agentic-loop]], [[human-in-the-loop-design]]. **Pending (next wave):** inbound links + enrichments to those existing pages (smart/dumb-zone framing into context-engineering; ubiquitous-language-for-AI into domain-driven-design; "code is not cheap" into vibe-coding-governance; review-in-smart-zone + push/pull into delegate-review-own).
+
+## [2026-06-30] enrich | Wire Pocock concepts into established pages (inbound links)
+
+- Follow-up wave to the Pocock ingest: integrated the four new concepts into existing mature pages (no new pages; `updated:` bumped + raw source cited on each).
+  - [[context-engineering]] — new subsection "The smart zone, the dumb zone, and clear-vs-compact" (Horthy/Pocock framing of context rot; ~100K smart-zone marker; clearing vs compaction / sediment). See-also → [[ai-assisted-development-workflow]], [[agent-skill-design]].
+  - [[domain-driven-design]] — extended the ubiquitous-language section with AI-alignment use (shared glossary as steering vocabulary; reduces agent verbosity). See-also → [[ai-assisted-development-workflow]], [[deep-modules]].
+  - [[vibe-coding-governance]] — new subsection "Code quality as a governance concern — 'code is not cheap'" (specs-to-code entropy critique; bad codebases make bad agents). See-also → [[ai-assisted-development-workflow]], [[deep-modules]].
+  - [[delegate-review-own]] — new subsection "Reviewing AI-generated code in practice" (review-in-the-smart-zone / clear before review; push-to-reviewer vs pull-for-implementer standards). See-also → [[ai-assisted-development-workflow]], [[deep-modules]].
+- Lint PASS (0 broken links / orphans / house-style / broken sources). 101 pages unchanged; the 4 ingest pages now have inbound links from established hubs.

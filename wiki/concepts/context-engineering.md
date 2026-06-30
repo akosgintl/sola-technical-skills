@@ -5,7 +5,7 @@ type: concept
 domain: ai-agentic
 status: mature
 tags: [ai-agentic, llm, context, context-window, prompt-engineering, rag, caching]
-updated: 2026-06-23
+updated: 2026-06-30
 sources:
   - "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
   - "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
@@ -17,6 +17,7 @@ sources:
   - "https://blog.jetbrains.com/research/2025/12/efficient-context-management/"
   - raw/2026-06-21-loop-engineering.md
   - raw/2026-06-23-decodingai-02-context-engineering.md
+  - raw/2026-06-30-pocock-02-ai-coding-workflow-walkthrough.md
 ---
 
 # Context Engineering
@@ -80,6 +81,12 @@ Practical implications:
 - Put the most relevant retrieved content **last** (closest to the generation point)
 - Don't bury critical facts in the middle of long context blocks
 - Use structured delimiters (XML tags, headers) to make structure explicit and help the model identify where high-signal content lives
+
+### The smart zone, the dumb zone, and clear-vs-compact
+
+A practitioner framing of context rot that travels well to agentic coding (Dex Horthy, Human Layer; popularized by Matt Pocock): every session has a **smart zone** early in the window, where attention relationships are least strained and the model does its best work, and a **dumb zone** it slides into as the window fills and attention scales quadratically with tokens. The effective boundary sits far below the advertised limit — a working marker of **~100K tokens regardless of whether the window is 200K or 1M** — so larger windows mostly "ship more dumb zone," better for retrieval than for reasoning-heavy coding. The design consequence is to **size each task to fit the smart zone** rather than letting one session accrete indefinitely.
+
+This reframes the **clear vs. compact** decision as a first-class context move. *Compaction* squeezes a session's history into a summary and continues — convenient, but it accumulates **sediment** (lossy, drifting residue) and behaves non-deterministically across runs. *Clearing* discards everything and returns to the same clean system-prompt state every time — losing in-session memory, but giving a reproducible, optimizable starting point. Workflows that re-ground from durable external artifacts (issue files, commits, specs) after each clear can prefer clearing precisely because the clean state is identical every time; the [[ai-assisted-development-workflow]] uses this to run each stage — and especially the review step — in a fresh smart-zone window rather than the degraded context that produced the code.
 
 ### Compression and summarization
 
@@ -189,6 +196,8 @@ By mid-2026, the leading edge has moved beyond per-call context decisions toward
 - [[model-selection-and-routing]]
 - [[ai-gpu-economics]]
 - [[llm-tool-use]]
+- [[ai-assisted-development-workflow]]
+- [[agent-skill-design]]
 
 ## Sources
 

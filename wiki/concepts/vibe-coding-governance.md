@@ -5,7 +5,7 @@ type: concept
 domain: emerging
 status: mature
 tags: [emerging, ai, governance, development, security, supply-chain, code-review]
-updated: 2026-06-21
+updated: 2026-06-30
 sources:
   - https://karpathy.ai/vibe-coding.html
   - https://owasp.org/www-project-top-10-for-large-language-model-applications/
@@ -13,6 +13,7 @@ sources:
   - https://arxiv.org/abs/2308.09687
   - https://semgrep.dev/docs/
   - https://www.anthropic.com/engineering/claude-code-best-practices
+  - raw/2026-06-30-pocock-01-software-fundamentals-keynote.md
 ---
 
 # Vibe Coding Governance
@@ -102,6 +103,23 @@ The deepest form of vibe coding governance is encoding architectural intent into
 - **Code examples in context:** providing canonical examples of how the project handles authentication, database access, or external API calls steers generation toward the established pattern.
 - **Forbidden patterns:** explicitly naming anti-patterns ("never use `os.system()` for shell commands, use `subprocess.run()`") prevents the AI from generating the flagged pattern even when it is technically functional.
 
+### Code quality as a governance concern — "code is not cheap"
+
+A common framing behind ungoverned AI coding is that *code is cheap*: if the AI can regenerate it
+on demand, the artifact barely matters — just edit the spec and re-run the generator. The
+**specs-to-code** position takes this to its conclusion: write a specification, generate code from
+it, and when something is wrong, fix the *spec* and regenerate — never read the code. In practice
+this compounds entropy: each regeneration pass, optimizing the local change without regard to
+whole-system design, tends to produce *worse* code than the last — the same software-entropy
+dynamic the [[delegate-review-own|fundamentals]] were built to resist. The governance implication
+is that **a hard-to-change codebase is itself a risk**: it caps the value AI can deliver, because
+agents do markedly better work in a clean, navigable, testable codebase than in a tangled one (bad
+codebases make bad agents). So architectural quality — [[deep-modules|deep modules]] with simple,
+testable interfaces; decomposition into [[tracer-bullets|vertical slices]] — is not a stylistic
+preference but a control that keeps AI velocity from converting into compounding debt. The
+governed alternative to specs-to-code keeps the code in view at every stage; see
+[[ai-assisted-development-workflow]].
+
 ### Organisational maturity stages
 
 | Stage | Description | Key gap |
@@ -151,6 +169,8 @@ Most engineering organisations in mid-2026 are between Controlled and Managed. T
 - [[software-supply-chain-security]] — dependency risk, SBOM, and SLSA for AI-generated dependencies
 - [[policy-as-code]] — Checkov/OPA gates in the CI pipeline
 - [[delegate-review-own]] — the individual-level discipline for AI-assisted work
+- [[ai-assisted-development-workflow]] — the governed grill→PRD→Kanban→AFK→review loop (vs. specs-to-code)
+- [[deep-modules]] — codebase quality as the precondition for good AI output
 - [[human-in-the-loop-design]] — HITL gates for agentic coding tools
 - [[agent-governance-and-policy]] — governance for agentic AI systems including coding agents
 - [[guardrails-and-output-validation]] — output validation patterns applicable to AI-generated code pipelines

@@ -5,13 +5,14 @@ type: concept
 domain: meta
 status: mature
 tags: [meta, ai-collaboration, judgment, accountability, delegation, review]
-updated: 2026-06-21
+updated: 2026-06-30
 sources:
   - https://www.anthropic.com/research/building-effective-agents
   - https://lethain.com/elegant-puzzle/
   - https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf
   - https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689
   - https://www.jstor.org/stable/3665619
+  - raw/2026-06-30-pocock-02-ai-coding-workflow-walkthrough.md
 ---
 
 # Delegate, Review, Own
@@ -72,6 +73,25 @@ Trust in a delegate is earned through a track record, not assumed from the deleg
 
 The calibration for AI agents is more conservative than for humans because the failure modes are different: an agent can be confidently wrong in ways a human expert would not be, and the same agent can produce excellent output on 99 % of tasks while failing catastrophically on the 1 % where it encounters an edge case it was not designed for.
 
+### Reviewing AI-generated code in practice
+
+Two tactics from agentic-coding practice make the "review" verb concrete when the delegate is a
+coding agent:
+
+- **Review in the smart zone.** An agent reviewing code inside the same long, full context that
+  *produced* the code is reasoning in its degraded [[context-engineering|dumb zone]] — the reviewer
+  is dumber than the implementer was. **Clear the context before the review step** so the review
+  runs in a fresh smart-zone window, grounded only on the diff and the standards. A common pairing
+  uses a cheaper model to implement and a stronger model to review, since review is where the
+  judgment is needed.
+- **Push standards to the reviewer; let the implementer pull.** Coding standards should be
+  *available* to the implementer by **pull** (e.g. a skill it may read if it has a question) to keep
+  its context lean, but **pushed** into the reviewer's context so the reviewer holds both the code
+  *and* the rules to compare against. Pushing the full standard to every implementer step bloats
+  context; failing to push it to the reviewer means the review can't check conformance. This is the
+  individual-discipline complement to the generation-time vs. review-time controls in
+  [[vibe-coding-governance]], and a stage of the [[ai-assisted-development-workflow]].
+
 ### Ownership: accountability does not transfer
 
 The principal's accountability is not diminished by delegating to a more capable or faster delegate. "The model said to" is not a defence — not ethically, not legally, not organisationally. Ownership means: if the output causes harm, the principal answers for it.
@@ -113,6 +133,8 @@ Anthropic's *Building Effective Agents* (2024) recommends for agentic AI: human 
 ## See also
 
 - [[human-in-the-loop-design]] — the system-level pattern for human oversight gates in agentic workflows
+- [[ai-assisted-development-workflow]] — review-in-the-smart-zone and push/pull as workflow stages
+- [[deep-modules]] — testable interfaces that make AI output reviewable from the outside
 - [[accountable-human-layer]] — the broader principle of retained human accountability in AI systems
 - [[trade-off-judgment]] — the judgment capacity the reviewer applies
 - [[architecture-decision-records]] — the human-authored record of the decisions the owner retains
