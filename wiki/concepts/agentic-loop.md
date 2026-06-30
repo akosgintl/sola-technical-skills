@@ -84,6 +84,18 @@ The 5+1 anatomy lists the *parts*; the **stacked-loops** view (Swyx's "loopcraft
 
 The decisive property of loop 4 is that **its feedback arrow reaches *inside* and updates the inner loops directly** — each outer cycle makes the agent loop more effective, rather than merely re-running it. The same trace signal can feed prompt/tool tweaks, RL fine-tuning for open-weight models, or improved memory and retrieved skills. Loops 1–2 are well understood; the compounding value is now in loops 3–4, where agents are embedded in an ecosystem and improve against your own criteria over time. This is the mechanism behind the strategic claim that organizations building learning loops early — "where human judgment and token capital compound together" (Nadella) — gain an advantage that is hard to replicate.
 
+![[2026-06-26-loop-engineering-langchain-stack-01.png|Level 1: the agent loop calls tools until the task is complete]]
+*Figure: Level 1 — the agent loop. Source [[2026-06-26-loop-engineering-langchain-stack]].*
+
+![[2026-06-26-loop-engineering-langchain-stack-02.png|Level 2: a grader scores output against a rubric and retries on failure]]
+*Figure: Level 2 — the verification loop. Source [[2026-06-26-loop-engineering-langchain-stack]].*
+
+![[2026-06-26-loop-engineering-langchain-stack-03.png|Level 3: events trigger agent runs continuously in the background]]
+*Figure: Level 3 — the event-driven loop. Source [[2026-06-26-loop-engineering-langchain-stack]].*
+
+![[2026-06-26-loop-engineering-langchain-stack-04.png|Level 4: traces feed an analysis agent that rewrites the harness config]]
+*Figure: Level 4 — the hill-climbing loop, whose feedback updates the inner loops. Source [[2026-06-26-loop-engineering-langchain-stack]].*
+
 Human oversight has a natural insertion point at *each* level: require approval before sensitive tool calls (loop 1), act as the grader for sensitive workflows (loop 2), approve outputs before release (loop 3), and review harness changes before they deploy (loop 4). See [[human-in-the-loop-design]].
 
 ### Internal planning: how the loop decides

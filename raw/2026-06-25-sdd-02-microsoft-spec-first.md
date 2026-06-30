@@ -5,7 +5,7 @@ type: source
 domain: emerging
 status: seed
 tags: [source, emerging, spec-driven-development, ai-native, microsoft]
-updated: 2026-06-25
+updated: 2026-06-30
 source_url: https://developer.microsoft.com/blog/spec-driven-development-ai-native-engineering
 source_type: article
 ingested: 2026-06-25
@@ -29,6 +29,14 @@ feeds: [spec-driven-development]
 
 - Recommendations: start with a small pilot on one misaligned feature; treat specs as **living documents**; avoid over-specification; expand only where value emerges.
 - "Human accountability remains central — teams retain decision ownership even as AI accelerates execution."
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-25-sdd-02-microsoft-spec-first/` (1 diagram, visual backfill 2026-06-30).
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.webp` | GitHub Spec Kit engineering lifecycle (7 stages) | [[spec-driven-development]] |
 
 ## Feeds these wiki pages
 

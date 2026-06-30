@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, agent-loops, loop-engineering, verification, hill-climbing, langchain, langsmith]
-updated: 2026-06-26
+updated: 2026-06-30
 source_url: https://www.langchain.com/blog/the-art-of-loop-engineering
 source_type: article
 ingested: 2026-06-26
@@ -33,6 +33,21 @@ feeds: [agentic-loop]
 - Worked example throughout: an internal **docs-writing agent** — loop 1 drafts doc changes and opens a PR; loop 2 runs tests/link-checks/diff-scope checks; loop 3 fires it from a `#docs-plz` Slack channel via Fleet; loop 4 runs Engine over its traces to file issues against offending prompts/tools.
 - "AI leaders like Steipete, Boris, and Andrej have all arrived at the same conclusion: the potential in agents is in the loops you build around them."
 - Satya Nadella's framing (quoted): "companies that build learning loops early, where human judgment and token capital compound together, will build an advantage that's hard to replicate."
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-26-loop-engineering-langchain-stack/` (8 diagrams, visual backfill 2026-06-30). The four generic loop diagrams are embedded into [[agentic-loop]]; the four docs-writer worked examples are kept for reference.
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Level 1 — agent loop | [[agentic-loop]] |
+| `…-02.png` | Level 2 — verification loop | [[agentic-loop]] |
+| `…-03.png` | Level 3 — event-driven loop | [[agentic-loop]] |
+| `…-04.png` | Level 4 — hill-climbing loop | [[agentic-loop]] |
+| `…-05.png` | Docs-writer example: agent loop | |
+| `…-06.png` | Docs-writer example: verification loop | |
+| `…-07.png` | Docs-writer example: event-driven loop | |
+| `…-08.png` | Docs-writer example: all four levels integrated | |
 
 ## Feeds these wiki pages
 

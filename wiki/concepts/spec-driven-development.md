@@ -46,6 +46,9 @@ Constitution → Specify → Clarify → Plan → Tasks → Implement → Valida
  (principles)  (what)   (resolve)  (how)  (units)   (code)    (verify)
 ```
 
+![[2026-06-25-sdd-02-microsoft-spec-first-01.webp|GitHub Spec Kit engineering lifecycle: Constitution, Specify, Clarify, Plan, Tasks, Implement, Validate]]
+*Figure: The GitHub Spec Kit engineering lifecycle — seven sequential, reviewed stages — source [[2026-06-25-sdd-02-microsoft-spec-first]].*
+
 - **Constitution** — the project's non-negotiable principles (quality bars, testing standards, architectural rules) that govern every later decision.
 - **Specify** — functional requirements and user stories: the *what*, deliberately excluding the *how*.
 - **Clarify** — structured questioning that surfaces and resolves ambiguity before any planning.

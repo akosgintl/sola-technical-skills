@@ -42,10 +42,10 @@ images skipped + logged.
 | 2026-06-22-edi-07-question-parser-fields | article (re-fetch) | **done** | 2 | → rag-query-understanding |
 | 2026-06-22-edi-08-dispatching | article (re-fetch) | **done** | 2 | → rag-query-understanding |
 | 2026-06-22-edi-09-vague-questions | article (re-fetch) | **none** | 0 | only series-position image; code-heavy |
-| 2026-06-25-sdd-02-microsoft-spec-first | blog (re-fetch) | todo | | |
-| 2026-06-25-sdd-08-worktrees-openspec-opencode | blog (re-fetch) | todo | | |
-| 2026-06-26-loop-engineering-osmani-anatomy | blog (re-fetch) | todo | | |
-| 2026-06-26-loop-engineering-langchain-stack | blog (re-fetch) | todo | | |
+| 2026-06-25-sdd-02-microsoft-spec-first | blog (re-fetch) | **done** | 1 | Spec Kit lifecycle → spec-driven-development |
+| 2026-06-25-sdd-08-worktrees-openspec-opencode | blog (re-fetch) | **none** | 0 | prose + cover photo only |
+| 2026-06-26-loop-engineering-osmani-anatomy | blog (re-fetch) | **none** | 0 | comparison table (not an image) + headshot |
+| 2026-06-26-loop-engineering-langchain-stack | blog (re-fetch) | **done** | 8 | four-loop diagrams → agentic-loop |
 | 2026-06-25-sdd-01-piskala-code-to-contract | arXiv paper | todo | | PDF → docling figures |
 | 2026-06-25-sdd-07-ssde-repo-level-arxiv | arXiv paper | todo | | PDF → docling figures |
 | 2026-06-25-sdd-03-github-spec-kit | docs (GitHub) | none | | README — quick-check then skip |
