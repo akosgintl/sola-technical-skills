@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, rag, technique-selection, diagnostic-grid, enterprise]
-updated: 2026-06-22
+updated: 2026-06-30
 source_url: https://towardsdatascience.com/from-regex-to-vision-models-which-rag-technique-fits-which-problem/
 source_type: article
 ingested: 2026-06-22
@@ -33,6 +33,17 @@ feeds: [retrieval-augmented-generation, llm-application-architecture]
 - HyDE example: generates ML-textbook vocabulary that doesn't match operational document vocabulary — reinventing what domain experts already know.
 - Diagnostic questions before coding: How alike are documents? How are questions framed? Can the system ask for clarification? Do answers require audit-grade traceability?
 - Vol. 1 #4 of Enterprise Document Intelligence series.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-22-edi-05-technique-selection/` (4 diagrams, visual backfill 2026-06-30).
+
+| Asset | Diagram |
+|---|---|
+| `…-01.png` | Five document-complexity tiers with matching techniques |
+| `…-02.png` | Four question-control tiers |
+| `…-03.png` | Decision matrix: complexity × control with technique zones |
+| `…-04.png` | Technique-family catalog mapped to series articles |
 
 ## Feeds these wiki pages
 

@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, rag, enterprise, document-intelligence, series-overview]
-updated: 2026-06-22
+updated: 2026-06-30
 source_url: https://towardsdatascience.com/document-intelligence-a-series-on-building-rag-brick-by-brick-from-minimal-to-corpus-scale/
 source_type: article
 ingested: 2026-06-22
@@ -34,6 +34,20 @@ feeds: [retrieval-augmented-generation, rag-query-understanding, llm-application
 - Target: regulated industries where wrong answers trigger refunds or fines (legal, insurance, financial services).
 - Assumed prerequisites: internal domain experts; controlled corpora (not open-domain).
 - Scope: PDF documents, question-answering retrieval, homogeneous independent corpora. Explicit out-of-scope: Word/Excel/PPT/email, translation, document generation, autonomous agents.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-22-edi-00-series-intro/` (7 diagrams, visual backfill 2026-06-30). Source images on a WordPress CDN (`insightmediagroup.io`), fetchable.
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Four-brick RAG pipeline | |
+| `…-02.png` | Academic vs. enterprise RAG | [[retrieval-augmented-generation]] |
+| `…-03.png` | One PDF → eight linked tables | |
+| `…-04.png` | Question parsing mirrors document parsing | |
+| `…-05.png` | Five-by-five diagnostic grid (complexity × control) | |
+| `…-06.png` | Corpus-scale architecture | |
+| `…-07.png` | Four-layer package layout | |
 
 ## Feeds these wiki pages
 

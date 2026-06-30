@@ -35,6 +35,9 @@ Routing "What is the maximum coverage amount? Don't confuse it with the deductib
 
 The `question_df` table mirrors `line_df` from document parsing: one row per question, columns for each parsing capability, linked to satellite tables for domain vocabulary and type registries.
 
+![[2026-06-22-edi-07-question-parser-fields-02.png|Question-parsing data flow: question_df row plus satellite tables feeding retrieval and generation briefs]]
+*Figure: Question parsing produces a `question_df` row + satellite tables that feed the RetrievalQuery and GenerationBrief — source [[2026-06-22-edi-07-question-parser-fields]].*
+
 ## Why it matters
 
 - **Retrieval-stage confusion is irreversible.** Once negations, distractors, and format constraints contaminate the retrieval brief, no downstream reranker or LLM can fully recover. The LLM is good at distinguishing and excluding — but only if the right passages were retrieved in the first place.
@@ -96,6 +99,9 @@ After the five field families are populated, the parser derives two consumer bri
 ### Dispatching
 
 The dispatcher reads the `ParsedQuestion` plus the document profile and makes three routing decisions without LLM involvement:
+
+![[2026-06-22-edi-08-dispatching-01.png|The dispatch layer sits between question parsing and retrieval in the four-brick RAG system]]
+*Figure: The dispatch layer — deterministic routing (chunk strategy, model tier, activation flags) between parsing and retrieval — source [[2026-06-22-edi-08-dispatching]].*
 
 **1. Chunk strategy** — three fields from the `answer_context` axis:
 - `detection_context`: granularity for regex confirmation (line for amounts/dates, paragraph for narrative)

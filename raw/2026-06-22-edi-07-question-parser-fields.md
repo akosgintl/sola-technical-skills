@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, rag, question-parsing, schema, keywords, decomposition]
-updated: 2026-06-22
+updated: 2026-06-30
 source_url: https://towardsdatascience.com/what-the-question-parser-extracts-from-a-user-string-keywords-scope-shape-decomposition-clarification/
 source_type: article
 ingested: 2026-06-22
@@ -35,6 +35,15 @@ feeds: [rag-query-understanding]
 - Production: one consolidated LLM call returning full schema (cheaper, faster than step-by-step). Sub-tasks injected from satellite tables so new types require only row insertion.
 - "Correct spelling before keyword extraction" — typos cause zero-hit searches.
 - Production results (broker corpus): parsing latency 280ms average; 71% single decomposition, 19% independent; 4% clarification trigger rate; parsing enabled vs. disabled: 91% vs. 76% accuracy (+15 points).
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-22-edi-07-question-parser-fields/` (2 diagrams, visual backfill 2026-06-30; registry-table screenshots dropped).
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Question parsing positioning in the four-brick architecture | |
+| `…-02.png` | Question-parsing data flow (question_df + satellite tables) | [[rag-query-understanding]] |
 
 ## Feeds these wiki pages
 

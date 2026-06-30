@@ -39,6 +39,9 @@ RAG decouples *knowledge* from the *model*. Instead of baking facts into weights
 
 A useful distinction: **augmented** vs. **grounded**. The original 2020 academic RAG *blends* retrieved passages with the model's parametric knowledge. In regulated enterprise production, the stricter requirement is *grounded* generation: every factual claim must be backed by a retrieved passage; the model's parametric memory is excluded from factual content. This is not just a style choice — it is the only design that enables span-level attribution and audit trails in legal, insurance, and financial contexts.
 
+![[2026-06-22-edi-00-series-intro-02.png|Academic RAG blends stored and retrieved knowledge; enterprise RAG grounds answers in retrieval only]]
+*Figure: Academic RAG (blends parametric + retrieved) vs. enterprise RAG (retrieval-grounded only) — source [[2026-06-22-edi-00-series-intro]].*
+
 The canonical four-brick flow:
 
 1. **Ingest & parse** — split source documents into retrievable units with structure preserved (lines, tables, sections, TOC, bounding boxes).
@@ -49,6 +52,9 @@ The canonical four-brick flow:
 6. **Generate** — the LLM answers *grounded* in the retrieved context using the GenerationBrief (original wording, format constraints, disambiguation cues, distractors), emitting inline citations.
 
 Every stage is a design surface. The difference between a demo and a production system lives almost entirely in stages 1, 2, and 4 — parsing and retrieval, not generation.
+
+![[2026-06-22-edi-01-baseline-rag-01.png|Baseline RAG pipeline: PDF + question through parsing, retrieval, generation to cited answer]]
+*Figure: The baseline RAG pipeline end-to-end — document/question parsing → retrieval → generation → JSON answer + annotated PDF — source [[2026-06-22-edi-01-baseline-rag]].*
 
 ## Why it matters
 
@@ -102,6 +108,9 @@ This beats embedding-only approaches because: (1) enterprise OOV terms (internal
 ### Reranking
 
 A two-stage pattern: cheap retriever pulls top ~50–100 candidates, then a heavier model reorders for precision.
+
+![[2026-06-22-edi-03-rerankers-01.png|Retrieval funnel: embedding similarity, cross-encoder reranker, LLM — cost grows as candidates shrink]]
+*Figure: The retrieval funnel — each stage costs more per item but works a smaller candidate pool (embedding → reranker → LLM) — source [[2026-06-22-edi-03-rerankers]].*
 
 - **Cross-encoders** — jointly encode query+chunk for maximum accuracy; can't be precomputed, so latency scales with candidate count (hence the two-stage design).
 - **Commercial rerankers** — Cohere Rerank and Voyage `rerank-2.5` (the latter adds *instruction-following*: steer relevance with a natural-language instruction). Open-source alternatives (e.g. ZeroEntropy, BGE) have closed much of the gap.

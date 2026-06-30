@@ -32,16 +32,16 @@ images skipped + logged.
 | 2026-06-23-decodingai-08-agent-memory | article (re-fetch) | **done** | 5 | → agent-memory-architectures |
 | 2026-06-23-decodingai-09-multimodal-agents | article (re-fetch) | **done** | 3 | truncated URLs recovered via 2nd targeted prompt |
 | 2026-06-26-decodingai-10-agentic-harness-system-design | article (re-fetch) | **done** | 9 | → agentic-harness |
-| 2026-06-22-edi-00-series-intro | article (re-fetch) | todo | | TDS/Medium — paywall risk |
-| 2026-06-22-edi-01-baseline-rag | article (re-fetch) | todo | | TDS |
-| 2026-06-22-edi-02-embeddings-failure-modes | article (re-fetch) | todo | | TDS |
-| 2026-06-22-edi-03-rerankers | article (re-fetch) | todo | | TDS |
-| 2026-06-22-edi-04-rag-not-ml | article (re-fetch) | todo | | TDS |
-| 2026-06-22-edi-05-technique-selection | article (re-fetch) | todo | | TDS |
-| 2026-06-22-edi-06-question-parsing-intro | article (re-fetch) | todo | | TDS |
-| 2026-06-22-edi-07-question-parser-fields | article (re-fetch) | todo | | TDS |
-| 2026-06-22-edi-08-dispatching | article (re-fetch) | todo | | TDS |
-| 2026-06-22-edi-09-vague-questions | article (re-fetch) | todo | | TDS |
+| 2026-06-22-edi-00-series-intro | article (re-fetch) | **done** | 7 | → retrieval-augmented-generation |
+| 2026-06-22-edi-01-baseline-rag | article (re-fetch) | **done** | 3 | → retrieval-augmented-generation |
+| 2026-06-22-edi-02-embeddings-failure-modes | article (re-fetch) | **none** | 0 | only scorer-comparison tables, no diagrams |
+| 2026-06-22-edi-03-rerankers | article (re-fetch) | **done** | 1 | → RAG; ~10 result tables not localized |
+| 2026-06-22-edi-04-rag-not-ml | article (re-fetch) | **done** | 1 | timeline diagram; sklearn example dropped |
+| 2026-06-22-edi-05-technique-selection | article (re-fetch) | **done** | 4 | complexity/control tiers + decision matrix |
+| 2026-06-22-edi-06-question-parsing-intro | article (re-fetch) | **none** | 0 | only series-position image + screenshots |
+| 2026-06-22-edi-07-question-parser-fields | article (re-fetch) | **done** | 2 | → rag-query-understanding |
+| 2026-06-22-edi-08-dispatching | article (re-fetch) | **done** | 2 | → rag-query-understanding |
+| 2026-06-22-edi-09-vague-questions | article (re-fetch) | **none** | 0 | only series-position image; code-heavy |
 | 2026-06-25-sdd-02-microsoft-spec-first | blog (re-fetch) | todo | | |
 | 2026-06-25-sdd-08-worktrees-openspec-opencode | blog (re-fetch) | todo | | |
 | 2026-06-26-loop-engineering-osmani-anatomy | blog (re-fetch) | todo | | |
@@ -99,8 +99,13 @@ images skipped + logged.
 - **Confirmed at scale: Decoding AI / Substack is fully fetchable** (16/16 posts, ~80 diagrams) —
   the paywall hypothesis did NOT hold for this publisher. The real cost was curation, not access.
 - **Extension mismatch in hand-written embeds** (`.jpeg` sources save as `.jpg`, not `.png`):
-  caught by lint as broken `![[…png]]` links. Fix: paste the embed lines `fetch-assets.ps1`
+  caught by lint as broken `.png` embed links. Fix: paste the embed lines `fetch-assets.ps1`
   already emits (correct extension) instead of hand-typing `.png`.
+- **TDS/Medium also fully fetchable** (paywall hypothesis again did not hold); images on a
+  WordPress CDN. BUT the EDI series is **screenshot-heavy code walkthroughs** — 3/10 articles had
+  **zero genuine diagrams** (only dataframe/result-table screenshots), and curation had to discard
+  far more than it kept. The real friction for this publisher is *signal-to-noise in the images*,
+  not access — a per-source judgement the enumerate→curate step handled but which cost the most time.
 
 ### Proposed workflow improvements (accumulating → Phase G)
 - **Capture visuals at ingest time** (biggest lever): when first scraping a source, run the

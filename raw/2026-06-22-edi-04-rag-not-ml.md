@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, rag, ml, engineering, evaluation, per-failure-mode]
-updated: 2026-06-22
+updated: 2026-06-30
 source_url: https://towardsdatascience.com/rag-is-not-machine-learning-and-the-ml-toolkit-solves-the-wrong-problem/
 source_type: article
 ingested: 2026-06-22
@@ -34,6 +34,14 @@ feeds: [retrieval-augmented-generation, ai-evaluation-and-quality]
 
 - Failure case study: team spent six months tuning embeddings and chunk sizes; actual problem was OCR degradation in 30% of documents. A two-day parser review would have caught it.
 - Example fix: wrong Transformer architecture answer — retrieval returned pages 4,7,8 instead of 5. Fix: require co-occurrence of `base`, `model`, `heads` on same lines — five-line code change, not a reranker.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-22-edi-04-rag-not-ml/` (1 diagram, visual backfill 2026-06-30; the sklearn decision-tree example was dropped).
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Six-month timeline: ML optimization vs. corpus-level bug fixes | |
 
 ## Feeds these wiki pages
 

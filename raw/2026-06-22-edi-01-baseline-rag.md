@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, rag, enterprise, baseline, keyword-retrieval, structured-output]
-updated: 2026-06-22
+updated: 2026-06-30
 source_url: https://towardsdatascience.com/baseline-enterprise-rag-from-pdf-to-highlighted-answer-enterprise-document-intelligence-vol-1-1/
 source_type: article
 ingested: 2026-06-22
@@ -32,6 +32,16 @@ feeds: [retrieval-augmented-generation, llm-application-architecture]
 - Question parsing deserves its own brick: extracting keywords separately from retrieval keeps concerns separated.
 - Minimal stack: PyMuPDF, OpenAI SDK (swappable), Pandas, Pydantic — no vector databases or RAG libraries.
 - Schema-enforced citations prevent hallucination: Pydantic validation forces real `(page, line)` references.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-22-edi-01-baseline-rag/` (3 diagrams, visual backfill 2026-06-30; dataframe/PDF-page screenshots dropped).
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Baseline RAG pipeline end-to-end | [[retrieval-augmented-generation]] |
+| `…-02.png` | PDF annotation in three steps | |
+| `…-03.png` | The minimal pipeline as rung one of five | |
 
 ## Feeds these wiki pages
 

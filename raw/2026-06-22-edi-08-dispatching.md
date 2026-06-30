@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, rag, dispatching, routing, model-selection, audit]
-updated: 2026-06-22
+updated: 2026-06-30
 source_url: https://towardsdatascience.com/dispatching-the-parsed-rag-question-chunk-strategy-model-tier-activations-audit/
 source_type: article
 ingested: 2026-06-22
@@ -33,6 +33,15 @@ feeds: [rag-query-understanding, retrieval-augmented-generation]
 ## Notable claims (with location)
 
 - Production results (broker corpus): parsing latency 280ms average; 91% vs. 76% accuracy with/without parsing (+15 points).
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-22-edi-08-dispatching/` (2 diagrams, visual backfill 2026-06-30; registry-table screenshots dropped).
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Dispatch layer within the four-brick RAG system | [[rag-query-understanding]] |
+| `…-02.png` | Four conceptual LLM model tiers by capability and cost | |
 
 ## Feeds these wiki pages
 
