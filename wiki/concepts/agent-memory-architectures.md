@@ -57,6 +57,9 @@ The context window is not really "memory" in the durable sense — it is the int
 - **Episodic memory** — past interactions with timestamps: what happened, when, and who was involved. Enables relationship continuity ("last Tuesday the user mentioned..."). Stored as event/interaction records.
 - **Procedural memory** — learned workflows and multi-step task patterns: the agent's muscle memory for repeatable processes. A monthly report procedure, a customer escalation workflow. Stored as reasoning traces or workflow templates.
 
+![[2026-06-23-decodingai-08-agent-memory-03.png|Semantic, episodic, and procedural long-term memory feeding the agent]]
+*Figure: The three long-term memory subtypes — semantic, episodic, procedural — and how the agent draws on each — source [[2026-06-23-decodingai-08-agent-memory]].*
+
 ### Three memory tiers (graph architecture)
 
 The `neo4j-labs/agent-memory` reference architecture uses **1 graph, 3 tiers** joined by typed edges:

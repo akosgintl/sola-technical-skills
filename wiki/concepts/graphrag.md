@@ -118,6 +118,12 @@ The two-stage algorithm: Stage 1 runs text + semantic search, merges results via
 
 *Decision:* Choose single collection when operational simplicity outweighs audit needs. Choose append-only when you genuinely need re-playability or the ability to revert bad extractions.
 
+![[2026-06-20-graphrag-02-agentic-graphrag-07.png|Two-collection MongoDB shape: immutable append-only log plus a materialized view]]
+*Figure: The append-only data model — an immutable event log squashed into a materialized view — source [[2026-06-20-graphrag-02-agentic-graphrag]].*
+
+![[2026-06-20-graphrag-02-agentic-graphrag-08.png|Single-collection MongoDB data model with nodes and edges coexisting]]
+*Figure: The single-collection model — nodes and edges upserted into one queryable store — source [[2026-06-20-graphrag-02-agentic-graphrag]].*
+
 ### Database selection
 
 | Choice | When |

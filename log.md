@@ -503,3 +503,10 @@ Deepened the existing [[agentic-loop]] page (no new page; same concept) with two
 - **Workflow improvements adopted** (Phase G): rewrote CLAUDE.md §9.1 step 2 (capture-at-ingest, WebFetch-enumerate + verify URLs, expanded drop rubric, arXiv HTML→docling, paste emitted embed lines); expanded `raw/assets/README.md` rubric; `fetch-assets.ps1` now prints a `DONE: N saved, M failed` summary.
 - **Deferred:** video frame extraction (4 transcripts; needs yt-dlp), Piskala arXiv via PDF→docling, optional lint check for hotlinked CDN URLs in wiki pages.
 - Lint PASS after every phase. No new wiki pages; index unchanged.
+
+## [2026-06-30] enrich | Deepen visual embedding coverage (high-value gaps)
+
+- Review found the backfill localized 118 diagrams but embedded only 48 — the embed rate fell from 8/8 (Anthropic pilot) to ~1–2/page in later phases (a context-budget shortcut, not a technical limit).
+- Embedded **+12 high-value gap diagrams** into matching sections (48 → 60): [[agentic-harness]] +6 (build/configure/use triage, subagent spawn, skills pipeline, three memory designs, bash routing, permission tree); [[graphrag]] +2 (MongoDB append-only vs single-collection data models); [[retrieval-augmented-generation]] +1 (technique-selection decision matrix); [[agent-planning]] +1 (Plan-and-Execute); [[agentic-system-design]] +1 (five-pattern overview); [[agent-memory-architectures]] +1 (semantic/episodic/procedural).
+- True skips left localized-only by design: duplicate canonical workflow set (decodingai-04 variants), LangChain `docs_writer` worked examples, registry/dataframe/screenshot images. Updated each raw note's `## Key visuals` Embedded markers + the INGEST-RETRO synthesis.
+- Lint PASS.

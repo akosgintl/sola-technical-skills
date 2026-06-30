@@ -115,6 +115,9 @@ building blocks, in rough order of complexity:
   bar is met. Powerful when you have *clear evaluation criteria* and iterative refinement
   measurably helps.
 
+![[2026-06-23-decodingai-04-workflow-patterns-01.png|The five core workflow patterns at a glance]]
+*Figure: The five composable workflow patterns at a glance — reach for these before building an autonomous agent — source [[2026-06-23-decodingai-04-workflow-patterns]].*
+
 **Multi-agent topologies** (when you genuinely need multiple autonomous agents):
 
 - **Orchestrator / lead-agent** — one agent owns the task and context, spawns isolated

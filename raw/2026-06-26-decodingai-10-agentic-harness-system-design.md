@@ -43,15 +43,15 @@ Localized to `raw/assets/2026-06-26-decodingai-10-agentic-harness-system-design/
 
 | Asset | Diagram | Embedded |
 |---|---|---|
-| `…-01.png` | Three-tier decision: use-as-is / configure / build | |
+| `…-01.png` | Three-tier decision: use-as-is / configure / build | [[agentic-harness]] |
 | `…-02.png` | Five-layer agentic harness architecture | [[agentic-harness]] |
 | `…-03.png` | Message flow: priority gate, loop, compaction | [[agentic-harness]] |
-| `…-04.png` | Parent orchestrator spawning a subagent | |
+| `…-04.png` | Parent orchestrator spawning a subagent | [[agentic-harness]] |
 | `…-05.png` | Parent-subagent channel with output compression | |
-| `…-06.png` | Skills pipeline injected as a system reminder | |
-| `…-07.png` | Three memory designs (file / SQLite / session-tree) | |
-| `…-08.png` | Bash execution routing (remote/local/host) | |
-| `…-09.png` | Permission decision tree (modes + rules) | |
+| `…-06.png` | Skills pipeline injected as a system reminder | [[agentic-harness]] |
+| `…-07.png` | Three memory designs (file / SQLite / session-tree) | [[agentic-harness]] |
+| `…-08.png` | Bash execution routing (remote/local/host) | [[agentic-harness]] |
+| `…-09.png` | Permission decision tree (modes + rules) | [[agentic-harness]] |
 
 ## Feeds
 

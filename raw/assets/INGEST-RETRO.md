@@ -115,10 +115,17 @@ images skipped + logged.
 
 ## Synthesis (Phase G) — outcome & adopted improvements
 
-**The pass.** Visual backfill across all 44 `raw/` sources. Localized **~110 curated diagrams**
-into `raw/assets/<slug>/` and embedded **~45** into concept pages, committed in six phases
+**The pass.** Visual backfill across all 44 `raw/` sources. Localized **118 diagrams**
+into `raw/assets/<slug>/` and embedded them into concept pages, committed in six phases
 (B–F). Coverage: **27 done**, **8 none** (text/screenshot-only), **1 blocked** (TikZ-figure
 arXiv paper), **4 deferred** (video frames), **4 prior** (the Anthropic pilot + this scaffold).
+
+**Deepen pass (after the embedding-coverage review).** The initial embed rate dropped from 8/8
+(pilot) to ~1–2/page in later phases — too conservative. A follow-up embedded **+12 high-value
+gap diagrams** into their matching sections (48 → 60 embeds), the biggest being `agentic-harness`
+(2 → 8). True skips (duplicate canonical sets, `docs_writer` worked examples, registry/screenshot
+images — ~25–30) were left localized-only by design. Lesson reinforced: **embed at ingest time at
+full coverage**; don't let a long session's context budget silently throttle embedding.
 
 **Headline finding.** The pre-pass hypothesis was *paywalls will block re-fetching*. It was
 **wrong** — every publisher hit (Anthropic, Decoding AI/Substack ×16, Towards Data Science/Medium

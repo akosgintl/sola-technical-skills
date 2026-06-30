@@ -95,6 +95,9 @@ Plan-and-Execute separates planning from execution into two explicit phases:
 
 For the same research task a ReAct agent would address step-by-step, a Plan-and-Execute agent would: generate a complete plan upfront (3 broad queries, then parallel searches, then scraping and summarization), validate the plan, execute all independent steps in parallel batches, then replan if gaps appear.
 
+![[2026-06-23-decodingai-06-agent-planning-03.png|Plan-and-Execute: planner decomposes upfront, executor runs steps, replan on deviation]]
+*Figure: The Plan-and-Execute pattern — plan upfront, validate, execute (often in parallel), replan when results deviate — source [[2026-06-23-decodingai-06-agent-planning]].*
+
 **Plan-and-Execute characteristics:**
 
 | Attribute | Characteristic |

@@ -41,7 +41,7 @@ Localized to `raw/assets/2026-06-23-decodingai-08-agent-memory/` (5 diagrams, vi
 |---|---|---|
 | `…-01.png` | Four memory types and their data flow | [[agent-memory-architectures]] |
 | `…-02.png` | Memory types by proximity to the LLM | |
-| `…-03.png` | Semantic, episodic, and procedural long-term memory | |
+| `…-03.png` | Semantic, episodic, and procedural long-term memory | [[agent-memory-architectures]] |
 | `…-04.jpg` | Memory as a knowledge graph of entities | |
 | `…-05.png` | The complete memory cycle across all tiers | [[agent-memory-architectures]] |
 

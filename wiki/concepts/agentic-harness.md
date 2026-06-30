@@ -129,6 +129,9 @@ convergence documented in [[agentic-system-design]] and [[multi-agent-orchestrat
 Subagents can nest, but depth is capped (a subagent at depth five cannot spawn further) —
 a structural guard against runaway fan-out.
 
+![[2026-06-26-decodingai-10-agentic-harness-system-design-04.png|Parent orchestrator spawns a subagent that returns a compressed summary]]
+*Figure: A parent orchestrator spawns an isolated subagent and gets back only a compressed summary (master–slave, not peer-to-peer) — source [[2026-06-26-decodingai-10-agentic-harness-system-design]].*
+
 ### Skills — *configure heavily (highest ROI)*
 
 A skill is a `SKILL.md` file: **YAML frontmatter** (`description` + optional
@@ -145,6 +148,9 @@ it, for background knowledge). Skills live at enterprise / personal (`~/.claude/
 (`` !`git diff HEAD` `` runs the command and inlines its output before Claude sees the
 skill). Iusztin rates skills the **highest return-on-effort** customization — they encode
 your workflows without touching any code. See the skills discussion in [[agentic-loop]].
+
+![[2026-06-26-decodingai-10-agentic-harness-system-design-06.png|Skills merged from three sources and injected as a system reminder]]
+*Figure: The skills pipeline — bundled / user / MCP skills merged and injected as a system reminder, with progressive disclosure — source [[2026-06-26-decodingai-10-agentic-harness-system-design]].*
 
 ### Memory — *build your own layer*
 
@@ -174,6 +180,9 @@ always-loaded index over lazily-loaded detail — is the same.) The highest-leve
 is to put a custom layer **behind an MCP server** so it is portable across harnesses. See
 [[agent-memory-architectures]], [[vector-and-embedding-stores]].
 
+![[2026-06-26-decodingai-10-agentic-harness-system-design-07.png|Three memory designs: file-backed, SQLite-backed, session-tree with a custom MCP layer]]
+*Figure: Three memory designs — file-backed, SQLite-backed, and a session-tree behind a custom MCP layer — source [[2026-06-26-decodingai-10-agentic-harness-system-design]].*
+
 ### Sandbox — *use as-is, configure execution location*
 
 The sandbox decides **where tool calls execute**: **Remote** (Modal, RunPod, GCP),
@@ -184,6 +193,9 @@ settings/config files** — Claude Code even hard-blocks writes to `.git`, `.cla
 `.vscode`, and similar under `bypassPermissions`, because you cannot let an agent rewrite
 the rules that constrain it. Managed settings can force `sandbox.enabled`. See
 [[network-segmentation]], [[confidential-computing]].
+
+![[2026-06-26-decodingai-10-agentic-harness-system-design-08.png|Bash execution routing: remote sandbox, local sandbox, or direct host]]
+*Figure: Bash execution routing — remote sandbox, local jail, or direct-on-host per risk/cost — source [[2026-06-26-decodingai-10-agentic-harness-system-design]].*
 
 ### Permission layer & hooks — *configure carefully, no AI*
 
@@ -219,6 +231,9 @@ if the parent runs in `bypassPermissions` or `acceptEdits`, that *"takes precede
 cannot be overridden"* by a child's frontmatter. This is the harness analogue of
 least-privilege ([[zero-trust-architecture]], [[agent-identity-and-access]]).
 
+![[2026-06-26-decodingai-10-agentic-harness-system-design-09.png|Permission decision tree combining agent modes and user-defined rules]]
+*Figure: The permission decision tree — agent modes combined with user/managed rules resolve each call to allow/ask/deny — source [[2026-06-26-decodingai-10-agentic-harness-system-design]].*
+
 ### Message flow & compaction
 
 The happy path: user message → TUI → **priority queue** → wait for agent availability →
@@ -235,6 +250,9 @@ concrete reason to write durable rules to disk rather than the chat.
 ## Design decisions & trade-offs
 
 **The build/configure/use triage** is the whole discipline. Iusztin's component verdicts:
+
+![[2026-06-26-decodingai-10-agentic-harness-system-design-01.png|Three-tier decision per component: use as-is, configure, or build custom]]
+*Figure: The per-component triage — use-as-is, configure, or build custom — spend the scarce "build" budget only where it buys a moat — source [[2026-06-26-decodingai-10-agentic-harness-system-design]].*
 
 | Component | Decision | Why |
 |---|---|---|

@@ -36,11 +36,11 @@ feeds: [agentic-system-design]
 
 ## Key visuals
 
-Localized to `raw/assets/2026-06-23-decodingai-04-workflow-patterns/` (6 diagrams, visual backfill 2026-06-30; 2 Opik-platform screenshots dropped). Not embedded — the five patterns are already diagrammed on [[multi-agent-orchestration]] from the canonical Anthropic source; kept here as the "applied to a writing workflow" variant.
+Localized to `raw/assets/2026-06-23-decodingai-04-workflow-patterns/` (6 diagrams, visual backfill 2026-06-30; 2 Opik-platform screenshots dropped). Only the five-pattern **overview** (`…-01`) is embedded (→ [[agentic-system-design]]); the per-pattern "applied to a writing workflow" variants are kept for reference but not embedded — the canonical five are already diagrammed on [[multi-agent-orchestration]] from the Anthropic source.
 
 | Asset | Diagram |
 |---|---|
-| `…-01.png` | The five core workflow patterns |
+| `…-01.png` | The five core workflow patterns — **embedded → [[agentic-system-design]]** |
 | `…-02.png` | Prompt chaining applied to a writing workflow |
 | `…-03.png` | Parallelization applied to a writing workflow |
 | `…-04.png` | Routing applied to a writing agent |

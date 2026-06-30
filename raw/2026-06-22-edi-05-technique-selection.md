@@ -42,7 +42,7 @@ Localized to `raw/assets/2026-06-22-edi-05-technique-selection/` (4 diagrams, vi
 |---|---|
 | `…-01.png` | Five document-complexity tiers with matching techniques |
 | `…-02.png` | Four question-control tiers |
-| `…-03.png` | Decision matrix: complexity × control with technique zones |
+| `…-03.png` | Decision matrix: complexity × control with technique zones — **embedded → [[retrieval-augmented-generation]]** |
 | `…-04.png` | Technique-family catalog mapped to series articles |
 
 ## Feeds these wiki pages

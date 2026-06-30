@@ -41,8 +41,8 @@ Localized to `raw/assets/2026-06-20-graphrag-02-agentic-graphrag/` (11 diagrams,
 | `…-04.png` | RDF vs. labeled property graph comparison | [[graphrag]] |
 | `…-05.png` | Data-source mapping table for a digital twin | |
 | `…-06.png` | Five-component pipeline: sources to MCP-served memory | |
-| `…-07.png` | Two-collection MongoDB shape (append-only log + view) | |
-| `…-08.png` | Single-collection MongoDB data model | |
+| `…-07.png` | Two-collection MongoDB shape (append-only log + view) | [[graphrag]] |
+| `…-08.png` | Single-collection MongoDB data model | [[graphrag]] |
 | `…-09.png` | Retrieval example for GraphRAG query processing | |
 | `…-10.png` | Two-stage retrieval combining RRF and graph traversal | [[graphrag]] |
 | `…-11.png` | Bottom-up vs. top-down traversal strategies | [[graphrag]] |

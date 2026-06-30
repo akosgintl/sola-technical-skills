@@ -42,7 +42,7 @@ Localized to `raw/assets/2026-06-23-decodingai-06-agent-planning/` (5 diagrams, 
 |---|---|---|
 | `…-01.png` | Separating planning/reasoning from action/tool-calling | |
 | `…-02.png` | ReAct (Reason + Act) interleaved loop | [[agent-planning]] |
-| `…-03.png` | Plan-and-Execute agent pattern | |
+| `…-03.png` | Plan-and-Execute agent pattern | [[agent-planning]] |
 | `…-04.png` | Input / reasoning / output tokens with reasoning LLMs | |
 | `…-05.png` | ReAct agents with reasoning LLMs | |
 

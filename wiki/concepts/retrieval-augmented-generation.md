@@ -138,6 +138,9 @@ A two-stage pattern: cheap retriever pulls top ~50–100 candidates, then a heav
 | **Diagnostic grid: document type × question type** | Match technique to problem before writing code. Fixed-template docs + controlled questions → regex, no LLM. Heterogeneous structured + free queries → full retrieval pipeline. Visually rich → vision models. Running the classic playbook on fixed-template documents is wasteful; skipping it on heterogeneous corpora is broken. |
 | **RAG vs. long-context vs. fine-tuning** | See below — usually not exclusive. |
 
+![[2026-06-22-edi-05-technique-selection-03.png|Decision matrix: document complexity vs. question control, with technique zones]]
+*Figure: The diagnostic grid in practice — document complexity × question control maps to technique zones (regex → full pipeline → vision) — source [[2026-06-22-edi-05-technique-selection]].*
+
 ### RAG vs. long-context vs. fine-tuning
 
 The most common strategic question, and most teams get it wrong by treating it as either/or. The current consensus:
