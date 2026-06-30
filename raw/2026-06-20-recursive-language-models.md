@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, rlm, context-engineering, llm]
-updated: 2026-06-20
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/recursive-language-models
 source_type: article
 ingested: 2026-06-20
@@ -35,6 +35,18 @@ feeds: [recursive-language-models, context-engineering, llm-application-architec
 - "The model never sees your 10-million-token document directly." (§REPL trick)
 - "RLMs essentially perform context engineering on autopilot." (§REPL trick)
 - "Costs and performance stay intact because the model filters the input context without explicitly seeing it." (§REPL trick)
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-20-recursive-language-models/` (5 diagrams, visual backfill 2026-06-30; decorative header dropped). Embedded into [[recursive-language-models]].
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Three approaches compared: RAG, context stuffing (CAG), RLM | [[recursive-language-models]] |
+| `…-02.png` | RLM REPL mechanism: document access + code execution | [[recursive-language-models]] |
+| `…-03.png` | Plan-execute-validate orchestration loop | |
+| `…-04.png` | RLM replacing a RAG pipeline for large-file parsing | |
+| `…-05.png` | RLM decomposing a codebase via recursive parallel sub-queries | [[recursive-language-models]] |
 
 ## Feeds these wiki pages
 

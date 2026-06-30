@@ -72,6 +72,9 @@ Three typed edges stitch the tiers together. These make every cross-tier questio
 | `:INITIATED_BY` | Reasoning → short-term (a reasoning trace was started by a conversation) |
 | `:TOUCHED` | Reasoning → long-term (a reasoning step read or modified an entity) |
 
+![[2026-06-20-graphrag-03-neo4j-agent-memory-04.png|Three-tier memory: short-term, long-term, reasoning, joined by typed edges]]
+*Figure: The three memory tiers on one graph, stitched by typed relationship edges — source [[2026-06-20-graphrag-03-neo4j-agent-memory]].*
+
 ### Storage approaches for long-term memory
 
 Three approaches for persisting long-term memory, with different trade-offs:
@@ -113,6 +116,12 @@ Agent memory requires an ontology — a schema specifying what entity types exis
 
 POLE+O's power is its **fixed top level**. There are always exactly 5 base types to filter on, keeping the graph consistently queryable as it grows. Each type is extensible with domain-specific subtypes (e.g. `:Entity:Person:Individual`, `:Entity:Location:City`).
 
+![[2026-06-20-graphrag-04-knowledge-graph-ontology-02.png|POLE+O base nouns with extensible domain subtypes]]
+*Figure: POLE+O's fixed base nouns, each extended with domain-specific subtypes — source [[2026-06-20-graphrag-04-knowledge-graph-ontology]].*
+
+![[2026-06-20-graphrag-04-knowledge-graph-ontology-01.png|Ontology funnel narrowing the real world to a queryable graph]]
+*Figure: The ontology funnel — narrowing the messy real world into a constrained, queryable schema — source [[2026-06-20-graphrag-04-knowledge-graph-ontology]].*
+
 > [!tip] Start generic, extend through data exploration
 > Trying to design the perfect ontology upfront freezes projects. Real shipped ontologies (22 domains in Neo4j's create-context-graph catalog) land at 10–12 entity types each: a shared POLE+O base + 5–7 domain-specific subtypes. The workflow: run a generic POLE+O extraction → inspect the graph for clashes where generic labels mislabel real data → add one subtype per clash → repeat.
 
@@ -132,6 +141,9 @@ Routing every mention through an LLM multiplies cost for marginal recall on comm
 
 All stages are constrained to the defined ontology types. This constraint enables the LLM stage to be replaced with a cheap fine-tuned model (Gemini Flash Lite, Claude Haiku) as the schema stabilizes.
 
+![[2026-06-20-graphrag-05-keep-knowledge-graph-clean-01.png|Five-stage ingestion: extraction, resolution, embedding, dedup, merge/flag/add]]
+*Figure: The full ingestion pipeline — extraction → resolution → embedding → deduplication → merge/flag/add — source [[2026-06-20-graphrag-05-keep-knowledge-graph-clean]].*
+
 ### Entity normalization: resolution vs. deduplication
 
 > [!warning] The most common source of graph corruption
@@ -146,6 +158,9 @@ The short-circuit chain (stops at first confident match):
 
 Outcome: updates `canonical_name` property only. "NYC", "New York", "New York City" all collapse to one canonical name. Maintain an `aliases` list: every new surface form that resolves to the canonical name gets appended for future fast lookup. **No graph merges happen in resolution.**
 
+![[2026-06-20-graphrag-05-keep-knowledge-graph-clean-02.png|Resolution short-circuit chain: exact, fuzzy, semantic]]
+*Figure: The resolution short-circuit chain — exact → fuzzy → semantic, stopping at first confident match — source [[2026-06-20-graphrag-05-keep-knowledge-graph-clean]].*
+
 **Entity deduplication** — "Is this the same real-world entity?" The identity check. Merges *can* happen here.
 
 The system embeds the full entity context (name + type + attributes — not just the bare name) and compares against existing same-type nodes:
@@ -157,6 +172,9 @@ The system embeds the full entity context (name + type + attributes — not just
 | < 0.85 | Create new node |
 
 The combined score is a weighted blend: `0.7 × embedding similarity + 0.3 × fuzzy similarity`.
+
+![[2026-06-20-graphrag-05-keep-knowledge-graph-clean-03.png|Dedup scoring bands: auto-merge, human review, new node]]
+*Figure: Deduplication scoring bands — auto-merge (≥0.95), human review (0.85–0.95), new node (<0.85) — source [[2026-06-20-graphrag-05-keep-knowledge-graph-clean]].*
 
 The `:SAME_AS` review queue is a Cypher query over pending edges ordered by confidence. Reviewers confirm or reject each pair.
 

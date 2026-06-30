@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, graphrag, knowledge-graph, ontology, agent-memory, mcp]
-updated: 2026-06-20
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/agentic-graphrag
 source_type: article
 ingested: 2026-06-20
@@ -28,6 +28,24 @@ feeds: [graphrag, agent-memory-architectures]
 - Retrieval: text + semantic → RRF merge → 2-3 hop graph traversal. Bottom-up (entity depth) vs. top-down (community overview).
 - Agentic = agent can write to and search the KG autonomously via `search_memory` + `write_memory` MCP tools.
 - DB choice: Postgres/MongoDB for ≤3-hop traversals; Neo4j for deep traversals + graph algorithms.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-20-graphrag-02-agentic-graphrag/` (11 diagrams, visual backfill 2026-06-30). Embedded into [[graphrag]].
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | GraphRAG overview: fragmented sources unified into one graph | [[graphrag]] |
+| `…-02.png` | Complete agentic GraphRAG system architecture | [[graphrag]] |
+| `…-03.png` | Global ontology split into document and person ontologies | |
+| `…-04.png` | RDF vs. labeled property graph comparison | [[graphrag]] |
+| `…-05.png` | Data-source mapping table for a digital twin | |
+| `…-06.png` | Five-component pipeline: sources to MCP-served memory | |
+| `…-07.png` | Two-collection MongoDB shape (append-only log + view) | |
+| `…-08.png` | Single-collection MongoDB data model | |
+| `…-09.png` | Retrieval example for GraphRAG query processing | |
+| `…-10.png` | Two-stage retrieval combining RRF and graph traversal | [[graphrag]] |
+| `…-11.png` | Bottom-up vs. top-down traversal strategies | [[graphrag]] |
 
 ## Feeds these wiki pages
 

@@ -29,6 +29,9 @@ The core insight is that enterprise and agentic questions are **coverage and syn
 
 A similarity-based retriever returns the most relevant paragraphs. GraphRAG returns a connected slice of the organization's knowledge — the blast radius, the ownership chain, the historical patterns.
 
+![[2026-06-20-graphrag-02-agentic-graphrag-01.png|Fragmented sources unified into a single knowledge graph]]
+*Figure: GraphRAG unifies fragmented sources (docs, notes, APIs) into one queryable knowledge graph — source [[2026-06-20-graphrag-02-agentic-graphrag]].*
+
 > [!tip] GraphRAG is a data modeling problem
 > The critical insight from practice: GraphRAG fails not because of retrieval algorithms, but because of schema design. Letting the LLM invent entity types freely produces 17 node types and 34 relationship types from just 5 documents. **The ontology must come first** — see [[agent-memory-architectures]] for the POLE+O approach.
 
@@ -56,6 +59,9 @@ Embeddings attach to nodes (derived from LLM-generated summaries, not raw text) 
 
 Two formats exist. RDF expresses every property as a triplet, exploding the graph size. **Property graphs** (Neo4j's model) attach metadata as JSON on the entity or relationship. Agent stacks use property graphs in practice — they are more compact and queryable.
 
+![[2026-06-20-graphrag-02-agentic-graphrag-04.png|RDF triplets vs. labeled property graph]]
+*Figure: RDF (every property a triplet) vs. the labeled property graph (metadata as JSON on nodes/edges) — source [[2026-06-20-graphrag-02-agentic-graphrag]].*
+
 ### Ontology
 
 An ontology is the formal schema: which entity types exist, which relationship types connect them, which properties each carries. A **constrained ontology** is essential:
@@ -71,6 +77,9 @@ Real ontologies are small (10–12 entity types). See [[agent-memory-architectur
 2. Chunks → element extraction (entities + relationships as intermediate representations)
 3. Elements → LLM-generated summaries → graph objects (nodes + edges + properties)
 4. Graph → community detection (hierarchical Leiden algorithm) → community summaries (the primary retrieval unit for global queries)
+
+![[2026-06-20-graphrag-01-production-engineer-agent-04.png|The GraphRAG pipelines: ingestion, extraction, retrieval]]
+*Figure: Pipelines in the GraphRAG approach — ingestion → extraction → retrieval — source [[2026-06-20-graphrag-01-production-engineer-agent]].*
 
 **Phase 2 — Query Answering:**
 1. Semantic search over node embeddings → entry points into the graph
@@ -94,6 +103,12 @@ Real ontologies are small (10–12 entity types). See [[agent-memory-architectur
 **Top-down** (community-first): hop across community summaries for a high-level overview of a topic. Better for broad synthesis. Higher context cost.
 
 The two-stage algorithm: Stage 1 runs text + semantic search, merges results via **Reciprocal Rank Fusion (RRF)** to get entry points. Stage 2 walks 2-3 hops across typed edges. This is where GraphRAG adds over plain RAG.
+
+![[2026-06-20-graphrag-02-agentic-graphrag-10.png|Two-stage retrieval: RRF entry points then graph traversal]]
+*Figure: Two-stage retrieval — semantic+text search merged by RRF, then multi-hop graph traversal — source [[2026-06-20-graphrag-02-agentic-graphrag]].*
+
+![[2026-06-20-graphrag-02-agentic-graphrag-11.png|Bottom-up entity-first vs. top-down community-first traversal]]
+*Figure: Bottom-up (entity-first, precise) vs. top-down (community-first, synthesis) traversal — source [[2026-06-20-graphrag-02-agentic-graphrag]].*
 
 ### Data model: append-only log vs. single mutable collection
 
@@ -143,6 +158,9 @@ Microsoft Research introduced the term GraphRAG and demonstrated its value over 
 The LlamaIndex `PropertyGraph` integration provides built-in support for agentic GraphRAG queries on Neo4j. The `neo4j-labs/agent-memory` SDK (open-source, 2026) ships a complete graph-backed agent memory layer with 15 MCP tools, POLE+O ontology, and a 3-stage extraction pipeline.
 
 **Agentic GraphRAG** closes the loop: the agent not only reads from the KG but also writes to it autonomously via `write_memory` tools, enabling continual learning — the agent ingests the current conversation into the graph, updating preferences and facts in real time.
+
+![[2026-06-20-graphrag-02-agentic-graphrag-02.png|Complete agentic GraphRAG system: data + memory pipelines, MCP server, harness]]
+*Figure: A complete agentic GraphRAG system — data and memory pipelines feeding a unified graph store served to the agent over MCP — source [[2026-06-20-graphrag-02-agentic-graphrag]].*
 
 ## Pitfalls & anti-patterns
 

@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, graphrag, knowledge-graph, agent-memory, production-engineering]
-updated: 2026-06-20
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/designing-production-engineer-agent-graphrag
 source_type: article
 ingested: 2026-06-20
@@ -25,6 +25,17 @@ feeds: [graphrag, agent-memory-architectures]
 - MCP (real-time) takes priority over graph (historical/structural) for current incident state.
 - Graph built offline from Confluence/postmortems; updated daily; community summaries are primary retrieval unit.
 - Retrieval: semantic search → entry nodes → Cypher traversal (e.g. `[:DEPENDS_ON*1..2]`) = structural reasoning over the org.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-20-graphrag-01-production-engineer-agent/` (visual backfill 2026-06-30). Embedded into [[graphrag]].
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Figure 1: Architecting a Production Engineer Agent (high-level) | |
+| `…-02.png` | Figure 2: Architecting a Production Engineer Agent (detailed) | |
+| `…-03.png` | Figure 3: Example of a knowledge graph | |
+| `…-04.png` | Figure 4: Pipelines in the GraphRAG approach | [[graphrag]] |
 
 ## Feeds these wiki pages
 

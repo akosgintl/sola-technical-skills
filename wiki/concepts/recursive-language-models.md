@@ -39,12 +39,18 @@ The standard approaches to large-context problems each have ceilings:
 
 RLMs offer a third path: keep the data outside the window entirely and let the model navigate it programmatically. Only constant-size metadata and sub-call results enter the root model's context, keeping it bounded regardless of input size. This avoids the n-squared attention cost of stuffing while removing the retrieval infrastructure of RAG.
 
+![[2026-06-20-recursive-language-models-01.png|RAG vs. context stuffing (CAG) vs. RLM]]
+*Figure: Three approaches to large inputs — RAG (6 moving parts), context stuffing (context rot at scale), and RLMs (simple + scalable) — source [[2026-06-20-recursive-language-models]].*
+
 > [!tip] RLMs as context engineering on autopilot
 > Traditional [[context-engineering]] requires manually curating what enters the context window. RLMs delegate that decision to the model — it decides what to filter, chunk, and process on each turn.
 
 ## Key concepts / building blocks
 
 **REPL environment.** A persistent interactive runtime (e.g. Python kernel) where variables — including the full input data — survive across iterations. The model writes and executes code; only REPL stdout (truncated) is appended to the model's history.
+
+![[2026-06-20-recursive-language-models-02.png|RLM REPL mechanism: LLM writes code, interacts with the document as an external variable]]
+*Figure: The RLM REPL mechanism — the model writes code to access the document held as an external variable, rather than loading it into context — source [[2026-06-20-recursive-language-models]].*
 
 **Root controller.** A frontier model that plans the reasoning process, writes exploration code, and coordinates sub-calls. It never reads raw data directly — only metadata and execution results enter its context.
 
@@ -84,6 +90,9 @@ RLMs offer a third path: keep the data outside the window entirely and let the m
 The seminal paper is Zhang, Kraska & Khattab (2025), arXiv:2512.24601, from MIT CSAIL. They tested RLMs up to 10 million tokens on GPT-5 and Qwen3-Coder, showing that RLM performance degrades more slowly with input length and task complexity than base models.
 
 Benchmark: LongBench-v2 CodeQA — Qwen3-Coder with a Python REPL outperformed the base model on codebase comprehension tasks by decomposing questions into parallel sub-queries and aggregating results.
+
+![[2026-06-20-recursive-language-models-05.png|RLM decomposing a codebase via recursive parallel sub-queries to worker models]]
+*Figure: The root model decomposes a codebase into recursive, parallel sub-queries dispatched to worker sub-models — source [[2026-06-20-recursive-language-models]].*
 
 The only production-ready implementation as of mid-2026 is **DSPy's `dspy.RLM` module** (`dspy.ai`). Claude Code and Cursor use summarisation-based context compression, file-system state tracking, and progressive disclosure — a succession of agents connected by file state rather than a persistent shared REPL. This pattern sits at the context-assembly and retrieval+memory layers of the [[llm-application-architecture]] five-layer stack.
 

@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, ontology, knowledge-graph, pole-o, graphrag, agent-memory]
-updated: 2026-06-20
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/ship-a-knowledge-graph-ontology-in-5-minutes
 source_type: article
 ingested: 2026-06-20
@@ -26,6 +26,18 @@ feeds: [agent-memory-architectures, graphrag]
 - Preferences: things a noun likes/dislikes. Fields: category, preference, context, confidence, embedding. Attached to Person by default.
 - Facts: atomic triplets (subject, predicate, object) with bi-temporal validity (valid_from, valid_until). No relationships — retrieved only via semantic/text search. Fallback for anything that doesn't fit a noun or preference.
 - Facts let you ship before the ontology is perfect; claims migrate toward typed entities as the schema matures.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-20-graphrag-04-knowledge-graph-ontology/` (5 diagrams, visual backfill 2026-06-30). Embedded into [[agent-memory-architectures]]. *(One source diagram — the data-exploration loop — was skipped: its URL came back malformed from the page fetch; see [[INGEST-RETRO]].)*
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Ontology funnel: real world → queryable graph | [[agent-memory-architectures]] |
+| `…-02.png` | POLE+O base nouns with extensible subtypes | [[agent-memory-architectures]] |
+| `…-03.png` | Table of POLE+O entity types and default subtypes | |
+| `…-04.png` | Preferences attached to a user entity | |
+| `…-05.png` | Dual retrieval: graph traversal vs. semantic search | |
 
 ## Feeds these wiki pages
 

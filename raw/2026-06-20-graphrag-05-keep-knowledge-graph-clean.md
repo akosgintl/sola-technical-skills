@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, knowledge-graph, entity-resolution, deduplication, agent-memory]
-updated: 2026-06-20
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/keep-knowledge-graph-clean
 source_type: article
 ingested: 2026-06-20
@@ -26,6 +26,16 @@ feeds: [agent-memory-architectures, graphrag]
 - `:SAME_AS {status:'pending', confidence}` edge flagged for human review. Confirmed or rejected via Cypher query ordered by confidence.
 - A false merge is silent and unrecoverable without re-ingesting raw data. A false split is noisy but recoverable. When in doubt, leave it to a human.
 - Dream pipeline: nightly re-dedup of recently ingested nodes only (no fresh model calls, light DB I/O), catches parallel-ingest collisions.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-20-graphrag-05-keep-knowledge-graph-clean/` (3 diagrams, visual backfill 2026-06-30). All embedded into [[agent-memory-architectures]].
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Five-stage pipeline: extraction → resolution → embedding → dedup → merge/flag/add | [[agent-memory-architectures]] |
+| `…-02.png` | Entity-resolution matching chain: exact → fuzzy → semantic | [[agent-memory-architectures]] |
+| `…-03.png` | Deduplication scoring bands: auto-merge / human review / new node | [[agent-memory-architectures]] |
 
 ## Feeds these wiki pages
 

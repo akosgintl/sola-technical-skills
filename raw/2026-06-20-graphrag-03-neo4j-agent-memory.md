@@ -5,7 +5,7 @@ type: source
 domain: ai-agentic
 status: seed
 tags: [source, agent-memory, knowledge-graph, neo4j, pole-o, extraction]
-updated: 2026-06-20
+updated: 2026-06-30
 source_url: https://www.decodingai.com/p/understanding-neo4j-graph-agent-memory-system
 source_type: article
 ingested: 2026-06-20
@@ -29,6 +29,20 @@ feeds: [agent-memory-architectures, graphrag]
 - Resolution (naming) ≠ Deduplication (identity). Blurring them corrupts the graph.
 - SAME_AS pattern: ≥0.95 auto-merge, 0.85–0.95 pending edge for human review, <0.85 new node.
 - 8 modules, 15 FastMCP tools, 9 framework adapters.
+
+## Key visuals
+
+Localized to `raw/assets/2026-06-20-graphrag-03-neo4j-agent-memory/` (7 diagrams, visual backfill 2026-06-30). Embedded into [[agent-memory-architectures]].
+
+| Asset | Diagram | Embedded |
+|---|---|---|
+| `…-01.png` | Knowledge-graph memory architecture overview | |
+| `…-02.png` | Architectural framework showing graph structure | |
+| `…-03.png` | Eight-module architecture with a Neo4j backend | |
+| `…-04.png` | Three-tier memory system with relationship edges | [[agent-memory-architectures]] |
+| `…-05.png` | POLE+O ontology example graph structure | |
+| `…-06.png` | Three-zone SAME_AS deduplication pattern | |
+| `…-07.png` | Entity resolution and similarity scoring outcomes | |
 
 ## Feeds these wiki pages
 
