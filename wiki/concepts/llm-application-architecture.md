@@ -154,6 +154,7 @@ Prompt caching requires the cached prefix to be identical byte-for-byte. Design 
 
 ## See also
 
+- [[clean-architecture-for-ai-systems]] — how to lay out these stack layers in a codebase (dependency rule, four layers)
 - [[agentic-system-design]] — the architectural patterns for autonomous agent behaviour
 - [[context-engineering]] — context budget allocation and prompt caching
 - [[retrieval-augmented-generation]] — the retrieval layer in depth

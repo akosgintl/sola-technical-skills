@@ -176,6 +176,7 @@ preserving the human's sense of a codebase they are no longer typing line by lin
 - [[vibe-coding-governance]]
 - [[service-decomposition]]
 - [[agent-skill-design]]
+- [[clean-architecture-for-ai-systems]]
 
 ## Sources
 

@@ -19,7 +19,7 @@ sources: []
 
 **Status:** `stub` placeholder · `seed` skeleton · `draft` real content · `mature` reviewed & cited.
 
-**Coverage:** 101 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 33 ingest-sourced expansions. **97 `mature`** (715+ cited sources), 4 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
+**Coverage:** 102 concept pages across 10 domains — full roadmap coverage (every §1–§9 + meta node has a page) plus 34 ingest-sourced expansions. **98 `mature`** (720+ cited sources), 4 `draft`, 0 `seed`, 0 `stub`. See [[dashboard]] for ingest and review priorities.
 
 ---
 
@@ -37,6 +37,7 @@ sources: []
 | [[agent-identity-and-access]] | mature |
 | [[agent-governance-and-policy]] | mature |
 | [[llm-application-architecture]] | mature |
+| [[clean-architecture-for-ai-systems]] | mature |
 | [[recursive-language-models]] | mature |
 | [[retrieval-augmented-generation]] | mature |
 | [[rag-query-understanding]] | mature |
